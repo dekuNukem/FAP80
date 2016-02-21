@@ -1,0 +1,21 @@
+--cpu Cortex-M3
+"fap configuration\stm32f1xx_hal_rcc_ex.o"
+"fap configuration\stm32f1xx_hal_pwr.o"
+"fap configuration\stm32f1xx_hal_gpio_ex.o"
+"fap configuration\stm32f1xx_hal_dma.o"
+"fap configuration\stm32f1xx_hal_flash.o"
+"fap configuration\stm32f1xx_hal.o"
+"fap configuration\stm32f1xx_hal_cortex.o"
+"fap configuration\stm32f1xx_hal_gpio.o"
+"fap configuration\stm32f1xx_hal_rcc.o"
+"fap configuration\stm32f1xx_hal_flash_ex.o"
+"fap configuration\stm32f1xx_hal_uart.o"
+"fap configuration\startup_stm32f103xe.o"
+"fap configuration\main.o"
+"fap configuration\stm32f1xx_hal_msp.o"
+"fap configuration\stm32f1xx_it.o"
+"fap configuration\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "fap Configuration\fap Configuration.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "fap Configuration.map" -o "fap Configuration\fap Configuration.axf"

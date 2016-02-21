@@ -1,0 +1,158 @@
+Now we already know that FAP is going to be a backplane design with buses,
+
+
+// Before I start though, I needed to do some reading to get up to speed by looking at other people's projects. I browsed a couple and it's mostly the same story: people around the beginning of 80s was introduced to some early affordable personal computers, be it the TRS-80 , Commodore 64, BBC Micro, ZX Spectrum, or Apple IIe. They grew up on them,  and now they wanted to make a retro computer because of the nostalgia. However, my very first PC was a Pentium II, and that's way too complicated for a personal project. However, I do still have something going for it.
+
+//  I always feels that designing and building a computer is the rite of passage for anyone who wants to better understand how computer works, something I have been putting off until now,
+
+
+if(is_running && now_ms - last_clock >= 1)
+    {
+      HAL_GPIO_TogglePin(CPU_CTRL_PORT, CPU_CLK_PIN);
+      last_clock = now_ms;
+    }
+
+Build Your Own Z80 Computer
+sprintf(lcd_xmit_buf, "xstr 110,110,205,45,2,BLACK,YELLOW,1,1,1,\"%d\"", is_running);
+
+    if(is_button_1_pressed)
+    {
+      memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+      sprintf(debug_xmit_buf, "but1\r\n");
+      HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+      is_button_1_pressed = 0;
+    }
+
+
+  lcd_say("cls RED\xff\xff\xff");
+  lcd_say("xstr 10,10,120,45,2,BLACK,WHITE,0,0,1,\"ADDR:\"");
+  HAL_Delay(1);
+  lcd_say("xstr 110,10,205,45,2,BLACK,YELLOW,1,1,1,\"0x44444444\"");
+
+      memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+      sprintf(debug_xmit_buf, "addr: 0x%X\r\n", this_addr);
+      HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+
+#define DEBUG_RECV_SIZE 128
+char debug_recv_buf[DEBUG_RECV_SIZE];
+
+
+  memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+  sprintf(debug_xmit_buf, "hello world\r\n");
+  HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+
+cls WHITE
+
+xstr 10,10,120,45,2,BLACK,WHITE,0,0,1,"ADDR:"
+xstr 110,10,205,45,2,BLACK,YELLOW,1,1,1,"0xFFFFFFFF"
+
+xstr 10,60,120,45,2,BLACK,WHITE,0,0,1,"DATA:"
+xstr 110,60,105,45,2,BLACK,YELLOW,1,1,1,"0xFFFF"
+
+xstr 10,110,120,45,2,BLACK,WHITE,0,0,1,"STAT:"
+xstr 110,110,105,45,2,BLACK,YELLOW,1,1,1,"STOPPED"
+
+
+  // memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+  // sprintf(debug_xmit_buf, "hello world\r\n");
+  // HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "cls GREEN\xff\xff\xff");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "xstr 10,10,120,45,2,BLACK,WHITE,0,0,1,\"ADDR:\"");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "xstr 10,60,120,45,2,BLACK,WHITE,0,0,1,\"DATA:\"");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // memset(lcd_xmit_buf, 0, LCD_XMIT_SIZE);
+  // sprintf(lcd_xmit_buf, "");
+  // HAL_UART_Transmit(&huart1, lcd_xmit_buf, strlen(lcd_xmit_buf), 1000);
+
+  // lcd_say("xstr 10,60,120,45,2,BLACK,WHITE,0,0,1,\"DATA:\"");
+  // lcd_say("xstr 110,60,105,45,2,BLACK,YELLOW,1,1,1,\"UNKNOWN\"");
+
+  // lcd_say("xstr 10,110,120,45,2,BLACK,WHITE,0,0,1,\"STAT:\"");
+  // lcd_say("xstr 110,110,105,45,2,BLACK,YELLOW,1,1,1,\"STOPPED\"");
+if(GPIO_Pin == GPIO_PIN_12)
+  {
+    memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+    if(HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET)
+    {
+      sprintf(debug_xmit_buf, "button 1: down\r\n");
+      HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+    }
+    else
+    {
+      sprintf(debug_xmit_buf, "button 1: up\r\n");
+      HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+    }
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  uint32_t now = HAL_GetTick();
+  if(now - last_press < 500)
+    return;
+
+  memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+  last_press = now;
+
+  if(GPIO_Pin == GPIO_PIN_12)
+  {
+    sprintf(debug_xmit_buf, "button 1: %ld\r\n", now);
+    HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+  }
+  else if(GPIO_Pin == GPIO_PIN_13)
+  {
+    sprintf(debug_xmit_buf, "button 2: %ld\r\n", now);
+    HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+  }
+  else if(GPIO_Pin == GPIO_PIN_14)
+  {
+    sprintf(debug_xmit_buf, "button 3: %ld\r\n", now);
+    HAL_UART_Transmit(&huart2, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+  }
+}
+
+memset(debug_xmit_buf, 0, DEBUG_XMIT_SIZE);
+    sprintf(debug_xmit_buf, "lol\r\n");
+    HAL_UART_Transmit(&huart4, debug_xmit_buf, strlen(debug_xmit_buf), 1000);
+
+
+    // GPIOC->ODR |= 0x2000;
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+
+#define GPIOD_SWITCH_TO_OUTPUT GPIOD->CRL = 0x33333333; GPIOD->CRH = 0x44444444;
+HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_0);
+GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
+    GPIOD->ODR = 0x0000ffff;
+    GPIOD->ODR = 0x00000000;
