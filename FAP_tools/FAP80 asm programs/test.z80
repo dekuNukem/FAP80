@@ -1,0 +1,38 @@
+	include 	helpers.z80
+
+	org	0x0	
+	jp	program_start
+
+	org	0x80
+	.dw	0x1000
+
+	org	0x100
+program_start:
+	di
+	ld	sp, 0xffff
+
+	call	clear_attri
+	call	clear_screen
+
+	ld	hl, boot_message
+	ld	d, 5
+	ld	e, 5
+	call	puts
+
+	ld	a, 0
+	ld	i, a		; load interrupt register
+	im	2
+	ei
+
+end:	
+	jp	end
+
+	org	0x1000
+kb_isr:
+	in	a, (1)
+	ld	c, a
+	call	disable_vram_copy
+	call	putc_nolock
+	call	enable_vram_copy
+	ei
+	reti
