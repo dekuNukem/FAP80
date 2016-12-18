@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Mojo-Demo</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>net.sourceforge.veditor.simulateBuilder</name>
+			<arguments>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.CleanCommand</key>
+					<value>echo &apos;Clean&apos;</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.buildOrder</key>
+					<value>0</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.command</key>
+					<value>echo &apos;No Build Configuration Specified&apos;</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.enable</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.name</key>
+					<value>Default</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.parser</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.workFolder</key>
+					<value></value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.veditor.HdlNature</nature>
+	</natures>
+</projectDescription>

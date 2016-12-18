@@ -1,0 +1,140 @@
+#Created by Constraints Editor (xc6slx9-tqg144-3) - 2012/11/05
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 50 MHz HIGH 50%;
+
+# PlanAhead Generated physical constraints 
+NET "clk" LOC = P56 | IOSTANDARD = LVTTL;
+NET "rst_n" LOC = P38 | IOSTANDARD = LVTTL;
+
+NET "cclk" LOC = P70 | IOSTANDARD = LVTTL;
+
+NET "spi_mosi" LOC = P44 | IOSTANDARD = LVTTL;
+NET "spi_miso" LOC = P45 | IOSTANDARD = LVTTL;
+NET "spi_ss" LOC = P48 | IOSTANDARD = LVTTL;
+NET "spi_sck" LOC = P43 | IOSTANDARD = LVTTL;
+NET "spi_channel<0>" LOC = P46 | IOSTANDARD = LVTTL;
+NET "spi_channel<1>" LOC = P61 | IOSTANDARD = LVTTL;
+NET "spi_channel<2>" LOC = P62 | IOSTANDARD = LVTTL;
+NET "spi_channel<3>" LOC = P65 | IOSTANDARD = LVTTL;
+
+NET "avr_tx" LOC = P55 | IOSTANDARD = LVTTL;
+NET "avr_rx" LOC = P59 | IOSTANDARD = LVTTL;
+NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
+
+// ---------------------- mojo end ---------
+
+NET "hsync" LOC = P23 | IOSTANDARD = LVTTL;
+NET "vsync" LOC = P21 | IOSTANDARD = LVTTL;
+
+NET "vga_red<0>" LOC = P50 | IOSTANDARD = LVTTL;
+NET "vga_red<1>" LOC = P40 | IOSTANDARD = LVTTL;
+
+NET "vga_green<0>" LOC = P34 | IOSTANDARD = LVTTL;
+NET "vga_green<1>" LOC = P32 | IOSTANDARD = LVTTL;
+
+NET "vga_blue<0>" LOC = P29 | IOSTANDARD = LVTTL;
+NET "vga_blue<1>" LOC = P26 | IOSTANDARD = LVTTL;
+
+
+NET "front_vram_rd_low" LOC = P94 | IOSTANDARD = LVTTL;
+NET "front_vram_wr_low" LOC = P88 | IOSTANDARD = LVTTL;
+NET "back_vram_rd_low" LOC = P133 | IOSTANDARD = LVTTL;
+NET "back_vram_wr_low" LOC = P120 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+NET "back_vram_data<0>" LOC = P105 | IOSTANDARD = LVTTL;
+NET "back_vram_data<1>" LOC = P101 | IOSTANDARD = LVTTL;
+NET "back_vram_data<2>" LOC = P102 | IOSTANDARD = LVTTL;
+NET "back_vram_data<3>" LOC = P141 | IOSTANDARD = LVTTL;
+
+NET "back_vram_data<4>" LOC = P140 | IOSTANDARD = LVTTL;
+NET "back_vram_data<5>" LOC = P139 | IOSTANDARD = LVTTL;
+NET "back_vram_data<6>" LOC = P138 | IOSTANDARD = LVTTL;
+NET "back_vram_data<7>" LOC = P137 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+NET "back_vram_addr<0>" LOC = P104 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<1>" LOC = P112 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<2>" LOC = P111 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<3>" LOC = P115 | IOSTANDARD = LVTTL;
+
+NET "back_vram_addr<4>" LOC = P114 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<5>" LOC = P117 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<6>" LOC = P116 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<7>" LOC = P119 | IOSTANDARD = LVTTL;
+
+NET "back_vram_addr<8>" LOC = P123 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<9>" LOC = P126 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<10>" LOC = P134 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<11>" LOC = P131 | IOSTANDARD = LVTTL;
+NET "back_vram_addr<12>" LOC = P118 | IOSTANDARD = LVTTL;
+//NET "front_vram_addr<13>" LOC = P121 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+NET "front_vram_data<0>" LOC = P80 | IOSTANDARD = LVTTL;
+NET "front_vram_data<1>" LOC = P83 | IOSTANDARD = LVTTL;
+NET "front_vram_data<2>" LOC = P82 | IOSTANDARD = LVTTL;
+NET "front_vram_data<3>" LOC = P85 | IOSTANDARD = LVTTL;
+
+NET "front_vram_data<4>" LOC = P84 | IOSTANDARD = LVTTL;
+NET "front_vram_data<5>" LOC = P99 | IOSTANDARD = LVTTL;
+NET "front_vram_data<6>" LOC = P100 | IOSTANDARD = LVTTL;
+NET "front_vram_data<7>" LOC = P97 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+NET "front_vram_addr<0>" LOC = P81 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<1>" LOC = P78 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<2>" LOC = P79 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<3>" LOC = P58 | IOSTANDARD = LVTTL;
+
+NET "front_vram_addr<4>" LOC = P57 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<5>" LOC = P67 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<6>" LOC = P66 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<7>" LOC = P75 | IOSTANDARD = LVTTL;
+
+NET "front_vram_addr<8>" LOC = P93 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<9>" LOC = P92 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<10>" LOC = P98 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<11>" LOC = P95 | IOSTANDARD = LVTTL;
+NET "front_vram_addr<12>" LOC = P74 | IOSTANDARD = LVTTL;
+//NET "front_vram_addr<13>" LOC = P87 | IOSTANDARD = LVTTL;
+
+
+// -----------------------------------
+NET "cpu_data<0>" LOC = P144 | IOSTANDARD = LVTTL;
+NET "cpu_data<1>" LOC = P143 | IOSTANDARD = LVTTL;
+NET "cpu_data<2>" LOC = P2 | IOSTANDARD = LVTTL;
+NET "cpu_data<3>" LOC = P1 | IOSTANDARD = LVTTL;
+
+NET "cpu_data<4>" LOC = P6 | IOSTANDARD = LVTTL;
+NET "cpu_data<5>" LOC = P5 | IOSTANDARD = LVTTL;
+NET "cpu_data<6>" LOC = P8 | IOSTANDARD = LVTTL;
+NET "cpu_data<7>" LOC = P7 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+NET "cpu_addr<0>" LOC = P10 | IOSTANDARD = LVTTL;
+NET "cpu_addr<1>" LOC = P9 | IOSTANDARD = LVTTL;
+NET "cpu_addr<2>" LOC = P12 | IOSTANDARD = LVTTL;
+NET "cpu_addr<3>" LOC = P11 | IOSTANDARD = LVTTL;
+
+NET "cpu_addr<4>" LOC = P15 | IOSTANDARD = LVTTL;
+NET "cpu_addr<5>" LOC = P14 | IOSTANDARD = LVTTL;
+NET "cpu_addr<6>" LOC = P17 | IOSTANDARD = LVTTL;
+NET "cpu_addr<7>" LOC = P16 | IOSTANDARD = LVTTL;
+
+NET "cpu_addr<8>" LOC = P22 | IOSTANDARD = LVTTL;
+NET "cpu_addr<9>" LOC = P24 | IOSTANDARD = LVTTL;
+NET "cpu_addr<10>" LOC = P27 | IOSTANDARD = LVTTL;
+NET "cpu_addr<11>" LOC = P30 | IOSTANDARD = LVTTL;
+
+NET "cpu_addr<12>" LOC = P33 | IOSTANDARD = LVTTL;
+NET "cpu_addr<13>" LOC = P35 | IOSTANDARD = LVTTL;
+NET "cpu_addr<14>" LOC = P41 | IOSTANDARD = LVTTL;
+NET "cpu_addr<15>" LOC = P51 | IOSTANDARD = LVTTL;
+
+// -----------------------------------
+// 116
+NET "cpu_wr" LOC = P127 | IOSTANDARD = LVTTL;
+NET "cpu_rd" LOC = P124 | IOSTANDARD = LVTTL;
+NET "cpu_mreq" LOC = P132 | IOSTANDARD = LVTTL;
+//NET "cpu_clk" LOC = P95 | IOSTANDARD = LVTTL;

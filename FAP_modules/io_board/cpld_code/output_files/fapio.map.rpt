@@ -1,0 +1,424 @@
+Analysis & Synthesis report for fapio
+Mon Dec 12 17:26:17 2016
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Mon Dec 12 17:26:17 2016       ;
+; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name               ; fapio                                       ;
+; Top-level Entity Name       ; fapio                                       ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 304                                         ;
+; Total pins                  ; 60                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EPM570T100C5       ;                    ;
+; Top-level entity name                                                      ; fapio              ; fapio              ;
+; Family name                                                                ; MAX II             ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+; decoder_4to16.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/decoder_4to16.v ;         ;
+; fapio.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/fapio.bdf       ;         ;
+; dlatch4.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v       ;         ;
+; dlatch8.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v       ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Total logic elements                        ; 304      ;
+;     -- Combinational with no register       ; 304      ;
+;     -- Register only                        ; 0        ;
+;     -- Combinational with a register        ; 0        ;
+;                                             ;          ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 120      ;
+;     -- 3 input functions                    ; 165      ;
+;     -- 2 input functions                    ; 19       ;
+;     -- 1 input functions                    ; 0        ;
+;     -- 0 input functions                    ; 0        ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 304      ;
+;     -- arithmetic mode                      ; 0        ;
+;     -- qfbk mode                            ; 0        ;
+;     -- register cascade mode                ; 0        ;
+;     -- synchronous clear/load mode          ; 0        ;
+;     -- asynchronous clear/load mode         ; 0        ;
+;                                             ;          ;
+; Total registers                             ; 0        ;
+; I/O pins                                    ; 60       ;
+; Maximum fan-out node                        ; CPU_IORQ ;
+; Maximum fan-out                             ; 20       ;
+; Total fan-out                               ; 1064     ;
+; Average fan-out                             ; 2.92     ;
++---------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                 ;
++---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node            ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                     ; Entity Name   ; Library Name ;
++---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
+; |fapio                                ; 304 (19)    ; 0            ; 0          ; 60   ; 0            ; 304 (19)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio                                  ; fapio         ; work         ;
+;    |decoder_4to16:inst12|             ; 32 (32)     ; 0            ; 0          ; 0    ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst12             ; decoder_4to16 ; work         ;
+;    |decoder_4to16:inst73|             ; 16 (16)     ; 0            ; 0          ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst73             ; decoder_4to16 ; work         ;
+;    |dlatch4:PORT_WRITE_ADDRESS_LATCH| ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch4:PORT_WRITE_ADDRESS_LATCH ; dlatch4       ; work         ;
+;    |dlatch8:PORT_WRITE_DATA_LATCH|    ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:PORT_WRITE_DATA_LATCH    ; dlatch8       ; work         ;
+;    |dlatch8:Z80_INT_LATCH|            ; 97 (97)     ; 0            ; 0          ; 0    ; 0            ; 97 (97)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:Z80_INT_LATCH            ; dlatch8       ; work         ;
+;    |dlatch8:inst14|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst14                   ; dlatch8       ; work         ;
+;    |dlatch8:inst15|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst15                   ; dlatch8       ; work         ;
+;    |dlatch8:inst20|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst20                   ; dlatch8       ; work         ;
+;    |dlatch8:inst23|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst23                   ; dlatch8       ; work         ;
+;    |dlatch8:inst26|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst26                   ; dlatch8       ; work         ;
+;    |dlatch8:inst29|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst29                   ; dlatch8       ; work         ;
+;    |dlatch8:inst33|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst33                   ; dlatch8       ; work         ;
+;    |dlatch8:inst37|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst37                   ; dlatch8       ; work         ;
+;    |dlatch8:inst41|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst41                   ; dlatch8       ; work         ;
+;    |dlatch8:inst45|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst45                   ; dlatch8       ; work         ;
+;    |dlatch8:inst49|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst49                   ; dlatch8       ; work         ;
+;    |dlatch8:inst53|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst53                   ; dlatch8       ; work         ;
+;    |dlatch8:inst57|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst57                   ; dlatch8       ; work         ;
+;    |dlatch8:inst61|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst61                   ; dlatch8       ; work         ;
+;    |dlatch8:inst65|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst65                   ; dlatch8       ; work         ;
+;    |dlatch8:inst69|                   ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch8:inst69                   ; dlatch8       ; work         ;
++---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                  ;
++------------------------------------------------------+--------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                  ; Free of Timing Hazards ;
++------------------------------------------------------+--------------------------------------+------------------------+
+; dlatch8:Z80_INT_LATCH|q_internal[7]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; dlatch8:inst65|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[14] ; yes                    ;
+; dlatch8:inst69|q_internal[7]                         ; decoder_4to16:inst12|decoder_out[15] ; yes                    ;
+; dlatch8:Z80_INT_LATCH|q_internal[6]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; dlatch8:inst65|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[14] ; yes                    ;
+; dlatch8:inst69|q_internal[6]                         ; decoder_4to16:inst12|decoder_out[15] ; yes                    ;
+; dlatch8:Z80_INT_LATCH|q_internal[5]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; dlatch8:inst65|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[14] ; yes                    ;
+; dlatch8:inst69|q_internal[5]                         ; decoder_4to16:inst12|decoder_out[15] ; yes                    ;
+; dlatch8:Z80_INT_LATCH|q_internal[4]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; dlatch8:inst65|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[14] ; yes                    ;
+; dlatch8:inst69|q_internal[4]                         ; decoder_4to16:inst12|decoder_out[15] ; yes                    ;
+; dlatch8:Z80_INT_LATCH|q_internal[3]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; dlatch8:inst65|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[14] ; yes                    ;
+; dlatch8:inst69|q_internal[3]                         ; decoder_4to16:inst12|decoder_out[15] ; yes                    ;
+; dlatch8:Z80_INT_LATCH|q_internal[2]                  ; STM32_INTVECT_LOAD_H                 ; yes                    ;
+; dlatch8:inst14|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[0]  ; yes                    ;
+; dlatch8:inst15|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[1]  ; yes                    ;
+; dlatch8:inst20|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[2]  ; yes                    ;
+; dlatch8:inst23|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[3]  ; yes                    ;
+; dlatch8:inst26|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[4]  ; yes                    ;
+; dlatch8:inst29|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[5]  ; yes                    ;
+; dlatch8:inst33|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[6]  ; yes                    ;
+; dlatch8:inst37|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[7]  ; yes                    ;
+; dlatch8:inst41|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[8]  ; yes                    ;
+; dlatch8:inst45|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[9]  ; yes                    ;
+; dlatch8:inst49|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[10] ; yes                    ;
+; dlatch8:inst53|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[11] ; yes                    ;
+; dlatch8:inst57|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[12] ; yes                    ;
+; dlatch8:inst61|q_internal[2]                         ; decoder_4to16:inst12|decoder_out[13] ; yes                    ;
+; Number of user-specified and inferred latches = 148  ;                                      ;                        ;
++------------------------------------------------------+--------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon Dec 12 17:25:59 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fapio -c fapio
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file decoder_4to16.v
+    Info (12023): Found entity 1: decoder_4to16 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/decoder_4to16.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fapio.bdf
+    Info (12023): Found entity 1: fapio
+Info (12021): Found 1 design units, including 1 entities, in source file dlatch4.v
+    Info (12023): Found entity 1: dlatch4 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dlatch8.v
+    Info (12023): Found entity 1: dlatch8 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 1
+Info (12127): Elaborating entity "fapio" for the top level hierarchy
+Warning (275009): Pin "CPU_CLK" not connected
+Warning (275009): Pin "CPU_BUSACK" not connected
+Warning (275009): Pin "CPU_MREQ" not connected
+Warning (275009): Pin "CPU_RESET" not connected
+Warning (275009): Pin "CLK50" not connected
+Info (12128): Elaborating entity "dlatch8" for hierarchy "dlatch8:Z80_INT_LATCH"
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at dlatch8.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[0]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[1]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[2]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[3]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[4]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[5]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[6]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[7]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Info (12128): Elaborating entity "decoder_4to16" for hierarchy "decoder_4to16:inst12"
+Info (12128): Elaborating entity "dlatch4" for hierarchy "dlatch4:PORT_WRITE_ADDRESS_LATCH"
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at dlatch4.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[0]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[1]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[2]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[3]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CPU_ADDR[15]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[14]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[13]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[12]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[11]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[10]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[9]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[8]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[7]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[6]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[5]"
+    Warning (15610): No output dependent on input pin "CPU_ADDR[4]"
+    Warning (15610): No output dependent on input pin "CPU_CLK"
+    Warning (15610): No output dependent on input pin "CPU_BUSACK"
+    Warning (15610): No output dependent on input pin "CPU_MREQ"
+    Warning (15610): No output dependent on input pin "CPU_RESET"
+    Warning (15610): No output dependent on input pin "CLK50"
+Info (21057): Implemented 364 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 29 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21060): Implemented 20 bidirectional pins
+    Info (21061): Implemented 304 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 590 megabytes
+    Info: Processing ended: Mon Dec 12 17:26:18 2016
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:43
+
+

@@ -1,0 +1,17 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Minimum Pulse Width 'CPU_IORQ'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'STM32_INTVECT_LOAD_H'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'STM32_OUTPUT_LATCH_LOAD_H_16'
+Slack : -2.289
+TNS   : -2.289
+
+------------------------------------------------------------

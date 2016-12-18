@@ -1,0 +1,165 @@
+ -- Copyright (C) 2016  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Intel Program License 
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel MegaCore Function License Agreement, or other 
+ -- applicable license agreement, including, without limitation, 
+ -- that your use is for the sole purpose of programming logic 
+ -- devices manufactured by Intel and sold by Intel or its 
+ -- authorized distributors.  Please refer to the applicable 
+ -- agreement for further details.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (2.5V/3.3V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1:       3.3V
+ --                  Bank 2:       3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+CHIP  "fapio"  ASSIGNED TO AN: EPM570T100C5
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+CPU_DATA[0]                  : 1         : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+STM32_PORT_ADDR[1]           : 2         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_PORT_ADDR[0]           : 3         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[7]                : 4         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[6]                : 5         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[5]                : 6         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[4]                : 7         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[3]                : 8         : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+VCCIO1                       : 9         : power  :                   : 3.3V    : 1         :                
+GNDIO                        : 10        : gnd    :                   :         :           :                
+GNDINT                       : 11        : gnd    :                   :         :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 12        :        :                   :         : 1         :                
+VCCINT                       : 13        : power  :                   : 2.5V/3.3V :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 14        :        :                   :         : 1         :                
+STM32_INT_L                  : 15        : input  : 3.3-V LVTTL       :         : 1         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 16        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 17        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 18        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 19        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 20        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 21        :        :                   :         : 1         :                
+TMS                          : 22        : input  :                   :         : 1         :                
+TDI                          : 23        : input  :                   :         : 1         :                
+TCK                          : 24        : input  :                   :         : 1         :                
+TDO                          : 25        : output :                   :         : 1         :                
+STM32_INPUT_LATCH_OE_L_1     : 26        : input  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_IOWR_INT_L             : 27        : output : 3.3-V LVTTL       :         : 1         : Y              
+STM32_IORD_INT_L             : 28        : output : 3.3-V LVTTL       :         : 1         : Y              
+STM32_INTACK_L               : 29        : output : 3.3-V LVTTL       :         : 1         : Y              
+STM32_PORT_ADDR[3]           : 30        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+VCCIO1                       : 31        : power  :                   : 3.3V    : 1         :                
+GNDIO                        : 32        : gnd    :                   :         :           :                
+STM32_PORT_ADDR[2]           : 33        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[2]                : 34        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[1]                : 35        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_DATA[0]                : 36        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
+GNDINT                       : 37        : gnd    :                   :         :           :                
+STM32_OUTPUT_LATCH_LOAD_H_16 : 38        : input  : 3.3-V LVTTL       :         : 1         : Y              
+VCCINT                       : 39        : power  :                   : 2.5V/3.3V :           :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 40        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 41        :        :                   :         : 1         :                
+STM32_INTVECT_LOAD_H         : 42        : input  : 3.3-V LVTTL       :         : 1         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 43        :        :                   :         : 1         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 44        :        :                   :         : 1         :                
+VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
+GNDIO                        : 46        : gnd    :                   :         :           :                
+LATCH16_LED                  : 47        : output : 3.3-V LVTTL       :         : 1         : Y              
+LATCH1_LED                   : 48        : output : 3.3-V LVTTL       :         : 1         : Y              
+IOWR_LED                     : 49        : output : 3.3-V LVTTL       :         : 1         : Y              
+IORD_LED                     : 50        : output : 3.3-V LVTTL       :         : 1         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 51        :        :                   :         : 1         :                
+CPU_ADDR[15]                 : 52        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[14]                 : 53        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[13]                 : 54        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[12]                 : 55        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[11]                 : 56        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[10]                 : 57        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[9]                  : 58        : input  : 3.3-V LVTTL       :         : 2         : Y              
+VCCIO2                       : 59        : power  :                   : 3.3V    : 2         :                
+GNDIO                        : 60        : gnd    :                   :         :           :                
+CPU_ADDR[8]                  : 61        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CLK50                        : 62        : input  : 3.3-V LVTTL       :         : 2         : Y              
+VCCINT                       : 63        : power  :                   : 2.5V/3.3V :           :                
+CPU_CLK                      : 64        : input  : 3.3-V LVTTL       :         : 2         : Y              
+GNDINT                       : 65        : gnd    :                   :         :           :                
+VECT_LOAD_LED                : 66        : output : 3.3-V LVTTL       :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 67        :        :                   :         : 2         :                
+INTACK_LED                   : 68        : output : 3.3-V LVTTL       :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 69        :        :                   :         : 2         :                
+INT_LED                      : 70        : output : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[7]                  : 71        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[6]                  : 72        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[5]                  : 73        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[4]                  : 74        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[3]                  : 75        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[2]                  : 76        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[1]                  : 77        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_ADDR[0]                  : 78        : input  : 3.3-V LVTTL       :         : 2         : Y              
+GNDIO                        : 79        : gnd    :                   :         :           :                
+VCCIO2                       : 80        : power  :                   : 3.3V    : 2         :                
+CPU_DATA[7]                  : 81        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[6]                  : 82        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[5]                  : 83        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[4]                  : 84        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[3]                  : 85        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[2]                  : 86        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_DATA[1]                  : 87        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
+VCCINT                       : 88        : power  :                   : 2.5V/3.3V :           :                
+CPU_INT                      : 89        : output : 3.3-V LVTTL       :         : 2         : Y              
+GNDINT                       : 90        : gnd    :                   :         :           :                
+CPU_RESET                    : 91        : input  : 3.3-V LVTTL       :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 92        :        :                   :         : 2         :                
+GNDIO                        : 93        : gnd    :                   :         :           :                
+VCCIO2                       : 94        : power  :                   : 3.3V    : 2         :                
+CPU_BUSACK                   : 95        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_IORQ                     : 96        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_MREQ                     : 97        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_WR                       : 98        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_RD                       : 99        : input  : 3.3-V LVTTL       :         : 2         : Y              
+CPU_M1                       : 100       : input  : 3.3-V LVTTL       :         : 2         : Y              
