@@ -83,7 +83,7 @@ I also intended this project as a study in embedded development as it involves a
 * Python script for program upload
 * Cross assembler setup
 * SDCC setup
-* Basic print functionalities in C and assembly.
+* Simple print functionalities in C and assembly.
 
 ### In Progress
 
@@ -100,8 +100,8 @@ Coming soon...
 
 ## Acknowledgements
 
-* This project is heavily inspired from [Quinn Dunki’s Veronica computer](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
+* This project is heavily inspired by [Quinn Dunki’s Veronica computer](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
 
-* FAP stands for FPGA Assisted Processor, inspired from Steve Ciarcia's 1981 book *Build Your Own Z80 Computer*, in which he called his computer ZAP, short for Z80 Application Processor.
+* FAP stands for FPGA Assisted Processor, inspired by Steve Ciarcia's 1981 book *Build Your Own Z80 Computer*, in which he called his computer ZAP, short for Z80 Application Processor.
 
 
