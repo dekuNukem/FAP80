@@ -18,17 +18,16 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 
 ### Overview
 
-* 5-slot active backplane
+* 5-slot active backplane, USB powered
 * 8MHz CMOS Z80
 * 32KB ROM 32KB RAM
 * 64 color VGA graphics
-* I/O includes PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UART
+* PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UARTs
 
 ### Active Backplane
 
 * 3.3V bus allows modern peripherals
 * managed by STM32 microcontroller
-* power and data over USB
 * Z80 clock from PWM channel
 * speed variable from single step to 8MHz
 * read/write into EEPROM/RAM directly
@@ -51,16 +50,15 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 * 64 colors
 * 640x480 VGA output
 * 80x30 codepage 437 text mode
-* 16KB double-buffered VRAM, no need to wait for VBLANK
-* can also be used as 32KB single-buffered VRAM
-* bitmap or sprite mode can be implemented in FAGA easily
+* 16KB double-buffered VRAM, or 32KB single-buffered
+* bitmap or sprite mode can be implemented easily
 
 ### I/O Board
-* CPLD glue logic
+* CPLD based
 * STM32 IO/interrupt controller
 * all interrupt modes supported
 * 256 write ports, 16 read ports
-* 2 UARTs, one for ESP8266 one general purpose
+* 2 UARTs
 * I2C EEPROM
 * SD card
 * RTC
