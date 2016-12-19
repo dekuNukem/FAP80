@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1556,9 +1556,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <via x="56.134" y="44.196" extent="1-16" drill="0.508"/>
 <wire x1="56.134" y1="44.196" x2="58.544" y2="44.196" width="0.4064" layer="1"/>
 <contactref element="R13" pad="1"/>
-<contactref element="R14" pad="1"/>
-<via x="11.557" y="45.974" extent="1-16" drill="0.508"/>
-<wire x1="11.557" y1="45.974" x2="11.557" y2="47.868" width="0.4064" layer="1"/>
 <wire x1="63.881" y1="52.324" x2="65.9892" y2="52.324" width="0.4064" layer="1"/>
 <wire x1="65.9892" y1="52.324" x2="66.04" y2="52.2732" width="0.3048" layer="1"/>
 <wire x1="72.39" y1="47.371" x2="72.39" y2="44.7548" width="0.4064" layer="1"/>
@@ -1636,6 +1633,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="R15" pad="2"/>
 <contactref element="R17" pad="2"/>
 <contactref element="R18" pad="2"/>
+<contactref element="LED2" pad="A"/>
 </signal>
 <signal name="+5V">
 <contactref element="U$1" pad="+5V@1"/>
@@ -2315,28 +2313,23 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="R13" pad="2"/>
 <wire x1="3.556" y1="52.925" x2="3.556" y2="49.668" width="0.4064" layer="1"/>
 </signal>
-<signal name="N$35">
-<contactref element="LED2" pad="C"/>
-<contactref element="R14" pad="2"/>
-<wire x1="11.557" y1="49.668" x2="11.557" y2="52.925" width="0.4064" layer="1"/>
-</signal>
 <signal name="N$36">
 <contactref element="U$3" pad="142"/>
-<contactref element="LED2" pad="A"/>
 <wire x1="72.39" y1="12.7" x2="71.12" y2="13.97" width="0.3048" layer="16"/>
 <wire x1="71.12" y1="13.97" x2="71.12" y2="21.082" width="0.3048" layer="16"/>
 <wire x1="71.12" y1="21.082" x2="61.976" y2="30.226" width="0.3048" layer="16"/>
 <wire x1="61.976" y1="30.226" x2="46.228" y2="30.226" width="0.3048" layer="16"/>
-<wire x1="46.228" y1="30.226" x2="21.463" y2="54.991" width="0.3048" layer="16"/>
-<via x="21.463" y="54.991" extent="1-16" drill="0.6"/>
-<wire x1="21.463" y1="54.991" x2="11.591" y2="54.991" width="0.3048" layer="1"/>
-<wire x1="11.591" y1="54.991" x2="11.557" y2="55.025" width="0.3048" layer="1"/>
 <contactref element="JP1" pad="1"/>
-<wire x1="8.255" y1="55.245" x2="11.337" y2="55.245" width="0.3048" layer="1"/>
-<wire x1="11.337" y1="55.245" x2="11.557" y2="55.025" width="0.3048" layer="1"/>
 <contactref element="U$1" pad="NMI"/>
 <wire x1="76.708" y1="4.572" x2="76.708" y2="8.382" width="0.254" layer="16"/>
 <wire x1="76.708" y1="8.382" x2="72.39" y2="12.7" width="0.254" layer="16"/>
+<wire x1="46.228" y1="30.226" x2="21.209" y2="55.245" width="0.254" layer="16"/>
+<wire x1="21.209" y1="55.245" x2="8.255" y2="55.245" width="0.254" layer="16"/>
+<contactref element="R14" pad="1"/>
+<wire x1="8.255" y1="55.245" x2="8.255" y2="49.53" width="0.254" layer="1"/>
+<wire x1="8.255" y1="49.53" x2="9.906" y2="47.879" width="0.254" layer="1"/>
+<wire x1="9.906" y1="47.879" x2="11.546" y2="47.879" width="0.254" layer="1"/>
+<wire x1="11.546" y1="47.879" x2="11.557" y2="47.868" width="0.254" layer="1"/>
 </signal>
 <signal name="N$37">
 <contactref element="U$3" pad="RST"/>
@@ -2347,6 +2340,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="92.456" y1="7.239" x2="96.266" y2="11.049" width="0.3048" layer="16"/>
 <wire x1="96.266" y1="11.049" x2="96.266" y2="57.404" width="0.3048" layer="16"/>
 <wire x1="96.266" y1="57.404" x2="87.63" y2="66.04" width="0.3048" layer="16"/>
+</signal>
+<signal name="N$35">
+<contactref element="LED2" pad="C"/>
+<contactref element="R14" pad="2"/>
+<wire x1="11.557" y1="49.668" x2="11.557" y2="52.925" width="0.254" layer="1"/>
 </signal>
 </signals>
 </board>
