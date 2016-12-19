@@ -8,9 +8,9 @@ I'm still building this up, don't look at it yet...
 
 #FAP80, A Z80 retro computer for the future
 
-FAP80 is a Z80 retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
+FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-A lot of retro computer projects are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on breadboard or self-made circuit boards, with rudimentary video capacity or no video at all, few I/O ports, and a symphony of through hole 74 series chips. 
+A lot of retro computer projects are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on breadboard or self-made circuit boards, with rudimentary video capacity or no video at all, few I/O ports, and a symphony of assorted through hole 74 series chips. 
 
 Of course there is nothing wrong with that, but since I wasn’t around during the 80s home computer era, I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use.
 
@@ -43,7 +43,7 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 * 32KB ROM
 * 32KB RAM
 * buffered output
-* ROM write protected during normal execution
+* ROM write-protected during normal execution
 
 ### Video Card
 * FPGA based
@@ -64,4 +64,13 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 * RTC
 * PS/2 Keyboard
 
-## Current Progress
+## A few words about the design philosophy
+
+As I said above I made the decision to use modern parts for simplicity and flexibility in the design. Take the active backplane as an example, the entire bus is connected to a STM32 microcontroller, and it provides clock to Z80 via one of the PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces is easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
+
+Notice how a cheap modern part eliminates the need for separate reset circuitry, clock circuitry, debugger, and EEPROM programmer. And because the uC is programmable, it can be customized even after hardware design is done. Clock speed can be set anywhere from DC to 8MHz, new features like trace dump can be added on a later date.
+
+The VGA video card is FPGA powered, a simple text mode is implemented 
+
+
+## Current Progress 
