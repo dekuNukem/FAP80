@@ -14,12 +14,15 @@ A lot of retro computer projects are rooted on nostalgia, they tend to use “pe
 
 Of course there is nothing wrong with that, but since I wasn’t around during the 80s home computer era, I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use.
 
-Take the active backplane as an example of this design philosophy, the bus is connected to a STM32 microcontroller, and it provides Z80 clock via one of the PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces is easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
+## Specification
 
-Notice how a simple modern part eliminates the need for separate reset circuitry, clock circuitry, debugger, and EEPROM programmer. And because the uC is programmable, it can be customized to suit individual needs. Clock speed can be set anywhere from DC to 8MHz, new features like trace dump can be added on a later date. This is the kind of flexibility that I think make this project stands out from the rest.
+### Overview
 
-
-## Technical Highlights
+* 5-slot active backplane
+* 8MHz CMOS Z80
+* 32KB ROM 32KB RAM
+* 64 color VGA graphics
+* I/O includes PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UART
 
 ### Active Backplane
 
