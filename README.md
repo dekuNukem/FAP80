@@ -72,9 +72,12 @@ Notice how a cheap modern part eliminates the need for separate reset circuitry,
 
 Similarly, a FPGA replaces the VDC, a CPLD replaces the sea of 74 series chips, and another STM32 is used as I/O and interrupt controller. This gives an enormous amount of flexibility to suit individual needs. Text mode graphics too limited? Write your own sprite/bitmap mode. Want more I/O ports or a different interrupt mode? Just modify the CPLD code. The ability to be able to continue expand and evolve the capability of the computer without having to change the hardware becomes an exciting aspect as a result.
 
-For me this project is also a study in embedded development as it involves a little bit of everything: microcontrollers, FPGAs, CPLDs, digital circuits, PCB design and fabrication, surface mount soldering, assembly programming, and a lot others that I couldn't think of at the moment. Yes it's harder to put together than a through-hole kit, but it's all part of the challenge, I learned a lot over this.
+I also intended this project as a study in embedded development as it involves a little bit of everything: microcontrollers, FPGAs, CPLDs, digital circuits, PCB design and fabrication, surface mount soldering, setting up cross assembling/compiling environment, assembly programming, and a lot others that I couldn't think of at the moment. Yes it's harder to put together than a through-hole kit, but it was all part of the challenge.
 
 
 ## Current Progress 
 
-Hardware is finished
+### Finished
+* Current hardware design.
+* Python script for program upload
+* Cross assembler setup
