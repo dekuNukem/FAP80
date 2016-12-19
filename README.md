@@ -10,9 +10,9 @@ actually do what you want, not like I can stop you
 
 FAP80 is a Z80 retro computer with modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-for example, it has an active backplane brained by an STM32 microcontroller. can take over the bus for EEPROM uploads, so you don't have to  a dedicated EEPROM programmer is not needed. 
+As an example, FAP80 has an active backplane managed by a STM32 microcontroller. Since it can take over the bus and write into EEPROM directly, there is no need to take off the EEPROM to burn programs, or have a EEPROM programmer at all.
 
-It aims 
+
 
 5-slot active backplane with 2.2-inch information LCD and button controls
 
