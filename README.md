@@ -94,6 +94,10 @@ I also intended this project as a study in embedded development as it involves a
 
 * A new memory board with CPLD controller and 32MB flash memory for both ROM and RAM
 
+## Getting Started
+
+Coming soon...
+
 ## Acknowledgements
 
 * This project is heavily inspired from [Quinn Dunki’s Veronica computer](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
