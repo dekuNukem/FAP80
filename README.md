@@ -14,11 +14,30 @@ FAP80 is a Z80 retro computer with modern twists to make the experience of desig
 
 ### Active Backplane
 
+* 3.3V bus
 * managed by STM32 microcontroller
-* provides clock from PWM channel
+* Z80 clock from PWM channel
 * single step to 8MHz
 * bus address and data display on LCD
 * breakpoints and traces
-* take over bus and read/write EEPROM/RAM directly
+* read/write into EEPROM/RAM directly
 * no need for separate EEPROM programmer
 * power and data over USB
+
+### CPU Board
+* All signals buffered and shifted to 3.3V
+
+### Memory Board
+* 32KB ROM
+* 32KB RAM
+* buffered output
+* ROM write protected during normal execution
+
+### Video Card
+* FPGA based
+* 64 colors
+* 640x480 VGA output
+* 80x30 codepage 437 text mode
+* 16KB double-buffered or 32KB single-buffered VRAM
+* bitmap or sprite mode can be implemented in FAGA easily
+
