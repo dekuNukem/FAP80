@@ -1,28 +1,17 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    00:30:38 03/19/2013 
-// Design Name: 
-// Module Name:    vga640x480 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+
 module vga640x480(
+	input wire clk50,
 	input wire pclk,			//pixel clock: 25MHz
 	input wire clr,			//asynchronous reset
 	output wire hsync,		//horizontal sync out
 	output wire vsync,		//vertical sync out
+	output wire vblank,
+
+	output reg [12:0] front_vram_addr,
+	inout wire [7:0] front_vram_data,
+	output reg front_vram_rd_low,
+
 	output reg [1:0] red,	//red vga output
 	output reg [1:0] green, //green vga output
 	output reg [1:0] blue	//blue vga output
@@ -43,6 +32,16 @@ parameter vfp = 511; 	// beginning of vertical front porch
 // registers for storing the horizontal & vertical counters
 reg [9:0] hc;
 reg [9:0] vc;
+reg [9:0] hpos;
+reg [9:0] vpos;
+reg [2:0] hdot;
+reg [3:0] vdot;
+reg [6:0] hchar;
+reg [5:0] vchar;
+wire font_pixel;
+reg fetch_attribute;
+reg [7:0] char_data;
+reg [7:0] attribute_data;
 
 // Horizontal & vertical counters --
 // this is how we keep track of where we are on the screen.
@@ -76,104 +75,57 @@ begin
 			else
 				vc <= 0;
 		end
-		
 	end
 end
 
-// generate sync pulses (active low)
-// ----------------
-// "assign" statements are a quick way to
-// give values to variables of type: wire
 assign hsync = (hc < hpulse) ? 0:1;
 assign vsync = (vc < vpulse) ? 0:1;
+assign vblank = (vc >= vbp && vc < vfp) ? 0:1;
 
-// display 100% saturation colorbars
-// ------------------------
-// Combinational "always block", which is a block that is
-// triggered when anything in the "sensitivity list" changes.
-// The asterisk implies that everything that is capable of triggering the block
-// is automatically included in the sensitivty list.  In this case, it would be
-// equivalent to the following: always @(hc, vc)
-// Assignment statements can only be used on type "reg" and should be of the "blocking" type: =
-always @(*)
+pc_vga_8x16 char_rom(
+	.clk(clk50),
+	.col(hdot),
+	.row(vdot),
+	.ascii(char_data),
+	.pixel(font_pixel)
+	);
+
+always @(posedge clk50)
 begin
-	// first check if we're within vertical active video range
-	if (vc >= vbp && vc < vfp)
+	// inside active region
+	if ((vc >= vbp && vc < vfp) && (hc >= hbp && hc < hfp))
 	begin
-		// now display different colors every 80 pixels
-		// while we're within the active horizontal range
-		// -----------------
-		// display white bar
-		if (hc >= hbp && hc < (hbp+80))
-		begin
-			red = 2'b11;
-			green = 2'b11;
-			blue = 2'b11;
+		front_vram_rd_low = 0;
+		hpos = hc - hbp;
+		vpos = vc - vbp;
+		hdot = hpos[2:0];
+		vdot = vpos[3:0];
+		hchar = hpos[9:3];
+		vchar = vpos[9:4];
+		if (fetch_attribute) begin
+			front_vram_addr = 80 * vchar + hchar;
+			attribute_data = front_vram_data;
 		end
-		// display yellow bar
-		else if (hc >= (hbp+80) && hc < (hbp+160))
-		begin
-			red = 2'b11;
-			green = 2'b11;
-			blue = 2'b00;
+		else begin
+			front_vram_addr = 80 * vchar + hchar + 2400;
+			char_data = front_vram_data;
 		end
-		// display cyan bar
-		else if (hc >= (hbp+160) && hc < (hbp+240))
-		begin
-			red = 2'b00;
-			green = 2'b11;
-			blue = 2'b11;
-		end
-		// display green bar
-		else if (hc >= (hbp+240) && hc < (hbp+320))
-		begin
-			red = 2'b00;
-			green = 2'b11;
-			blue = 2'b00;
-		end
-		// display magenta bar
-		else if (hc >= (hbp+320) && hc < (hbp+400))
-		begin
-			red = 2'b11;
-			green = 2'b00;
-			blue = 2'b11;
-		end
-		// display red bar
-		else if (hc >= (hbp+400) && hc < (hbp+480))
-		begin
-			red = 2'b11;
-			green = 2'b00;
-			blue = 2'b00;
-		end
-		// display blue bar
-		else if (hc >= (hbp+480) && hc < (hbp+560))
-		begin
-			red = 2'b00;
-			green = 2'b00;
-			blue = 2'b11;
-		end
-		// display black bar
-		else if (hc >= (hbp+560) && hc < (hbp+640))
-		begin
-			red = 2'b00;
-			green = 2'b00;
-			blue = 2'b00;
-		end
-		// we're outside active horizontal range so display black
-		else
-		begin
-			red = 0;
-			green = 0;
-			blue = 0;
-		end
+		fetch_attribute = ~fetch_attribute;
+		red = font_pixel ? attribute_data[5:4] : 0;
+		green = font_pixel ? attribute_data[3:2] : 0;
+		blue = font_pixel ? attribute_data[1:0] : 0;
 	end
-	// we're outside active vertical range so display black
+	//  outside active region
 	else
 	begin
+		fetch_attribute = 1;
+		front_vram_rd_low = 1;
+		front_vram_addr = 13'bzzzzzzzzzzzz;
 		red = 0;
 		green = 0;
 		blue = 0;
 	end
 end
+
 
 endmodule

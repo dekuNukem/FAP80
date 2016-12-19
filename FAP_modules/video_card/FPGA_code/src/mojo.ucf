@@ -23,8 +23,8 @@ NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
 
 // ---------------------- mojo end ---------
 
-NET "hsync" LOC = P23 | IOSTANDARD = LVTTL;
-NET "vsync" LOC = P21 | IOSTANDARD = LVTTL;
+NET "hsync" LOC = P21 | IOSTANDARD = LVTTL;
+NET "vsync" LOC = P23 | IOSTANDARD = LVTTL;
 
 NET "vga_red<0>" LOC = P50 | IOSTANDARD = LVTTL;
 NET "vga_red<1>" LOC = P40 | IOSTANDARD = LVTTL;

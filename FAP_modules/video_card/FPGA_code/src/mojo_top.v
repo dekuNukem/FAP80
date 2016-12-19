@@ -46,6 +46,9 @@ module mojo_top(
 
 wire rst = ~rst_n;
 wire pclk;
+wire vblank;
+wire copy_in_progress;
+wire [7:0] copy_enable;
 
 clockdiv vga_clkdiv(
     .clk(clk),
@@ -57,21 +60,51 @@ clockdiv vga_clkdiv(
 assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
-assign front_vram_rd_low = 1'bz;
-assign back_vram_rd_low = 1'bz;
-assign front_vram_wr_low = 1'bz;
-assign back_vram_wr_low = 1'bz;
-assign front_vram_addr = 13'bzzzzzzzzzzzzz;
-assign back_vram_addr = 13'bzzzzzzzzzzzzz;
+// assign back_vram_wr_low = 1;
 
 vga640x480 my_vga(
+    .clk50(clk),
     .pclk(pclk),
     .clr(rst),
     .hsync(hsync),
     .vsync(vsync),
+
+    .vblank(vblank),
+    .front_vram_addr(front_vram_addr),
+    .front_vram_data(front_vram_data),
+    .front_vram_rd_low(front_vram_rd_low),
+
     .red(vga_red),
     .green(vga_green),
     .blue(vga_blue)
+    );
+
+buffer_copier my_buf(
+    .clk(pclk),
+    .vblank(vblank),
+    .copy_enable(copy_enable),
+    .front_vram_wr_low(front_vram_wr_low),
+    .back_vram_rd_low(back_vram_rd_low),
+    .copy_in_progress(copy_in_progress),
+    .front_vram_data(front_vram_data),
+    .back_vram_data(back_vram_data),
+    .front_vram_addr(front_vram_addr),
+    .back_vram_addr(back_vram_addr)
+    );
+
+cpu_vreg my_vreg(
+    .clk(clk),
+    .copy_in_progress(copy_in_progress),
+    .cpu_rd(cpu_rd),
+    .cpu_wr(cpu_wr),
+    .copy_enable(copy_enable),
+    .cpu_mreq(cpu_mreq),
+    .cpu_addr(cpu_addr),
+    .cpu_data(cpu_data),
+    .back_vram_wr_low(back_vram_wr_low),
+    .back_vram_rd_low(back_vram_rd_low),
+    .back_vram_addr(back_vram_addr),
+    .back_vram_data(back_vram_data)
     );
 
 endmodule
