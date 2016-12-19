@@ -1,8 +1,14 @@
-I'm still building this repo up, don't look at it yet...
+I'm still building this up, don't look at it yet...
+
 actually do what you want, not like I can stop you 
 
 ![Alt text](http://i.imgur.com/f08Pt1o.jpg)
 
-FAP80, A retro computer 
+#FAP80, A rethink of Z80 retro computer
 
 ![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
+
+5-slot active backplane with 2.2-inch information LCD and button controls
+
+STM32 onboard the backplane 
+
