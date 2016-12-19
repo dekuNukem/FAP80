@@ -93,7 +93,7 @@ void addr_output(void)
 	CPU_ADDR_PORT->OTYPER &= 0xffff0000;
 	// max speed
 	CPU_ADDR_PORT->OSPEEDR = 0xffffffff;
-	CPU_ADDR_PORT->ODR |= 0xffff;
+	// CPU_ADDR_PORT->ODR |= 0xffff;
 }
 
 void data_output(void)
@@ -104,7 +104,7 @@ void data_output(void)
 	CPU_DATA_PORT->OTYPER &= 0xffffff00;
 	// max speed
 	CPU_DATA_PORT->OSPEEDR |= 0xffff;
-	CPU_DATA_PORT->ODR |= 0xff;
+	// CPU_DATA_PORT->ODR |= 0xff;
 }
 
 void mem_ctrl_input(void)
@@ -227,7 +227,7 @@ void cmd_handler(char* cmd_buf)
   {
   	printf("zeroing...\n");
     for (int i = 0; i < 0x8000; i++)
-      write_eep(i, 0);
+      write_eep(i, 0xff);
     printf("zero complete\n");
   }
   if(strncmp(cmd_buf, "epm", 3) == 0)
