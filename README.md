@@ -1,12 +1,16 @@
-I'm still building this up, don't look at it yet...
 
 ![Alt text](http://i.imgur.com/f08Pt1o.jpg)
 
 ![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
 
+I'm still building this up, don't look at it yet...
+
+
 #FAP80, A Z80 retro computer for the future
 
-FAP80 is a Z80 retro computer with modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
+FAP80 is a Z80 retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
+
+I always wanted to design and make a computer myself
 
 ## Technical Highlights
 
@@ -37,7 +41,8 @@ FAP80 is a Z80 retro computer with modern twists to make the experience of desig
 * 64 colors
 * 640x480 VGA output
 * 80x30 codepage 437 text mode
-* 16KB double-buffered or 32KB single-buffered VRAM
+* 16KB double-buffered VRAM, no need to wait for VBLANK
+* can also be used as 32KB single-buffered VRAM
 * bitmap or sprite mode can be implemented in FAGA easily
 
 ### I/O Board
