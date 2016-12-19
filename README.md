@@ -10,8 +10,6 @@ I'm still building this up, don't look at it yet...
 
 FAP80 is a Z80 retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-I always wanted to design and make a computer myself
-
 ## Technical Highlights
 
 ### Active Backplane
@@ -25,7 +23,7 @@ I always wanted to design and make a computer myself
 * bus address and data display on LCD
 * breakpoints and traces
 * power and data over USB
-* pushbutton for reset, single clock, single step, run, etc.
+* pushbutton for Z80 reset, single step, run/stop, etc.
 
 ### CPU Board
 * All signals buffered and shifted to 3.3V
@@ -48,9 +46,10 @@ I always wanted to design and make a computer myself
 ### I/O Board
 * CPLD glue logic
 * STM32 IO/interrupt controller
+* all interrupt modes supported
+* 256 write ports, 16 read ports
 * 2 UARTs, one for ESP8266 one general purpose
 * I2C EEPROM
 * SD card
 * RTC
 * PS/2 Keyboard
-* all interrupt modes supported
