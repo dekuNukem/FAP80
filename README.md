@@ -93,6 +93,7 @@ I also intended this project as a study in embedded development as it involves a
 ### Planned
 
 * A new memory board with CPLD controller and 32MB flash memory for both ROM and RAM
+* A new VGA video card with onboard FPGA instead of using Mojo V3.
 
 ## Getting Started
 
