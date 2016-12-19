@@ -65,7 +65,7 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 
 ## Design philosophy
 
-As I said above I made the decision to use modern parts for simplicity and flexibility in the design. Take the active backplane for example, the entire bus is connected to a STM32 microcontroller, and it provides clock to Z80 via one of the PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces is easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
+As I said above I made the decision to use modern parts for simplicity and flexibility in the design. Take the active backplane for example, the entire bus is connected to a STM32 microcontroller, which drives Z80 clock via one of the PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces is easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
 
 Notice how a cheap modern part eliminates the need for separate reset circuitry, clock circuitry, debugger, and EEPROM programmer. And because the uC is programmable, it can be customized even after hardware design is done.
 
@@ -77,7 +77,8 @@ I also intended this project as a study in embedded development as it involves a
 ## Current Progress 
 
 ### Finished
-* Current hardware design.
+
+* Current hardware design
 * Firmware for all uC/FPGA/CPLD
 * Python script for program upload
 * Cross assembler setup
@@ -85,11 +86,18 @@ I also intended this project as a study in embedded development as it involves a
 * Basic print functionalities in C and assembly.
 
 ### In Progress
-* Write an IRC client for FAP80
+
 * Add more stuff to this repo
+* Write an IRC client for FAP80
 
 ### Planned
+
 * A new memory board with CPLD controller and 32MB flash memory for both ROM and RAM
 
+## Acknowledgements
+
+* This project is heavily inspired from [Quinn Dunki’s Veronica computer](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
+
+* FAP stands for FPGA Assisted Processor, inspired from Steve Ciarcia's 1981 book *Build Your Own Z80 Computer*, in which he called his computer ZAP, short for Z80 Application Processor.
 
 
