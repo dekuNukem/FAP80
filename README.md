@@ -3,7 +3,6 @@
 
 ![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
 
-I'm still building this up, don't look at it yet...
 
 
 #FAP80, A Z80 retro computer for the future
