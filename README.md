@@ -79,5 +79,18 @@ I also intended this project as a study in embedded development as it involves a
 
 ### Finished
 * Current hardware design.
+* Firmware for all uC/FPGA/CPLD
 * Python script for program upload
 * Cross assembler setup
+* SDCC setup
+* Basic print functionalities in C and assembly.
+
+### In Progress
+* Write an IRC client for FAP80
+* Add more stuff to this repo
+
+### Planned
+* A new memory board with CPLD controller and 32MB flash memory for both ROM and RAM
+
+
+
