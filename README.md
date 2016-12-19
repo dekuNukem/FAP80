@@ -10,16 +10,13 @@ actually do what you want, not like I can stop you
 
 FAP80 is a Z80 retro computer with modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-FAP80 uses an active backplane design with 5 slots, and a number of cards can be plugged into the backplane for it to function.
-
 ## Technical Highlights
 
 ### Active Backplane
-FAP80 has an active backplane managed by a STM32 microcontroller. Since it can take over the bus and write into EEPROM directly, there is no need to take off the EEPROM to burn programs, or have a EEPROM programmer at all.
 
+FAP80 has an active backplane managed by a STM32F072 microcontroller. The uC provides Z80's clock signal using one of its PWM channels, so it is configurable from single step all the way up to 8MHz.
 
+In addition to providing clock signal, the uC monitors the content of the bus and displays the current memory address and data value on a 2.2-inch color LCD. You can also set breakpoints or obtain a trace of the program execution.
 
-5-slot active backplane with 2.2-inch information LCD and button controls
-
-STM32 onboard the backplane 
+The uC can also take over the bus and write into the EEPROM and RAM directly, eliminating the need to take off the EEPROM to put in a dedicated programmer. The whole FAP80 is powered by a 
 
