@@ -29,6 +29,8 @@ Bus slot
 | GND | D5  |
 | GND | D6  |
 | GND | D7  |
+
+
 | GND | A0  |
 | GND | A1  |
 | GND | A2  |
