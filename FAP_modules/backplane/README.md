@@ -48,4 +48,6 @@ Bus slot
 | GND | A13 |
 | GND | A14 |
 | GND | A15 |
-| GND | 5V  |
+| 5V | 5V  |
+
+
