@@ -11,9 +11,9 @@ The entire bus is connected to the STM32, which drives the Z80 clock through one
 
 ## Usage
 
-When powered on, the backplane resets the Z80 then stops. Press RUN/STOP button to start FAP80 execution at full speed, press CLK STEP for single clock step, press INS STEP for single instruction step(which takes variable numbers of clock cycles depending on the instruction), press Z80 RESET to reset the Z80, TRACE button currently doesn't do anything, I'll implement trace function when I need it, and MCU RESET resets the backplane itself.
+When powered on, the backplane resets the Z80 then stops. Press RUN/STOP button to start FAP80 execution at full speed, press CLK STEP for single clock step, press INS STEP for single instruction step(which takes variable numbers of clock cycles depending on the instruction), press Z80 RESET to reset the Z80, and MCU RESET resets the backplane itself. TRACE button currently doesn't do anything, I'll implement trace function when I need it. 
 
-The backplane will appear as a USB serial device when plugged into a computer. send `epm` to enter program mode. Once entered, you can send `r address` to read a memory address, and `w address value` to write to a memory address. Send `qpm` to quit program mode. Note all numerical arguments are in decimal, and all commands ends in `\r\n`.
+The backplane will appear as a USB serial device when plugged into a computer. send `epm` to enter program mode. Once entered, you can send `r address` to read a memory address, `w address value` to write to a memory address, and `z` to erase entire ROM to 0xff. Send `qpm` to quit program mode. Note all numerical arguments are in decimal, and all commands ends in `\r\n`.
 
 ## Bus slot
 
