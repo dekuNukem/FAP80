@@ -9,7 +9,7 @@
 
 FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-A lot of retro computer projects today are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on breadboard or self-made circuit boards, rudimentary video capacity or no video at all, few I/O ports, and a symphony of assorted through hole 74 series chips. 
+A lot of retro computer projects today are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on perfboard or self-made circuit boards, rudimentary video capacity or no video at all, few I/O ports, and a symphony of assorted through hole 74 series chips. 
 
 Of course there is nothing wrong with that, but since I wasn’t around during the 80s home computer era, I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use with very little overheads.
 
