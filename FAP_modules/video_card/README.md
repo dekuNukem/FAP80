@@ -28,9 +28,9 @@ A simple memory mapped VRAM is implemented for the text mode. As 80x30 text mode
 
 Similarly, writing into any address from 0x8960 to 0x92bf sets the color of the corresponding character cell. The lower 6 bits goes into the DAC.
 
-Double buffering is used. There are 2 identical VRAMs, and CPU normally writes into the back VRAM. During VBLANK the back VRAM is copied to front VRAM to be displayed, after which back VRAM is available for writing again. This eliminates screen tearing and reduces overhead as instead of wasting 90% of the time waiting for VBLANK, the CPU only have to wait 1.1% of the time. 
+Double buffering is used. There are 2 identical VRAM chips, and CPU normally writes into the back VRAM. During VBLANK the back VRAM is copied to front VRAM to be displayed, after which back VRAM is available for writing again. This eliminates screen tearing and reduces overhead as instead of wasting 90% of the time waiting for VBLANK, the CPU only have to wait 1.1% of the time. 
 
-But 1.1% of the time still matters, as if you try to write during VRAM copying it will be ignored. To combat this I implemented a virtual register at 0x92c1, writing a 0 into it disable VRAM copying while writing 0xff enables it. It's recommenced to disable VRAM copying before writing into VRAM, and enable it afterwards, so no changes gets lost. 
+But 1.1% of the time still matters, as VRAM write during VRAM copying will be ignored. To combat this I implemented a virtual register at 0x92c1, writing a 0 into it disable VRAM copying while writing 0xff enables it. It's recommenced to disable VRAM copying before writing into VRAM, and enable it afterwards, so no changes gets lost. 
 
 ## Limitations
 
