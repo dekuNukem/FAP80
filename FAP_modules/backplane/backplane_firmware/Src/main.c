@@ -76,7 +76,7 @@ uint8_t curr_data = 0;
 uint16_t prev_addr = 69;
 uint8_t prev_data = 69;
 
-uint8_t button_5_count = 0;
+uint8_t is_running = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -147,9 +147,10 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-    if(button_5_count == 0)
+    if(is_running == 0)
       addr_data_display_update();
 
+    // z80 reset button
     if(is_button_1_pressed)
     {
       hsc_stop();
@@ -160,6 +161,7 @@ int main(void)
       build_ui();
     }
 
+    // clk step button
     if(is_button_3_pressed)
     {
       hsc_stop();
@@ -170,10 +172,12 @@ int main(void)
       build_ui();
     }
 
+    // ins step button
     if(is_button_4_pressed)
     {
       hsc_stop();
       lcd_print_width(130, 110, 180, 45, "GREEN", "INS STEP");
+      // cycle clock until we're at next M1 cycle
       while(HAL_GPIO_ReadPin(CPU_CTRL_PORT, M1_Pin) == LOW)
         cycle_clock(1);
       while(HAL_GPIO_ReadPin(CPU_CTRL_PORT, M1_Pin) == HIGH)
@@ -183,10 +187,11 @@ int main(void)
       build_ui();
     }
 
+    // run/stop button
     if(is_button_5_pressed)
     {
-      button_5_count = (button_5_count + 1)%2;
-      if(button_5_count)
+      is_running = (is_running + 1) % 2;
+      if(is_running)
       {
         lcd_print_width(130, 110, 180, 45, "GREEN", "RUNNING");
         hsc_start();
@@ -483,15 +488,18 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+// external interrupt ISR
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+  // simple debounce
   uint32_t now = HAL_GetTick();
   if(now - last_press < 333)
     return;
 
   last_press = now;
   if(GPIO_Pin == BUTTON_1_Pin)
-   is_button_1_pressed = 1;
+    is_button_1_pressed = 1;
   else if(GPIO_Pin == BUTTON_2_Pin)
     is_button_2_pressed = 1;
   else if(GPIO_Pin == BUTTON_3_Pin)

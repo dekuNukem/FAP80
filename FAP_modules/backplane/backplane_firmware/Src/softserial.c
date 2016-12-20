@@ -9,6 +9,7 @@ void softserial_init(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
   ss_pin = GPIO_Pin;
 }
 
+// 9600bps
 void softserial_sendchar(uint8_t c)
 {
   __disable_irq();

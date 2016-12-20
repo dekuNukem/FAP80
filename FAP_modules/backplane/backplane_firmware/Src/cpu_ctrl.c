@@ -18,6 +18,7 @@ void cpu_ctrl_init(TIM_HandleTypeDef *tim)
 	clk_timer = tim;
 }
 
+// start high speed Z80 clock
 void hsc_start(void)
 {
 	GPIO_InitTypeDef GPIO_InitStruct;
@@ -30,6 +31,7 @@ void hsc_start(void)
   HAL_TIM_PWM_Start(clk_timer, TIM_CHANNEL_1);
 }
 
+// stop high speed clock
 void hsc_stop(void)
 {
 	HAL_TIM_PWM_Stop(clk_timer, TIM_CHANNEL_1);
@@ -93,7 +95,6 @@ void addr_output(void)
 	CPU_ADDR_PORT->OTYPER &= 0xffff0000;
 	// max speed
 	CPU_ADDR_PORT->OSPEEDR = 0xffffffff;
-	// CPU_ADDR_PORT->ODR |= 0xffff;
 }
 
 void data_output(void)
@@ -104,7 +105,6 @@ void data_output(void)
 	CPU_DATA_PORT->OTYPER &= 0xffffff00;
 	// max speed
 	CPU_DATA_PORT->OSPEEDR |= 0xffff;
-	// CPU_DATA_PORT->ODR |= 0xff;
 }
 
 void mem_ctrl_input(void)

@@ -14,6 +14,7 @@ void hmi_lcd_init(UART_HandleTypeDef *huart)
 void lcd_say(char* buf)
 {
   HAL_UART_Transmit(lcd_uart, buf, strlen(buf), 250);
+  // all hmi lcd commands end in 3 bytes of 0xff
   HAL_UART_Transmit(lcd_uart, "\xff\xff\xff", 3, 250);
 }
 
