@@ -28,7 +28,7 @@ A simple memory mapped VRAM is implemented for the text mode. As 80x30 text mode
 
 Similarly, writing into any address from 0x8960 to 0x92bf sets the color of the corresponding character cell. The lower 6 bits goes into the DAC.
 
-Double buffering is used. There are 2 identical VRAM chips, and CPU normally writes into the back VRAM. During VBLANK the back VRAM is copied to front VRAM to be displayed, after which back VRAM is available for writing again. This eliminates screen tearing and reduces overhead as instead of wasting 90% of the time waiting for VBLANK, the CPU only have to wait 1.1% of the time. 
+Double buffering is used. There are 2 identical VRAM chips, and CPU normally writes into the back VRAM. During VBLANK the back VRAM is copied to front VRAM to be displayed, after which back VRAM is available for writing again. This eliminates screen tearing and reduces overhead as instead of waiting 90% of the time for VBLANK, the CPU only have to wait 1.1% of the time. 
 
 But 1.1% of the time still matters, as VRAM write during VRAM copying will be ignored. To combat this I implemented a virtual register at 0x92c1, writing a 0 into it disable VRAM copying while writing 0xff enables it. It's recommenced to disable VRAM copying before writing into VRAM, and enable it afterwards, so no changes gets lost. 
 
@@ -38,6 +38,6 @@ Make no mistake, the current design absolutely works and is plenty capable, but 
 
 It turned out although Mojo V3 broke out most of the Spartan-6 pins, it was still not enough. As a result I had to omit an address line on the VRAM, making it only 16KB/32KB instead of 32KB/64KB. I also had to omit a number of CPU control signals, so the FPGA runs on its internal 50MHz clock instead of CPU clock. Another oversight is FPGA memory space overlaps the RAM space, it won't be a problem for memory write as it writes into both VRAM and RAM, but for reads there would be a bus contention as FPGA and RAM would both try to drive the bus. So try making video registers write-only in the meantime.
 
-Oh and the VGA connector blocks the Mojo's USB connector, so you either have to program the FPGA unplugged, or use a some wires to break out the VGA signals. I was so excited to have the board made I didn't notice until it arrived, a pretty stupid oversight.
+Oh and the VGA connector blocks the Mojo's USB connector, so you either have to program the FPGA unplugged, or use a some wires to break out the VGA signals like the second picture. I was so excited to have the board made I didn't notice until it arrived, a pretty stupid oversight.
 
 I might design another video card that fixes all those problems by putting the Spartan-6 onboard instead of using Mojo, but it's going to be a while before I get to that.
