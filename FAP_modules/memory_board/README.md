@@ -6,11 +6,9 @@ The memory board of FAP80, to be plugged in the backplane.
 
 ## Overview
 
-This board has 32KB ROM from 0x0000 to 0x7fff and 32KB RAM from 0x8000 to 0xffff, a simple design.
+This board has AT28C256 32KB ROM from 0x0000 to 0x7fff, and HM62256 32KB RAM from 0x8000 to 0xffff, a simple design.
 
-AT28C256 32KB EEPROM, HM62256 32KB SRAM.
-
-ROM is write-protected during normal execution so if your program misbehaves it won't mess up the stored program.
+ROM is write-protected during normal execution so if your program misbehaves it won't mess up what's inside ROM.
 
 Data outputs are shifted to 3.3V and buffered. 
 
