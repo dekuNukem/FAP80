@@ -101,7 +101,7 @@ Coming soon...
 
 ## Acknowledgements
 
-* This project is heavily inspired by [Quinn Dunki’s Veronica computer](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
+* This project is heavily inspired by [Quinn Dunki’s Veronica](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
 
 * FAP stands for FPGA Assisted Processor, inspired by Steve Ciarcia's 1981 book *Build Your Own Z80 Computer*, in which he called his computer ZAP, short for Z80 Application Processor.
 
