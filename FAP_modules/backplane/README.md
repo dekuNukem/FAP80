@@ -12,7 +12,6 @@ Bus slot
 38x2 double row pin headers, with VCC and CPU signals on one row, and GND on the other. 
 
 | GND | M1     |
-|-----|--------|
 | GND | RD     |
 | GND | WR     |
 | GND | MREQ   |
@@ -27,3 +26,26 @@ Bus slot
 | GND | D2     |
 | GND | D3     |
 | GND | D4     |
+| GND | D5  |
+| GND | D6  |
+| GND | D7  |
+| GND | A0  |
+| GND | A1  |
+| GND | A2  |
+| GND | A3  |
+| GND | A4  |
+| GND | A5  |
+| GND | A6  |
+| GND | A7  |
+| 3V3 | 3V3 |
+| CLK | CLK |
+| 3V3 | 3V3 |
+| GND | A8  |
+| GND | A9  |
+| GND | A10 |
+| GND | A11 |
+| GND | A12 |
+| GND | A13 |
+| GND | A14 |
+| GND | A15 |
+| GND | 5V  |
