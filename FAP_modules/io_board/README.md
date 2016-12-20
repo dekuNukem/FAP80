@@ -14,7 +14,9 @@ STM32 talks to CPLD via a mini-bus with 8-bit data, 4-bit address, and a handful
 
 ## Mode 2 Interrupt
 
-The STM32 can trigger all 3 modes of Z80 interrupts, although only mode 2 is implemented right now, since it's the most flexible.
+The STM32 can trigger all 3 modes of Z80 interrupts, although only mode 2 is implemented right now, since mode 0 is seldom used, and mode 1 is too limited.
+
+Inside CPLD there is a transparent interrupt vector latch, when STM32 wants to initiate an interrupt it will first load the desired interrupt vector into the latch by putting the vector on the mini-bus and asserting VECT_LOAD signal. Then the STM32 can pull down the interrupt line, and INTACK signal will gate the interrupt vector on to the Z80 bus, after which the CPU jumps to the address.
 
 ## Port Writes
 
