@@ -29,8 +29,6 @@ Bus slot
 | GND | D5  |
 | GND | D6  |
 | GND | D7  |
-
-
 | GND | A0  |
 | GND | A1  |
 | GND | A2  |
@@ -43,13 +41,3 @@ Bus slot
 | CLK | CLK |
 | 3V3 | 3V3 |
 | GND | A8  |
-| GND | A9  |
-| GND | A10 |
-| GND | A11 |
-| GND | A12 |
-| GND | A13 |
-| GND | A14 |
-| GND | A15 |
-| 5V | 5V  |
-
-
