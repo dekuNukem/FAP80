@@ -1,9 +1,13 @@
+# FAP80 active backplane
+
 ![Alt text](http://i.imgur.com/8QYtGAD.jpg)
 
 ![Alt text](http://i.imgur.com/BP13ZbK.jpg)
 
 
-The backbone of FAP80, all the modules plug into it. The backplane has 5 slots, each 2cm apart, a STM32F072RBT6 controller, a 2.2 inch color serial LCD for displaying execution status, and 6 buttons for controlling the computer.
+The backbone of FAP80, all the modules plug into it. The backplane has 5 slots, each 2cm apart, a STM32F072RBT6, a 2.2 inch serial LCD for displaying execution status, and 6 buttons for controlling the computer.
+
+The entire bus is connected to the STM32, which drives the Z80 clock through one of its PWM channels, the uC also monitors the bus content and display it on a LCD. It can also kick the Z80 off the bus and read/write ROM/RAM directly. The backplane communicates with a PC via USB, which also powers the FAP80.
 
 ## Board size
 The board is 16x10cm, maximum allowable size for Eagle educational, which is free if you have a .edu email.
@@ -58,3 +62,6 @@ I used 2 rows to give more grip to modules that has been plugged in, as well as 
 
 I used an LCD from [Nextion](https://www.itead.cc/wiki/Nextion_HMI_Solution), they make a whole range of LCDs in different sizes, some with resistive touch screen. The neat thing is that they use standard serial for controlling the LCD, so it's much easier than I2C or SPI LCDs. And apparently it has a companion software on PC where you can design an entire UI and upload it into the LCD. For this project I didn't bother with any of that since it just displays some text strings. I used their smallest and cheapest one. The serial commands for it can be found [here](https://www.itead.cc/wiki/Nextion_Instruction_Set), the only two I used is CLS (clear screen) and XSTR(print string).
 
+## Usage
+
+When powered on, the backplane resets the Z80 then stops. Press RUN/STOP button to start FAP80 execution at full speed, press CLK STEP for single clock step, press INS STEP for single instruction step(which takes variable numbers of clock cycles depending on the instruction), press Z80 RESET to reset the Z80, TRACE button currently doesn't do anything, I'll implement trace function when I need it, and MCU RESET resets the backplane itself.
