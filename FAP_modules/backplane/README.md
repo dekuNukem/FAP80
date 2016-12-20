@@ -10,6 +10,8 @@ The board is 16x10cm, maximum allowable size for Eagle educational, which can be
 
 Bus slot
 38x2 double row pin headers, with VCC and CPU signals on one row, and GND on the other. 
+
+
 | GND | A9  |
 |-----|-----|
 | GND | A10 |
