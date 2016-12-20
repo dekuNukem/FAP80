@@ -22,8 +22,14 @@ NMI can be used to trigger VBLANK interrupt if you want.
 
 ## Memory mapped VRAM
 
+A simple memory mapped VRAM is implemented for the text mode. As 80x30 text mode has 2400 character cells, writing into any address from 0x8000 to 0x895f will display the corresponding code page 437 character on screen. 0x8000 is the top left corner, 0x8960 the bottom right corner.
+
+![Alt text](http://i.imgur.com/2tsq7oi.jpg)
+
+Similarly, writing into any address from 0x8960 to 0x92bf sets the attribute of the corresponding character cell. The lower 6 bits goes into the DAC 
+
 ## Limitations
 
 Make no mistake the current design absolutely works and is plenty capable, but there are still one or two thing I wish to improve upon on the next iteration.
 
-It turned out although Mojo V3 broke out most of the Spartan-6 pins, it was still not enough. As a result I had to omit an address line on the VRAM, making it only 16KB/32KB instead of 32KB/64KB. I also had to omit a number of CPU control signals, so the FPGA runs on its internal 50MHz clock instead of CPU clock. Another oversight is FPGA memory space overlaps the RAM space, it won't be a problem for memory write as it writes both into VRAM and RAM, but for reads there would be a bus contention as FPGA and RAM would both try to drive the bus. So don't do that in the meantime.
+It turned out although Mojo V3 broke out most of the Spartan-6 pins, it was still not enough. As a result I had to omit an address line on the VRAM, making it only 16KB/32KB instead of 32KB/64KB. I also had to omit a number of CPU control signals, so the FPGA runs on its internal 50MHz clock instead of CPU clock. Another oversight is FPGA memory space overlaps the RAM space, it won't be a problem for memory write as it writes both into VRAM and RAM, but for reads there would be a bus contention as FPGA and RAM would both try to drive the bus. So try making video registers write-only in the meantime.
