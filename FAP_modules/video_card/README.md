@@ -1,3 +1,9 @@
-PCB and firmware source files for FAP80's VGA video card. More info coming soon...
+FAP80 VGA Video Card
 
-This repo is still under construction, more information will be added as I continue to add to the documentations and clean up the codebase. 
+![Alt text](http://i.imgur.com/RHG6iHQ.jpg)
+![Alt text](http://i.imgur.com/f2OT7do.jpg)
+
+The VGA Video Card of FAP80, to be plugged in the backplane.
+
+## Overview
+
