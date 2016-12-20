@@ -13,7 +13,6 @@ void hmi_lcd_init(UART_HandleTypeDef *huart)
 
 void lcd_say(char* buf)
 {
-	// printf("%s\n", buf);
   HAL_UART_Transmit(lcd_uart, buf, strlen(buf), 250);
   HAL_UART_Transmit(lcd_uart, "\xff\xff\xff", 3, 250);
 }
