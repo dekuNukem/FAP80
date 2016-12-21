@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="20" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -159,10 +159,10 @@
 <text x="26.924" y="6.096" size="1.27" layer="25">CLK</text>
 <text x="22.606" y="6.096" size="1.27" layer="25">A8</text>
 <text x="4.064" y="6.096" size="1.27" layer="25">A15</text>
-<text x="73.533" y="6.858" size="1.27" layer="25" rot="R270">I</text>
-<text x="76.073" y="7.366" size="1.27" layer="25" rot="R270">N</text>
+<text x="74.803" y="6.223" size="1.27" layer="25" rot="R90">INT</text>
+<text x="77.343" y="6.223" size="1.27" layer="25" rot="R90">NMI</text>
 <text x="79.883" y="6.35" size="1.27" layer="25" rot="R90">RESET</text>
-<text x="82.423" y="6.35" size="1.27" layer="25" rot="R90">BUSREQ</text>
+<text x="83.185" y="8.89" size="0.8128" layer="25" rot="R180">BREQ</text>
 <text x="84.963" y="6.35" size="1.27" layer="25" rot="R90">BUSACK</text>
 <text x="87.503" y="6.35" size="1.27" layer="25" rot="R90">IORQ</text>
 <text x="90.043" y="6.35" size="1.27" layer="25" rot="R90">MREQ</text>
@@ -174,6 +174,7 @@
 <text x="7" y="53" size="1.778" layer="25">FAP80 CPU Board REV2
 dekuNukem 2016</text>
 <text x="46.6344" y="53.721" size="1.27" layer="25">POWER</text>
+<text x="83.185" y="7.239" size="0.8128" layer="25" rot="R180">WAIT</text>
 </plain>
 <libraries>
 <library name="zilog">
@@ -505,85 +506,6 @@ Based on the following sources:
 <wire x1="10.16" y1="3.175" x2="10.16" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="12.7" y1="3.175" x2="12.7" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="15.24" y1="3.175" x2="15.24" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="17.78" y1="3.175" x2="17.78" y2="-0.635" width="0.1524" layer="21"/>
-<pad name="+5V@2" x="-29.21" y="0" drill="1.016" shape="octagon"/>
-<pad name="+5V@1" x="-29.21" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@2" x="-26.67" y="0" drill="1.016" shape="octagon"/>
-<pad name="A15" x="-26.67" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@3" x="-24.13" y="0" drill="1.016" shape="octagon"/>
-<pad name="A14" x="-24.13" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@4" x="-21.59" y="0" drill="1.016" shape="octagon"/>
-<pad name="A13" x="-21.59" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@5" x="-19.05" y="0" drill="1.016" shape="octagon"/>
-<pad name="A12" x="-19.05" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@6" x="-16.51" y="0" drill="1.016" shape="octagon"/>
-<pad name="A11" x="-16.51" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@7" x="-13.97" y="0" drill="1.016" shape="octagon"/>
-<pad name="A10" x="-13.97" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@8" x="-11.43" y="0" drill="1.016" shape="octagon"/>
-<pad name="A9" x="-11.43" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@9" x="-8.89" y="0" drill="1.016" shape="octagon"/>
-<pad name="A8" x="-8.89" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="3V3@1" x="-6.35" y="0" drill="1.016" shape="octagon"/>
-<pad name="3V3@2" x="-6.35" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="CLK@2" x="-3.81" y="0" drill="1.016" shape="octagon"/>
-<pad name="CLK" x="-3.81" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="3V3@3" x="-1.27" y="0" drill="1.016" shape="octagon"/>
-<pad name="3V3@4" x="-1.27" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@13" x="1.27" y="0" drill="1.016" shape="octagon"/>
-<pad name="A7" x="1.27" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@14" x="3.81" y="0" drill="1.016" shape="octagon"/>
-<pad name="A6" x="3.81" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@15" x="6.35" y="0" drill="1.016" shape="octagon"/>
-<pad name="A5" x="6.35" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@16" x="8.89" y="0" drill="1.016" shape="octagon"/>
-<pad name="A4" x="8.89" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@17" x="11.43" y="0" drill="1.016" shape="octagon"/>
-<pad name="A3" x="11.43" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@18" x="13.97" y="0" drill="1.016" shape="octagon"/>
-<pad name="A2" x="13.97" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@19" x="16.51" y="0" drill="1.016" shape="octagon"/>
-<pad name="A1" x="16.51" y="2.54" drill="1.016" shape="octagon"/>
-<text x="-30.48" y="4.445" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-30.48" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-29.464" y1="-0.254" x2="-28.956" y2="0.254" layer="51"/>
-<rectangle x1="-29.464" y1="2.286" x2="-28.956" y2="2.794" layer="51"/>
-<rectangle x1="-26.924" y1="2.286" x2="-26.416" y2="2.794" layer="51"/>
-<rectangle x1="-26.924" y1="-0.254" x2="-26.416" y2="0.254" layer="51"/>
-<rectangle x1="-24.384" y1="2.286" x2="-23.876" y2="2.794" layer="51"/>
-<rectangle x1="-24.384" y1="-0.254" x2="-23.876" y2="0.254" layer="51"/>
-<rectangle x1="-21.844" y1="2.286" x2="-21.336" y2="2.794" layer="51"/>
-<rectangle x1="-19.304" y1="2.286" x2="-18.796" y2="2.794" layer="51"/>
-<rectangle x1="-16.764" y1="2.286" x2="-16.256" y2="2.794" layer="51"/>
-<rectangle x1="-21.844" y1="-0.254" x2="-21.336" y2="0.254" layer="51"/>
-<rectangle x1="-19.304" y1="-0.254" x2="-18.796" y2="0.254" layer="51"/>
-<rectangle x1="-16.764" y1="-0.254" x2="-16.256" y2="0.254" layer="51"/>
-<rectangle x1="-14.224" y1="2.286" x2="-13.716" y2="2.794" layer="51"/>
-<rectangle x1="-14.224" y1="-0.254" x2="-13.716" y2="0.254" layer="51"/>
-<rectangle x1="-11.684" y1="2.286" x2="-11.176" y2="2.794" layer="51"/>
-<rectangle x1="-11.684" y1="-0.254" x2="-11.176" y2="0.254" layer="51"/>
-<rectangle x1="-9.144" y1="2.286" x2="-8.636" y2="2.794" layer="51"/>
-<rectangle x1="-9.144" y1="-0.254" x2="-8.636" y2="0.254" layer="51"/>
-<rectangle x1="-6.604" y1="2.286" x2="-6.096" y2="2.794" layer="51"/>
-<rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
-<rectangle x1="-4.064" y1="2.286" x2="-3.556" y2="2.794" layer="51"/>
-<rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
-<rectangle x1="-1.524" y1="2.286" x2="-1.016" y2="2.794" layer="51"/>
-<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
-<rectangle x1="1.016" y1="2.286" x2="1.524" y2="2.794" layer="51"/>
-<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
-<rectangle x1="3.556" y1="2.286" x2="4.064" y2="2.794" layer="51"/>
-<rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
-<rectangle x1="6.096" y1="2.286" x2="6.604" y2="2.794" layer="51"/>
-<rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
-<rectangle x1="8.636" y1="2.286" x2="9.144" y2="2.794" layer="51"/>
-<rectangle x1="8.636" y1="-0.254" x2="9.144" y2="0.254" layer="51"/>
-<rectangle x1="11.176" y1="2.286" x2="11.684" y2="2.794" layer="51"/>
-<rectangle x1="11.176" y1="-0.254" x2="11.684" y2="0.254" layer="51"/>
-<rectangle x1="13.716" y1="2.286" x2="14.224" y2="2.794" layer="51"/>
-<rectangle x1="13.716" y1="-0.254" x2="14.224" y2="0.254" layer="51"/>
-<rectangle x1="16.256" y1="2.286" x2="16.764" y2="2.794" layer="51"/>
-<rectangle x1="16.256" y1="-0.254" x2="16.764" y2="0.254" layer="51"/>
 <wire x1="17.78" y1="-0.635" x2="18.415" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="18.415" y1="-1.27" x2="19.685" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="19.685" y1="-1.27" x2="20.32" y2="-0.635" width="0.1524" layer="21"/>
@@ -718,44 +640,44 @@ Based on the following sources:
 <wire x1="60.96" y1="3.175" x2="60.96" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="63.5" y1="3.175" x2="63.5" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="66.04" y1="3.175" x2="66.04" y2="-0.635" width="0.1524" layer="21"/>
-<pad name="GND@20" x="19.05" y="0" drill="1.016" shape="octagon"/>
-<pad name="A0" x="19.05" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@21" x="21.59" y="0" drill="1.016" shape="octagon"/>
-<pad name="D7" x="21.59" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@22" x="24.13" y="0" drill="1.016" shape="octagon"/>
-<pad name="D6" x="24.13" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@23" x="26.67" y="0" drill="1.016" shape="octagon"/>
-<pad name="D5" x="26.67" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@24" x="29.21" y="0" drill="1.016" shape="octagon"/>
-<pad name="D4" x="29.21" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@25" x="31.75" y="0" drill="1.016" shape="octagon"/>
-<pad name="D3" x="31.75" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@26" x="34.29" y="0" drill="1.016" shape="octagon"/>
-<pad name="D2" x="34.29" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@27" x="36.83" y="0" drill="1.016" shape="octagon"/>
-<pad name="D1" x="36.83" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@28" x="39.37" y="0" drill="1.016" shape="octagon"/>
-<pad name="D0" x="39.37" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@29" x="41.91" y="0" drill="1.016" shape="octagon"/>
-<pad name="INT" x="41.91" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@30" x="44.45" y="0" drill="1.016" shape="octagon"/>
-<pad name="NMI" x="44.45" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@31" x="46.99" y="0" drill="1.016" shape="octagon"/>
-<pad name="RESET" x="46.99" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@32" x="49.53" y="0" drill="1.016" shape="octagon"/>
-<pad name="BUSREQ" x="49.53" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@33" x="52.07" y="0" drill="1.016" shape="octagon"/>
-<pad name="BUSACK" x="52.07" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@34" x="54.61" y="0" drill="1.016" shape="octagon"/>
-<pad name="IORQ" x="54.61" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@35" x="57.15" y="0" drill="1.016" shape="octagon"/>
-<pad name="MREQ" x="57.15" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@36" x="59.69" y="0" drill="1.016" shape="octagon"/>
-<pad name="WR" x="59.69" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@37" x="62.23" y="0" drill="1.016" shape="octagon"/>
-<pad name="RD" x="62.23" y="2.54" drill="1.016" shape="octagon"/>
-<pad name="GND@38" x="64.77" y="0" drill="1.016" shape="octagon"/>
-<pad name="M1" x="64.77" y="2.54" drill="1.016" shape="octagon"/>
+<rectangle x1="-29.464" y1="-0.254" x2="-28.956" y2="0.254" layer="51"/>
+<rectangle x1="-29.464" y1="2.286" x2="-28.956" y2="2.794" layer="51"/>
+<rectangle x1="-26.924" y1="2.286" x2="-26.416" y2="2.794" layer="51"/>
+<rectangle x1="-26.924" y1="-0.254" x2="-26.416" y2="0.254" layer="51"/>
+<rectangle x1="-24.384" y1="2.286" x2="-23.876" y2="2.794" layer="51"/>
+<rectangle x1="-24.384" y1="-0.254" x2="-23.876" y2="0.254" layer="51"/>
+<rectangle x1="-21.844" y1="2.286" x2="-21.336" y2="2.794" layer="51"/>
+<rectangle x1="-19.304" y1="2.286" x2="-18.796" y2="2.794" layer="51"/>
+<rectangle x1="-16.764" y1="2.286" x2="-16.256" y2="2.794" layer="51"/>
+<rectangle x1="-21.844" y1="-0.254" x2="-21.336" y2="0.254" layer="51"/>
+<rectangle x1="-19.304" y1="-0.254" x2="-18.796" y2="0.254" layer="51"/>
+<rectangle x1="-16.764" y1="-0.254" x2="-16.256" y2="0.254" layer="51"/>
+<rectangle x1="-14.224" y1="2.286" x2="-13.716" y2="2.794" layer="51"/>
+<rectangle x1="-14.224" y1="-0.254" x2="-13.716" y2="0.254" layer="51"/>
+<rectangle x1="-11.684" y1="2.286" x2="-11.176" y2="2.794" layer="51"/>
+<rectangle x1="-11.684" y1="-0.254" x2="-11.176" y2="0.254" layer="51"/>
+<rectangle x1="-9.144" y1="2.286" x2="-8.636" y2="2.794" layer="51"/>
+<rectangle x1="-9.144" y1="-0.254" x2="-8.636" y2="0.254" layer="51"/>
+<rectangle x1="-6.604" y1="2.286" x2="-6.096" y2="2.794" layer="51"/>
+<rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
+<rectangle x1="-4.064" y1="2.286" x2="-3.556" y2="2.794" layer="51"/>
+<rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
+<rectangle x1="-1.524" y1="2.286" x2="-1.016" y2="2.794" layer="51"/>
+<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
+<rectangle x1="1.016" y1="2.286" x2="1.524" y2="2.794" layer="51"/>
+<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
+<rectangle x1="3.556" y1="2.286" x2="4.064" y2="2.794" layer="51"/>
+<rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
+<rectangle x1="6.096" y1="2.286" x2="6.604" y2="2.794" layer="51"/>
+<rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
+<rectangle x1="8.636" y1="2.286" x2="9.144" y2="2.794" layer="51"/>
+<rectangle x1="8.636" y1="-0.254" x2="9.144" y2="0.254" layer="51"/>
+<rectangle x1="11.176" y1="2.286" x2="11.684" y2="2.794" layer="51"/>
+<rectangle x1="11.176" y1="-0.254" x2="11.684" y2="0.254" layer="51"/>
+<rectangle x1="13.716" y1="2.286" x2="14.224" y2="2.794" layer="51"/>
+<rectangle x1="13.716" y1="-0.254" x2="14.224" y2="0.254" layer="51"/>
+<rectangle x1="16.256" y1="2.286" x2="16.764" y2="2.794" layer="51"/>
+<rectangle x1="16.256" y1="-0.254" x2="16.764" y2="0.254" layer="51"/>
 <rectangle x1="18.796" y1="-0.254" x2="19.304" y2="0.254" layer="51"/>
 <rectangle x1="18.796" y1="2.286" x2="19.304" y2="2.794" layer="51"/>
 <rectangle x1="21.336" y1="2.286" x2="21.844" y2="2.794" layer="51"/>
@@ -794,6 +716,84 @@ Based on the following sources:
 <rectangle x1="61.976" y1="-0.254" x2="62.484" y2="0.254" layer="51"/>
 <rectangle x1="64.516" y1="2.286" x2="65.024" y2="2.794" layer="51"/>
 <rectangle x1="64.516" y1="-0.254" x2="65.024" y2="0.254" layer="51"/>
+<pad name="+5V@1" x="-29.21" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="+5V@2" x="-29.21" y="0" drill="1.016" shape="octagon"/>
+<pad name="3V3@1" x="-6.35" y="0" drill="1.016" shape="octagon"/>
+<pad name="3V3@2" x="-6.35" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="3V3@3" x="-1.27" y="0" drill="1.016" shape="octagon"/>
+<pad name="3V3@4" x="-1.27" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A0" x="19.05" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A1" x="16.51" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A2" x="13.97" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A3" x="11.43" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A4" x="8.89" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A5" x="6.35" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A6" x="3.81" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A7" x="1.27" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A8" x="-8.89" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A9" x="-11.43" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A10" x="-13.97" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A11" x="-16.51" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A12" x="-19.05" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A13" x="-21.59" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A14" x="-24.13" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="A15" x="-26.67" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="BUSACK" x="52.07" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="BUSREQ" x="49.53" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="CLK" x="-3.81" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="CLK@2" x="-3.81" y="0" drill="1.016" shape="octagon"/>
+<pad name="D0" x="39.37" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D1" x="36.83" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D2" x="34.29" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D3" x="31.75" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D4" x="29.21" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D5" x="26.67" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D6" x="24.13" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="D7" x="21.59" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="GND@2" x="-26.67" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@3" x="-24.13" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@4" x="-21.59" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@5" x="-19.05" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@6" x="-16.51" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@7" x="-13.97" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@8" x="-11.43" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@9" x="-8.89" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@13" x="1.27" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@14" x="3.81" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@15" x="6.35" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@16" x="8.89" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@17" x="11.43" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@18" x="13.97" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@19" x="16.51" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@20" x="19.05" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@21" x="21.59" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@22" x="24.13" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@23" x="26.67" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@24" x="29.21" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@25" x="31.75" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@26" x="34.29" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@27" x="36.83" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@28" x="39.37" y="0" drill="1.016" shape="octagon"/>
+<pad name="INTI" x="41.91" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@30" x="44.45" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@31" x="46.99" y="0" drill="1.016" shape="octagon"/>
+<pad name="WAIT" x="49.53" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@33" x="52.07" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@34" x="54.61" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@35" x="57.15" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@36" x="59.69" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@37" x="62.23" y="0" drill="1.016" shape="octagon"/>
+<pad name="GND@38" x="64.77" y="0" drill="1.016" shape="octagon"/>
+<pad name="INTO" x="41.91" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="IORQ" x="54.61" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="M1" x="64.77" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="MREQ" x="57.15" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="NMI" x="44.45" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="RD" x="62.23" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="RESET" x="46.99" y="2.54" drill="1.016" shape="octagon"/>
+<pad name="WR" x="59.69" y="2.54" drill="1.016" shape="octagon"/>
+<text x="-30.48" y="4.445" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-30.48" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 </library>
@@ -1122,7 +1122,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="21.3868" y="20.447" size="1.27" layer="26" ratio="10" rot="MR270"/>
 </element>
 <element name="R3" library="SparkFun-Resistors" package="0805" value="" x="71.0692" y="10.5664" smashed="yes" rot="R180">
-<attribute name="NAME" x="73.1774" y="9.1313" size="0.8128" layer="25" rot="R180"/>
+<attribute name="NAME" x="72.0344" y="12.5603" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="72.0852" y="11.9634" size="0.4064" layer="27" rot="R180"/>
 </element>
 <element name="R4" library="SparkFun-Resistors" package="0805" value="" x="65.8114" y="30.988" smashed="yes" rot="MR270">
@@ -1211,6 +1211,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="58.1914" y="57.4675" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="R1" library="SparkFun-Resistors" package="0805" value="" x="33.9598" y="15.875" rot="MR90"/>
+<element name="R2" library="SparkFun-Resistors" package="0805" value="" x="67.056" y="54.864" rot="R90"/>
 </elements>
 <signals>
 <signal name="+3V3">
@@ -1235,7 +1236,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="R4" pad="2"/>
 <contactref element="R5" pad="2"/>
 <contactref element="R6" pad="2"/>
-<contactref element="IC1" pad="24"/>
 <contactref element="IC3" pad="20"/>
 <via x="65.8114" y="28.1686" extent="1-16" drill="0.508"/>
 <wire x1="65.8114" y1="28.1686" x2="65.8114" y2="30.088" width="0.6096" layer="16"/>
@@ -1256,6 +1256,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <via x="32.3723" y="16.7767" extent="1-16" drill="0.508"/>
 <wire x1="32.3723" y1="16.7767" x2="33.9581" y2="16.7767" width="0.4064" layer="16"/>
 <wire x1="33.9581" y1="16.7767" x2="33.9598" y2="16.775" width="0.4064" layer="16"/>
+<contactref element="R2" pad="2"/>
 </signal>
 <signal name="+5V">
 <contactref element="U$1" pad="+5V@1"/>
@@ -1452,10 +1453,10 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="82.6516" y1="46.7868" x2="82.6516" y2="45.7708" width="0.4064" layer="1"/>
 <wire x1="82.6516" y1="45.7708" x2="81.2546" y2="44.3738" width="0.4064" layer="1"/>
 <via x="81.2546" y="44.3738" extent="1-16" drill="0.508"/>
-<via x="81.2546" y="19.2532" extent="1-16" drill="0.508"/>
-<wire x1="81.2546" y1="19.2532" x2="81.2546" y2="15.4178" width="0.4064" layer="1"/>
+<via x="81.2546" y="22.86" extent="1-16" drill="0.508"/>
+<wire x1="81.2546" y1="22.86" x2="81.2546" y2="15.4178" width="0.4064" layer="1"/>
 <wire x1="81.2546" y1="15.4178" x2="84.328" y2="12.3444" width="0.4064" layer="1"/>
-<wire x1="81.2546" y1="44.3738" x2="81.2546" y2="19.2532" width="0.4064" layer="16"/>
+<wire x1="81.2546" y1="44.3738" x2="81.2546" y2="22.86" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$26">
 <contactref element="U$1" pad="CLK"/>
@@ -1514,15 +1515,19 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <signal name="N$35">
 <contactref element="IC1" pad="16"/>
 <contactref element="R3" pad="1"/>
-<contactref element="U$1" pad="INT"/>
+<contactref element="U$1" pad="INTI"/>
 <wire x1="64.516" y1="34.671" x2="64.516" y2="27.5844" width="0.4064" layer="1"/>
 <wire x1="64.516" y1="27.5844" x2="65.8622" y2="26.2382" width="0.4064" layer="1"/>
 <wire x1="65.8622" y1="26.2382" x2="65.8622" y2="19.1262" width="0.4064" layer="1"/>
 <wire x1="65.8622" y1="19.1262" x2="74.168" y2="10.8204" width="0.4064" layer="1"/>
 <wire x1="74.168" y1="10.8204" x2="74.168" y2="10.6172" width="0.4064" layer="1"/>
-<wire x1="74.168" y1="10.6172" x2="74.168" y2="4.572" width="0.4064" layer="1"/>
-<wire x1="71.9692" y1="10.5664" x2="74.1172" y2="10.5664" width="0.4064" layer="1"/>
+<wire x1="71.9692" y1="10.5664" x2="74.041" y2="10.5664" width="0.4064" layer="1"/>
+<wire x1="74.041" y1="10.5664" x2="74.1172" y2="10.5664" width="0.4064" layer="1"/>
 <wire x1="74.1172" y1="10.5664" x2="74.168" y2="10.6172" width="0.4064" layer="1"/>
+<contactref element="U$1" pad="INTO"/>
+<wire x1="74.168" y1="4.572" x2="74.168" y2="10.4394" width="0.4064" layer="1"/>
+<wire x1="74.168" y1="10.4394" x2="74.041" y2="10.5664" width="0.4064" layer="1"/>
+<wire x1="74.168" y1="4.572" x2="74.168" y2="2.032" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$39">
 <contactref element="IC1" pad="20"/>
@@ -1903,7 +1908,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="U$1" pad="GND@4"/>
 <contactref element="U$1" pad="GND@21"/>
 <contactref element="U$1" pad="GND@7"/>
-<contactref element="U$1" pad="GND@29"/>
 <contactref element="U$1" pad="GND@23"/>
 <contactref element="U$1" pad="GND@30"/>
 <contactref element="U$1" pad="GND@26"/>
@@ -1917,7 +1921,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="U$1" pad="GND@6"/>
 <contactref element="U$1" pad="GND@15"/>
 <contactref element="U$1" pad="GND@25"/>
-<contactref element="U$1" pad="GND@32"/>
 <contactref element="U$1" pad="GND@18"/>
 <contactref element="U$1" pad="GND@28"/>
 <contactref element="U$1" pad="GND@35"/>
@@ -2030,6 +2033,22 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="82.1436" y1="49.5808" x2="68.3006" y2="35.7378" width="0.4064" layer="16"/>
 <wire x1="82.169" y1="49.5808" x2="83.9216" y2="51.3334" width="0.4064" layer="1"/>
 <wire x1="83.9216" y1="51.3334" x2="83.9216" y2="52.9336" width="0.4064" layer="1"/>
+</signal>
+<signal name="N$32">
+<contactref element="U$1" pad="WAIT"/>
+<contactref element="IC1" pad="24"/>
+<contactref element="R2" pad="1"/>
+<wire x1="67.056" y1="53.964" x2="67.056" y2="49.911" width="0.4064" layer="1"/>
+<wire x1="67.056" y1="49.911" x2="67.056" y2="48.641" width="0.4064" layer="1"/>
+<wire x1="67.056" y1="48.641" x2="76.073" y2="39.624" width="0.4064" layer="1"/>
+<via x="76.073" y="39.624" extent="1-16" drill="0.5"/>
+<wire x1="76.073" y1="39.624" x2="78.613" y2="37.084" width="0.4064" layer="16"/>
+<wire x1="78.613" y1="37.084" x2="78.613" y2="22.987" width="0.4064" layer="16"/>
+<via x="78.613" y="22.987" extent="1-16" drill="0.5"/>
+<wire x1="78.613" y1="22.987" x2="78.613" y2="16.637" width="0.4064" layer="1"/>
+<wire x1="78.613" y1="16.637" x2="83.058" y2="12.192" width="0.4064" layer="1"/>
+<wire x1="83.058" y1="12.192" x2="83.058" y2="3.302" width="0.4064" layer="1"/>
+<wire x1="83.058" y1="3.302" x2="81.788" y2="2.032" width="0.4064" layer="1"/>
 </signal>
 </signals>
 </board>

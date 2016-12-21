@@ -151,7 +151,7 @@
 <wire x1="100" y1="60" x2="0" y2="60" width="0" layer="20"/>
 <wire x1="0" y1="60" x2="0" y2="0" width="0" layer="20"/>
 <text x="20.955" y="48.4632" size="1.778" layer="25">HM62256</text>
-<text x="57.1928" y="53.381" size="1.778" layer="25">FAP80 32K Memory Board REV2
+<text x="57.1928" y="53.381" size="1.778" layer="25">FAP80 32K Memory Board REV1
 dekuNukem 2016</text>
 <text x="1.8542" y="49.784" size="1.016" layer="25">  RAM
 ACCESS</text>
@@ -1128,7 +1128,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="55.3974" y="11.7094" size="1.27" layer="25" ratio="10" rot="R90"/>
 </element>
 <element name="C1" library="adafruit" package="C1210" value="100uF" x="3.0734" y="10.795" smashed="yes" rot="R90">
-<attribute name="NAME" x="6.5024" y="9.906" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="1.4224" y="9.398" size="1.27" layer="25" rot="R90"/>
 </element>
 <element name="C2" library="SparkFun-Capacitors" package="0805" value="10nF" x="15.4686" y="37.0332" smashed="yes" rot="R180">
 <attribute name="PROD_ID" value="CAP-08402" x="18.415" y="33.7566" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1897,7 +1897,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <signal name="N$33">
 <contactref element="U$2" pad="INTO"/>
 <contactref element="U$2" pad="INTI"/>
-<wire x1="74.168" y1="4.572" x2="74.168" y2="2.032" width="0.4064" layer="1"/>
+<wire x1="74.168" y1="2.032" x2="74.168" y2="4.572" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
