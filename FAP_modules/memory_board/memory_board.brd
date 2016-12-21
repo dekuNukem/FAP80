@@ -159,6 +159,8 @@ ACCESS</text>
 <text x="68.4784" y="49.784" size="1.016" layer="25">RAM_WR</text>
 <text x="77.1906" y="49.784" size="1.016" layer="25">ROM_WR</text>
 <text x="82.804" y="28.9814" size="1.016" layer="25">MEM_RD</text>
+<text x="78.7146" y="36.322" size="1.016" layer="25">32K ROM 0x0000 - 0x7FFF
+16K RAM 0xC000 - 0xFFFF</text>
 </plain>
 <libraries>
 <library name="74xx-us">
