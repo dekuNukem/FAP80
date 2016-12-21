@@ -156,7 +156,7 @@
 <circle x="92.71" y="68.58" radius="2.032" width="0" layer="41"/>
 <circle x="8.0772" y="46.8884" radius="2.794" width="0" layer="41"/>
 <circle x="8.0772" y="71.882" radius="3.048" width="0" layer="41"/>
-<text x="1.7272" y="29.7434" size="1.6764" layer="25" distance="70">FAP80 VGA
+<text x="0.8636" y="28.9052" size="1.6764" layer="25" distance="70">FAP80 VGA
 Video Card REV2
 dekuNukem 2016</text>
 <text x="7.6962" y="26.67" size="1.016" layer="25">Power</text>

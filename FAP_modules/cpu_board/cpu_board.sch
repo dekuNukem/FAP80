@@ -5909,6 +5909,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="R1" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7K"/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="R2" library="SparkFun-Resistors" deviceset="RESISTOR" device="0805-RES" value="4.7K"/>
+<part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V20" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V21" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6001,6 +6004,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="R1" gate="G$1" x="50.8" y="-20.32" rot="R90"/>
 <instance part="+3V10" gate="G$1" x="7.62" y="83.82" rot="MR0"/>
 <instance part="R2" gate="G$1" x="7.62" y="76.2" rot="R90"/>
+<instance part="+3V15" gate="G$1" x="-195.58" y="177.8"/>
+<instance part="+3V20" gate="G$1" x="-195.58" y="154.94"/>
+<instance part="+3V21" gate="G$1" x="-195.58" y="127"/>
 </instances>
 <busses>
 </busses>
@@ -6265,6 +6271,18 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <segment>
 <pinref part="+3V10" gate="G$1" pin="+3V3"/>
 <pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="A" pin="I"/>
+<pinref part="+3V15" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="C" pin="I"/>
+<pinref part="+3V20" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="IC4" gate="F" pin="I"/>
+<pinref part="+3V21" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="+5V" class="0">

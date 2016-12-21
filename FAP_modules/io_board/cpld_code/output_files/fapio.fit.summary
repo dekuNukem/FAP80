@@ -1,4 +1,4 @@
-Fitter Status : Successful - Mon Dec 12 17:26:23 2016
+Fitter Status : Successful - Wed Dec 21 17:15:37 2016
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : fapio
 Top-level Entity Name : fapio
@@ -6,6 +6,6 @@ Family : MAX II
 Device : EPM570T100C5
 Timing Models : Final
 Total logic elements : 304 / 570 ( 53 % )
-Total pins : 60 / 76 ( 79 % )
+Total pins : 64 / 76 ( 84 % )
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

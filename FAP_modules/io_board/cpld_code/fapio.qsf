@@ -76,7 +76,6 @@ set_location_assignment PIN_85 -to CPU_DATA[3]
 set_location_assignment PIN_86 -to CPU_DATA[2]
 set_location_assignment PIN_87 -to CPU_DATA[1]
 set_location_assignment PIN_1 -to CPU_DATA[0]
-set_location_assignment PIN_89 -to CPU_INT
 set_location_assignment PIN_91 -to CPU_RESET
 set_location_assignment PIN_95 -to CPU_BUSACK
 set_location_assignment PIN_96 -to CPU_IORQ
@@ -124,4 +123,8 @@ set_location_assignment PIN_50 -to IORD_LED
 set_location_assignment PIN_68 -to INTACK_LED
 set_location_assignment PIN_70 -to INT_LED
 set_global_assignment -name CDF_FILE Chain1.cdf
-set_location_assignment PIN_16 -to DEBUG_LED
+set_location_assignment PIN_89 -to CPU_INTO
+set_location_assignment PIN_69 -to CPU_INTI
+set_location_assignment PIN_40 -to CPU_WAIT
+set_location_assignment PIN_16 -to DEBUG_LED1
+set_location_assignment PIN_19 -to DEBUG_LED2

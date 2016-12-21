@@ -1256,6 +1256,9 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="IC8" pad="3"/>
 <contactref element="R1" pad="2"/>
 <contactref element="R2" pad="2"/>
+<contactref element="IC4" pad="1"/>
+<contactref element="IC4" pad="5"/>
+<contactref element="IC4" pad="13"/>
 </signal>
 <signal name="+5V">
 <contactref element="U$1" pad="+5V@1"/>

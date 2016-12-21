@@ -1,5 +1,5 @@
 Flow report for fapio
-Mon Dec 12 17:26:29 2016
+Wed Dec 21 17:15:43 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Successful - Mon Dec 12 17:26:25 2016       ;
+; Flow Status           ; Successful - Wed Dec 21 17:15:40 2016       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; fapio                                       ;
 ; Top-level Entity Name ; fapio                                       ;
@@ -49,7 +49,7 @@ agreement for further details.
 ; Device                ; EPM570T100C5                                ;
 ; Timing Models         ; Final                                       ;
 ; Total logic elements  ; 304 / 570 ( 53 % )                          ;
-; Total pins            ; 60 / 76 ( 79 % )                            ;
+; Total pins            ; 64 / 76 ( 84 % )                            ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
 +-----------------------+---------------------------------------------+
@@ -60,7 +60,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/12/2016 17:26:00 ;
+; Start date & time ; 12/21/2016 17:15:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fapio               ;
 +-------------------+---------------------+
@@ -71,7 +71,7 @@ agreement for further details.
 +---------------------------------------+---------------------------------+---------------+-------------+------------+
 ; Assignment Name                       ; Value                           ; Default Value ; Entity Name ; Section Id ;
 +---------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 220295148694891.148153476004500 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 220295148694891.148231171400460 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                ; 85                              ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                ; 0                               ; --            ; --          ; --         ;
 ; POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR ; 3.3V                            ; --            ; --          ; --         ;
@@ -85,11 +85,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 590 MB              ; 00:00:43                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 955 MB              ; 00:00:03                           ;
-; Assembler                 ; 00:00:00     ; 1.0                     ; 537 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 542 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:24     ; --                      ; --                  ; 00:00:49                           ;
+; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 588 MB              ; 00:00:44                           ;
+; Fitter                    ; 00:00:04     ; 1.0                     ; 956 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 537 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 541 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:25     ; --                      ; --                  ; 00:00:50                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

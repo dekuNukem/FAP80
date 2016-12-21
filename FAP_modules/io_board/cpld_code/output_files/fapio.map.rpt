@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fapio
-Mon Dec 12 17:26:17 2016
+Wed Dec 21 17:15:31 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -42,13 +42,13 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Dec 12 17:26:17 2016       ;
+; Analysis & Synthesis Status ; Successful - Wed Dec 21 17:15:31 2016       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; fapio                                       ;
 ; Top-level Entity Name       ; fapio                                       ;
 ; Family                      ; MAX II                                      ;
 ; Total logic elements        ; 304                                         ;
-; Total pins                  ; 60                                          ;
+; Total pins                  ; 64                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -141,16 +141,16 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
-; decoder_4to16.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/decoder_4to16.v ;         ;
-; fapio.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/fapio.bdf       ;         ;
-; dlatch4.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v       ;         ;
-; dlatch8.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v       ;         ;
-+----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+---------+
+; decoder_4to16.v                  ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v ;         ;
+; fapio.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/fapio.bdf       ;         ;
+; dlatch4.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v       ;         ;
+; dlatch8.v                        ; yes             ; User Verilog HDL File              ; C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v       ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -179,11 +179,11 @@ agreement for further details.
 ;     -- asynchronous clear/load mode         ; 0        ;
 ;                                             ;          ;
 ; Total registers                             ; 0        ;
-; I/O pins                                    ; 60       ;
+; I/O pins                                    ; 64       ;
 ; Maximum fan-out node                        ; CPU_IORQ ;
 ; Maximum fan-out                             ; 20       ;
 ; Total fan-out                               ; 1064     ;
-; Average fan-out                             ; 2.92     ;
+; Average fan-out                             ; 2.89     ;
 +---------------------------------------------+----------+
 
 
@@ -192,7 +192,7 @@ agreement for further details.
 +---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node            ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                     ; Entity Name   ; Library Name ;
 +---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
-; |fapio                                ; 304 (19)    ; 0            ; 0          ; 60   ; 0            ; 304 (19)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio                                  ; fapio         ; work         ;
+; |fapio                                ; 304 (19)    ; 0            ; 0          ; 64   ; 0            ; 304 (19)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio                                  ; fapio         ; work         ;
 ;    |decoder_4to16:inst12|             ; 32 (32)     ; 0            ; 0          ; 0    ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst12             ; decoder_4to16 ; work         ;
 ;    |decoder_4to16:inst73|             ; 16 (16)     ; 0            ; 0          ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst73             ; decoder_4to16 ; work         ;
 ;    |dlatch4:PORT_WRITE_ADDRESS_LATCH| ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch4:PORT_WRITE_ADDRESS_LATCH ; dlatch4       ; work         ;
@@ -349,50 +349,58 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 12 17:25:59 2016
+    Info: Processing started: Wed Dec 21 17:15:13 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fapio -c fapio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file decoder_4to16.v
-    Info (12023): Found entity 1: decoder_4to16 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/decoder_4to16.v Line: 1
+    Info (12023): Found entity 1: decoder_4to16 File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fapio.bdf
     Info (12023): Found entity 1: fapio
 Info (12021): Found 1 design units, including 1 entities, in source file dlatch4.v
-    Info (12023): Found entity 1: dlatch4 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 1
+    Info (12023): Found entity 1: dlatch4 File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file dlatch8.v
-    Info (12023): Found entity 1: dlatch8 File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 1
+    Info (12023): Found entity 1: dlatch8 File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 1
 Info (12127): Elaborating entity "fapio" for the top level hierarchy
+Warning (275043): Pin "CPU_WAIT" is missing source
+Warning (275043): Pin "DEBUG_LED1" is missing source
+Warning (275043): Pin "DEBUG_LED2" is missing source
 Warning (275009): Pin "CPU_CLK" not connected
 Warning (275009): Pin "CPU_BUSACK" not connected
 Warning (275009): Pin "CPU_MREQ" not connected
 Warning (275009): Pin "CPU_RESET" not connected
 Warning (275009): Pin "CLK50" not connected
+Warning (275009): Pin "CPU_INTI" not connected
 Info (12128): Elaborating entity "dlatch8" for hierarchy "dlatch8:Z80_INT_LATCH"
-Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 13
-Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 17
-Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 18
-Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 27
-Warning (10240): Verilog HDL Always Construct warning at dlatch8.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[0]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[1]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[2]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[3]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[4]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[5]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[6]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
-Info (10041): Inferred latch for "q_internal[7]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch8.v Line: 10
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at dlatch8.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[0]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[1]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[2]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[3]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[4]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[5]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[6]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
+Info (10041): Inferred latch for "q_internal[7]" at dlatch8.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 10
 Info (12128): Elaborating entity "decoder_4to16" for hierarchy "decoder_4to16:inst12"
 Info (12128): Elaborating entity "dlatch4" for hierarchy "dlatch4:PORT_WRITE_ADDRESS_LATCH"
-Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 13
-Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 17
-Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 18
-Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 27
-Warning (10240): Verilog HDL Always Construct warning at dlatch4.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
-Info (10041): Inferred latch for "q_internal[0]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
-Info (10041): Inferred latch for "q_internal[1]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
-Info (10041): Inferred latch for "q_internal[2]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
-Info (10041): Inferred latch for "q_internal[3]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_ioboard/fapio_cpldcode570/dlatch4.v Line: 10
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 13
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(18): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at dlatch4.v(27): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at dlatch4.v(10): inferring latch(es) for variable "q_internal", which holds its previous value in one or more paths through the always construct File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[0]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[1]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[2]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 10
+Info (10041): Inferred latch for "q_internal[3]" at dlatch4.v(10) File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch4.v Line: 10
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "CPU_WAIT" is stuck at GND
+    Warning (13410): Pin "DEBUG_LED1" is stuck at GND
+    Warning (13410): Pin "DEBUG_LED2" is stuck at GND
+Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CPU_ADDR[15]"
     Warning (15610): No output dependent on input pin "CPU_ADDR[14]"
     Warning (15610): No output dependent on input pin "CPU_ADDR[13]"
@@ -410,15 +418,16 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CPU_MREQ"
     Warning (15610): No output dependent on input pin "CPU_RESET"
     Warning (15610): No output dependent on input pin "CLK50"
-Info (21057): Implemented 364 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 29 input pins
-    Info (21059): Implemented 11 output pins
+    Warning (15610): No output dependent on input pin "CPU_INTI"
+Info (21057): Implemented 368 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 30 input pins
+    Info (21059): Implemented 14 output pins
     Info (21060): Implemented 20 bidirectional pins
     Info (21061): Implemented 304 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
-    Info: Peak virtual memory: 590 megabytes
-    Info: Processing ended: Mon Dec 12 17:26:18 2016
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:43
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 588 megabytes
+    Info: Processing ended: Wed Dec 21 17:15:31 2016
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:44
 
 

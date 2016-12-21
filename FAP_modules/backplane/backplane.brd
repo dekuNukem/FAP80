@@ -207,21 +207,22 @@ RESET</text>
 <text x="142.4686" y="7.493" size="0.8128" layer="25">PA9</text>
 <text x="116.586" y="54.864" size="1.016" layer="25" rot="R90">5V</text>
 <text x="2.286" y="17.3682" size="1.27" layer="25">GND</text>
-<text x="18.3642" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
-<text x="28.5242" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
-<text x="38.4302" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
-<text x="48.5902" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
-<text x="58.4962" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
-<text x="68.4022" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
-<text x="78.5622" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
-<text x="88.4682" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
-<text x="98.3742" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
-<text x="108.5342" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
+<text x="17.8562" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
+<text x="29.0322" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
+<text x="37.9222" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
+<text x="49.0982" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
+<text x="57.7342" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
+<text x="69.1642" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
+<text x="77.8002" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
+<text x="89.2302" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
+<text x="97.8662" y="74.5544" size="1.27" layer="25" rot="R180">INTI</text>
+<text x="109.0422" y="74.5544" size="1.27" layer="25" rot="R180">INTO</text>
 <text x="5.334" y="82.042" size="0.8128" layer="25" rot="R180">WAIT</text>
 <text x="2.286" y="14.8282" size="1.27" layer="25">GND</text>
 <text x="12.1158" y="17.3936" size="1.27" layer="25">A10</text>
 <text x="12.1158" y="14.8536" size="1.27" layer="25">A11</text>
 <text x="98.278" y="96.1644" size="0.8128" layer="25" rot="R90">M1</text>
+<text x="98.044" y="82.042" size="0.8128" layer="25" rot="R180">WAIT</text>
 </plain>
 <libraries>
 <library name="stm32">

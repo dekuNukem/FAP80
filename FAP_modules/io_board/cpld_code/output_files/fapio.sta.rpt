@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for fapio
-Mon Dec 12 17:26:29 2016
+Wed Dec 21 17:15:43 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -223,7 +223,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CPU_DATA[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_DATA[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_DATA[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_INT            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_INTO           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; INTACK_LED         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; INT_LED            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; IORD_LED           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -298,7 +298,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CPU_DATA[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_DATA[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_DATA[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_INT            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_INTO           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; INTACK_LED         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; INT_LED            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; IORD_LED           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -330,7 +330,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 12 17:26:27 2016
+    Info: Processing started: Wed Dec 21 17:15:41 2016
 Info: Command: quartus_sta fapio -c fapio
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -364,8 +364,8 @@ Info (332001): The selected device family is not supported by the report_metasta
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 542 megabytes
-    Info: Processing ended: Mon Dec 12 17:26:29 2016
+    Info: Peak virtual memory: 541 megabytes
+    Info: Processing ended: Wed Dec 21 17:15:43 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
