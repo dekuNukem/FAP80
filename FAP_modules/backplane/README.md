@@ -18,8 +18,9 @@ The backplane will appear as a USB serial device when plugged into a computer. s
 ## Bus slot
 
 Each slot is a 38x2 double row female pin header, pinout below.
-I used 2 rows to give more grip to modules that has been plugged in, as well as improving noise immunity. HALT, REFRESH and WAIT signals are omitted because they are not used in this project.
+I used 2 rows to give more grip to modules that has been plugged in, as well as improving noise immunity. HALT and REFRESH signals are omitted because they are not used in this project.
 
+Interrupt chaining is supported. INTI is the interrupt input, while INTO is interrupt output. The board closest to the Z80 CPU board has the highest interrupt priority.
 
 |     |        | 
 |-----|--------| 
@@ -29,10 +30,10 @@ I used 2 rows to give more grip to modules that has been plugged in, as well as 
 | GND | MREQ   | 
 | GND | IORQ   | 
 | GND | BUACK  | 
-| GND | BUSREQ | 
+| WAIT | BUSREQ | 
 | GND | RESET  | 
 | GND | NMI    | 
-| GND | INT    | 
+| INTI | INTO    | 
 | GND | D0     | 
 | GND | D1     | 
 | GND | D2     | 
@@ -65,6 +66,3 @@ I used 2 rows to give more grip to modules that has been plugged in, as well as 
 ## LCD
 
 I used a LCD from [Nextion](https://www.itead.cc/wiki/Nextion_HMI_Solution), they make a whole range of LCDs in different sizes, some with resistive touch screen. The neat thing is that they are controlled by standard serial, so it's much easier to use than I2C or SPI LCDs. And apparently it has a companion software on PC where you can design an entire UI and upload it into the LCD. For this project I didn't bother with any of that since it just displays some text strings. I used their smallest and cheapest one. The serial commands for it can be found [here](https://www.itead.cc/wiki/Nextion_Instruction_Set), the only two I used is CLS (clear screen) and XSTR(print string).
-
-## Board size
-The board is 16x10cm, maximum allowable size for Eagle educational, which is free if you have a .edu email.
