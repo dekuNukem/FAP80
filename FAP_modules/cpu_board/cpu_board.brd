@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -1121,21 +1121,19 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="VALUE" x="24.4348" y="19.05" size="1.27" layer="28" ratio="10" rot="MR180"/>
 <attribute name="NAME" x="21.3868" y="20.447" size="1.27" layer="26" ratio="10" rot="MR270"/>
 </element>
-<element name="R3" library="SparkFun-Resistors" package="0805" value="" x="71.0692" y="10.5664" smashed="yes" rot="R180">
+<element name="R3" library="SparkFun-Resistors" package="0805" value="4.7K" x="71.0692" y="10.5664" smashed="yes" rot="R180">
 <attribute name="NAME" x="72.0344" y="12.5603" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="72.0852" y="11.9634" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="R4" library="SparkFun-Resistors" package="0805" value="" x="65.8114" y="30.988" smashed="yes" rot="MR270">
+<element name="R4" library="SparkFun-Resistors" package="0805" value="4.7K" x="65.8114" y="30.988" smashed="yes" rot="MR270">
 <attribute name="NAME" x="64.5795" y="31.5976" size="0.8128" layer="26" rot="MR270"/>
 <attribute name="VALUE" x="67.2084" y="32.004" size="0.4064" layer="28" rot="MR270"/>
 </element>
-<element name="R5" library="SparkFun-Resistors" package="0805" value="" x="61.9506" y="54.864" smashed="yes" rot="R90">
+<element name="R5" library="SparkFun-Resistors" package="0805" value="4.7K" x="61.9506" y="54.864" smashed="yes" rot="R90">
 <attribute name="NAME" x="62.484" y="57.6961" size="0.8128" layer="25" rot="R180"/>
-<attribute name="VALUE" x="63.3476" y="53.848" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="R6" library="SparkFun-Resistors" package="0805" value="" x="64.516" y="54.864" smashed="yes" rot="R90">
+<element name="R6" library="SparkFun-Resistors" package="0805" value="4.7K" x="64.516" y="54.864" smashed="yes" rot="R90">
 <attribute name="NAME" x="65.1002" y="57.7469" size="0.8128" layer="25" rot="R180"/>
-<attribute name="VALUE" x="65.913" y="53.848" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="C2" library="SparkFun-Capacitors" package="0805" value="10nF" x="22.4028" y="12.6238" smashed="yes">
 <attribute name="PROD_ID" value="CAP-08402" x="12.9794" y="9.1186" size="1.778" layer="27" display="off"/>
@@ -1201,17 +1199,21 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="LED2" library="adafruit" package="CHIP-LED0805" value="" x="96.012" y="42.9006" smashed="yes">
 <attribute name="VALUE" x="98.552" y="41.6306" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="R7" library="SparkFun-Passives" package="0805" value="50" x="96.012" y="38.3286" smashed="yes" rot="R90">
+<element name="R7" library="SparkFun-Passives" package="0805" value="2K" x="96.012" y="38.3286" smashed="yes" rot="R90">
 <attribute name="NAME" x="94.615" y="38.7477" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="LED3" library="adafruit" package="CHIP-LED0805" value="" x="54.3814" y="54.356" smashed="yes" rot="R180">
 <attribute name="VALUE" x="51.8414" y="55.626" size="1.27" layer="27" rot="R270"/>
 </element>
-<element name="R8" library="SparkFun-Passives" package="0805" value="50" x="57.4548" y="54.5084" smashed="yes" rot="R90">
+<element name="R8" library="SparkFun-Passives" package="0805" value="2K" x="57.4548" y="54.5084" smashed="yes" rot="R90">
 <attribute name="NAME" x="58.1914" y="57.4675" size="0.8128" layer="25" rot="R180"/>
 </element>
-<element name="R1" library="SparkFun-Resistors" package="0805" value="" x="33.9598" y="15.875" rot="MR90"/>
-<element name="R2" library="SparkFun-Resistors" package="0805" value="" x="67.056" y="54.864" rot="R90"/>
+<element name="R1" library="SparkFun-Resistors" package="0805" value="4.7K" x="28.448" y="9.3726" smashed="yes" rot="R90">
+<attribute name="NAME" x="29.1338" y="12.0269" size="0.8128" layer="25" rot="R180"/>
+</element>
+<element name="R2" library="SparkFun-Resistors" package="0805" value="4.7K" x="67.056" y="54.864" smashed="yes" rot="R90">
+<attribute name="NAME" x="67.7418" y="57.7469" size="0.8128" layer="25" rot="R180"/>
+</element>
 </elements>
 <signals>
 <signal name="+3V3">
@@ -1253,9 +1255,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="IC8" pad="2"/>
 <contactref element="IC8" pad="3"/>
 <contactref element="R1" pad="2"/>
-<via x="32.3723" y="16.7767" extent="1-16" drill="0.508"/>
-<wire x1="32.3723" y1="16.7767" x2="33.9581" y2="16.7767" width="0.4064" layer="16"/>
-<wire x1="33.9581" y1="16.7767" x2="33.9598" y2="16.775" width="0.4064" layer="16"/>
 <contactref element="R2" pad="2"/>
 </signal>
 <signal name="+5V">
@@ -1461,13 +1460,14 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <signal name="N$26">
 <contactref element="U$1" pad="CLK"/>
 <contactref element="U$1" pad="CLK@2"/>
-<wire x1="28.448" y1="2.032" x2="28.448" y2="4.572" width="0.4064" layer="16"/>
 <contactref element="IC9" pad="11"/>
-<wire x1="28.448" y1="4.572" x2="28.448" y2="4.7244" width="0.4064" layer="16"/>
-<wire x1="28.448" y1="4.7244" x2="33.9598" y2="10.2362" width="0.4064" layer="16"/>
 <wire x1="33.9598" y1="10.2362" x2="33.9598" y2="12.2428" width="0.4064" layer="16"/>
 <contactref element="R1" pad="1"/>
-<wire x1="33.9598" y1="14.975" x2="33.9598" y2="12.2428" width="0.4064" layer="16"/>
+<wire x1="33.9598" y1="10.2362" x2="28.448" y2="4.7244" width="0.4064" layer="16"/>
+<wire x1="28.448" y1="4.7244" x2="28.448" y2="4.572" width="0.4064" layer="16"/>
+<wire x1="28.448" y1="4.572" x2="28.448" y2="4.064" width="0.4064" layer="16"/>
+<wire x1="28.448" y1="8.4726" x2="28.448" y2="4.572" width="0.4064" layer="1"/>
+<wire x1="28.448" y1="2.032" x2="28.448" y2="4.572" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$27">
 <contactref element="IC1" pad="6"/>
