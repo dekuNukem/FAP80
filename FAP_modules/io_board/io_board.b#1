@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -160,13 +160,6 @@ dekuNukem 2016</text>
 <text x="84.328" y="49.276" size="0.8128" layer="25">SWK</text>
 <text x="84.328" y="51.816" size="0.8128" layer="25">SWD</text>
 <text x="60.198" y="36.576" size="0.8128" layer="25">WAIT</text>
-<text x="97.028" y="22.606" size="0.8128" layer="25">TCK</text>
-<text x="97.028" y="25.146" size="0.8128" layer="25">TDO</text>
-<text x="97.028" y="27.686" size="0.8128" layer="25">TMS</text>
-<text x="97.028" y="33.02" size="0.8128" layer="25">TDI</text>
-<text x="88.392" y="22.606" size="0.8128" layer="25">GND</text>
-<text x="88.392" y="25.146" size="0.8128" layer="25">3V3</text>
-<text x="88.392" y="32.766" size="0.8128" layer="25">GND</text>
 </plain>
 <libraries>
 <library name="stm32f051">
@@ -1804,7 +1797,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="VALUE" x="95.25" y="18.2626" size="0.4064" layer="27" rot="R180"/>
 </element>
 <element name="R13" library="SparkFun-Passives" package="0805" value="" x="88.3666" y="28.5496" smashed="yes" rot="R90">
-<attribute name="NAME" x="87.2744" y="28.5877" size="0.8128" layer="25" rot="R180"/>
+<attribute name="NAME" x="89.3064" y="26.5557" size="0.8128" layer="25" rot="R180"/>
 <attribute name="VALUE" x="89.7636" y="27.5336" size="0.4064" layer="27" rot="R90"/>
 </element>
 <element name="R14" library="SparkFun-Passives" package="0805" value="" x="94.3864" y="39.2684" smashed="yes">
