@@ -5969,11 +5969,9 @@ Source: http://www.osram.convergy.de/</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="cpu_board">
-<description>Generated from &lt;b&gt;cpu_board.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
+<library name="fap_bus">
 <packages>
-<package name="FAP_BUS_2X38">
+<package name="2X38">
 <wire x1="-30.48" y1="-0.635" x2="-29.845" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-29.845" y1="-1.27" x2="-28.575" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-28.575" y1="-1.27" x2="-27.94" y2="-0.635" width="0.1524" layer="21"/>
@@ -6376,8 +6374,8 @@ by exp-lbrs.ulp</description>
 <pad name="GND@27" x="36.83" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@28" x="39.37" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@30" x="44.45" y="0" drill="1.016" shape="octagon"/>
-<pad name="GND@31" x="46.99" y="0" drill="1.016" shape="octagon"/>
-<pad name="GND@33" x="52.07" y="0" drill="1.016" shape="octagon"/>
+<pad name="REFRESH" x="46.99" y="0" drill="1.016" shape="octagon"/>
+<pad name="HALT" x="52.07" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@34" x="54.61" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@35" x="57.15" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@36" x="59.69" y="0" drill="1.016" shape="octagon"/>
@@ -6398,11 +6396,11 @@ by exp-lbrs.ulp</description>
 </package>
 </packages>
 <symbols>
-<symbol name="FAP_BUS_PINH2X38">
+<symbol name="PINH2X38">
 <wire x1="-6.35" y1="30.48" x2="-21.59" y2="30.48" width="0.4064" layer="94"/>
-<wire x1="-21.59" y1="-76.2" x2="-6.35" y2="-76.2" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="-76.2" x2="-6.35" y2="30.48" width="0.4064" layer="94"/>
-<wire x1="-21.59" y1="30.48" x2="-21.59" y2="-76.2" width="0.4064" layer="94"/>
+<wire x1="-21.59" y1="-81.28" x2="-6.35" y2="-81.28" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="-81.28" x2="-6.35" y2="30.48" width="0.4064" layer="94"/>
+<wire x1="-21.59" y1="30.48" x2="-21.59" y2="-81.28" width="0.4064" layer="94"/>
 <pin name="1" x="-12.7" y="27.94" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="2" x="-12.7" y="25.4" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="3" x="-12.7" y="22.86" visible="pad" length="short" direction="pas" function="dot"/>
@@ -6445,15 +6443,17 @@ by exp-lbrs.ulp</description>
 <pin name="40" x="-12.7" y="-73.66" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="GND" x="-12.7" y="-71.12" visible="pad" length="short" direction="pas" function="dot"/>
 <text x="-16.51" y="31.115" size="1.778" layer="95">&gt;NAME</text>
+<pin name="41" x="-12.7" y="-76.2" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="42" x="-12.7" y="-78.74" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FAP_BUS_FAP_BUS">
+<deviceset name="FAP_BUS">
 <gates>
-<gate name="G$1" symbol="FAP_BUS_PINH2X38" x="12.7" y="20.32"/>
+<gate name="G$1" symbol="PINH2X38" x="12.7" y="20.32"/>
 </gates>
 <devices>
-<device name="" package="FAP_BUS_2X38">
+<device name="" package="2X38">
 <connects>
 <connect gate="G$1" pin="1" pad="+5V@1 +5V@2"/>
 <connect gate="G$1" pin="10" pad="3V3@1 3V3@2"/>
@@ -6490,12 +6490,14 @@ by exp-lbrs.ulp</description>
 <connect gate="G$1" pin="39" pad="INTO"/>
 <connect gate="G$1" pin="4" pad="A13"/>
 <connect gate="G$1" pin="40" pad="WAIT"/>
+<connect gate="G$1" pin="41" pad="HALT"/>
+<connect gate="G$1" pin="42" pad="REFRESH"/>
 <connect gate="G$1" pin="5" pad="A12"/>
 <connect gate="G$1" pin="6" pad="A11"/>
 <connect gate="G$1" pin="7" pad="A10"/>
 <connect gate="G$1" pin="8" pad="A9"/>
 <connect gate="G$1" pin="9" pad="A8"/>
-<connect gate="G$1" pin="GND" pad="GND@2 GND@3 GND@4 GND@5 GND@6 GND@7 GND@8 GND@9 GND@13 GND@14 GND@15 GND@16 GND@17 GND@18 GND@19 GND@20 GND@21 GND@22 GND@23 GND@24 GND@25 GND@26 GND@27 GND@28 GND@30 GND@31 GND@33 GND@34 GND@35 GND@36 GND@37 GND@38"/>
+<connect gate="G$1" pin="GND" pad="GND@2 GND@3 GND@4 GND@5 GND@6 GND@7 GND@8 GND@9 GND@13 GND@14 GND@15 GND@16 GND@17 GND@18 GND@19 GND@20 GND@21 GND@22 GND@23 GND@24 GND@25 GND@26 GND@27 GND@28 GND@30 GND@34 GND@35 GND@36 GND@37 GND@38"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -6517,7 +6519,7 @@ by exp-lbrs.ulp</description>
 <parts>
 <part name="IC1" library="stm32f051" deviceset="STM32F051C8T6" device=""/>
 <part name="IC2" library="altera-max2" deviceset="EPM240-T100" device=""/>
-<part name="U$1" library="cpu_board" deviceset="FAP_BUS_FAP_BUS" device=""/>
+<part name="U$1" library="fap_bus" deviceset="FAP_BUS" device=""/>
 <part name="U$2" library="ps2" deviceset="PS/2" device=""/>
 <part name="Y1" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="HC49US"/>
 <part name="Y2" library="SparkFun-FreqCtrl" deviceset="CRYSTAL" device="TC26H_EZ"/>
@@ -6669,6 +6671,8 @@ by exp-lbrs.ulp</description>
 <part name="LED11" library="adafruit" deviceset="LED" device="CHIP-LED0805"/>
 <part name="+3V42" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP6" library="pinhead" deviceset="PINHD-1X1" device=""/>
+<part name="TP7" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP8" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -6840,6 +6844,8 @@ by exp-lbrs.ulp</description>
 <instance part="LED11" gate="G$1" x="-101.6" y="-119.38" rot="MR270"/>
 <instance part="+3V42" gate="G$1" x="-121.92" y="-116.84"/>
 <instance part="JP6" gate="G$1" x="-96.52" y="-127" rot="MR0"/>
+<instance part="TP7" gate="G$1" x="-109.22" y="-93.98" rot="R180"/>
+<instance part="TP8" gate="G$1" x="-109.22" y="-83.82" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -8335,6 +8341,44 @@ by exp-lbrs.ulp</description>
 <wire x1="-86.36" y1="-114.3" x2="-86.36" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-119.38" x2="-91.44" y2="-119.38" width="0.1524" layer="91"/>
 <junction x="-91.44" y="-119.38"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="41"/>
+<wire x1="71.12" y1="-127" x2="71.12" y2="-256.54" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-256.54" x2="215.9" y2="-256.54" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="B2" pin="IOB2-67"/>
+<wire x1="215.9" y1="-256.54" x2="215.9" y2="-213.36" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="-213.36" x2="195.58" y2="-213.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="IC2" gate="B1" pin="IOB1-20"/>
+<wire x1="-53.34" y1="-116.84" x2="-71.12" y2="-116.84" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="-116.84" x2="-71.12" y2="-147.32" width="0.1524" layer="91"/>
+<wire x1="-71.12" y1="-147.32" x2="68.58" y2="-147.32" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="42"/>
+<wire x1="68.58" y1="-147.32" x2="68.58" y2="-127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="IC2" gate="B1" pin="IOB1-12/GCLK0"/>
+<wire x1="-53.34" y1="-99.06" x2="-96.52" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="-96.52" y1="-99.06" x2="-96.52" y2="-83.82" width="0.1524" layer="91"/>
+<pinref part="TP8" gate="G$1" pin="1"/>
+<wire x1="-96.52" y1="-83.82" x2="-109.22" y2="-83.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$98" class="0">
+<segment>
+<pinref part="IC2" gate="B1" pin="IOB1-14/GCLK1"/>
+<wire x1="-53.34" y1="-101.6" x2="-99.06" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="-99.06" y1="-101.6" x2="-99.06" y2="-93.98" width="0.1524" layer="91"/>
+<pinref part="TP7" gate="G$1" pin="1"/>
+<wire x1="-99.06" y1="-93.98" x2="-109.22" y2="-93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -5319,11 +5319,9 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 </deviceset>
 </devicesets>
 </library>
-<library name="cpu_board">
-<description>Generated from &lt;b&gt;cpu_board.sch&lt;/b&gt;&lt;p&gt;
-by exp-lbrs.ulp</description>
+<library name="fap_bus">
 <packages>
-<package name="FAP_BUS_2X38">
+<package name="2X38">
 <wire x1="-30.48" y1="-0.635" x2="-29.845" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-29.845" y1="-1.27" x2="-28.575" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-28.575" y1="-1.27" x2="-27.94" y2="-0.635" width="0.1524" layer="21"/>
@@ -5726,8 +5724,8 @@ by exp-lbrs.ulp</description>
 <pad name="GND@27" x="36.83" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@28" x="39.37" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@30" x="44.45" y="0" drill="1.016" shape="octagon"/>
-<pad name="GND@31" x="46.99" y="0" drill="1.016" shape="octagon"/>
-<pad name="GND@33" x="52.07" y="0" drill="1.016" shape="octagon"/>
+<pad name="REFRESH" x="46.99" y="0" drill="1.016" shape="octagon"/>
+<pad name="HALT" x="52.07" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@34" x="54.61" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@35" x="57.15" y="0" drill="1.016" shape="octagon"/>
 <pad name="GND@36" x="59.69" y="0" drill="1.016" shape="octagon"/>
@@ -5748,11 +5746,11 @@ by exp-lbrs.ulp</description>
 </package>
 </packages>
 <symbols>
-<symbol name="FAP_BUS_PINH2X38">
+<symbol name="PINH2X38">
 <wire x1="-6.35" y1="30.48" x2="-21.59" y2="30.48" width="0.4064" layer="94"/>
-<wire x1="-21.59" y1="-76.2" x2="-6.35" y2="-76.2" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="-76.2" x2="-6.35" y2="30.48" width="0.4064" layer="94"/>
-<wire x1="-21.59" y1="30.48" x2="-21.59" y2="-76.2" width="0.4064" layer="94"/>
+<wire x1="-21.59" y1="-81.28" x2="-6.35" y2="-81.28" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="-81.28" x2="-6.35" y2="30.48" width="0.4064" layer="94"/>
+<wire x1="-21.59" y1="30.48" x2="-21.59" y2="-81.28" width="0.4064" layer="94"/>
 <pin name="1" x="-12.7" y="27.94" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="2" x="-12.7" y="25.4" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="3" x="-12.7" y="22.86" visible="pad" length="short" direction="pas" function="dot"/>
@@ -5795,15 +5793,17 @@ by exp-lbrs.ulp</description>
 <pin name="40" x="-12.7" y="-73.66" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="GND" x="-12.7" y="-71.12" visible="pad" length="short" direction="pas" function="dot"/>
 <text x="-16.51" y="31.115" size="1.778" layer="95">&gt;NAME</text>
+<pin name="41" x="-12.7" y="-76.2" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="42" x="-12.7" y="-78.74" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FAP_BUS_FAP_BUS">
+<deviceset name="FAP_BUS">
 <gates>
-<gate name="G$1" symbol="FAP_BUS_PINH2X38" x="12.7" y="20.32"/>
+<gate name="G$1" symbol="PINH2X38" x="12.7" y="20.32"/>
 </gates>
 <devices>
-<device name="" package="FAP_BUS_2X38">
+<device name="" package="2X38">
 <connects>
 <connect gate="G$1" pin="1" pad="+5V@1 +5V@2"/>
 <connect gate="G$1" pin="10" pad="3V3@1 3V3@2"/>
@@ -5840,12 +5840,14 @@ by exp-lbrs.ulp</description>
 <connect gate="G$1" pin="39" pad="INTO"/>
 <connect gate="G$1" pin="4" pad="A13"/>
 <connect gate="G$1" pin="40" pad="WAIT"/>
+<connect gate="G$1" pin="41" pad="HALT"/>
+<connect gate="G$1" pin="42" pad="REFRESH"/>
 <connect gate="G$1" pin="5" pad="A12"/>
 <connect gate="G$1" pin="6" pad="A11"/>
 <connect gate="G$1" pin="7" pad="A10"/>
 <connect gate="G$1" pin="8" pad="A9"/>
 <connect gate="G$1" pin="9" pad="A8"/>
-<connect gate="G$1" pin="GND" pad="GND@2 GND@3 GND@4 GND@5 GND@6 GND@7 GND@8 GND@9 GND@13 GND@14 GND@15 GND@16 GND@17 GND@18 GND@19 GND@20 GND@21 GND@22 GND@23 GND@24 GND@25 GND@26 GND@27 GND@28 GND@30 GND@31 GND@33 GND@34 GND@35 GND@36 GND@37 GND@38"/>
+<connect gate="G$1" pin="GND" pad="GND@2 GND@3 GND@4 GND@5 GND@6 GND@7 GND@8 GND@9 GND@13 GND@14 GND@15 GND@16 GND@17 GND@18 GND@19 GND@20 GND@21 GND@22 GND@23 GND@24 GND@25 GND@26 GND@27 GND@28 GND@30 GND@34 GND@35 GND@36 GND@37 GND@38"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -5868,7 +5870,7 @@ by exp-lbrs.ulp</description>
 <part name="IC5" library="bt_memory" deviceset="AT28C256" device=""/>
 <part name="IC1" library="74xx-us" deviceset="74*32" device="D" technology="S" value="74HC32"/>
 <part name="IC3" library="memory-hitachi" deviceset="62256P" device=""/>
-<part name="U$2" library="cpu_board" deviceset="FAP_BUS_FAP_BUS" device=""/>
+<part name="U$2" library="fap_bus" deviceset="FAP_BUS" device=""/>
 <part name="IC4" library="74xx-eu" deviceset="74*245" device="DW" technology="HC"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
