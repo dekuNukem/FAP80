@@ -109,12 +109,14 @@
 #define RD_GPIO_Port GPIOC
 #define WR_Pin GPIO_PIN_8
 #define WR_GPIO_Port GPIOC
+#define HALT_Pin GPIO_PIN_9
+#define HALT_GPIO_Port GPIOC
 #define CPU_CLK_Pin GPIO_PIN_8
 #define CPU_CLK_GPIO_Port GPIOA
 #define SOFTSERIAL_TX_Pin GPIO_PIN_9
 #define SOFTSERIAL_TX_GPIO_Port GPIOA
-#define USB_PULLUP_Pin GPIO_PIN_10
-#define USB_PULLUP_GPIO_Port GPIOA
+#define WAIT_Pin GPIO_PIN_10
+#define WAIT_GPIO_Port GPIOA
 #define BUTTON_1_Pin GPIO_PIN_15
 #define BUTTON_1_GPIO_Port GPIOA
 #define BUTTON_2_Pin GPIO_PIN_10

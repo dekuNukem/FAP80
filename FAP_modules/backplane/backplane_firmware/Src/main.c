@@ -413,9 +413,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pins : MREQ_Pin IOREQ_Pin BUSACK_Pin M1_Pin 
-                           RD_Pin WR_Pin */
+                           RD_Pin WR_Pin HALT_Pin */
   GPIO_InitStruct.Pin = MREQ_Pin|IOREQ_Pin|BUSACK_Pin|M1_Pin 
-                          |RD_Pin|WR_Pin;
+                          |RD_Pin|WR_Pin|HALT_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
@@ -447,12 +447,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SOFTSERIAL_TX_Pin USB_PULLUP_Pin */
-  GPIO_InitStruct.Pin = SOFTSERIAL_TX_Pin|USB_PULLUP_Pin;
+  /*Configure GPIO pin : SOFTSERIAL_TX_Pin */
+  GPIO_InitStruct.Pin = SOFTSERIAL_TX_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(SOFTSERIAL_TX_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : WAIT_Pin */
+  GPIO_InitStruct.Pin = WAIT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(WAIT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BUTTON_1_Pin */
   GPIO_InitStruct.Pin = BUTTON_1_Pin;
@@ -476,7 +483,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, BUSREQ_Pin|RESET_Pin|NMI_Pin|INT_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SOFTSERIAL_TX_Pin|USB_PULLUP_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, SOFTSERIAL_TX_Pin|WAIT_Pin, GPIO_PIN_SET);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
