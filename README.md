@@ -26,6 +26,7 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 ### Active Backplane
 
 * 3.3V bus allows modern peripherals
+* All Z80 signals on bus
 * managed by STM32 microcontroller
 * Z80 clock from PWM channel
 * speed variable from single step to 8MHz

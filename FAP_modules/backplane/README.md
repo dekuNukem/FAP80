@@ -15,10 +15,10 @@ When powered on, the backplane resets the Z80 then stops. Press RUN/STOP button 
 
 The backplane will appear as a USB serial device when plugged into a computer. send `epm` to enter program mode. Once entered, you can send `r address` to read a memory address, `w address value` to write to a memory address, and `z` to erase entire ROM to 0xff. Send `qpm` to quit program mode. Note all numerical arguments are in decimal, and all commands ends in `\r\n`.
 
-## Bus slot
+## Bus connector
 
-Each slot is a 38x2 double row female pin header, pinout below.
-I used 2 rows to give more grip to modules that has been plugged in, as well as improving noise immunity. HALT and REFRESH signals are omitted because they are not used in this project.
+Each connector is a 38x2 double row female pin header, pinout below.
+I used 2 rows to give more grip to modules that has been plugged in, as well as improving noise immunity.  All Z80 signals are available on the bus.
 
 Interrupt chaining is supported. INTI is the interrupt input, while INTO is interrupt output. The board closest to the Z80 CPU board has the highest interrupt priority.
 
@@ -29,9 +29,9 @@ Interrupt chaining is supported. INTI is the interrupt input, while INTO is inte
 | GND | WR     | 
 | GND | MREQ   | 
 | GND | IORQ   | 
-| GND | BUACK  | 
+| HALT | BUACK  | 
 | WAIT | BUSREQ | 
-| GND | RESET  | 
+| REFRESH | RESET  | 
 | GND | NMI    | 
 | INTI | INTO    | 
 | GND | D0     | 
