@@ -94,13 +94,13 @@ I also intended this project as a study in embedded development as it involves a
 ### Planned
 
 * A new memory board with 32MB flash memory for both ROM and RAM and a CPLD controller for configurable memory decoding and paging
-* A new VGA video card with onboard FPGA instead of using Mojo V3 with larger VRAM and more interrupt options.
+* A new VGA video card with on-board FPGA instead of using Mojo V3 with larger VRAM and more interrupt options.
 
 ## Getting Started
 
 Coming soon...
 
-## Acknowledgements
+## Acknowledgments
 
 * This project is heavily inspired by [Quinn Dunki’s Veronica](http://quinndunki.com/blondihacks/?p=680), a 6502-based retro computer.
 
