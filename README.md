@@ -5,13 +5,13 @@
 
 
 
-#FAP80, A Z80 retro computer for the future
+#FAP80, A retro computer without the retro baggage
 
 FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
-A lot of retro computer projects today are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on perfboard or self-etched circuit boards, rudimentary video capacity or no video at all, few I/O ports, and a symphony of assorted through hole 74 series chips. 
+A lot of retro computer projects today are rooted on nostalgia, they tend to use “period correct” components to get the “feelings” right, and the result often ends up on perfboard or self-etched circuit boards, rudimentary video capacity if at all, few I/O ports, and a symphony of 74 series chips. 
 
-Of course there is nothing wrong with that, but since I wasn’t around during the 80s home computer era, I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use with very little overheads.
+While there is nothing wrong with that, I wasn’t around during the 80s home computer era, so I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use with very little overheads.
 
 ## Specification
 
@@ -20,7 +20,7 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 * 5-slot active backplane, USB powered
 * 8MHz CMOS Z80
 * 32KB ROM, 16KB RAM, 16KB double buffered VRAM
-* 64 color VGA graphics
+* 64 color 640x480 VGA graphics
 * PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UARTs
 
 ### Active Backplane
@@ -50,7 +50,7 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 * 64 colors
 * 640x480 VGA output
 * 80x30 codepage 437 text mode
-* 16KB double-buffered VRAM, or 32KB single-buffered
+* 16KB double-buffered VRAM, or 32KB unbuffered
 * bitmap or sprite mode can be implemented easily
 
 ### I/O Board
@@ -66,11 +66,11 @@ Of course there is nothing wrong with that, but since I wasn’t around during t
 
 ## Design philosophy
 
-As I said above I made the decision to use modern parts for simplicity and flexibility in the design. Take the active backplane for example, the entire bus is connected to a STM32 microcontroller, which drives Z80 clock via one of the PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces can be easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
+As I said above I made the decision to use modern parts for simplicity and flexibility in the design. Take the active backplane for example, the entire bus is connected to a STM32 microcontroller, which drives Z80 clock via one of its PWM channels. At the same time the uC monitors the contents on the bus, so setting breakpoints or obtaining execution traces can be easily done. The uC can also reset the Z80, or even take over the bus and read/write directly into EEPROM and RAM.
 
 Notice how a cheap modern part eliminates the need for separate reset circuitry, clock circuitry, debugger, and EEPROM programmer. And because the uC is programmable, it can be customized even after hardware design is done.
 
-Similarly, a FPGA replaces the VDC, a CPLD replaces 2 dozens of 74 series chips, and another STM32 is used as I/O and interrupt controller. This gives an enormous amount of flexibility to suit individual needs. Text mode graphics too limited? Write your own sprite/bitmap mode. Want more I/O ports or a different interrupt mode? Just modify the CPLD code. The ability to be able to continue expand and evolve the capability of the computer without having to change the hardware becomes an exciting aspect as a result.
+Similarly, a FPGA replaces the VDC, a CPLD replaces 2 dozens of 74 chips, and another STM32 is used as I/O and interrupt controller. This gives an enormous amount of flexibility to suit individual needs. Text mode graphics too limited? Write your own sprite/bitmap mode. Want more I/O ports or a different interrupt mode? Just modify the CPLD code. The ability to be able to continue expand and evolve the capability of the computer without having to change the hardware becomes an exciting aspect as a result.
 
 I also intended this project as a study in embedded development as it involves a little bit of everything: microcontrollers, FPGAs, CPLDs, digital circuits, PCB design and fabrication, surface mount soldering, setting up cross assembling/compiling environment, assembly programming, and a lot others that I couldn't think of at the moment. Yes it's harder to put together than a through-hole kit, but it was all part of the challenge.
 
@@ -93,8 +93,8 @@ I also intended this project as a study in embedded development as it involves a
 
 ### Planned
 
-* A new memory board with CPLD controller and 32MB flash memory for both ROM and RAM
-* A new VGA video card with onboard FPGA instead of using Mojo V3.
+* A new memory board with 32MB flash memory for both ROM and RAM and a CPLD controller for configurable memory decoding and paging
+* A new VGA video card with onboard FPGA instead of using Mojo V3 with larger VRAM and more interrupt options.
 
 ## Getting Started
 
