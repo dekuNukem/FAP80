@@ -84,7 +84,7 @@ I also intended this project as a study in embedded development as it involves a
 * Python script for program upload
 * Cross assembler setup
 * SDCC setup
-* Simple print functionalities in C and assembly.
+* Simple print functionalities in C and assembly
 
 ### In Progress
 
@@ -94,7 +94,7 @@ I also intended this project as a study in embedded development as it involves a
 ### Planned
 
 * A new memory board with 32MB flash memory for both ROM and RAM and a CPLD controller for configurable memory decoding and paging
-* A new VGA video card with on-board FPGA instead of using Mojo V3 with larger VRAM and more interrupt options.
+* A new VGA video card with on-board FPGA instead of using Mojo V3 with larger VRAM and more interrupt options
 
 ## Getting Started
 
