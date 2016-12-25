@@ -5,7 +5,7 @@
 
 
 
-#FAP80, A retro computer without the retro baggage
+#FAP80, A retro computer without retro baggage
 
 FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
@@ -13,15 +13,17 @@ A lot of retro computer projects today are rooted on nostalgia, they tend to use
 
 While there is nothing wrong with that, I wasn’t around during the 80s home computer era, so I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use with very little overheads.
 
+See [my blog](https://dekunukem.wordpress.com) for detailed write-ups about this project.
+
 ## Specification
 
 ### Overview
 
-* 5-slot active backplane, USB powered
 * 8MHz CMOS Z80
+* 5-slot active backplane, USB powered
 * 32KB ROM, 16KB RAM, 16KB double buffered VRAM
 * 64 color 640x480 VGA graphics
-* PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UARTs
+* PS/2 keyboard, ESP8266, SD card, I2C EEPROM, RTC, UART, Timers
 
 ### Active Backplane
 
@@ -30,10 +32,10 @@ While there is nothing wrong with that, I wasn’t around during the 80s home co
 * managed by STM32 microcontroller
 * Z80 clock from PWM channel
 * speed variable from single step to 8MHz
+* breakpoints and traces
 * read/write into EEPROM/RAM directly
 * interrupt chaining supported
 * bus address and data display on LCD
-* breakpoints and traces
 * pushbutton for Z80 reset, single step, run/stop, etc.
 
 ### CPU Board
@@ -88,7 +90,7 @@ I also intended this project as a study in embedded development as it involves a
 
 ### In Progress
 
-* Add more stuff to this repo
+* Finish up project documentation
 * Write an IRC client for FAP80
 
 ### Planned
