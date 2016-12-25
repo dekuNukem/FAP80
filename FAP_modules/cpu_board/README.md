@@ -1,5 +1,7 @@
 FAP80 CPU Board
 
+![Alt text](http://i.imgur.com/LfoLbXp.png)
+
 ![Alt text](http://i.imgur.com/HIG0wyL.jpg)
 
 The CPU board of FAP80, to be plugged in the backplane.

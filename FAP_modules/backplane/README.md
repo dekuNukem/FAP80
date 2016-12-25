@@ -1,5 +1,7 @@
 # FAP80 active backplane
 
+![Alt text](http://i.imgur.com/pyDTVvv.png)
+
 ![Alt text](http://i.imgur.com/8QYtGAD.jpg)
 
 ![Alt text](http://i.imgur.com/BP13ZbK.jpg)
