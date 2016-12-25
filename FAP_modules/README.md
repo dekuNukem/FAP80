@@ -1,1 +1,1 @@
-This folder holds the schematic, board file, and firmware of FAP's individual boards. Please see corresponding folders for details.
+Here are all the schematic file, board file, and firmware of FAP's individual boards. Please see corresponding folders for details.
