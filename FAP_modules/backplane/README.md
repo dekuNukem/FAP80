@@ -69,4 +69,6 @@ I used a LCD from [Nextion](https://www.itead.cc/wiki/Nextion_HMI_Solution), the
 
 ## Blog entry
 
-[Here it is](https://dekunukem.wordpress.com/2016/12/22/fap-reborn-backplane/)
+For details about the old backplane, see [here](https://dekunukem.wordpress.com/2016/02/21/part-1-bus-board-cpu-board-and-freerunning-fap/)
+
+For a brief introduction of the new backplane, see [here](https://dekunukem.wordpress.com/2016/12/22/fap-reborn-backplane/)
