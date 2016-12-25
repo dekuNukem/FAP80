@@ -41,3 +41,9 @@ It turned out although Mojo V3 broke out most of the Spartan-6 pins, it was stil
 The VGA connector blocked the Mojo's USB connector in the first version, this has since been fixed in the latest board file.
 
 I might design another video card that fixes all those problems by putting the Spartan-6 onboard instead of using Mojo, but it's going to be a while before I get to that.
+
+# Blog entries
+
+For details about the process of making this video card, see [here](https://dekunukem.wordpress.com/2016/03/04/putting-the-f-in-fap-vga-controller-part-1-character-generator/), [here](https://dekunukem.wordpress.com/2016/03/09/got-my-mojo-working-character-attributes-vga-board-double-buffering-and-cpu-interface/), and [here](https://dekunukem.wordpress.com/2016/03/15/fap-says-hello-world/)
+
+For a brief introduction of the new video card, see [here](https://dekunukem.wordpress.com/2016/12/24/fap-reborn-cpu-board-memory-board-video-card/)
