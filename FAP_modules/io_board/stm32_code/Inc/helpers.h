@@ -9,16 +9,16 @@
 
 #define LB_SIZE 1024
 
-#define latch1_activate() HAL_GPIO_WritePin(LATCH1_GPIO_Port, LATCH1_Pin, GPIO_PIN_RESET);
-#define latch1_deactivate() HAL_GPIO_WritePin(LATCH1_GPIO_Port, LATCH1_Pin, GPIO_PIN_SET);
+#define latch1_activate() HAL_GPIO_WritePin(LATCH1_GPIO_Port, LATCH1_Pin, GPIO_PIN_RESET)
+#define latch1_deactivate() HAL_GPIO_WritePin(LATCH1_GPIO_Port, LATCH1_Pin, GPIO_PIN_SET)
 
-#define latch16_activate() HAL_GPIO_WritePin(LATCH16_GPIO_Port, LATCH16_Pin, GPIO_PIN_SET);
-#define latch16_deactivate() HAL_GPIO_WritePin(LATCH16_GPIO_Port, LATCH16_Pin, GPIO_PIN_RESET);
+#define latch16_activate() HAL_GPIO_WritePin(LATCH16_GPIO_Port, LATCH16_Pin, GPIO_PIN_SET)
+#define latch16_deactivate() HAL_GPIO_WritePin(LATCH16_GPIO_Port, LATCH16_Pin, GPIO_PIN_RESET)
 
-#define interrupt_deactivate() HAL_GPIO_WritePin(Z80_INT_GPIO_Port, Z80_INT_Pin, GPIO_PIN_SET);
+#define interrupt_deactivate() HAL_GPIO_WritePin(Z80_INT_GPIO_Port, Z80_INT_Pin, GPIO_PIN_SET)
 
-#define vect_load_activate() HAL_GPIO_WritePin(INTVECT_LOAD_GPIO_Port, INTVECT_LOAD_Pin, GPIO_PIN_SET);
-#define vect_load_deactivate() HAL_GPIO_WritePin(INTVECT_LOAD_GPIO_Port, INTVECT_LOAD_Pin, GPIO_PIN_RESET);
+#define vect_load_activate() HAL_GPIO_WritePin(INTVECT_LOAD_GPIO_Port, INTVECT_LOAD_Pin, GPIO_PIN_SET)
+#define vect_load_deactivate() HAL_GPIO_WritePin(INTVECT_LOAD_GPIO_Port, INTVECT_LOAD_Pin, GPIO_PIN_RESET)
 
 typedef struct
 {
