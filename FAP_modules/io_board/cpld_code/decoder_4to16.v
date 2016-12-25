@@ -1,14 +1,8 @@
 module decoder_4to16 (
-binary_in,
-decoder_out,
-enable
+	input  enable,
+	input [3:0] binary_in,
+	output reg [15:0] decoder_out
 );
-
-input [3:0] binary_in;
-input  enable;
-output [15:0] decoder_out;
-
-reg [15:0] decoder_out;
 
 always @ (enable or binary_in)
 begin

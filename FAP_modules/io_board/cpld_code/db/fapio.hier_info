@@ -271,6 +271,22 @@ q[7] <= q[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |fapio|decoder_4to16:inst12
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
 binary_in[0] => Decoder0.IN3
 binary_in[1] => Decoder0.IN2
 binary_in[2] => Decoder0.IN1
@@ -291,25 +307,25 @@ decoder_out[12] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[13] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[14] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[15] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
 
 
 |fapio|decoder_4to16:inst73
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
+enable => decoder_out.OUTPUTSELECT
 binary_in[0] => Decoder0.IN3
 binary_in[1] => Decoder0.IN2
 binary_in[2] => Decoder0.IN1
@@ -330,22 +346,6 @@ decoder_out[12] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[13] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[14] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
 decoder_out[15] <= decoder_out.DB_MAX_OUTPUT_PORT_TYPE
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
-enable => decoder_out.OUTPUTSELECT
 
 
 |fapio|dlatch8:inst15

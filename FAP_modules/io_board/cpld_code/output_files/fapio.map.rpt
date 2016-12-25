@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fapio
-Wed Dec 21 17:15:31 2016
+Mon Dec 26 00:38:08 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -42,7 +42,7 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Dec 21 17:15:31 2016       ;
+; Analysis & Synthesis Status ; Successful - Mon Dec 26 00:38:08 2016       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; fapio                                       ;
 ; Top-level Entity Name       ; fapio                                       ;
@@ -349,7 +349,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Wed Dec 21 17:15:13 2016
+    Info: Processing started: Mon Dec 26 00:37:50 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fapio -c fapio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -425,9 +425,9 @@ Info (21057): Implemented 368 device resources after synthesis - the final resou
     Info (21060): Implemented 20 bidirectional pins
     Info (21061): Implemented 304 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 588 megabytes
-    Info: Processing ended: Wed Dec 21 17:15:31 2016
+    Info: Peak virtual memory: 591 megabytes
+    Info: Processing ended: Mon Dec 26 00:38:08 2016
     Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:44
+    Info: Total CPU time (on all processors): 00:00:45
 
 

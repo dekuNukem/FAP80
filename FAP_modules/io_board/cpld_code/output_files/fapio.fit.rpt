@@ -1,5 +1,5 @@
 Fitter report for fapio
-Wed Dec 21 17:15:37 2016
+Mon Dec 26 00:38:11 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Wed Dec 21 17:15:37 2016       ;
+; Fitter Status         ; Successful - Mon Dec 26 00:38:11 2016       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; fapio                                       ;
 ; Top-level Entity Name ; fapio                                       ;
@@ -705,15 +705,15 @@ Info (186079): Completed User Assigned Global Signals Promotion Operation
 Info (186216): Automatically promoted some destinations of signal "inst2" to use Global clock
     Info (186217): Destination "STM32_IOWR_INT_L" may be non-global or may not use global clock
     Info (186217): Destination "IOWR_LED" may be non-global or may not use global clock
-Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[0]~0" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 9
-Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[10]~10" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 9
-Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[11]~11" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 9
+Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[0]~0" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 5
+Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[10]~10" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 5
+Info (186215): Automatically promoted signal "decoder_4to16:inst12|decoder_out[11]~11" to use Global clock File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/decoder_4to16.v Line: 5
 Info (186079): Completed Auto Global Promotion Operation
 Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -732,8 +732,8 @@ Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Info (144001): Generated suppressed messages file C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/output_files/fapio.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 956 megabytes
-    Info: Processing ended: Wed Dec 21 17:15:37 2016
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Mon Dec 26 00:38:11 2016
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:03
 
 
