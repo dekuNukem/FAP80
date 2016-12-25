@@ -66,3 +66,7 @@ Interrupt chaining is supported. INTI is the interrupt input, while INTO is inte
 ## LCD
 
 I used a LCD from [Nextion](https://www.itead.cc/wiki/Nextion_HMI_Solution), they make a whole range of LCDs in different sizes, some with resistive touch screen. The neat thing is that they are controlled by standard serial, so it's much easier to use than I2C or SPI LCDs. And apparently it has a companion software on PC where you can design an entire UI and upload it into the LCD. For this project I didn't bother with any of that since it just displays some text strings. I used their smallest and cheapest one. The serial commands for it can be found [here](https://www.itead.cc/wiki/Nextion_Instruction_Set), the only two I used is CLS (clear screen) and XSTR(print string).
+
+## Blog entry
+
+[Here it is](https://dekunukem.wordpress.com/2016/12/22/fap-reborn-backplane/)

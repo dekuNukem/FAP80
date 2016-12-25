@@ -5,7 +5,7 @@
 
 
 
-#FAP80, A retro computer without retro baggage
+#FAP80, A retro computer without the retro baggage
 
 FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
 
