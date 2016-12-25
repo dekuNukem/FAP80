@@ -57,7 +57,7 @@ While there is nothing wrong with that, I wasn’t around during the 80s home co
 * CPLD based
 * STM32 IO/interrupt controller
 * all interrupt modes supported
-* 256 ports
+* 16 ports
 * 2 UARTs
 * I2C EEPROM
 * SD card

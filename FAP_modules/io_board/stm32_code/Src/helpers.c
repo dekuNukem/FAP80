@@ -168,7 +168,7 @@ void interrupt_activate(uint8_t vector)
 {
   CPLD_DATA_PORT->ODR &= 0xff00;
   CPLD_DATA_PORT->ODR |= vector;
-  printf("interrupt ODR: 0x%X\n", CPLD_DATA_PORT->ODR);
+  // printf("interrupt ODR: 0x%X\n", CPLD_DATA_PORT->ODR);
   data_output();
   vect_load_activate();
   vect_load_deactivate();

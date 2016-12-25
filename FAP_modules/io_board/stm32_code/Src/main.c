@@ -160,7 +160,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int32_t next_print = HAL_GetTick();
 
   while (1)
   {
