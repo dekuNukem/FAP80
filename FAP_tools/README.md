@@ -1,3 +1,1 @@
-This folder holds PC-side tools and programs. Things like FAP programs' source codes, assembler, script for uploading, etc..
-
-This repo is still under construction, more information will be added as I continue to add to the documentations and clean up the codebase. 
+Currently there are two ways to program FAP80. One is do it directly in Z80 assembly, cross assemble it using zmacs and then upload it into FAP. Examples and details are in [zmacs folder](./zmacs).
