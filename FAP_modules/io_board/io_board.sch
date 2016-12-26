@@ -6673,6 +6673,8 @@ Source: http://www.osram.convergy.de/</description>
 <part name="JP6" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="TP7" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 <part name="TP8" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP9" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="TP10" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -6846,6 +6848,8 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="JP6" gate="G$1" x="-96.52" y="-127" rot="MR0"/>
 <instance part="TP7" gate="G$1" x="-109.22" y="-93.98" rot="R180"/>
 <instance part="TP8" gate="G$1" x="-109.22" y="-83.82" rot="R180"/>
+<instance part="TP9" gate="G$1" x="137.16" y="-215.9" rot="R180"/>
+<instance part="TP10" gate="G$1" x="137.16" y="-218.44" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -7369,6 +7373,11 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="114.3" y1="86.36" x2="119.38" y2="86.36" width="0.1524" layer="91"/>
 <junction x="114.3" y="86.36"/>
 <pinref part="S3" gate="S" pin="2"/>
+<pinref part="IC2" gate="B1" pin="IOB1-17"/>
+<wire x1="-53.34" y1="-109.22" x2="-86.36" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="-109.22" x2="-86.36" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="-86.36" y1="86.36" x2="111.76" y2="86.36" width="0.1524" layer="91"/>
+<junction x="111.76" y="86.36"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -7506,20 +7515,12 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="91.44" y1="-220.98" x2="149.86" y2="-220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="32"/>
-<pinref part="IC2" gate="B2" pin="IOB2-92"/>
-<wire x1="93.98" y1="-127" x2="93.98" y2="-218.44" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="-218.44" x2="149.86" y2="-218.44" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$21" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="31"/>
-<pinref part="IC2" gate="B2" pin="IOB2-91"/>
-<wire x1="96.52" y1="-127" x2="96.52" y2="-215.9" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="-215.9" x2="149.86" y2="-215.9" width="0.1524" layer="91"/>
+<pinref part="IC2" gate="B1" pin="IOB1-44/DEV_CLR"/>
+<wire x1="96.52" y1="-127" x2="96.52" y2="-114.3" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="-114.3" x2="-7.62" y2="-114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -8379,6 +8380,28 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="-99.06" y1="-101.6" x2="-99.06" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="TP7" gate="G$1" pin="1"/>
 <wire x1="-99.06" y1="-93.98" x2="-109.22" y2="-93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="32"/>
+<pinref part="IC2" gate="B1" pin="IOB1-43/DEV_OE"/>
+<wire x1="93.98" y1="-127" x2="93.98" y2="-111.76" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="-111.76" x2="-7.62" y2="-111.76" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$106" class="0">
+<segment>
+<pinref part="IC2" gate="B2" pin="IOB2-91"/>
+<pinref part="TP9" gate="G$1" pin="1"/>
+<wire x1="149.86" y1="-215.9" x2="137.16" y2="-215.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$107" class="0">
+<segment>
+<pinref part="IC2" gate="B2" pin="IOB2-92"/>
+<pinref part="TP10" gate="G$1" pin="1"/>
+<wire x1="149.86" y1="-218.44" x2="137.16" y2="-218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
