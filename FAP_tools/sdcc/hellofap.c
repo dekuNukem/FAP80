@@ -15,6 +15,7 @@
 typedef unsigned char uint8_t;
 typedef unsigned int uint16_t;
 
+// const values are put in ROM
 const uint16_t cursor_lookup[30] = {0x8000, 0x8050, 0x80a0, 0x80f0, 0x8140, 0x8190, 0x81e0, 0x8230, 0x8280, 0x82d0, 0x8320, 0x8370, 0x83c0, 0x8410, 0x8460, 0x84b0, 0x8500, 0x8550, 0x85a0, 0x85f0, 0x8640, 0x8690, 0x86e0, 0x8730, 0x8780, 0x87d0, 0x8820, 0x8870, 0x88c0, 0x8910};
 const uint8_t boot_msg[] = "this is a global variable. hello world this is a very long message i hope it still works. does it work when changing into a new line? only one way to find out! what the fuck is happening here? needs to be longer to find out. how about even longer? now i'm going past 256 characters, will it break?";
 
@@ -135,6 +136,7 @@ void main()
 	}
 }
 
+// this is a hack to put the keyboard ISR exactly where it needs to be
 void begin_absolute_code(void) __naked
 {
     __asm
