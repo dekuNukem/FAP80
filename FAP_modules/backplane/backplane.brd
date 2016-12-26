@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.000123031496" altunitdist="mil" altunit="mil"/>
+<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.000123031496" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -166,7 +166,7 @@
 <text x="106.152" y="91.0844" size="0.8128" layer="25" rot="R90">WR</text>
 <text x="106.152" y="93.6244" size="0.8128" layer="25" rot="R90">RD</text>
 <text x="106.406" y="75.5904" size="0.8128" layer="25" rot="R90">NMI</text>
-<text x="147.8842" y="9.5758" size="1.778" layer="25" rot="R90">FAP Backplane V2
+<text x="147.8842" y="9.3218" size="1.651" layer="25" rot="R90">FAP80 Backplane V2
 dekuNukem 2016</text>
 <text x="14.8082" y="5.8982" size="1.27" layer="25" rot="R180">A15</text>
 <text x="6.5532" y="34.1684" size="1.27" layer="25" rot="R180">A7</text>
