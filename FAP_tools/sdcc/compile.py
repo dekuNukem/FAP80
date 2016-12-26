@@ -7,7 +7,9 @@ if(os.system("sdasz80 -o crt0_fap.s") != 0):
 	exit()
 
 print("\ncompiling hellofap.c...\n")
-if os.system("sdcc -mz80 --code-loc 0x200 --data-loc 0xa000 --no-std-crt0 crt0_fap.rel hellofap.c") != 0:
+
+# code-loc is where main() is, data-loc is where RAM starts
+if os.system("sdcc -mz80 --code-loc 0x200 --data-loc 0xc000 --no-std-crt0 crt0_fap.rel hellofap.c") != 0:
 	exit()
 
 print("\nconverting to bin...\n")

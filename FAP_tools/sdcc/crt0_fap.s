@@ -28,6 +28,7 @@
 	.org	0x38
 	reti
 
+	;; keyboard interrupt vector
 	.org	0x80
 	.dw	#0x1600
 
@@ -36,7 +37,7 @@
 
 	.org	0x100
 init:
-	;; Set stack pointer directly above top of memory.
+	;; Set stack pointer
 	ld	sp,#0xff00
 
 	;; set cursor address to 0
@@ -46,12 +47,13 @@ init:
 	;; Initialise global variables
 	call	gsinit
 
-	;; enable interrupt 
+	;; enable mode 2 interrupt 
 	ld	a, #0
 	ld	i, a		; load interrupt register
 	im	#2
 	ei
 
+	;; go into main
 	call	_main
 	jp	_exit
 
