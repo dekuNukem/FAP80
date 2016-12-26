@@ -157,7 +157,7 @@
 <circle x="8.0772" y="46.8884" radius="2.794" width="0" layer="41"/>
 <circle x="8.0772" y="71.882" radius="3.048" width="0" layer="41"/>
 <text x="0.8636" y="28.9052" size="1.6764" layer="25" distance="70">FAP80 VGA
-Video Card REV2
+Video Card V2
 dekuNukem 2016</text>
 <text x="7.6962" y="26.67" size="1.016" layer="25">Power</text>
 <text x="7.9756" y="11.6332" size="1.016" layer="25">GND</text>
@@ -1108,6 +1108,23 @@ Source: http://www.osram.convergy.de/ ... lb_r99a.pdf</description>
 </package>
 </packages>
 </library>
+<library name="SparkFun-Passives">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find resistors, capacitors, inductors, test points, jumper pads, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="PAD-JUMPER-2-NO_NO_SILK">
+<smd name="1" x="-0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<smd name="2" x="0.45" y="0" dx="0.635" dy="1.27" layer="1" cream="no"/>
+<text x="-0.908" y="1.27" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.908" y="-1.651" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1398,6 +1415,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="61.341" y="72.0725" size="0.8128" layer="25"/>
 <attribute name="VALUE" x="58.166" y="70.993" size="0.4064" layer="27"/>
 </element>
+<element name="JP1" library="SparkFun-Passives" package="PAD-JUMPER-2-NO_NO_SILK" value="JUMPER-PAD-2-NO" x="76.708" y="8.4074" rot="MR90"/>
 </elements>
 <signals>
 <signal name="VGA_RED_1">
@@ -2298,12 +2316,13 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </signal>
 <signal name="N$36">
 <contactref element="U$3" pad="142"/>
-<contactref element="U$1" pad="NMI"/>
-<wire x1="76.708" y1="4.572" x2="76.708" y2="8.382" width="0.254" layer="16"/>
-<wire x1="76.708" y1="8.382" x2="72.39" y2="12.7" width="0.254" layer="16"/>
 <contactref element="R14" pad="1"/>
 <wire x1="72.39" y1="12.7" x2="72.39" y2="10.0982" width="0.254" layer="1"/>
 <wire x1="72.39" y1="10.0982" x2="72.6076" y2="9.8806" width="0.254" layer="1"/>
+<contactref element="JP1" pad="2"/>
+<wire x1="76.708" y1="8.8574" x2="74.8102" y2="8.8574" width="0.4064" layer="16"/>
+<wire x1="74.8102" y1="8.8574" x2="72.39" y2="11.2776" width="0.4064" layer="16"/>
+<wire x1="72.39" y1="11.2776" x2="72.39" y2="12.7" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$37">
 <contactref element="U$3" pad="RST"/>
@@ -2325,6 +2344,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="U$1" pad="INTI"/>
 <contactref element="U$1" pad="INTO"/>
 <wire x1="74.168" y1="4.572" x2="74.168" y2="2.032" width="0.4064" layer="1"/>
+</signal>
+<signal name="N$39">
+<contactref element="U$1" pad="NMI"/>
+<contactref element="JP1" pad="1"/>
+<wire x1="76.708" y1="4.572" x2="76.708" y2="7.9574" width="0.4064" layer="16"/>
 </signal>
 </signals>
 </board>

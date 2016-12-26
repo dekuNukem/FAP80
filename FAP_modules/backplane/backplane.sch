@@ -9149,9 +9149,6 @@ by exp-lbrs.ulp</description>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
 <part name="C10" library="adafruit" deviceset="C-US" device="C1210" value="100uF"/>
-<part name="C11" library="adafruit" deviceset="C-US" device="C1210" value="100uF"/>
-<part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
@@ -9162,9 +9159,6 @@ by exp-lbrs.ulp</description>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="C12" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
-<part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="U$4" library="fap_bus_backplane" deviceset="FAP_BUS" device=""/>
 <part name="U$1" library="fap_bus_backplane" deviceset="FAP_BUS" device=""/>
 <part name="U$2" library="fap_bus_backplane" deviceset="FAP_BUS" device=""/>
@@ -9259,9 +9253,6 @@ by exp-lbrs.ulp</description>
 <instance part="GND10" gate="1" x="307.34" y="35.56"/>
 <instance part="P+6" gate="1" x="322.58" y="152.4" rot="MR0"/>
 <instance part="C10" gate="G$1" x="129.54" y="114.3"/>
-<instance part="C11" gate="G$1" x="-43.18" y="66.04"/>
-<instance part="GND12" gate="1" x="-43.18" y="53.34"/>
-<instance part="+3V10" gate="G$1" x="-43.18" y="76.2"/>
 <instance part="GND13" gate="1" x="129.54" y="106.68"/>
 <instance part="JP1" gate="A" x="454.66" y="17.78" rot="R180"/>
 <instance part="GND14" gate="1" x="457.2" y="5.08"/>
@@ -9272,12 +9263,6 @@ by exp-lbrs.ulp</description>
 <instance part="GND16" gate="1" x="190.5" y="33.02"/>
 <instance part="GND17" gate="1" x="464.82" y="-78.74"/>
 <instance part="GND18" gate="1" x="485.14" y="-35.56"/>
-<instance part="C12" gate="G$1" x="2.54" y="63.5" smashed="yes">
-<attribute name="NAME" x="4.064" y="66.421" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-3.556" y="61.341" size="1.778" layer="96"/>
-</instance>
-<instance part="GND22" gate="1" x="2.54" y="50.8"/>
-<instance part="+3V8" gate="G$1" x="2.54" y="76.2"/>
 <instance part="U$4" gate="G$1" x="335.28" y="109.22"/>
 <instance part="U$1" gate="G$1" x="462.28" y="109.22"/>
 <instance part="U$2" gate="G$1" x="515.62" y="109.22"/>
@@ -9438,11 +9423,6 @@ by exp-lbrs.ulp</description>
 <wire x1="449.58" y1="38.1" x2="566.42" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C11" gate="G$1" pin="2"/>
-<pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="-43.18" y1="60.96" x2="-43.18" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C10" gate="G$1" pin="2"/>
 <pinref part="GND13" gate="1" pin="GND"/>
 </segment>
@@ -9501,11 +9481,6 @@ by exp-lbrs.ulp</description>
 <junction x="474.98" y="-7.62"/>
 <pinref part="GND18" gate="1" pin="GND"/>
 <wire x1="485.14" y1="-33.02" x2="474.98" y2="-33.02" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C12" gate="G$1" pin="2"/>
-<wire x1="2.54" y1="60.96" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="GND22" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="A" pin="5"/>
@@ -9586,16 +9561,6 @@ by exp-lbrs.ulp</description>
 <pinref part="IC1" gate="G$1" pin="VOUT"/>
 <pinref part="+3V6" gate="G$1" pin="+3V3"/>
 <wire x1="55.88" y1="116.84" x2="53.34" y2="116.84" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C11" gate="G$1" pin="1"/>
-<wire x1="-43.18" y1="68.58" x2="-43.18" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="+3V10" gate="G$1" pin="+3V3"/>
-</segment>
-<segment>
-<pinref part="C12" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="68.58" x2="2.54" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="+3V8" gate="G$1" pin="+3V3"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="A" pin="3"/>

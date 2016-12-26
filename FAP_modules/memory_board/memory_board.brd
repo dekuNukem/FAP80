@@ -151,7 +151,7 @@
 <wire x1="100" y1="60" x2="0" y2="60" width="0" layer="20"/>
 <wire x1="0" y1="60" x2="0" y2="0" width="0" layer="20"/>
 <text x="20.955" y="48.4632" size="1.778" layer="25">HM62256</text>
-<text x="62.2728" y="52.873" size="1.778" layer="25">FAP80 Memory Board REV2
+<text x="62.2728" y="52.873" size="1.778" layer="25">FAP80 Memory Board V2
 dekuNukem 2016</text>
 <text x="4.5212" y="49.0474" size="1.016" layer="25">  RAM
 ACCESS</text>
