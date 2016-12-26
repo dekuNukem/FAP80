@@ -30,11 +30,18 @@ If you're using windows, which you probably are because uVision is windows only,
 
 You'll probably need a serial port viewer too, I use [coolterm](http://freeware.the-meiers.org) which is free and available on all major OSes.
 
-## Spartan-6 FPGA softwares
+## FPGA softwares
 
 [ISE WebPACK Design Software](https://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.html) is needed to synthesis the video card, in order to upload it though, you need [Mojo Loader](https://embeddedmicro.com/tutorials/mojo-software-and-updates/installing-mojo-loader)
 
 However, ISE is kind of old and isn't officially supported on windows 10. However Xilinx themselves posted a workaround to make it work, [so do it if you're on windows 10](https://www.xilinx.com/support/answers/62380.html).
 
 
+## CPLD softwares
+
+[Quartus Prime Lite Edition](http://dl.altera.com/?edition=lite) is needed. 
+
+make sure to select "direct download", and only download the Quartus Prime and MAX II support files.
+
+![Alt text](http://i.imgur.com/7p7FpTv.png)
 
