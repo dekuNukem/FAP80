@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for fapio
-Mon Dec 26 00:38:17 2016
+Mon Dec 26 13:44:59 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -156,10 +156,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 28    ; 28   ;
-; Unconstrained Input Port Paths  ; 233   ; 233  ;
-; Unconstrained Output Ports      ; 31    ; 31   ;
-; Unconstrained Output Port Paths ; 233   ; 233  ;
+; Unconstrained Input Ports       ; 29    ; 29   ;
+; Unconstrained Input Port Paths  ; 234   ; 234  ;
+; Unconstrained Output Ports      ; 32    ; 32   ;
+; Unconstrained Output Port Paths ; 234   ; 234  ;
 +---------------------------------+-------+------+
 
 
@@ -194,6 +194,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CPU_IORQ                     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_M1                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_RD                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RESET                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_WR                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_DATA[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_DATA[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -245,6 +246,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; STM32_PORT_ADDR[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_PORT_ADDR[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_PORT_ADDR[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_RESET        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VECT_LOAD_LED      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +--------------------+---------------------------------------------------------------------------------------+
 
@@ -269,6 +271,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CPU_IORQ                     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_M1                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_RD                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RESET                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; CPU_WR                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_DATA[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_DATA[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -320,6 +323,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; STM32_PORT_ADDR[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_PORT_ADDR[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; STM32_PORT_ADDR[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_RESET        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; VECT_LOAD_LED      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +--------------------+---------------------------------------------------------------------------------------+
 
@@ -330,7 +334,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 26 00:38:15 2016
+    Info: Processing started: Mon Dec 26 13:44:57 2016
 Info: Command: quartus_sta fapio -c fapio
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -365,7 +369,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 541 megabytes
-    Info: Processing ended: Mon Dec 26 00:38:17 2016
+    Info: Processing ended: Mon Dec 26 13:44:59 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

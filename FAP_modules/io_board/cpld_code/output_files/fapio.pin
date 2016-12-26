@@ -79,7 +79,7 @@ VCCINT                       : 13        : power  :                   : 2.5V/3.3
 RESERVED_INPUT_WITH_WEAK_PULLUP : 14        :        :                   :         : 1         :                
 STM32_INT_L                  : 15        : input  : 3.3-V LVTTL       :         : 1         : Y              
 DEBUG_LED1                   : 16        : output : 3.3-V LVTTL       :         : 1         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : 17        :        :                   :         : 1         :                
+STM32_RESET                  : 17        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 18        :        :                   :         : 1         :                
 DEBUG_LED2                   : 19        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 20        :        :                   :         : 1         :                
@@ -105,8 +105,8 @@ VCCINT                       : 39        : power  :                   : 2.5V/3.3
 CPU_WAIT                     : 40        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 41        :        :                   :         : 1         :                
 STM32_INTVECT_LOAD_H         : 42        : input  : 3.3-V LVTTL       :         : 1         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : 43        :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 44        :        :                   :         : 1         :                
+CPU_BUSREQ                   : 43        : input  : 3.3-V LVTTL       :         : 1         : Y              
+CPU_RESET                    : 44        : input  : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 46        : gnd    :                   :         :           :                
 LATCH16_LED                  : 47        : output : 3.3-V LVTTL       :         : 1         : Y              
@@ -153,7 +153,7 @@ CPU_DATA[1]                  : 87        : bidir  : 3.3-V LVTTL       :         
 VCCINT                       : 88        : power  :                   : 2.5V/3.3V :           :                
 CPU_INTO                     : 89        : output : 3.3-V LVTTL       :         : 2         : Y              
 GNDINT                       : 90        : gnd    :                   :         :           :                
-CPU_RESET                    : 91        : input  : 3.3-V LVTTL       :         : 2         : Y              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 91        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 92        :        :                   :         : 2         :                
 GNDIO                        : 93        : gnd    :                   :         :           :                
 VCCIO2                       : 94        : power  :                   : 3.3V    : 2         :                

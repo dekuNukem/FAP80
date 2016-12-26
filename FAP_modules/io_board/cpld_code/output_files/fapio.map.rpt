@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fapio
-Mon Dec 26 00:38:08 2016
+Mon Dec 26 13:44:50 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -42,13 +42,13 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon Dec 26 00:38:08 2016       ;
+; Analysis & Synthesis Status ; Successful - Mon Dec 26 13:44:50 2016       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; fapio                                       ;
 ; Top-level Entity Name       ; fapio                                       ;
 ; Family                      ; MAX II                                      ;
 ; Total logic elements        ; 304                                         ;
-; Total pins                  ; 64                                          ;
+; Total pins                  ; 66                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -179,11 +179,11 @@ agreement for further details.
 ;     -- asynchronous clear/load mode         ; 0        ;
 ;                                             ;          ;
 ; Total registers                             ; 0        ;
-; I/O pins                                    ; 64       ;
+; I/O pins                                    ; 66       ;
 ; Maximum fan-out node                        ; CPU_IORQ ;
 ; Maximum fan-out                             ; 20       ;
-; Total fan-out                               ; 1064     ;
-; Average fan-out                             ; 2.89     ;
+; Total fan-out                               ; 1065     ;
+; Average fan-out                             ; 2.88     ;
 +---------------------------------------------+----------+
 
 
@@ -192,7 +192,7 @@ agreement for further details.
 +---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node            ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                     ; Entity Name   ; Library Name ;
 +---------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------+---------------+--------------+
-; |fapio                                ; 304 (19)    ; 0            ; 0          ; 64   ; 0            ; 304 (19)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio                                  ; fapio         ; work         ;
+; |fapio                                ; 304 (19)    ; 0            ; 0          ; 66   ; 0            ; 304 (19)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio                                  ; fapio         ; work         ;
 ;    |decoder_4to16:inst12|             ; 32 (32)     ; 0            ; 0          ; 0    ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst12             ; decoder_4to16 ; work         ;
 ;    |decoder_4to16:inst73|             ; 16 (16)     ; 0            ; 0          ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|decoder_4to16:inst73             ; decoder_4to16 ; work         ;
 ;    |dlatch4:PORT_WRITE_ADDRESS_LATCH| ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |fapio|dlatch4:PORT_WRITE_ADDRESS_LATCH ; dlatch4       ; work         ;
@@ -349,7 +349,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 26 00:37:50 2016
+    Info: Processing started: Mon Dec 26 13:44:33 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fapio -c fapio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -368,9 +368,9 @@ Warning (275043): Pin "DEBUG_LED2" is missing source
 Warning (275009): Pin "CPU_CLK" not connected
 Warning (275009): Pin "CPU_BUSACK" not connected
 Warning (275009): Pin "CPU_MREQ" not connected
-Warning (275009): Pin "CPU_RESET" not connected
 Warning (275009): Pin "CLK50" not connected
 Warning (275009): Pin "CPU_INTI" not connected
+Warning (275009): Pin "CPU_BUSREQ" not connected
 Info (12128): Elaborating entity "dlatch8" for hierarchy "dlatch8:Z80_INT_LATCH"
 Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(13): variable "q_internal" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 13
 Warning (10235): Verilog HDL Always Construct warning at dlatch8.v(17): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/dlatch8.v Line: 17
@@ -416,18 +416,18 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CPU_CLK"
     Warning (15610): No output dependent on input pin "CPU_BUSACK"
     Warning (15610): No output dependent on input pin "CPU_MREQ"
-    Warning (15610): No output dependent on input pin "CPU_RESET"
     Warning (15610): No output dependent on input pin "CLK50"
     Warning (15610): No output dependent on input pin "CPU_INTI"
-Info (21057): Implemented 368 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 30 input pins
-    Info (21059): Implemented 14 output pins
+    Warning (15610): No output dependent on input pin "CPU_BUSREQ"
+Info (21057): Implemented 370 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 31 input pins
+    Info (21059): Implemented 15 output pins
     Info (21060): Implemented 20 bidirectional pins
     Info (21061): Implemented 304 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 591 megabytes
-    Info: Processing ended: Mon Dec 26 00:38:08 2016
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:45
+    Info: Peak virtual memory: 592 megabytes
+    Info: Processing ended: Mon Dec 26 13:44:50 2016
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:44
 
 
