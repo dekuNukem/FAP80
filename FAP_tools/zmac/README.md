@@ -8,4 +8,6 @@ Anyway put the `zmac` executable in the [PATH for windows](http://www.howtogeek.
 
 Then run the ass.py to assemble the .z80 files. Actually if you take a look inside the ass.py you'll see it's some hacked together bash commands anyway, so you can run them directly if you want. It assembles the .z80 file with zmac, then convert .hex file into .bin file.
 
-zmac also generates a number of other useful output files in the [zout](./zout) folder. 
+zmac also generates a number of other useful output files in the [zout](./zout) folder, most of all the .bds file, which stands for binary debuggable source. It lists all the instructions along with their memory address and data, so you can follow along while single stepping to see where you are in the program.
+
+Finally use load.py to upload the program into the FAP80. And press RUN/STOP to start executing at full speed.
