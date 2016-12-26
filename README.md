@@ -3,7 +3,7 @@
 
 ![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
 
-
+to do: add pin number marking on backplane bus slot
 
 #FAP80, A retro computer without the retro baggage
 

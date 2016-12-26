@@ -1,0 +1,101 @@
+XL2
+H 16 areas 8 global symbols
+M crt0
+S _main Ref0000
+S .__.ABS. Def0000
+S s__INITIALIZED Ref0000
+S l__INITIALIZER Ref0000
+S s__INITIALIZER Ref0000
+A _CODE size 4 flags 0 addr 0
+S __clock Def0000
+S _exit Def0001
+A _HEADER size 0 flags 8 addr 0
+A _HEADER0 size 3 flags 8 addr 0
+A _HEADER1 size 2 flags 8 addr 8
+A _HEADER2 size 2 flags 8 addr 10
+A _HEADER3 size 2 flags 8 addr 18
+A _HEADER4 size 2 flags 8 addr 20
+A _HEADER5 size 2 flags 8 addr 28
+A _HEADER6 size 2 flags 8 addr 30
+A _HEADER7 size 2 flags 8 addr 38
+A _HEADER8 size 2 flags 8 addr 80
+A _HEADER9 size 2 flags 8 addr 92C2
+A _HEADERa size 18 flags 8 addr 100
+A _HOME size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _GSINIT size F flags 0 addr 0
+S gsinit Def0000
+A _GSFINAL size 1 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _BSEG size 0 flags 0 addr 0
+A _BSS size 0 flags 0 addr 0
+A _HEAP size 0 flags 0 addr 0
+T 00 00
+R 00 00 02 00
+T 00 00 C3 00 01
+R 00 00 02 00 00 03 0C 00
+T 08 00
+R 00 00 03 00
+T 08 00 ED 4D
+R 00 00 03 00
+T 10 00
+R 00 00 04 00
+T 10 00 ED 4D
+R 00 00 04 00
+T 18 00
+R 00 00 05 00
+T 18 00 ED 4D
+R 00 00 05 00
+T 20 00
+R 00 00 06 00
+T 20 00 ED 4D
+R 00 00 06 00
+T 28 00
+R 00 00 07 00
+T 28 00 ED 4D
+R 00 00 07 00
+T 30 00
+R 00 00 08 00
+T 30 00 ED 4D
+R 00 00 08 00
+T 38 00
+R 00 00 09 00
+T 38 00 ED 4D
+R 00 00 09 00
+T 80 00
+R 00 00 0A 00
+T 80 00 00 16
+R 00 00 0A 00
+T C2 92
+R 00 00 0B 00
+T C2 92 00 80
+R 00 00 0B 00
+T 00 01
+R 00 00 0C 00
+T 00 01
+R 00 00 0C 00
+T 00 01 31 00 FF 21 C1 92 36 FF CD 00 00 3E 00 ED
+R 00 00 0C 00 00 0B 0F 00
+T 0E 01 47 ED 5E FB CD 00 00 C3 01 00
+R 00 00 0C 00 02 07 00 00 00 0A 00 00
+T 00 00
+R 00 00 00 00
+T 00 00 C9
+R 00 00 00 00
+T 01 00
+R 00 00 00 00
+T 01 00
+R 00 00 00 00
+T 01 00 76 18 FD
+R 00 00 00 00
+T 00 00
+R 00 00 0F 00
+T 00 00 01 00 00 78 B1 28 08 11 00 00 21 00 00 ED
+R 00 00 0F 00 02 03 03 00 02 0A 02 00 02 0D 04 00
+T 0E 00 B0
+R 00 00 0F 00
+T 0F 00
+R 00 00 0F 00
+T 00 00 C9
+R 00 00 10 00

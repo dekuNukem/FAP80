@@ -1,0 +1,507 @@
+   1:					include 	helpers.z80
+**** helpers.z80 ****
+   1:     -	0960          	vram_size		.equ	2400
+   2:     -	8000          	vram_char_base_addr	.equ	0x8000
+   3:     -	8960          	vram_attri_base_addr	.equ	0x8960
+   4:     -	92C1          	vram_copy_ctrl_addr	.equ	0x92c1
+   5:     -	004F          	cursor_max_x		.equ	79
+   6:     -	0050          	cursor_x_size		.equ	80
+   7:     -	001D          	cursor_max_y		.equ	29
+   8:     -	0001          	text_upper_limit	.equ	1
+   9:     -	001A          	text_lower_limit	.equ	26
+  10:				
+  11:     -	0400          		org	0x400
+  12:				
+  13:				;	A IS ALWAYS DESTORIED
+  14:				
+  15:				;	c: character
+  16:				;	d: cursor y
+  17:				;	e: cursor x
+  18:				;	destories: none
+  19:     -	0400          	putc_nolock:
+  20:    0+17	0400  CD3904  		call	disable_vram_copy
+  21:   17+4	0403  79      		ld	a, c
+  22:   21+7	0404  FE0A    		cp	10
+  23:   28+10	0406  CA2704  		jp	z, put_c_newline
+  24:   38+7	0409  FE0D    		cp	13
+  25:   45+10	040B  CA2A04  		jp	z, putc_done
+  26:   55+11	040E  E5      		push	hl
+  27:   66+11	040F  C5      		push	bc
+  28:   77+17	0410  CD6D04  		call	row_lookup
+  29:   94+4	0413  60      		ld	h, b
+  30:   98+4	0414  69      		ld	l, c		; hl holds look up result
+  31:  102+11	0415  D5      		push	de		; save de
+  32:  113+7	0416  1600    		ld 	d, 0		; clear d
+  33:  120+11	0418  19      		add	hl, de		; now hl holds the proper address
+  34:  131+10	0419  010080  		ld	bc, vram_char_base_addr
+  35:  141+11	041C  09      		add	hl, bc		; now hl holds proper vram address
+  36:  152+10	041D  D1      		pop	de
+  37:  162+10	041E  C1      		pop 	bc
+  38:  172+7	041F  71      		ld	(hl), c
+  39:  179+17	0420  CD4104  		call	cursor_advance
+  40:  196+10	0423  E1      		pop	hl
+  41:  206+10	0424  C32A04  		jp	putc_done
+  42:     -	0427          	put_c_newline:
+  43:  216+7	0427  1E00    		ld	e, 0
+  44:  223+4	0429  14      		inc	d
+  45:     -	042A          	putc_done:
+  46:  227+17	042A  CD4C04  		call	scroll_check
+  47:  244+17	042D  CD3104  		call	enable_vram_copy
+  48:  261+10	0430  C9      		ret
+  49:				
+  50:				;	destories: none
+  51:     -	0431          	enable_vram_copy:
+  52:  271+11	0431  E5      		push	hl
+  53:  282+10	0432  21C192  		ld	hl, vram_copy_ctrl_addr
+  54:  292+10	0435  36FF    		ld	(hl), 0xff
+  55:  302+10	0437  E1      		pop	hl
+  56:  312+10	0438  C9      		ret
+  57:				
+  58:				;	destories: none
+  59:     -	0439          	disable_vram_copy:
+  60:  322+11	0439  E5      		push	hl
+  61:  333+10	043A  21C192  		ld	hl, vram_copy_ctrl_addr
+  62:  343+10	043D  3600    		ld	(hl), 0x0
+  63:  353+10	043F  E1      		pop	hl
+  64:  363+10	0440  C9      		ret
+  65:				
+  66:				;	d: cursor y
+  67:				;	e: cursor x
+  68:				;	destories: none
+  69:     -	0441          	cursor_advance:
+  70:  373+4	0441  7B      		ld	a, e
+  71:  377+7	0442  FE4F    		cp	cursor_max_x
+  72:  384+10	0444  DA4A04  		jp	c, no_newline
+  73:  394+7	0447  1EFF    		ld	e, 255
+  74:  401+4	0449  14      		inc	d
+  75:     -	044A          	no_newline:
+  76:  405+4	044A  1C      		inc	e
+  77:  409+10	044B  C9      		ret
+  78:				
+  79:				;	check the current cursor position to see if it needs scrolling
+  80:				;	d: cursor y
+  81:				;	destories: none
+  82:     -	044C          	scroll_check:
+  83:  419+7	044C  3E1A    		ld	a, text_lower_limit
+  84:  426+4	044E  BA      		cp	d
+  85:  430+10	044F  C25E04  		jp	nz, scroll_check_done
+  86:  440+11	0452  C5      		push	bc
+  87:  451+7	0453  0601    		ld	b, text_upper_limit
+  88:  458+7	0455  0E1A    		ld	c, text_lower_limit
+  89:  465+17	0457  CD7E04  		call	screen_scroll
+  90:  482+4	045A  15      		dec	d
+  91:  486+7	045B  1E00    		ld	e, 0
+  92:  493+10	045D  C1      		pop	bc
+  93:     -	045E          	scroll_check_done:
+  94:  503+10	045E  C9      		ret
+  95:				
+  96:				;	print 0 terminated string
+  97:				;	hl: buf start
+  98:				;	d: cursor y
+  99:				;	e: cursor x
+ 100:				;	destories: bc?
+ 101:     -	045F          	puts:
+ 102:  513+7	045F  4E      		ld	c, (hl)
+ 103:  520+4	0460  79      		ld	a, c
+ 104:  524+4	0461  B7      		or	a
+ 105:  528+10	0462  CA6C04  		jp	z, puts_done
+ 106:  538+17	0465  CD0004  		call	putc_nolock
+ 107:  555+6	0468  23      		inc	hl
+ 108:  561+10	0469  C35F04  		jp	puts
+ 109:     -	046C          	puts_done:
+ 110:  571+10	046C  C9      		ret
+ 111:				
+ 112:				;	d: lookup value
+ 113:				;	destories: bc
+ 114:				;	return: lookup result in bc
+ 115:     -	046D          	row_lookup:
+ 116:  581+11	046D  E5      		push	hl
+ 117:  592+11	046E  D5      		push	de
+ 118:  603+4	046F  7A      		ld	a, d		; load y cursor into a
+ 119:  607+4	0470  87      		add	a, a		; multiply y cursor by 2
+ 120:  611+7	0471  2600    		ld	h, 0
+ 121:  618+4	0473  6F      		ld	l, a		; load 2a into hl
+ 122:  622+10	0474  01FF04  		ld	bc, cursor_lookup	; load lookup table address into bc
+ 123:  632+11	0477  09      		add	hl, bc 		; add y cursor to lookup offset. now (hl) is lsb of look up, (hl+1) msb
+ 124:  643+7	0478  4E      		ld	c, (hl)		; load high byte of lookup result into c
+ 125:  650+6	0479  23      		inc	hl
+ 126:  656+7	047A  46      		ld	b, (hl)		; load low byte of lookup result into b, now bc holds cursor y look up result
+ 127:  663+10	047B  D1      		pop	de
+ 128:  673+10	047C  E1      		pop	hl
+ 129:  683+10	047D  C9      		ret
+ 130:				
+ 131:				;	scroll 1 line up
+ 132:				;	b: starting line
+ 133:				;	c: ending line
+ 134:				;	destories: none
+ 135:     -	047E          	screen_scroll:
+ 136:  693+11	047E  C5      		push	bc
+ 137:  704+11	047F  D5      		push 	de
+ 138:  715+11	0480  E5      		push	hl
+ 139:				
+ 140:  726+17	0481  CD3904  		call	disable_vram_copy
+ 141:					; ----- look up how many bytes to copy -----
+ 142:  743+11	0484  C5      		push	bc
+ 143:  754+4	0485  79      		ld	a, c
+ 144:  758+4	0486  90      		sub	b
+ 145:  762+4	0487  57      		ld	d, a
+ 146:  766+17	0488  CD6D04  		call	row_lookup		; bc has the result
+ 147:  783+20	048B  ED43E006		ld	(temp_var0), bc		; save cope size to temp_var0
+ 148:  803+10	048F  C1      		pop	bc
+ 149:				
+ 150:					; ----- calculate starting vram address -----
+ 151:  813+11	0490  C5      		push	bc
+ 152:  824+4	0491  50      		ld	d, b
+ 153:  828+17	0492  CD6D04  		call	row_lookup
+ 154:  845+10	0495  210080  		ld	hl, vram_char_base_addr
+ 155:  855+11	0498  09      		add	hl, bc			; hl holds starting vram address
+ 156:  866+16	0499  22E206  		ld	(temp_var1), hl		; save it to temp_var1
+ 157:  882+7	049C  0600    		ld	b, 0
+ 158:  889+7	049E  0E50    		ld	c, cursor_x_size
+ 159:  896+11	04A0  09      		add	hl, bc
+ 160:				
+ 161:					; ----- start copying -----
+ 162:  907+20	04A1  ED4BE006		ld	bc, (temp_var0)
+ 163:  927+20	04A5  ED5BE206		ld	de, (temp_var1)
+ 164:  947+16+5	04A9  EDB0    		ldir
+ 165:  963+10	04AB  C1      		pop	bc
+ 166:				
+ 167:					; ----- clear new line -----
+ 168:  973+4	04AC  51      		ld	d, c
+ 169:  977+17	04AD  CD6D04  		call	row_lookup
+ 170:  994+10	04B0  210080  		ld	hl, vram_char_base_addr
+ 171: 1004+11	04B3  09      		add	hl, bc			; hl holds end vram address
+ 172: 1015+7	04B4  3E50    		ld	a, cursor_x_size
+ 173: 1022+7	04B6  0E2E    		ld	c, '.'
+ 174:     -	04B8          	screen_scroll_loop:
+ 175: 1029+7	04B8  71      		ld	(hl), c
+ 176: 1036+6	04B9  23      		inc	hl
+ 177: 1042+4	04BA  3D      		dec	a
+ 178: 1046+10	04BB  C2B804  		jp	nz, screen_scroll_loop
+ 179:				
+ 180: 1056+10	04BE  E1      		pop	hl
+ 181: 1066+10	04BF  D1      		pop	de
+ 182: 1076+10	04C0  C1      		pop	bc
+ 183: 1086+17	04C1  CD3104  		call	enable_vram_copy
+ 184: 1103+10	04C4  C9      		ret
+ 185:				
+ 186:				;	destories: none
+ 187:     -	04C5          	clear_screen:
+ 188: 1113+11	04C5  C5      		push	bc
+ 189: 1124+11	04C6  D5      		push 	de
+ 190: 1135+11	04C7  E5      		push	hl
+ 191:				
+ 192: 1146+10	04C8  116009  		ld	de, vram_size
+ 193: 1156+7	04CB  0E20    		ld	c, ' ' ; character
+ 194: 1163+17	04CD  CD3904  		call	disable_vram_copy
+ 195:     -	04D0          	cclear:	
+ 196: 1180+10	04D0  210080  		ld	hl, vram_char_base_addr
+ 197: 1190+11	04D3  19      		add	hl, de
+ 198: 1201+7	04D4  71      		ld	(hl), c
+ 199: 1208+6	04D5  1B      		dec 	de
+ 200: 1214+4	04D6  7A      		ld	a, d
+ 201: 1218+4	04D7  B3      		or 	e	
+ 202: 1222+10	04D8  C2D004  		jp	nz, cclear
+ 203:				
+ 204: 1232+17	04DB  CD3104  		call	enable_vram_copy
+ 205: 1249+10	04DE  C1      		pop	bc
+ 206: 1259+10	04DF  D1      		pop 	de
+ 207: 1269+10	04E0  E1      		pop	hl
+ 208: 1279+10	04E1  C9      		ret
+ 209:				
+ 210:				;	destories: none
+ 211:     -	04E2          	clear_attri:
+ 212: 1289+11	04E2  C5      		push	bc
+ 213: 1300+11	04E3  D5      		push 	de
+ 214: 1311+11	04E4  E5      		push	hl
+ 215:				
+ 216: 1322+10	04E5  116009  		ld	de, vram_size
+ 217: 1332+7	04E8  0E34    		ld	c, 0x34 ; attribute
+ 218: 1339+17	04EA  CD3904  		call	disable_vram_copy
+ 219:     -	04ED          	aclear:	
+ 220: 1356+10	04ED  216089  		ld	hl, vram_attri_base_addr
+ 221: 1366+11	04F0  19      		add	hl, de
+ 222: 1377+7	04F1  71      		ld	(hl), c
+ 223: 1384+6	04F2  1B      		dec 	de
+ 224: 1390+4	04F3  7A      		ld	a, d
+ 225: 1394+4	04F4  B3      		or 	e	
+ 226: 1398+10	04F5  C2ED04  		jp	nz, aclear
+ 227:				
+ 228: 1408+17	04F8  CD3104  		call	enable_vram_copy
+ 229: 1425+10	04FB  C1      		pop	bc
+ 230: 1435+10	04FC  D1      		pop 	de
+ 231: 1445+10	04FD  E1      		pop	hl
+ 232: 1455+10	04FE  C9      		ret
+ 233:				
+ 234:     -	04FF          	cursor_lookup:
+ 235:     -	04FF  0000    		.dw	0x0
+ 236:     -	0501  5000    		.dw	0x50
+ 237:     -	0503  A000    		.dw	0xa0
+ 238:     -	0505  F000    		.dw	0xf0
+ 239:     -	0507  4001    		.dw	0x140
+ 240:     -	0509  9001    		.dw	0x190
+ 241:     -	050B  E001    		.dw	0x1e0
+ 242:     -	050D  3002    		.dw	0x230
+ 243:     -	050F  8002    		.dw	0x280
+ 244:     -	0511  D002    		.dw	0x2d0
+ 245:     -	0513  2003    		.dw	0x320
+ 246:     -	0515  7003    		.dw	0x370
+ 247:     -	0517  C003    		.dw	0x3c0
+ 248:     -	0519  1004    		.dw	0x410
+ 249:     -	051B  6004    		.dw	0x460
+ 250:     -	051D  B004    		.dw	0x4b0
+ 251:     -	051F  0005    		.dw	0x500
+ 252:     -	0521  5005    		.dw	0x550
+ 253:     -	0523  A005    		.dw	0x5a0
+ 254:     -	0525  F005    		.dw	0x5f0
+ 255:     -	0527  4006    		.dw	0x640
+ 256:     -	0529  9006    		.dw	0x690
+ 257:     -	052B  E006    		.dw	0x6e0
+ 258:     -	052D  3007    		.dw	0x730
+ 259:     -	052F  8007    		.dw	0x780
+ 260:     -	0531  D007    		.dw	0x7d0
+ 261:     -	0533  2008    		.dw	0x820
+ 262:     -	0535  7008    		.dw	0x870
+ 263:     -	0537  C008    		.dw	0x8c0
+ 264:     -	0539  1009    		.dw	0x910
+ 265:				
+ 266:     -	053B          	boot_message:
+ 267:     -	053B  20202020		.db "      //////////   ///     /////////   ////////   /////// ", 10
+	      20202F2F
+	      2F2F2F2F
+	      2F2F2F2F
+	      2020202F
+	      2F2F2020
+	      2020202F
+	      2F2F2F2F
+	      2F2F2F2F
+	      2020202F
+	      2F2F2F2F
+	      2F2F2F20
+	      20202F2F
+	      2F2F2F2F
+	      2F200A
+ 268:     -	0576  20202020		.db "     ///        /// ///   ///    /// ///    /// ///   /// ", 10
+	      202F2F2F
+	      20202020
+	      20202020
+	      2F2F2F20
+	      2F2F2F20
+	      20202F2F
+	      2F202020
+	      202F2F2F
+	      202F2F2F
+	      20202020
+	      2F2F2F20
+	      2F2F2F20
+	      20202F2F
+	      2F200A
+ 269:     -	05B1  20202020		.db "    ///       ///   ///  ///    /// ///    /// ///   ///  ", 10
+	      2F2F2F20
+	      20202020
+	      20202F2F
+	      2F202020
+	      2F2F2F20
+	      202F2F2F
+	      20202020
+	      2F2F2F20
+	      2F2F2F20
+	      2020202F
+	      2F2F202F
+	      2F2F2020
+	      202F2F2F
+	      20200A
+ 270:     -	05EC  2020202F		.db "   //////// /////////// /////////   ////////  ///   ///   ", 10
+	      2F2F2F2F
+	      2F2F2F20
+	      2F2F2F2F
+	      2F2F2F2F
+	      2F2F2F20
+	      2F2F2F2F
+	      2F2F2F2F
+	      2F202020
+	      2F2F2F2F
+	      2F2F2F2F
+	      20202F2F
+	      2F202020
+	      2F2F2F20
+	      20200A
+ 271:     -	0627  20202F2F		.db "  ///      ///     /// ///        ///    /// ///   ///    ", 10
+	      2F202020
+	      2020202F
+	      2F2F2020
+	      2020202F
+	      2F2F202F
+	      2F2F2020
+	      20202020
+	      20202F2F
+	      2F202020
+	      202F2F2F
+	      202F2F2F
+	      2020202F
+	      2F2F2020
+	      20200A
+ 272:     -	0662  202F2F2F		.db " ///      ///     /// ///        ///    /// ///   ///     ", 10
+	      20202020
+	      20202F2F
+	      2F202020
+	      20202F2F
+	      2F202F2F
+	      2F202020
+	      20202020
+	      202F2F2F
+	      20202020
+	      2F2F2F20
+	      2F2F2F20
+	      20202F2F
+	      2F202020
+	      20200A
+ 273:     -	069D  2F2F2F20		.db "///      ///     /// ///         ////////   ///////", 0
+	      20202020
+	      202F2F2F
+	      20202020
+	      202F2F2F
+	      202F2F2F
+	      20202020
+	      20202020
+	      202F2F2F
+	      2F2F2F2F
+	      2F202020
+	      2F2F2F2F
+	      2F2F2F00
+ 274:				
+ 275:     -	06D1          	credit:
+ 276:     -	06D1  64656B75		.db "dekuNukem 2016", 0
+	      4E756B65
+	      6D203230
+	      313600
+ 277:				; 	.db "      ::::::::::   :::     :::::::::   ::::::::   ::::::: ", 10
+ 278:				; 	.db "     :+:        :+: :+:   :+:    :+: :+:    :+: :+:   :+: ", 10
+ 279:				; 	.db "    +:+       +:+   +:+  +:+    +:+ +:+    +:+ +:+   +:+  ", 10
+ 280:				; 	.db "   :#::+::# +#++:++#++: +#++:++#+   +#++:++#  +#+   +:+   ", 10
+ 281:				; 	.db "  +#+      +#+     +#+ +#+        +#+    +#+ +#+   +#+    ", 10
+ 282:				; 	.db " #+#      #+#     #+# #+#        #+#    #+# #+#   #+#     ", 10
+ 283:				; 	.db "###      ###     ### ###         ########   #######       ", 0
+ 284:				; 	.db "    _/_/_/_/    _/_/    _/_/_/      _/_/      _/    ", 10
+ 285:				; 	.db "   _/        _/    _/  _/    _/  _/    _/  _/  _/   ", 10
+ 286:				; 	.db "  _/_/_/    _/_/_/_/  _/_/_/      _/_/    _/  _/    ", 10
+ 287:				; 	.db " _/        _/    _/  _/        _/    _/  _/  _/     ", 10
+ 288:				; 	.db "_/        _/    _/  _/          _/_/      _/  ", 0
+ 289:				
+ 290:				; 	.db "8888888888     d8888 8888888b.   .d8888b.   .d8888b.  ", 10
+ 291:				; 	.db "888           d88888 888   Y88b d88P  Y88b d88P  Y88b ", 10
+ 292:				; 	.db "888          d88P888 888    888 Y88b. d88P 888    888 ", 10
+ 293:				; 	.db "8888888     d88P 888 888   d88P  'Y88888'  888    888 ", 10
+ 294:				; 	.db "888        d88P  888 8888888P'  .d8P''Y8b. 888    888 ", 10
+ 295:				; 	.db "888       d88P   888 888        888    888 888    888 ", 10
+ 296:				; 	.db "888      d8888888888 888        Y88b  d88P Y88b  d88P ", 10
+ 297:				; 	.db "888     d88P     888 888         'Y8888P'   'Y8888P'  ", 0
+ 298:				
+ 299:				; 	.db " ________ ________  ________  ________  ________     ", 10
+ 300:				; 	.db "|\  _____\\   __  \|\   __  \|\   __  \|\   __  \    ", 10
+ 301:				; 	.db "\ \  \__/\ \  \|\  \ \  \|\  \ \  \|\  \ \  \|\  \   ", 10
+ 302:				; 	.db " \ \   __\\ \   __  \ \   ____\ \   __  \ \  \\\  \  ", 10
+ 303:				; 	.db "  \ \  \_| \ \  \ \  \ \  \___|\ \  \|\  \ \  \\\  \ ", 10
+ 304:				; 	.db "   \ \__\   \ \__\ \__\ \__\    \ \_______\ \_______\", 10
+ 305:				; 	.db "    \|__|    \|__|\|__|\|__|     \|_______|\|_______|", 0
+ 306:     -	06E0          	temp_var0:
+ 307:     -	06E0  0000    		.dw	0
+ 308:     -	06E2          	temp_var1:
+ 309:     -	06E2  0000    		.dw	0
+ 310:     -	06E4          	temp_var2:
+ 311:     -	06E4  0000    		.dw	0
+ 312:     -	06E6          	temp_var3:
+ 313:     -	06E6  0000    		.dw	0
+ 314:				
+ 315:				
+**** test.z80 ****
+   2:				
+   3:     -	0000          		org	0x0	
+   4: 1465+10	0000  C30001  		jp	program_start
+   5:				
+   6:     -	0080          		org	0x80
+   7:     -	0080  0010    		.dw	0x1000
+   8:				
+   9:     -	0100          		org	0x100
+  10:     -	0100          	program_start:
+  11: 1475+4	0100  F3      		di			; disable interrupt
+  12: 1479+10	0101  31FFFF  		ld	sp, 0xffff	; set up stack pointer
+  13:				
+  14: 1489+17	0104  CDE204  		call	clear_attri	; clear the screen
+  15: 1506+17	0107  CDC504  		call	clear_screen
+  16:				
+  17: 1523+10	010A  213B05  		ld	hl, boot_message
+  18: 1533+7	010D  1607    		ld	d, 7		; cursor y 
+  19: 1540+7	010F  1E00    		ld	e, 0		; cursor x
+  20: 1547+17	0111  CD5F04  		call	puts		; print the logo
+  21:				
+  22: 1564+7	0114  3E00    		ld	a, 0
+  23: 1571+9	0116  ED47    		ld	i, a		; load interrupt register
+  24: 1580+8	0118  ED5E    		im	2		; enable interrupt mode 2
+  25: 1588+4	011A  FB      		ei
+  26:				
+  27:     -	011B          	end:	
+  28: 1592+10	011B  C31B01  		jp	end		; main loop
+  29:				
+  30:     -	1000          		org	0x1000
+  31:     -	1000          	kb_isr:
+  32: 1602+11	1000  DB01    		in	a, (1)
+  33: 1613+4	1002  4F      		ld	c, a
+  34: 1617+17	1003  CD3904  		call	disable_vram_copy
+  35: 1634+17	1006  CD0004  		call	putc_nolock
+  36: 1651+17	1009  CD3104  		call	enable_vram_copy
+  37: 1668+4	100C  FB      		ei
+**** test.z80 ****
+  38: 1672+14	100D  ED4D    		reti
+
+
+
+Statistics:
+
+     4	passes
+     0	jr promotions
+    37	symbols
+   794	bytes
+
+
+
+Symbol Table:
+
+aclear           4ed     
+boot_message     53b     
+cclear           4d0     
+clear_attri      4e2     
+clear_screen     4c5     
+credit           6d1     
+cursor_advance   441     
+cursor_lookup    4ff     
+cursor_max_x   =  4f     
+cursor_max_y   =  1d     
+cursor_x_size  =  50     
+disable_vram_copy  439     
+enable_vram_copy  431     
+end              11b     
+kb_isr          1000     
+no_newline       44a     
+program_start    100     
+put_c_newline    427     
+putc_done        42a     
+putc_nolock      400     
+puts             45f     
+puts_done        46c     
+row_lookup       46d     
+screen_scroll    47e     
+screen_scroll_loop  4b8     
+scroll_check     44c     
+scroll_check_done  45e     
+temp_var0        6e0     
+temp_var1        6e2     
+temp_var2        6e4     
+temp_var3        6e6     
+text_lower_limit=  1a     
+text_upper_limit=   1     
+vram_attri_base_addr=8960     
+vram_char_base_addr=8000     
+vram_copy_ctrl_addr=92c1     
+vram_size      = 960     
+

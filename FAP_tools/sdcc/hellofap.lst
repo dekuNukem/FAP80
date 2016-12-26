@@ -1,0 +1,560 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.0 #9615 (Mac OS X i386)
+                              4 ;--------------------------------------------------------
+                              5 	.module hellofap
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _end_absolute_code
+                             12 	.globl _isr_0
+                             13 	.globl _begin_absolute_code
+                             14 	.globl _main
+                             15 	.globl _cursor_advance
+                             16 	.globl _clear_screen
+                             17 	.globl _set_cursor
+                             18 	.globl _strlen
+                             19 	.globl _cursor_pos_reg
+                             20 	.globl _kb_index
+                             21 	.globl _kb_buf
+                             22 	.globl _boot_msg
+                             23 	.globl _cursor_lookup
+                             24 	.globl _check_scroll
+                             25 	.globl _my_puts
+                             26 	.globl _my_itoa
+                             27 	.globl _my_putc
+                             28 ;--------------------------------------------------------
+                             29 ; special function registers
+                             30 ;--------------------------------------------------------
+                     0001    31 _kb_port	=	0x0001
+                             32 ;--------------------------------------------------------
+                             33 ; ram data
+                             34 ;--------------------------------------------------------
+                             35 	.area _DATA
+   0000                      36 _kb_buf::
+   0000                      37 	.ds 32
+   0020                      38 _kb_index::
+   0020                      39 	.ds 1
+                             40 ;--------------------------------------------------------
+                             41 ; ram data
+                             42 ;--------------------------------------------------------
+                             43 	.area _INITIALIZED
+   0000                      44 _cursor_pos_reg::
+   0000                      45 	.ds 2
+                             46 ;--------------------------------------------------------
+                             47 ; absolute external ram data
+                             48 ;--------------------------------------------------------
+                             49 	.area _DABS (ABS)
+                             50 ;--------------------------------------------------------
+                             51 ; global & static initialisations
+                             52 ;--------------------------------------------------------
+                             53 	.area _HOME
+                             54 	.area _GSINIT
+                             55 	.area _GSFINAL
+                             56 	.area _GSINIT
+                             57 ;--------------------------------------------------------
+                             58 ; Home
+                             59 ;--------------------------------------------------------
+                             60 	.area _HOME
+                             61 	.area _HOME
+                             62 ;--------------------------------------------------------
+                             63 ; code
+                             64 ;--------------------------------------------------------
+                             65 	.area _CODE
+                             66 ;hellofap.c:32: void check_scroll()
+                             67 ;	---------------------------------
+                             68 ; Function check_scroll
+                             69 ; ---------------------------------
+   0000                      70 _check_scroll::
+                             71 ;hellofap.c:34: return;
+   0000 C9            [10]   72 	ret
+   0001                      73 _cursor_lookup:
+   0001 00 80                74 	.dw #0x8000
+   0003 50 80                75 	.dw #0x8050
+   0005 A0 80                76 	.dw #0x80a0
+   0007 F0 80                77 	.dw #0x80f0
+   0009 40 81                78 	.dw #0x8140
+   000B 90 81                79 	.dw #0x8190
+   000D E0 81                80 	.dw #0x81e0
+   000F 30 82                81 	.dw #0x8230
+   0011 80 82                82 	.dw #0x8280
+   0013 D0 82                83 	.dw #0x82d0
+   0015 20 83                84 	.dw #0x8320
+   0017 70 83                85 	.dw #0x8370
+   0019 C0 83                86 	.dw #0x83c0
+   001B 10 84                87 	.dw #0x8410
+   001D 60 84                88 	.dw #0x8460
+   001F B0 84                89 	.dw #0x84b0
+   0021 00 85                90 	.dw #0x8500
+   0023 50 85                91 	.dw #0x8550
+   0025 A0 85                92 	.dw #0x85a0
+   0027 F0 85                93 	.dw #0x85f0
+   0029 40 86                94 	.dw #0x8640
+   002B 90 86                95 	.dw #0x8690
+   002D E0 86                96 	.dw #0x86e0
+   002F 30 87                97 	.dw #0x8730
+   0031 80 87                98 	.dw #0x8780
+   0033 D0 87                99 	.dw #0x87d0
+   0035 20 88               100 	.dw #0x8820
+   0037 70 88               101 	.dw #0x8870
+   0039 C0 88               102 	.dw #0x88c0
+   003B 10 89               103 	.dw #0x8910
+   003D                     104 _boot_msg:
+   003D 74 68 69 73 20 69   105 	.ascii "this is a global variable. hello world this is a very long m"
+        73 20 61 20 67 6C
+        6F 62 61 6C 20 76
+        61 72 69 61 62 6C
+        65 2E 20 68 65 6C
+        6C 6F 20 77 6F 72
+        6C 64 20 74 68 69
+        73 20 69 73 20 61
+        20 76 65 72 79 20
+        6C 6F 6E 67 20 6D
+   0079 65 73 73 61 67 65   106 	.ascii "essage i hope it still works. does it work when changing int"
+        20 69 20 68 6F 70
+        65 20 69 74 20 73
+        74 69 6C 6C 20 77
+        6F 72 6B 73 2E 20
+        64 6F 65 73 20 69
+        74 20 77 6F 72 6B
+        20 77 68 65 6E 20
+        63 68 61 6E 67 69
+        6E 67 20 69 6E 74
+   00B5 6F 20 61 20 6E 65   107 	.ascii "o a new line? only one way to find out! what the fuck is hap"
+        77 20 6C 69 6E 65
+        3F 20 6F 6E 6C 79
+        20 6F 6E 65 20 77
+        61 79 20 74 6F 20
+        66 69 6E 64 20 6F
+        75 74 21 20 77 68
+        61 74 20 74 68 65
+        20 66 75 63 6B 20
+        69 73 20 68 61 70
+   00F1 70 65 6E 69 6E 67   108 	.ascii "pening here? needs to be longer to find out. how about even "
+        20 68 65 72 65 3F
+        20 6E 65 65 64 73
+        20 74 6F 20 62 65
+        20 6C 6F 6E 67 65
+        72 20 74 6F 20 66
+        69 6E 64 20 6F 75
+        74 2E 20 68 6F 77
+        20 61 62 6F 75 74
+        20 65 76 65 6E 20
+   012D 6C 6F 6E 67 65 72   109 	.ascii "longer? now i'm going past 256 characters, will it break?"
+        3F 20 6E 6F 77 20
+        69 27 6D 20 67 6F
+        69 6E 67 20 70 61
+        73 74 20 32 35 36
+        20 63 68 61 72 61
+        63 74 65 72 73 2C
+        20 77 69 6C 6C 20
+        69 74 20 62 72 65
+        61 6B 3F
+   0166 00                  110 	.db 0x00
+                            111 ;hellofap.c:37: void set_cursor(uint8_t x, uint8_t y)
+                            112 ;	---------------------------------
+                            113 ; Function set_cursor
+                            114 ; ---------------------------------
+   0167                     115 _set_cursor::
+   0167 DD E5         [15]  116 	push	ix
+   0169 DD 21 00 00   [14]  117 	ld	ix,#0
+   016D DD 39         [15]  118 	add	ix,sp
+                            119 ;hellofap.c:39: *cursor_pos_reg = cursor_lookup[y] + x;
+   016F ED 4Br00r00   [20]  120 	ld	bc,(_cursor_pos_reg)
+   0173 11r01r00      [10]  121 	ld	de,#_cursor_lookup+0
+   0176 DD 6E 05      [19]  122 	ld	l,5 (ix)
+   0179 26 00         [ 7]  123 	ld	h,#0x00
+   017B 29            [11]  124 	add	hl, hl
+   017C 19            [11]  125 	add	hl,de
+   017D 5E            [ 7]  126 	ld	e,(hl)
+   017E 23            [ 6]  127 	inc	hl
+   017F 56            [ 7]  128 	ld	d,(hl)
+   0180 DD 6E 04      [19]  129 	ld	l,4 (ix)
+   0183 26 00         [ 7]  130 	ld	h,#0x00
+   0185 19            [11]  131 	add	hl,de
+   0186 EB            [ 4]  132 	ex	de,hl
+   0187 7B            [ 4]  133 	ld	a,e
+   0188 02            [ 7]  134 	ld	(bc),a
+   0189 03            [ 6]  135 	inc	bc
+   018A 7A            [ 4]  136 	ld	a,d
+   018B 02            [ 7]  137 	ld	(bc),a
+                            138 ;hellofap.c:40: check_scroll();
+   018C DD E1         [14]  139 	pop	ix
+   018E C3r00r00      [10]  140 	jp	_check_scroll
+                            141 ;hellofap.c:43: void clear_screen()
+                            142 ;	---------------------------------
+                            143 ; Function clear_screen
+                            144 ; ---------------------------------
+   0191                     145 _clear_screen::
+                            146 ;hellofap.c:49: *vram_copy_ctrl = 0;
+   0191 21 C1 92      [10]  147 	ld	hl,#0x92c1
+   0194 36 00         [10]  148 	ld	(hl),#0x00
+                            149 ;hellofap.c:51: while(current_char < (uint8_t*)VRAM_CHAR_END_ADDR)
+   0196 21 00 80      [10]  150 	ld	hl,#0x8000
+   0199                     151 00101$:
+   0199 7D            [ 4]  152 	ld	a,l
+   019A D6 5F         [ 7]  153 	sub	a, #0x5f
+   019C 7C            [ 4]  154 	ld	a,h
+   019D DE 89         [ 7]  155 	sbc	a, #0x89
+   019F 30 05         [12]  156 	jr	NC,00112$
+                            157 ;hellofap.c:53: *current_char = '.';
+   01A1 36 2E         [10]  158 	ld	(hl),#0x2e
+                            159 ;hellofap.c:54: current_char++;
+   01A3 23            [ 6]  160 	inc	hl
+   01A4 18 F3         [12]  161 	jr	00101$
+                            162 ;hellofap.c:57: while(current_attri < (uint8_t*)0x92c0)
+   01A6                     163 00112$:
+   01A6 21 60 89      [10]  164 	ld	hl,#0x8960
+   01A9                     165 00104$:
+   01A9 7D            [ 4]  166 	ld	a,l
+   01AA D6 C0         [ 7]  167 	sub	a, #0xc0
+   01AC 7C            [ 4]  168 	ld	a,h
+   01AD DE 92         [ 7]  169 	sbc	a, #0x92
+   01AF 30 05         [12]  170 	jr	NC,00106$
+                            171 ;hellofap.c:59: *current_attri = 0x0f;
+   01B1 36 0F         [10]  172 	ld	(hl),#0x0f
+                            173 ;hellofap.c:60: current_attri++;
+   01B3 23            [ 6]  174 	inc	hl
+   01B4 18 F3         [12]  175 	jr	00104$
+   01B6                     176 00106$:
+                            177 ;hellofap.c:63: *vram_copy_ctrl = 0xff;
+   01B6 21 C1 92      [10]  178 	ld	hl,#0x92c1
+   01B9 36 FF         [10]  179 	ld	(hl),#0xff
+   01BB C9            [10]  180 	ret
+                            181 ;hellofap.c:66: void my_puts(uint8_t* data)
+                            182 ;	---------------------------------
+                            183 ; Function my_puts
+                            184 ; ---------------------------------
+   01BC                     185 _my_puts::
+   01BC DD E5         [15]  186 	push	ix
+   01BE DD 21 00 00   [14]  187 	ld	ix,#0
+   01C2 DD 39         [15]  188 	add	ix,sp
+                            189 ;hellofap.c:69: uint16_t len = strlen(data);
+   01C4 DD 6E 04      [19]  190 	ld	l,4 (ix)
+   01C7 DD 66 05      [19]  191 	ld	h,5 (ix)
+   01CA E5            [11]  192 	push	hl
+   01CB CDr00r00      [17]  193 	call	_strlen
+   01CE F1            [10]  194 	pop	af
+   01CF 4D            [ 4]  195 	ld	c,l
+   01D0 44            [ 4]  196 	ld	b,h
+                            197 ;hellofap.c:70: for (i = 0; i < len; ++i)
+   01D1 11 00 00      [10]  198 	ld	de,#0x0000
+   01D4                     199 00103$:
+   01D4 7B            [ 4]  200 	ld	a,e
+   01D5 91            [ 4]  201 	sub	a, c
+   01D6 7A            [ 4]  202 	ld	a,d
+   01D7 98            [ 4]  203 	sbc	a, b
+   01D8 30 15         [12]  204 	jr	NC,00105$
+                            205 ;hellofap.c:71: my_putc(data[i]);
+   01DA DD 6E 04      [19]  206 	ld	l,4 (ix)
+   01DD DD 66 05      [19]  207 	ld	h,5 (ix)
+   01E0 19            [11]  208 	add	hl,de
+   01E1 66            [ 7]  209 	ld	h,(hl)
+   01E2 C5            [11]  210 	push	bc
+   01E3 D5            [11]  211 	push	de
+   01E4 E5            [11]  212 	push	hl
+   01E5 33            [ 6]  213 	inc	sp
+   01E6 CDr9Ar02      [17]  214 	call	_my_putc
+   01E9 33            [ 6]  215 	inc	sp
+   01EA D1            [10]  216 	pop	de
+   01EB C1            [10]  217 	pop	bc
+                            218 ;hellofap.c:70: for (i = 0; i < len; ++i)
+   01EC 13            [ 6]  219 	inc	de
+   01ED 18 E5         [12]  220 	jr	00103$
+   01EF                     221 00105$:
+   01EF DD E1         [14]  222 	pop	ix
+   01F1 C9            [10]  223 	ret
+                            224 ;hellofap.c:74: void my_itoa(uint8_t val)
+                            225 ;	---------------------------------
+                            226 ; Function my_itoa
+                            227 ; ---------------------------------
+   01F2                     228 _my_itoa::
+   01F2 DD E5         [15]  229 	push	ix
+   01F4 DD 21 00 00   [14]  230 	ld	ix,#0
+   01F8 DD 39         [15]  231 	add	ix,sp
+   01FA 21 F6 FF      [10]  232 	ld	hl,#-10
+   01FD 39            [11]  233 	add	hl,sp
+   01FE F9            [ 6]  234 	ld	sp,hl
+                            235 ;hellofap.c:77: uint8_t buf[5] = {0,0,0,0,0};
+   01FF 21 00 00      [10]  236 	ld	hl,#0x0000
+   0202 39            [11]  237 	add	hl,sp
+   0203 4D            [ 4]  238 	ld	c,l
+   0204 44            [ 4]  239 	ld	b,h
+   0205 AF            [ 4]  240 	xor	a, a
+   0206 02            [ 7]  241 	ld	(bc),a
+   0207 59            [ 4]  242 	ld	e, c
+   0208 50            [ 4]  243 	ld	d, b
+   0209 13            [ 6]  244 	inc	de
+   020A AF            [ 4]  245 	xor	a, a
+   020B 12            [ 7]  246 	ld	(de),a
+   020C 59            [ 4]  247 	ld	e, c
+   020D 50            [ 4]  248 	ld	d, b
+   020E 13            [ 6]  249 	inc	de
+   020F 13            [ 6]  250 	inc	de
+   0210 AF            [ 4]  251 	xor	a, a
+   0211 12            [ 7]  252 	ld	(de),a
+   0212 59            [ 4]  253 	ld	e, c
+   0213 50            [ 4]  254 	ld	d, b
+   0214 13            [ 6]  255 	inc	de
+   0215 13            [ 6]  256 	inc	de
+   0216 13            [ 6]  257 	inc	de
+   0217 AF            [ 4]  258 	xor	a, a
+   0218 12            [ 7]  259 	ld	(de),a
+   0219 21 04 00      [10]  260 	ld	hl,#0x0004
+   021C 09            [11]  261 	add	hl,bc
+   021D DD 75 FE      [19]  262 	ld	-2 (ix),l
+   0220 DD 74 FF      [19]  263 	ld	-1 (ix),h
+   0223 DD 6E FE      [19]  264 	ld	l,-2 (ix)
+   0226 DD 66 FF      [19]  265 	ld	h,-1 (ix)
+   0229 36 00         [10]  266 	ld	(hl),#0x00
+                            267 ;hellofap.c:78: for(i=1; i<=3; i++)
+   022B DD 36 FB 01   [19]  268 	ld	-5 (ix),#0x01
+   022F                     269 00102$:
+                            270 ;hellofap.c:80: buf[3-i] = (uint8_t) ((uint8_t)(val % 10) + '0');
+   022F 3E 03         [ 7]  271 	ld	a,#0x03
+   0231 DD 96 FB      [19]  272 	sub	a, -5 (ix)
+   0234 81            [ 4]  273 	add	a, c
+   0235 DD 77 FC      [19]  274 	ld	-4 (ix),a
+   0238 3E 00         [ 7]  275 	ld	a,#0x00
+   023A 88            [ 4]  276 	adc	a, b
+   023B DD 77 FD      [19]  277 	ld	-3 (ix),a
+   023E C5            [11]  278 	push	bc
+   023F D5            [11]  279 	push	de
+   0240 3E 0A         [ 7]  280 	ld	a,#0x0a
+   0242 F5            [11]  281 	push	af
+   0243 33            [ 6]  282 	inc	sp
+   0244 DD 7E 04      [19]  283 	ld	a,4 (ix)
+   0247 F5            [11]  284 	push	af
+   0248 33            [ 6]  285 	inc	sp
+   0249 CDr00r00      [17]  286 	call	__moduchar
+   024C F1            [10]  287 	pop	af
+   024D D1            [10]  288 	pop	de
+   024E C1            [10]  289 	pop	bc
+   024F 7D            [ 4]  290 	ld	a,l
+   0250 C6 30         [ 7]  291 	add	a, #0x30
+   0252 DD 6E FC      [19]  292 	ld	l,-4 (ix)
+   0255 DD 66 FD      [19]  293 	ld	h,-3 (ix)
+   0258 77            [ 7]  294 	ld	(hl),a
+                            295 ;hellofap.c:81: val /= 10;
+   0259 C5            [11]  296 	push	bc
+   025A D5            [11]  297 	push	de
+   025B 3E 0A         [ 7]  298 	ld	a,#0x0a
+   025D F5            [11]  299 	push	af
+   025E 33            [ 6]  300 	inc	sp
+   025F DD 7E 04      [19]  301 	ld	a,4 (ix)
+   0262 F5            [11]  302 	push	af
+   0263 33            [ 6]  303 	inc	sp
+   0264 CDr00r00      [17]  304 	call	__divuchar
+   0267 F1            [10]  305 	pop	af
+   0268 D1            [10]  306 	pop	de
+   0269 C1            [10]  307 	pop	bc
+   026A DD 75 04      [19]  308 	ld	4 (ix),l
+                            309 ;hellofap.c:78: for(i=1; i<=3; i++)
+   026D DD 34 FB      [23]  310 	inc	-5 (ix)
+   0270 3E 03         [ 7]  311 	ld	a,#0x03
+   0272 DD 96 FB      [19]  312 	sub	a, -5 (ix)
+   0275 30 B8         [12]  313 	jr	NC,00102$
+                            314 ;hellofap.c:83: buf[3] = ';';
+   0277 3E 3B         [ 7]  315 	ld	a,#0x3b
+   0279 12            [ 7]  316 	ld	(de),a
+                            317 ;hellofap.c:84: buf[4] = 0;
+   027A DD 6E FE      [19]  318 	ld	l,-2 (ix)
+   027D DD 66 FF      [19]  319 	ld	h,-1 (ix)
+   0280 36 00         [10]  320 	ld	(hl),#0x00
+                            321 ;hellofap.c:85: my_puts(buf);
+   0282 C5            [11]  322 	push	bc
+   0283 CDrBCr01      [17]  323 	call	_my_puts
+   0286 DD F9         [10]  324 	ld	sp,ix
+   0288 DD E1         [14]  325 	pop	ix
+   028A C9            [10]  326 	ret
+                            327 ;hellofap.c:88: void cursor_advance()
+                            328 ;	---------------------------------
+                            329 ; Function cursor_advance
+                            330 ; ---------------------------------
+   028B                     331 _cursor_advance::
+                            332 ;hellofap.c:90: (*cursor_pos_reg)++;
+   028B 2Ar00r00      [16]  333 	ld	hl,(_cursor_pos_reg)
+   028E E5            [11]  334 	push	hl
+   028F 4E            [ 7]  335 	ld	c,(hl)
+   0290 23            [ 6]  336 	inc	hl
+   0291 46            [ 7]  337 	ld	b,(hl)
+   0292 E1            [10]  338 	pop	hl
+   0293 03            [ 6]  339 	inc	bc
+   0294 71            [ 7]  340 	ld	(hl),c
+   0295 23            [ 6]  341 	inc	hl
+   0296 70            [ 7]  342 	ld	(hl),b
+                            343 ;hellofap.c:91: check_scroll();
+   0297 C3r00r00      [10]  344 	jp  _check_scroll
+                            345 ;hellofap.c:94: void my_putc(uint8_t character)
+                            346 ;	---------------------------------
+                            347 ; Function my_putc
+                            348 ; ---------------------------------
+   029A                     349 _my_putc::
+   029A DD E5         [15]  350 	push	ix
+   029C DD 21 00 00   [14]  351 	ld	ix,#0
+   02A0 DD 39         [15]  352 	add	ix,sp
+                            353 ;hellofap.c:97: uint8_t* current_char = (uint8_t*)(*cursor_pos_reg);
+   02A2 2Ar00r00      [16]  354 	ld	hl,(_cursor_pos_reg)
+   02A5 4E            [ 7]  355 	ld	c,(hl)
+   02A6 23            [ 6]  356 	inc	hl
+   02A7 46            [ 7]  357 	ld	b,(hl)
+                            358 ;hellofap.c:100: *vram_copy_ctrl = 0;
+   02A8 21 C1 92      [10]  359 	ld	hl,#0x92c1
+   02AB 36 00         [10]  360 	ld	(hl),#0x00
+                            361 ;hellofap.c:97: uint8_t* current_char = (uint8_t*)(*cursor_pos_reg);
+   02AD 2Ar00r00      [16]  362 	ld	hl,(_cursor_pos_reg)
+                            363 ;hellofap.c:102: if(character == 127)
+   02B0 DD 7E 04      [19]  364 	ld	a,4 (ix)
+   02B3 D6 7F         [ 7]  365 	sub	a, #0x7f
+   02B5 20 0E         [12]  366 	jr	NZ,00105$
+                            367 ;hellofap.c:104: cursor_goback();
+   02B7 E5            [11]  368 	push	hl
+   02B8 5E            [ 7]  369 	ld	e,(hl)
+   02B9 23            [ 6]  370 	inc	hl
+   02BA 56            [ 7]  371 	ld	d,(hl)
+   02BB E1            [10]  372 	pop	hl
+   02BC 1B            [ 6]  373 	dec	de
+   02BD 73            [ 7]  374 	ld	(hl),e
+   02BE 23            [ 6]  375 	inc	hl
+   02BF 72            [ 7]  376 	ld	(hl),d
+                            377 ;hellofap.c:105: *current_char = 27;
+   02C0 3E 1B         [ 7]  378 	ld	a,#0x1b
+   02C2 02            [ 7]  379 	ld	(bc),a
+   02C3 18 2A         [12]  380 	jr	00106$
+   02C5                     381 00105$:
+                            382 ;hellofap.c:107: else if(character == '\n')
+   02C5 DD 7E 04      [19]  383 	ld	a,4 (ix)
+   02C8 D6 0A         [ 7]  384 	sub	a, #0x0a
+   02CA 20 1C         [12]  385 	jr	NZ,00102$
+                            386 ;hellofap.c:109: current_y = ((*cursor_pos_reg) & 0x7fff) / 80;
+   02CC 4E            [ 7]  387 	ld	c,(hl)
+   02CD 23            [ 6]  388 	inc	hl
+   02CE 46            [ 7]  389 	ld	b,(hl)
+   02CF CB B8         [ 8]  390 	res	7, b
+   02D1 21 50 00      [10]  391 	ld	hl,#0x0050
+   02D4 E5            [11]  392 	push	hl
+   02D5 C5            [11]  393 	push	bc
+   02D6 CDr00r00      [17]  394 	call	__divuint
+   02D9 F1            [10]  395 	pop	af
+   02DA F1            [10]  396 	pop	af
+   02DB 45            [ 4]  397 	ld	b,l
+                            398 ;hellofap.c:110: set_cursor(0, current_y + 1);
+   02DC 04            [ 4]  399 	inc	b
+   02DD C5            [11]  400 	push	bc
+   02DE 33            [ 6]  401 	inc	sp
+   02DF AF            [ 4]  402 	xor	a, a
+   02E0 F5            [11]  403 	push	af
+   02E1 33            [ 6]  404 	inc	sp
+   02E2 CDr67r01      [17]  405 	call	_set_cursor
+   02E5 F1            [10]  406 	pop	af
+   02E6 18 07         [12]  407 	jr	00106$
+   02E8                     408 00102$:
+                            409 ;hellofap.c:114: *current_char = character;
+   02E8 DD 7E 04      [19]  410 	ld	a,4 (ix)
+   02EB 02            [ 7]  411 	ld	(bc),a
+                            412 ;hellofap.c:115: cursor_advance();
+   02EC CDr8Br02      [17]  413 	call	_cursor_advance
+   02EF                     414 00106$:
+                            415 ;hellofap.c:117: *vram_copy_ctrl = 0xff;
+   02EF 21 C1 92      [10]  416 	ld	hl,#0x92c1
+   02F2 36 FF         [10]  417 	ld	(hl),#0xff
+   02F4 DD E1         [14]  418 	pop	ix
+   02F6 C9            [10]  419 	ret
+                            420 ;hellofap.c:120: void main()
+                            421 ;	---------------------------------
+                            422 ; Function main
+                            423 ; ---------------------------------
+   02F7                     424 _main::
+                            425 ;hellofap.c:122: kb_index = 0;
+   02F7 21r20r00      [10]  426 	ld	hl,#_kb_index + 0
+   02FA 36 00         [10]  427 	ld	(hl), #0x00
+                            428 ;hellofap.c:123: memset(kb_buf, 0, BUF_SIZE);
+   02FC 21r00r00      [10]  429 	ld	hl,#_kb_buf
+   02FF 06 20         [ 7]  430 	ld	b, #0x20
+   0301                     431 00116$:
+   0301 36 00         [10]  432 	ld	(hl), #0x00
+   0303 23            [ 6]  433 	inc	hl
+   0304 10 FB         [13]  434 	djnz	00116$
+                            435 ;hellofap.c:124: clear_screen();
+   0306 CDr91r01      [17]  436 	call	_clear_screen
+                            437 ;hellofap.c:125: set_cursor(6, 9);
+   0309 21 06 09      [10]  438 	ld	hl,#0x0906
+   030C E5            [11]  439 	push	hl
+   030D CDr67r01      [17]  440 	call	_set_cursor
+                            441 ;hellofap.c:126: my_puts(boot_msg);
+   0310 21r3Dr00      [10]  442 	ld	hl, #_boot_msg
+   0313 E3            [19]  443 	ex	(sp),hl
+   0314 CDrBCr01      [17]  444 	call	_my_puts
+   0317 F1            [10]  445 	pop	af
+                            446 ;hellofap.c:127: while(1)
+   0318                     447 00104$:
+                            448 ;hellofap.c:129: if(kb_index != 0)
+   0318 3Ar20r00      [13]  449 	ld	a,(#_kb_index + 0)
+   031B B7            [ 4]  450 	or	a, a
+   031C 28 FA         [12]  451 	jr	Z,00104$
+                            452 ;hellofap.c:131: my_puts(kb_buf);
+   031E 21r00r00      [10]  453 	ld	hl,#_kb_buf
+   0321 E5            [11]  454 	push	hl
+   0322 CDrBCr01      [17]  455 	call	_my_puts
+   0325 F1            [10]  456 	pop	af
+                            457 ;hellofap.c:132: kb_index = 0;
+   0326 21r20r00      [10]  458 	ld	hl,#_kb_index + 0
+   0329 36 00         [10]  459 	ld	(hl), #0x00
+                            460 ;hellofap.c:133: memset(kb_buf, 0, BUF_SIZE);
+   032B 21r00r00      [10]  461 	ld	hl,#_kb_buf
+   032E 06 20         [ 7]  462 	ld	b, #0x20
+   0330                     463 00118$:
+   0330 36 00         [10]  464 	ld	(hl), #0x00
+   0332 23            [ 6]  465 	inc	hl
+   0333 10 FB         [13]  466 	djnz	00118$
+   0335 18 E1         [12]  467 	jr	00104$
+                            468 ;hellofap.c:138: void begin_absolute_code(void) __naked
+                            469 ;	---------------------------------
+                            470 ; Function begin_absolute_code
+                            471 ; ---------------------------------
+   0337                     472 _begin_absolute_code::
+                            473 ;hellofap.c:143: __endasm;
+                            474 	.area	_ISR (ABS)
+   1600                     475 	.org	0x1600
+                            476 ;hellofap.c:146: void  isr_0(void) __critical __interrupt(0) __naked
+                            477 ;	---------------------------------
+                            478 ; Function isr_0
+                            479 ; ---------------------------------
+   1600                     480 _isr_0::
+                            481 ;hellofap.c:148: kb_buf[kb_index] = kb_port;
+   1600 01r00r00      [10]  482 	ld	bc,#_kb_buf+0
+   1603 2Ar20r00      [16]  483 	ld	hl,(_kb_index)
+   1606 26 00         [ 7]  484 	ld	h,#0x00
+   1608 09            [11]  485 	add	hl,bc
+   1609 DB 01         [11]  486 	in	a,(_kb_port)
+   160B 77            [ 7]  487 	ld	(hl),a
+                            488 ;hellofap.c:149: if(kb_index <= BUF_SIZE - 2)
+   160C 3E 1E         [ 7]  489 	ld	a,#0x1e
+   160E FD 21r20r00   [14]  490 	ld	iy,#_kb_index
+   1612 FD 96 00      [19]  491 	sub	a, 0 (iy)
+   1615 38 05         [12]  492 	jr	C,00102$
+                            493 ;hellofap.c:150: kb_index++;
+   1617 FD 34 00      [23]  494 	inc	0 (iy)
+   161A 18 08         [12]  495 	jr	00103$
+   161C                     496 00102$:
+                            497 ;hellofap.c:152: kb_index = 0;
+   161C FD 21r20r00   [14]  498 	ld	iy,#_kb_index
+   1620 FD 36 00 00   [19]  499 	ld	0 (iy),#0x00
+   1624                     500 00103$:
+                            501 ;hellofap.c:156: __endasm;
+   1624 FB            [ 4]  502 	ei
+   1625 ED 4D         [14]  503 	reti
+                            504 ;hellofap.c:159: void end_absolute_code(void) __naked
+                            505 ;	---------------------------------
+                            506 ; Function end_absolute_code
+                            507 ; ---------------------------------
+   1627                     508 _end_absolute_code::
+                            509 ;hellofap.c:163: __endasm;
+                            510 	.area	_ISR
+                            511 	.area _CODE
+                            512 	.area _INITIALIZER
+   0000                     513 __xinit__cursor_pos_reg:
+   0000 C2 92               514 	.dw #0x92c2
+                            515 	.area _CABS (ABS)

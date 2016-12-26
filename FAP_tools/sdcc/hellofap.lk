@@ -1,0 +1,11 @@
+-mjwx
+-i hellofap.ihx
+-b _CODE = 0x0200
+-b _DATA = 0xa000
+-k /usr/local/bin/../share/sdcc/lib/z80
+-k /usr/local/share/sdcc/lib/z80
+-l z80
+hellofap.rel
+crt0_fap.rel
+
+-e

@@ -3,7 +3,7 @@ import time
 import serial
 
 if len(sys.argv) != 3:
-	print("usage: load.py serial_port cim_file")
+	print("usage: load.py serial_port bin_file")
 	exit()
 
 ser = serial.Serial(sys.argv[1]) 
@@ -42,11 +42,9 @@ with open(sys.argv[2], "rb") as f:
         byte = f.read(1)
         if byte == b"":
         	break
-        if byte[0] == 0:
+        if byte[0] == 0xff:
         	curr_addr += 1;
         	continue
-        if curr_addr > 0x7fff:
-        	break
         result = write_eep(curr_addr, byte[0])
         print(str(hex(curr_addr)) + ": " + str(hex(result)))
         curr_addr += 1;

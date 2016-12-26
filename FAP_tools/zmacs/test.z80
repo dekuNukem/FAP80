@@ -8,24 +8,24 @@
 
 	org	0x100
 program_start:
-	di
-	ld	sp, 0xffff
+	di			; disable interrupt
+	ld	sp, 0xffff	; set up stack pointer
 
-	call	clear_attri
+	call	clear_attri	; clear the screen
 	call	clear_screen
 
 	ld	hl, boot_message
-	ld	d, 5
-	ld	e, 5
-	call	puts
+	ld	d, 7		; cursor y 
+	ld	e, 0		; cursor x
+	call	puts		; print the logo
 
 	ld	a, 0
 	ld	i, a		; load interrupt register
-	im	2
+	im	2		; enable interrupt mode 2
 	ei
 
 end:	
-	jp	end
+	jp	end		; main loop
 
 	org	0x1000
 kb_isr:
