@@ -7,3 +7,4 @@ This repo is still under construction, more information will be added as I conti
 0x8000 - 0x895F|Character VRAM
 0x8960 - 0x92BF|Attribute VRAM
 0x92C1|VRAM copy enable
+
