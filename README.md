@@ -3,8 +3,6 @@
 
 ![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
 
-to do: add pin number marking on backplane bus slot
-
 #FAP80, A retro computer without the retro baggage
 
 FAP80 is a Z80-based retro computer with a sprinkling of modern twists to make the experience of designing, programming, and debugging this computer as painless and straightforward as possible.
