@@ -2,9 +2,6 @@ This repo is still under construction, more information will be added as I conti
 
 ## Memory map
 
-|     |        | 
-|-----|--------| 
-0x0000 - 0x7FFF|ROM
-0x8000 - 0x895F|Character VRAM
-0x8960 - 0x92BF|Attribute VRAM
-0x92C1|VRAM copy enable
+![Alt text](http://i.imgur.com/IBxdGvUg.png)
+
+Writing into character/attribute VRAM will change what is displayed on the screen. The 2400 bytes correspond to the 2400 character cells on screen.
