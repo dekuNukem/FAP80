@@ -1,7 +1,7 @@
 # Programming FAP80 in assembly
 
-
 This is a simple FAP80 program in Z80 assembly. It displays the FAP logo, then listens to keyboard and prints whatever you type on the screen.
 
-
 I'm using zmac as the cross assembler. Download it [here on the top right](http://members.shaw.ca/gp2000/zmac.html), it seems to have a windows executable, and if you're on macOS or linux you'll have to build it from source, just typing `make` should be enough.
+
+Anyway put the `zmac` executable in the PATH for windows, /usr/local/bin for macOS and linux, so you can invoke it directly in the command line, then run the ass.py to assemble the .z80 files.
