@@ -8,3 +8,4 @@ Anyway put the `zmac` executable in the [PATH for windows](http://www.howtogeek.
 
 Then run the ass.py to assemble the .z80 files. Actually if you take a look inside the ass.py you'll see it's some hacked together bash commands anyway, so you can run them directly if you want. It assembles the .z80 file with zmac, then convert .hex file into .bin file.
 
+zmac also generates a number of other useful output files in the [zout](./zout) folder. 
