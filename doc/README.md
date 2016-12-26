@@ -16,9 +16,9 @@ Similarly, writing into any address from 0x8960 to 0x92BF sets the color of the 
 
 ## Getting started with FAP
 
-A word of warning before we start, the FAP80 project is still ongoing, while all the hardware designs are finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, you'll learn more by digging into details.
+A word of warning before we start, it goes without saying this project in the current form is not for the faint of the heart. You should at least have some experience with embedded development before tackling this. While FAP80's hardware design is finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, after all you can change a lot of stuff to suit your own needs.
 
-Before installing software there are two programmers you need to buy, namely ST-Link V2 for STM32 and USB Blaster for Altera CPLD. Luckily they are dirt cheap thanks to the chinese clones, just go to ebay and search "st link v2" and "usb blaster" and buy anything that looks like one of those below.
+There are two programmers you need to buy, namely ST-Link V2 for STM32 and USB Blaster for Altera CPLD. Luckily they are dirt cheap thanks to the Chinese clones, just go to ebay and search "st link v2" and "usb blaster" and buy anything that looks like one of those below.
 
 ST-Link V2:
 
