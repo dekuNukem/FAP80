@@ -88,7 +88,7 @@ TMS                          : 22        : input  :                   :         
 TDI                          : 23        : input  :                   :         : 1         :                
 TCK                          : 24        : input  :                   :         : 1         :                
 TDO                          : 25        : output :                   :         : 1         :                
-STM32_INPUT_LATCH_OE_L_1     : 26        : input  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_LATCH16                : 26        : input  : 3.3-V LVTTL       :         : 1         : N              
 STM32_IOWR_INT_L             : 27        : output : 3.3-V LVTTL       :         : 1         : Y              
 STM32_IORD_INT_L             : 28        : output : 3.3-V LVTTL       :         : 1         : Y              
 STM32_INTACK_L               : 29        : output : 3.3-V LVTTL       :         : 1         : Y              
@@ -100,7 +100,7 @@ STM32_DATA[2]                : 34        : bidir  : 3.3-V LVTTL       :         
 STM32_DATA[1]                : 35        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 STM32_DATA[0]                : 36        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 GNDINT                       : 37        : gnd    :                   :         :           :                
-STM32_OUTPUT_LATCH_LOAD_H_16 : 38        : input  : 3.3-V LVTTL       :         : 1         : Y              
+STM32_LATCH1                 : 38        : input  : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : 39        : power  :                   : 2.5V/3.3V :           :                
 CPU_WAIT                     : 40        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 41        :        :                   :         : 1         :                

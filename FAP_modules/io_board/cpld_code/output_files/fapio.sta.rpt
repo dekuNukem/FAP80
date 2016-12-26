@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for fapio
-Mon Dec 26 13:44:59 2016
+Mon Dec 26 14:54:41 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -79,15 +79,15 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                                     ;
-+------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
-; Clock Name                   ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                          ;
-+------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
-; CPU_IORQ                     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CPU_IORQ }                     ;
-; STM32_INTVECT_LOAD_H         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { STM32_INTVECT_LOAD_H }         ;
-; STM32_OUTPUT_LATCH_LOAD_H_16 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { STM32_OUTPUT_LATCH_LOAD_H_16 } ;
-+------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                     ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; Clock Name           ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                  ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
+; CPU_IORQ             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CPU_IORQ }             ;
+; STM32_INTVECT_LOAD_H ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { STM32_INTVECT_LOAD_H } ;
+; STM32_LATCH16        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { STM32_LATCH16 }        ;
++----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
 
 
 ----------------
@@ -120,15 +120,15 @@ No paths to report.
 No paths to report.
 
 
-+-------------------------------------------------------+
-; Minimum Pulse Width Summary                           ;
-+------------------------------+--------+---------------+
-; Clock                        ; Slack  ; End Point TNS ;
-+------------------------------+--------+---------------+
-; CPU_IORQ                     ; -2.289 ; -2.289        ;
-; STM32_INTVECT_LOAD_H         ; -2.289 ; -2.289        ;
-; STM32_OUTPUT_LATCH_LOAD_H_16 ; -2.289 ; -2.289        ;
-+------------------------------+--------+---------------+
++-----------------------------------------------+
+; Minimum Pulse Width Summary                   ;
++----------------------+--------+---------------+
+; Clock                ; Slack  ; End Point TNS ;
++----------------------+--------+---------------+
+; CPU_IORQ             ; -2.289 ; -2.289        ;
+; STM32_INTVECT_LOAD_H ; -2.289 ; -2.289        ;
+; STM32_LATCH16        ; -2.289 ; -2.289        ;
++----------------------+--------+---------------+
 
 
 -------------------
@@ -163,52 +163,52 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 
 
-+----------------------------------------------------------------------------------+
-; Clock Status Summary                                                             ;
-+------------------------------+------------------------------+------+-------------+
-; Target                       ; Clock                        ; Type ; Status      ;
-+------------------------------+------------------------------+------+-------------+
-; CPU_IORQ                     ; CPU_IORQ                     ; Base ; Constrained ;
-; STM32_INTVECT_LOAD_H         ; STM32_INTVECT_LOAD_H         ; Base ; Constrained ;
-; STM32_OUTPUT_LATCH_LOAD_H_16 ; STM32_OUTPUT_LATCH_LOAD_H_16 ; Base ; Constrained ;
-+------------------------------+------------------------------+------+-------------+
++------------------------------------------------------------------+
+; Clock Status Summary                                             ;
++----------------------+----------------------+------+-------------+
+; Target               ; Clock                ; Type ; Status      ;
++----------------------+----------------------+------+-------------+
+; CPU_IORQ             ; CPU_IORQ             ; Base ; Constrained ;
+; STM32_INTVECT_LOAD_H ; STM32_INTVECT_LOAD_H ; Base ; Constrained ;
+; STM32_LATCH16        ; STM32_LATCH16        ; Base ; Constrained ;
++----------------------+----------------------+------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                                           ;
-+------------------------------+--------------------------------------------------------------------------------------+
-; Input Port                   ; Comment                                                                              ;
-+------------------------------+--------------------------------------------------------------------------------------+
-; CPU_ADDR[0]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[1]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[2]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[3]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[0]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[1]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[2]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[3]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[4]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[5]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[6]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[7]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_IORQ                     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_M1                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_RD                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_RESET                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_WR                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INPUT_LATCH_OE_L_1     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INTVECT_LOAD_H         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INT_L                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_OUTPUT_LATCH_LOAD_H_16 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------------------------+--------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                   ;
++----------------------+--------------------------------------------------------------------------------------+
+; Input Port           ; Comment                                                                              ;
++----------------------+--------------------------------------------------------------------------------------+
+; CPU_ADDR[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[3]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[3]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[4]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[5]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[6]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[7]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_IORQ             ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_M1               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RD               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RESET            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_WR               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[0]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[1]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[2]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[3]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[4]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[5]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[6]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[7]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_INTVECT_LOAD_H ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_INT_L          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_LATCH1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_LATCH16        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
@@ -251,41 +251,41 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------+---------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                                           ;
-+------------------------------+--------------------------------------------------------------------------------------+
-; Input Port                   ; Comment                                                                              ;
-+------------------------------+--------------------------------------------------------------------------------------+
-; CPU_ADDR[0]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[1]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[2]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_ADDR[3]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[0]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[1]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[2]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[3]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[4]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[5]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[6]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_DATA[7]                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_IORQ                     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_M1                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_RD                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_RESET                    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; CPU_WR                       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_DATA[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INPUT_LATCH_OE_L_1     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INTVECT_LOAD_H         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_INT_L                  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; STM32_OUTPUT_LATCH_LOAD_H_16 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------------------------+--------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                   ;
++----------------------+--------------------------------------------------------------------------------------+
+; Input Port           ; Comment                                                                              ;
++----------------------+--------------------------------------------------------------------------------------+
+; CPU_ADDR[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_ADDR[3]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[0]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[1]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[2]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[3]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[4]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[5]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[6]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_DATA[7]          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_IORQ             ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_M1               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RD               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_RESET            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; CPU_WR               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[0]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[1]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[2]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[3]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[4]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[5]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[6]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_DATA[7]        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_INTVECT_LOAD_H ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_INT_L          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_LATCH1         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; STM32_LATCH16        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
@@ -334,7 +334,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 26 13:44:57 2016
+    Info: Processing started: Mon Dec 26 14:54:39 2016
 Info: Command: quartus_sta fapio -c fapio
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -348,7 +348,7 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'fap
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name CPU_IORQ CPU_IORQ
-    Info (332105): create_clock -period 1.000 -name STM32_OUTPUT_LATCH_LOAD_H_16 STM32_OUTPUT_LATCH_LOAD_H_16
+    Info (332105): create_clock -period 1.000 -name STM32_LATCH16 STM32_LATCH16
     Info (332105): create_clock -period 1.000 -name STM32_INTVECT_LOAD_H STM32_INTVECT_LOAD_H
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info (332140): No fmax paths to report
@@ -363,13 +363,13 @@ Info (332146): Worst-case minimum pulse width slack is -2.289
     Info (332119): ========= =================== =====================
     Info (332119):    -2.289              -2.289 CPU_IORQ 
     Info (332119):    -2.289              -2.289 STM32_INTVECT_LOAD_H 
-    Info (332119):    -2.289              -2.289 STM32_OUTPUT_LATCH_LOAD_H_16 
+    Info (332119):    -2.289              -2.289 STM32_LATCH16 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 541 megabytes
-    Info: Processing ended: Mon Dec 26 13:44:59 2016
+    Info: Processing ended: Mon Dec 26 14:54:41 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

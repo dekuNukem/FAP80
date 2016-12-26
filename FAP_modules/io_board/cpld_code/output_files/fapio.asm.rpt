@@ -1,5 +1,5 @@
 Assembler report for fapio
-Mon Dec 26 13:44:56 2016
+Mon Dec 26 14:54:38 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Dec 26 13:44:56 2016 ;
+; Assembler Status      ; Successful - Mon Dec 26 14:54:38 2016 ;
 ; Revision Name         ; fapio                                 ;
 ; Top-level Entity Name ; fapio                                 ;
 ; Family                ; MAX II                                ;
@@ -68,8 +68,8 @@ agreement for further details.
 ; Option         ; Setting                                                                                             ;
 +----------------+-----------------------------------------------------------------------------------------------------+
 ; Device         ; EPM570T100C5                                                                                        ;
-; JTAG usercode  ; 0x00302D25                                                                                          ;
-; Checksum       ; 0x00302D61                                                                                          ;
+; JTAG usercode  ; 0x003059DC                                                                                          ;
+; Checksum       ; 0x00305A14                                                                                          ;
 +----------------+-----------------------------------------------------------------------------------------------------+
 
 
@@ -79,14 +79,14 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Dec 26 13:44:55 2016
+    Info: Processing started: Mon Dec 26 14:54:37 2016
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off fapio -c fapio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 538 megabytes
-    Info: Processing ended: Mon Dec 26 13:44:56 2016
+    Info: Processing ended: Mon Dec 26 14:54:38 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

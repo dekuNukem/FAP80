@@ -1,5 +1,5 @@
 Flow report for fapio
-Mon Dec 26 13:44:59 2016
+Mon Dec 26 14:54:41 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Successful - Mon Dec 26 13:44:56 2016       ;
+; Flow Status           ; Successful - Mon Dec 26 14:54:38 2016       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; fapio                                       ;
 ; Top-level Entity Name ; fapio                                       ;
@@ -60,7 +60,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/26/2016 13:44:33 ;
+; Start date & time ; 12/26/2016 14:54:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fapio               ;
 +-------------------+---------------------+
@@ -71,7 +71,7 @@ agreement for further details.
 +---------------------------------------+---------------------------------+---------------+-------------+------------+
 ; Assignment Name                       ; Value                           ; Default Value ; Entity Name ; Section Id ;
 +---------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 220295148694891.148273107311204 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 220295148694891.148273525511664 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                ; 85                              ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                ; 0                               ; --            ; --          ; --         ;
 ; POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR ; 3.3V                            ; --            ; --          ; --         ;
@@ -85,8 +85,8 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 592 MB              ; 00:00:44                           ;
-; Fitter                    ; 00:00:03     ; 1.0                     ; 954 MB              ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 592 MB              ; 00:00:43                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 955 MB              ; 00:00:03                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 537 MB              ; 00:00:01                           ;
 ; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 541 MB              ; 00:00:02                           ;
 ; Total                     ; 00:00:23     ; --                      ; --                  ; 00:00:49                           ;
