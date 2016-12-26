@@ -1,6 +1,8 @@
-## Getting started with FAP
+# Getting started with FAP
 
 A word of warning before we start, it goes without saying this project in the current form is not for the faint of the heart. You should at least have some experience with embedded development before tackling this. While FAP80's hardware design is finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, after all you can change a lot of stuff to suit your own needs.
+
+## Programmers
 
 There are two programmers you need to buy, namely ST-Link V2 for STM32 and USB Blaster for Altera CPLD. Luckily they are dirt cheap thanks to the Chinese clones, just go to ebay and search "st link v2" and "usb blaster" and buy anything that looks like one of those below.
 
@@ -14,6 +16,7 @@ Altera USB blaster:
 
 Shouldn't be more than a few dollars each, and they work fine for me. Although you luck might vary, at least they are cheap right?
 
+## STM32 softwares
 
 Anyway, there are quite a number of softwares we need to install in order to get the whole thing working, first up is the STM32 development environment. Being a popular microcontroller platform there are plenty of IDEs and compilers to choose from, both closed and open source in nature. The one I'm using is Keil uVision 5 with ST's excellent STM32Cube configuration software. uVision is not free and usually you either have to live with a 32KB code size limit or pay 5-figure for a license. However ST provides a free license for their STM32F0 and STM32L0 lines, that's why I'm using F0 parts in FAP's design.
 
