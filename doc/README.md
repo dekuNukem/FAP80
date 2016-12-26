@@ -34,7 +34,7 @@ You'll probably need a serial port viewer too, I use [coolterm](http://freeware.
 
 [ISE WebPACK Design Software](https://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.html) is needed to synthesis the video card, in order to upload it though, you need [Mojo Loader](https://embeddedmicro.com/tutorials/mojo-software-and-updates/installing-mojo-loader)
 
-However, ISE is kind of old and is no longer being maintained, and isn't officially supported on windows 10. However Xilinx themselves posted a workaround to make ISE work, [so do it if you're on windows 10](https://www.xilinx.com/support/answers/62380.html).
+However, ISE is kind of old and isn't officially supported on windows 10. However Xilinx themselves posted a workaround to make it work, [so do it if you're on windows 10](https://www.xilinx.com/support/answers/62380.html).
 
 
 
