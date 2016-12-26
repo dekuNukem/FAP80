@@ -10,7 +10,14 @@ As 80x30 text mode has 2400 character cells, writing into any address from 0x800
 
 ![Alt text](http://i.imgur.com/2tsq7oi.jpg)
 
-Similarly, writing into any address from 0x8960 to 0x92BF sets the color of the corresponding character cell. The lower 6 bits of the attribute data goes into the DAC:
+Similarly, writing into any address from 0x8960 to 0x92BF sets the color of the corresponding character cell. The lower 6 bits of the attribute data goes into the DAC, resulting in 64 colors:
 
 ![Alt text](http://i.imgur.com/OiliBPQ.png)
 
+## Getting started with FAP
+
+A word of warning before we start, the FAP80 project is still ongoing, while all the hardware designs are finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, you'll learn more by digging into details.
+
+Anyway, there are quite a number of softwares we need to install in order to get the whole thing working, first up is the STM32 development environment. Being a popular microcontroller platform there are plenty of IDEs and compilers to choose from, both closed and open source in nature. The one I'm using is Keil uVision 5 with ST's excellent STM32Cube configuration software. uVision is not free and usually you either have to live with a 32KB code size limit or pay 5-figure for a license. However ST provides a free license for their STM32F0 and STM32L0 microcontroller lines, that's why I'm using F0 parts in FAP's design.
+
+So go download the uVision MDK-ARM [here](https://www.keil.com/download/product/)
