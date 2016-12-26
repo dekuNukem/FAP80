@@ -233,7 +233,7 @@ _my_itoa::
 	add	hl,sp
 	ld	sp,hl
 ;hellofap.c:77: uint8_t buf[5] = {0,0,0,0,0};
-	ld	hl,#0x0000
+	ld	hl,#0x0001
 	add	hl,sp
 	ld	c,l
 	ld	b,h
@@ -265,11 +265,11 @@ _my_itoa::
 	ld	h,-1 (ix)
 	ld	(hl),#0x00
 ;hellofap.c:78: for(i=1; i<=3; i++)
-	ld	-5 (ix),#0x01
+	ld	-10 (ix),#0x01
 00102$:
 ;hellofap.c:80: buf[3-i] = (uint8_t) ((uint8_t)(val % 10) + '0');
 	ld	a,#0x03
-	sub	a, -5 (ix)
+	sub	a, -10 (ix)
 	add	a, c
 	ld	-4 (ix),a
 	ld	a,#0x00
@@ -307,9 +307,9 @@ _my_itoa::
 	pop	bc
 	ld	4 (ix),l
 ;hellofap.c:78: for(i=1; i<=3; i++)
-	inc	-5 (ix)
+	inc	-10 (ix)
 	ld	a,#0x03
-	sub	a, -5 (ix)
+	sub	a, -10 (ix)
 	jr	NC,00102$
 ;hellofap.c:83: buf[3] = ';';
 	ld	a,#0x3b

@@ -1,9 +1,12 @@
-	.include	"shared.s"
 	.module crt0
 	.globl	l__INITIALIZER
 	.globl	s__INITIALIZED
 	.globl	s__INITIALIZER
 	.globl	_main
+
+	vram_char_base_addr	.equ	0x8000
+	vram_copy_ctrl_addr     .equ    0x92c1
+	curser_addr     	.equ    0x92c2
 
 	.area	_HEADER (ABS)
 	;; Reset vector

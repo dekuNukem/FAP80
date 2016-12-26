@@ -278,7 +278,7 @@
    01FD 39            [11]  233 	add	hl,sp
    01FE F9            [ 6]  234 	ld	sp,hl
                             235 ;hellofap.c:77: uint8_t buf[5] = {0,0,0,0,0};
-   01FF 21 00 00      [10]  236 	ld	hl,#0x0000
+   01FF 21 01 00      [10]  236 	ld	hl,#0x0001
    0202 39            [11]  237 	add	hl,sp
    0203 4D            [ 4]  238 	ld	c,l
    0204 44            [ 4]  239 	ld	b,h
@@ -310,11 +310,11 @@
    0226 DD 66 FF      [19]  265 	ld	h,-1 (ix)
    0229 36 00         [10]  266 	ld	(hl),#0x00
                             267 ;hellofap.c:78: for(i=1; i<=3; i++)
-   022B DD 36 FB 01   [19]  268 	ld	-5 (ix),#0x01
+   022B DD 36 F6 01   [19]  268 	ld	-10 (ix),#0x01
    022F                     269 00102$:
                             270 ;hellofap.c:80: buf[3-i] = (uint8_t) ((uint8_t)(val % 10) + '0');
    022F 3E 03         [ 7]  271 	ld	a,#0x03
-   0231 DD 96 FB      [19]  272 	sub	a, -5 (ix)
+   0231 DD 96 F6      [19]  272 	sub	a, -10 (ix)
    0234 81            [ 4]  273 	add	a, c
    0235 DD 77 FC      [19]  274 	ld	-4 (ix),a
    0238 3E 00         [ 7]  275 	ld	a,#0x00
@@ -352,9 +352,9 @@
    0269 C1            [10]  307 	pop	bc
    026A DD 75 04      [19]  308 	ld	4 (ix),l
                             309 ;hellofap.c:78: for(i=1; i<=3; i++)
-   026D DD 34 FB      [23]  310 	inc	-5 (ix)
+   026D DD 34 F6      [23]  310 	inc	-10 (ix)
    0270 3E 03         [ 7]  311 	ld	a,#0x03
-   0272 DD 96 FB      [19]  312 	sub	a, -5 (ix)
+   0272 DD 96 F6      [19]  312 	sub	a, -10 (ix)
    0275 30 B8         [12]  313 	jr	NC,00102$
                             314 ;hellofap.c:83: buf[3] = ';';
    0277 3E 3B         [ 7]  315 	ld	a,#0x3b

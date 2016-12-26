@@ -1,6 +1,6 @@
 # Getting started with FAP
 
-A word of warning before we start, it goes without saying this project in the current form is not for the faint of the heart. You should at least have some experience with embedded development before tackling this. While FAP80's hardware design is finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, after all you can change a lot of stuff to suit your own needs.
+A word of warning before we start, it goes without saying this project in its current form is not for the faint of the heart. You should at least have some experience with embedded development before tackling this. While FAP80's hardware design is finished, meaning you only have to have the PCB made once, I'm still experimenting with the firmware of all the boards, and I'll update them from time to time. If you know what you're doing I suggest you do the same, after all you can change a lot of stuff to suit your own needs.
 
 ## Programmers
 
@@ -24,10 +24,17 @@ So go download the uVision MDK-ARM [here](https://www.keil.com/download/product/
 
 Install and activate it with the free license [here](http://www2.keil.com/stmicroelectronics-stm32/mdk).
 
-Then get the [STM32CubeMX](http://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-embedded-software/stm32cubef0.html), it's a neat configuration software for STM32 microcontrollers. You set up the microcontroller in an interactive and graphical UI, and then it generates a skeleton C project with all the configuration done, then you can just start writing your own code.
+Then get the [STM32CubeMX](http://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-embedded-software/stm32cubef0.html), it's a neat official STM32 configuration software. You set up the microcontroller in an interactive and graphical UI, and then it generates a C project with all the configuration you picked, then you can just start writing your own code.
 
 If you're using windows, which you probably are because uVision is windows only, you'll also need the [STM32 USB serial driver](http://www.st.com/en/development-tools/stsw-stm32102.html) for the virtual serial port that the backplane uses. No driver is need for macOS and Linux.
 
 You'll probably need a serial port viewer too, I use [coolterm](http://freeware.the-meiers.org) which is free and available on all major OSes.
+
+## Spartan-6 FPGA softwares
+
+[ISE WebPACK Design Software](https://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.html) is needed to synthesis the video card, in order to upload it though, you need [Mojo Loader](https://embeddedmicro.com/tutorials/mojo-software-and-updates/installing-mojo-loader)
+
+However, ISE is kind of old and is no longer being maintained, and isn't officially supported on windows 10. However Xilinx themselves posted a workaround to make ISE work, [so do it if you're on windows 10](https://www.xilinx.com/support/answers/62380.html).
+
 
 
