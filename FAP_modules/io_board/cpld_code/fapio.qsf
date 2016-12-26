@@ -112,8 +112,6 @@ set_global_assignment -name VERILOG_FILE decoder_4to16.v
 set_global_assignment -name BDF_FILE fapio.bdf
 set_global_assignment -name VERILOG_FILE dlatch4.v
 set_global_assignment -name VERILOG_FILE dlatch8.v
-set_location_assignment PIN_26 -to STM32_INPUT_LATCH_OE_L_1
-set_location_assignment PIN_38 -to STM32_OUTPUT_LATCH_LOAD_H_16
 set_location_assignment PIN_42 -to STM32_INTVECT_LOAD_H
 set_location_assignment PIN_66 -to VECT_LOAD_LED
 set_location_assignment PIN_47 -to LATCH16_LED
@@ -130,3 +128,5 @@ set_location_assignment PIN_16 -to DEBUG_LED1
 set_location_assignment PIN_19 -to DEBUG_LED2
 set_location_assignment PIN_17 -to STM32_RESET
 set_location_assignment PIN_43 -to CPU_BUSREQ
+set_location_assignment PIN_26 -to STM32_LATCH1
+set_location_assignment PIN_38 -to STM32_LATCH16

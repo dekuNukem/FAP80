@@ -1,5 +1,5 @@
 Fitter report for fapio
-Mon Dec 26 14:54:36 2016
+Mon Dec 26 14:58:35 2016
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -10,28 +10,26 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Fitter Summary
   3. Fitter Settings
   4. Parallel Compilation
-  5. Ignored Assignments
-  6. Pin-Out File
-  7. Fitter Resource Usage Summary
-  8. Input Pins
-  9. Output Pins
- 10. Bidir Pins
- 11. I/O Bank Usage
- 12. All Package Pins
- 13. Output Pin Default Load For Reported TCO
- 14. I/O Assignment Warnings
- 15. Fitter Resource Utilization by Entity
- 16. Delay Chain Summary
- 17. Control Signals
- 18. Global & Other Fast Signals
- 19. Routing Usage Summary
- 20. LAB Logic Elements
- 21. LAB Signals Sourced
- 22. LAB Signals Sourced Out
- 23. LAB Distinct Inputs
- 24. Fitter Device Options
- 25. Fitter Messages
- 26. Fitter Suppressed Messages
+  5. Pin-Out File
+  6. Fitter Resource Usage Summary
+  7. Input Pins
+  8. Output Pins
+  9. Bidir Pins
+ 10. I/O Bank Usage
+ 11. All Package Pins
+ 12. Output Pin Default Load For Reported TCO
+ 13. Fitter Resource Utilization by Entity
+ 14. Delay Chain Summary
+ 15. Control Signals
+ 16. Global & Other Fast Signals
+ 17. Routing Usage Summary
+ 18. LAB Logic Elements
+ 19. LAB Signals Sourced
+ 20. LAB Signals Sourced Out
+ 21. LAB Distinct Inputs
+ 22. Fitter Device Options
+ 23. Fitter Messages
+ 24. Fitter Suppressed Messages
 
 
 
@@ -58,7 +56,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Mon Dec 26 14:54:36 2016       ;
+; Fitter Status         ; Successful - Mon Dec 26 14:58:34 2016       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; fapio                                       ;
 ; Top-level Entity Name ; fapio                                       ;
@@ -137,16 +135,6 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Ignored Assignments                                                                                      ;
-+----------+----------------+--------------+------------------------------+---------------+----------------+
-; Name     ; Ignored Entity ; Ignored From ; Ignored To                   ; Ignored Value ; Ignored Source ;
-+----------+----------------+--------------+------------------------------+---------------+----------------+
-; Location ;                ;              ; STM32_INPUT_LATCH_OE_L_1     ; PIN_26        ; QSF Assignment ;
-; Location ;                ;              ; STM32_OUTPUT_LATCH_LOAD_H_16 ; PIN_38        ; QSF Assignment ;
-+----------+----------------+--------------+------------------------------+---------------+----------------+
-
-
 +--------------+
 ; Pin-Out File ;
 +--------------+
@@ -179,7 +167,7 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ;     -- asynchronous clear/load mode         ; 0                     ;
 ;                                             ;                       ;
 ; Total registers                             ; 0 / 570 ( 0 % )       ;
-; Total LABs                                  ; 37 / 57 ( 65 % )      ;
+; Total LABs                                  ; 40 / 57 ( 70 % )      ;
 ; Logic elements in carry chains              ; 0                     ;
 ; Virtual pins                                ; 0                     ;
 ; I/O pins                                    ; 66 / 76 ( 87 % )      ;
@@ -193,8 +181,8 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; Global signals                              ; 4                     ;
 ;     -- Global clocks                        ; 4 / 4 ( 100 % )       ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )         ;
-; Average interconnect usage (total/H/V)      ; 34.6% / 43.1% / 25.6% ;
-; Peak interconnect usage (total/H/V)         ; 34.6% / 43.1% / 25.6% ;
+; Average interconnect usage (total/H/V)      ; 33.8% / 40.9% / 26.2% ;
+; Peak interconnect usage (total/H/V)         ; 33.8% / 40.9% / 26.2% ;
 ; Maximum fan-out                             ; 20                    ;
 ; Highest non-global fan-out                  ; 20                    ;
 ; Total fan-out                               ; 1065                  ;
@@ -236,8 +224,8 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; CPU_WR               ; 98    ; 2        ; 4            ; 8            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; STM32_INTVECT_LOAD_H ; 42    ; 1        ; 7            ; 3            ; 0           ; 9                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; STM32_INT_L          ; 15    ; 1        ; 0            ; 5            ; 2           ; 2                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
-; STM32_LATCH1         ; 38    ; 1        ; 7            ; 3            ; 3           ; 13                    ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; STM32_LATCH16        ; 26    ; 1        ; 3            ; 3            ; 2           ; 17                    ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; STM32_LATCH1         ; 26    ; 1        ; 3            ; 3            ; 2           ; 13                    ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; STM32_LATCH16        ; 38    ; 1        ; 7            ; 3            ; 3           ; 17                    ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 +----------------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 
 
@@ -270,9 +258,9 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; Name               ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source           ; Output Enable Group ;
 +--------------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------------+-----------------+------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+--------------------------------+---------------------+
 ; CPU_DATA[0]        ; 1     ; 2        ; 3            ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
-; CPU_DATA[1]        ; 87    ; 2        ; 7            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
-; CPU_DATA[2]        ; 86    ; 2        ; 8            ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
-; CPU_DATA[3]        ; 85    ; 2        ; 8            ; 8            ; 2           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
+; CPU_DATA[1]        ; 87    ; 2        ; 7            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
+; CPU_DATA[2]        ; 86    ; 2        ; 8            ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
+; CPU_DATA[3]        ; 85    ; 2        ; 8            ; 8            ; 2           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
 ; CPU_DATA[4]        ; 84    ; 2        ; 8            ; 8            ; 1           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
 ; CPU_DATA[5]        ; 83    ; 2        ; 8            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
 ; CPU_DATA[6]        ; 82    ; 2        ; 9            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; dlatch8:Z80_INT_LATCH|q[7]~103 ; -                   ;
@@ -284,11 +272,11 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; STM32_DATA[4]      ; 7     ; 1        ; 0            ; 7            ; 4           ; 17                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 ; STM32_DATA[5]      ; 6     ; 1        ; 0            ; 7            ; 3           ; 17                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 ; STM32_DATA[6]      ; 5     ; 1        ; 0            ; 7            ; 2           ; 17                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
-; STM32_DATA[7]      ; 4     ; 1        ; 0            ; 7            ; 0           ; 17                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
+; STM32_DATA[7]      ; 4     ; 1        ; 0            ; 7            ; 0           ; 17                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 ; STM32_PORT_ADDR[0] ; 3     ; 1        ; 1            ; 8            ; 2           ; 16                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 ; STM32_PORT_ADDR[1] ; 2     ; 1        ; 1            ; 8            ; 0           ; 16                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 ; STM32_PORT_ADDR[2] ; 33    ; 1        ; 6            ; 3            ; 3           ; 16                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
-; STM32_PORT_ADDR[3] ; 30    ; 1        ; 4            ; 3            ; 1           ; 16                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
+; STM32_PORT_ADDR[3] ; 30    ; 1        ; 4            ; 3            ; 1           ; 16                    ; 0                  ; no     ; no              ; no             ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; STM32_LATCH1 (inverted)        ; -                   ;
 +--------------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------------+-----------------+------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+--------------------------------+---------------------+
 
 
@@ -332,7 +320,7 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; 23       ; 39         ; 1        ; #TDI                            ; input  ;              ;           ; --         ;                 ; --       ; --           ;
 ; 24       ; 40         ; 1        ; #TCK                            ; input  ;              ;           ; --         ;                 ; --       ; --           ;
 ; 25       ; 41         ; 1        ; #TDO                            ; output ;              ;           ; --         ;                 ; --       ; --           ;
-; 26       ; 47         ; 1        ; STM32_LATCH16                   ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; N               ; no       ; Off          ;
+; 26       ; 47         ; 1        ; STM32_LATCH1                    ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 27       ; 48         ; 1        ; STM32_IOWR_INT_L                ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 28       ; 50         ; 1        ; STM32_IORD_INT_L                ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 29       ; 51         ; 1        ; STM32_INTACK_L                  ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
@@ -344,7 +332,7 @@ The pin-out file can be found in C:/Users/Allen/Desktop/fap_git/FAP80/FAP_module
 ; 35       ; 60         ; 1        ; STM32_DATA[1]                   ; bidir  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 36       ; 61         ; 1        ; STM32_DATA[0]                   ; bidir  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 37       ;            ;          ; GNDINT                          ; gnd    ;              ;           ; --         ;                 ; --       ; --           ;
-; 38       ; 62         ; 1        ; STM32_LATCH1                    ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; N               ; no       ; Off          ;
+; 38       ; 62         ; 1        ; STM32_LATCH16                   ; input  ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 39       ;            ;          ; VCCINT                          ; power  ;              ; 2.5V/3.3V ; --         ;                 ; --       ; --           ;
 ; 40       ; 63         ; 1        ; CPU_WAIT                        ; output ; 3.3-V LVTTL  ;           ; Column I/O ; Y               ; no       ; Off          ;
 ; 41       ; 64         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;           ; Column I/O ;                 ; no       ; On           ;
@@ -425,16 +413,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; 2.5V Schmitt Trigger Input ; 10 pF ; Not Available          ;
 +----------------------------+-------+------------------------+
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
-
-
-+---------------------------------------------+
-; I/O Assignment Warnings                     ;
-+---------------+-----------------------------+
-; Pin Name      ; Reason                      ;
-+---------------+-----------------------------+
-; STM32_LATCH1  ; Missing location assignment ;
-; STM32_LATCH16 ; Missing location assignment ;
-+---------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -548,25 +526,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                    ; Location     ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ;
 +-----------------------------------------+--------------+---------+---------------+--------+----------------------+------------------+
 ; STM32_INTVECT_LOAD_H                    ; PIN_42       ; 9       ; Latch enable  ; no     ; --                   ; --               ;
-; STM32_LATCH1                            ; PIN_38       ; 13      ; Output enable ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[0]~0   ; LC_X8_Y5_N5  ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK1            ;
-; decoder_4to16:inst12|decoder_out[10]~10 ; LC_X8_Y5_N9  ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK2            ;
-; decoder_4to16:inst12|decoder_out[11]~11 ; LC_X10_Y3_N8 ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK3            ;
-; decoder_4to16:inst12|decoder_out[12]~12 ; LC_X5_Y6_N5  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[13]~13 ; LC_X5_Y7_N7  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[14]~14 ; LC_X4_Y4_N9  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[15]~15 ; LC_X3_Y7_N1  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[1]~1   ; LC_X5_Y5_N6  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[2]~2   ; LC_X2_Y7_N0  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[3]~3   ; LC_X2_Y4_N6  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[4]~4   ; LC_X2_Y5_N8  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[5]~5   ; LC_X3_Y5_N1  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[6]~6   ; LC_X6_Y5_N1  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[7]~7   ; LC_X7_Y5_N6  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; decoder_4to16:inst12|decoder_out[8]~8   ; LC_X3_Y7_N3  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; STM32_LATCH1                            ; PIN_26       ; 13      ; Output enable ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[0]~0   ; LC_X8_Y5_N5  ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK2            ;
+; decoder_4to16:inst12|decoder_out[10]~10 ; LC_X10_Y3_N6 ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK0            ;
+; decoder_4to16:inst12|decoder_out[11]~11 ; LC_X10_Y3_N2 ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK1            ;
+; decoder_4to16:inst12|decoder_out[12]~12 ; LC_X2_Y4_N3  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[13]~13 ; LC_X4_Y6_N3  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[14]~14 ; LC_X5_Y6_N2  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[15]~15 ; LC_X3_Y5_N2  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[1]~1   ; LC_X10_Y5_N7 ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[2]~2   ; LC_X6_Y6_N8  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[3]~3   ; LC_X7_Y5_N3  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[4]~4   ; LC_X5_Y7_N6  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[5]~5   ; LC_X5_Y5_N2  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[6]~6   ; LC_X8_Y6_N5  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[7]~7   ; LC_X7_Y6_N1  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
+; decoder_4to16:inst12|decoder_out[8]~8   ; LC_X3_Y5_N3  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
 ; decoder_4to16:inst12|decoder_out[9]~9   ; LC_X3_Y6_N5  ; 8       ; Latch enable  ; no     ; --                   ; --               ;
-; dlatch8:Z80_INT_LATCH|q[7]~103          ; LC_X10_Y7_N2 ; 8       ; Output enable ; no     ; --                   ; --               ;
-; inst2                                   ; LC_X10_Y3_N6 ; 14      ; Latch enable  ; yes    ; Global Clock         ; GCLK0            ;
+; dlatch8:Z80_INT_LATCH|q[7]~103          ; LC_X8_Y7_N2  ; 8       ; Output enable ; no     ; --                   ; --               ;
+; inst2                                   ; LC_X10_Y3_N5 ; 14      ; Latch enable  ; yes    ; Global Clock         ; GCLK3            ;
 +-----------------------------------------+--------------+---------+---------------+--------+----------------------+------------------+
 
 
@@ -575,10 +553,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+--------------+---------+----------------------+------------------+
 ; Name                                    ; Location     ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +-----------------------------------------+--------------+---------+----------------------+------------------+
-; decoder_4to16:inst12|decoder_out[0]~0   ; LC_X8_Y5_N5  ; 8       ; Global Clock         ; GCLK1            ;
-; decoder_4to16:inst12|decoder_out[10]~10 ; LC_X8_Y5_N9  ; 8       ; Global Clock         ; GCLK2            ;
-; decoder_4to16:inst12|decoder_out[11]~11 ; LC_X10_Y3_N8 ; 8       ; Global Clock         ; GCLK3            ;
-; inst2                                   ; LC_X10_Y3_N6 ; 14      ; Global Clock         ; GCLK0            ;
+; decoder_4to16:inst12|decoder_out[0]~0   ; LC_X8_Y5_N5  ; 8       ; Global Clock         ; GCLK2            ;
+; decoder_4to16:inst12|decoder_out[10]~10 ; LC_X10_Y3_N6 ; 8       ; Global Clock         ; GCLK0            ;
+; decoder_4to16:inst12|decoder_out[11]~11 ; LC_X10_Y3_N2 ; 8       ; Global Clock         ; GCLK1            ;
+; inst2                                   ; LC_X10_Y3_N5 ; 14      ; Global Clock         ; GCLK3            ;
 +-----------------------------------------+--------------+---------+----------------------+------------------+
 
 
@@ -587,101 +565,101 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+----------------------+
 ; Routing Resource Type ; Usage                ;
 +-----------------------+----------------------+
-; C4s                   ; 340 / 1,624 ( 21 % ) ;
-; Direct links          ; 36 / 1,930 ( 2 % )   ;
+; C4s                   ; 347 / 1,624 ( 21 % ) ;
+; Direct links          ; 57 / 1,930 ( 3 % )   ;
 ; Global clocks         ; 4 / 4 ( 100 % )      ;
-; LAB clocks            ; 19 / 56 ( 34 % )     ;
-; LUT chains            ; 21 / 513 ( 4 % )     ;
-; Local interconnects   ; 577 / 1,930 ( 30 % ) ;
-; R4s                   ; 502 / 1,472 ( 34 % ) ;
+; LAB clocks            ; 24 / 56 ( 43 % )     ;
+; LUT chains            ; 12 / 513 ( 2 % )     ;
+; Local interconnects   ; 606 / 1,930 ( 31 % ) ;
+; R4s                   ; 478 / 1,472 ( 32 % ) ;
 +-----------------------+----------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +--------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 8.22) ; Number of LABs  (Total = 37) ;
+; Number of Logic Elements  (Average = 7.60) ; Number of LABs  (Total = 40) ;
 +--------------------------------------------+------------------------------+
-; 1                                          ; 1                            ;
-; 2                                          ; 1                            ;
-; 3                                          ; 2                            ;
-; 4                                          ; 1                            ;
-; 5                                          ; 2                            ;
+; 1                                          ; 4                            ;
+; 2                                          ; 5                            ;
+; 3                                          ; 1                            ;
+; 4                                          ; 0                            ;
+; 5                                          ; 1                            ;
 ; 6                                          ; 0                            ;
-; 7                                          ; 2                            ;
-; 8                                          ; 2                            ;
-; 9                                          ; 9                            ;
-; 10                                         ; 17                           ;
+; 7                                          ; 1                            ;
+; 8                                          ; 1                            ;
+; 9                                          ; 3                            ;
+; 10                                         ; 24                           ;
 +--------------------------------------------+------------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                        ;
 +---------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 8.22) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced  (Average = 7.60) ; Number of LABs  (Total = 40) ;
 +---------------------------------------------+------------------------------+
 ; 0                                           ; 0                            ;
-; 1                                           ; 1                            ;
-; 2                                           ; 1                            ;
-; 3                                           ; 2                            ;
-; 4                                           ; 1                            ;
-; 5                                           ; 2                            ;
+; 1                                           ; 4                            ;
+; 2                                           ; 5                            ;
+; 3                                           ; 1                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 1                            ;
 ; 6                                           ; 0                            ;
-; 7                                           ; 2                            ;
-; 8                                           ; 2                            ;
-; 9                                           ; 9                            ;
-; 10                                          ; 17                           ;
+; 7                                           ; 1                            ;
+; 8                                           ; 1                            ;
+; 9                                           ; 3                            ;
+; 10                                          ; 24                           ;
 +---------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 5.65) ; Number of LABs  (Total = 37) ;
+; Number of Signals Sourced Out  (Average = 5.35) ; Number of LABs  (Total = 40) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 2                            ;
-; 2                                               ; 4                            ;
-; 3                                               ; 4                            ;
-; 4                                               ; 2                            ;
-; 5                                               ; 5                            ;
+; 1                                               ; 5                            ;
+; 2                                               ; 5                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 4                            ;
+; 5                                               ; 4                            ;
 ; 6                                               ; 3                            ;
-; 7                                               ; 3                            ;
-; 8                                               ; 11                           ;
+; 7                                               ; 4                            ;
+; 8                                               ; 8                            ;
 ; 9                                               ; 3                            ;
+; 10                                              ; 2                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 13.51) ; Number of LABs  (Total = 37) ;
+; Number of Distinct Inputs  (Average = 12.90) ; Number of LABs  (Total = 40) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 1                            ;
+; 2                                            ; 4                            ;
+; 3                                            ; 2                            ;
 ; 4                                            ; 0                            ;
-; 5                                            ; 2                            ;
-; 6                                            ; 4                            ;
-; 7                                            ; 0                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 3                            ;
+; 7                                            ; 2                            ;
 ; 8                                            ; 1                            ;
 ; 9                                            ; 1                            ;
-; 10                                           ; 0                            ;
-; 11                                           ; 1                            ;
-; 12                                           ; 2                            ;
-; 13                                           ; 3                            ;
+; 10                                           ; 1                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 2                            ;
 ; 14                                           ; 4                            ;
-; 15                                           ; 5                            ;
-; 16                                           ; 1                            ;
-; 17                                           ; 1                            ;
-; 18                                           ; 1                            ;
-; 19                                           ; 3                            ;
+; 15                                           ; 2                            ;
+; 16                                           ; 2                            ;
+; 17                                           ; 4                            ;
+; 18                                           ; 2                            ;
+; 19                                           ; 1                            ;
 ; 20                                           ; 2                            ;
-; 21                                           ; 0                            ;
-; 22                                           ; 2                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 3                            ;
 ; 23                                           ; 1                            ;
-; 24                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -715,7 +693,6 @@ Info (176444): Device migration not selected. If you intend to use device migrat
     Info (176445): Device EPM240T100A5 is compatible
     Info (176445): Device EPM570T100I5 is compatible
     Info (176445): Device EPM570T100A5 is compatible
-Critical Warning (169085): No exact pin location assignment(s) for 2 pins of 66 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Warning (335093): TimeQuest Timing Analyzer is analyzing 148 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'fapio.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
@@ -739,16 +716,6 @@ Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
-Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 2 (unused VREF, 3.3V VCCIO, 2 input, 0 output, 0 bidirectional)
-        Info (176212): I/O standards used: 3.3-V LVTTL.
-Info (176215): I/O bank details before I/O pin placement
-    Info (176214): Statistics of I/O banks
-        Info (176213): I/O bank number 1 does not use VREF pins and has 3.3V VCCIO pins. 27 total pin(s) used --  9 pins available
-        Info (176213): I/O bank number 2 does not use VREF pins and has 3.3V VCCIO pins. 37 total pin(s) used --  3 pins available
-Warning (15705): Ignored locations or region assignments to the following nodes
-    Warning (15706): Node "STM32_INPUT_LATCH_OE_L_1" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "STM32_OUTPUT_LATCH_LOAD_H_16" is assigned to location or region, but does not exist in design
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
@@ -763,14 +730,13 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.04 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.05 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
-Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/Allen/Desktop/fap_git/FAP80/FAP_modules/io_board/cpld_code/output_files/fapio.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 9 warnings
+Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 955 megabytes
-    Info: Processing ended: Mon Dec 26 14:54:36 2016
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Mon Dec 26 14:58:35 2016
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 
