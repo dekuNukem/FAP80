@@ -3,7 +3,7 @@
 <title>Static Call Graph - [fap_backplane\fap_backplane.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image fap_backplane\fap_backplane.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Fri Dec 23 02:12:36 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sat Dec 31 00:06:37 2016
 <BR><P>
 <H3>Maximum Stack Usage =        228 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -370,6 +370,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycle_clock
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_data_display_update
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1385,10 +1386,11 @@ Global Symbols
 
 <P><STRONG><a name="[111]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[d4]"></a>addr_data_display_update</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, cpu_ctrl.o(i.addr_data_display_update))
+<P><STRONG><a name="[d4]"></a>addr_data_display_update</STRONG> (Thumb, 116 bytes, Stack size 32 bytes, cpu_ctrl.o(i.addr_data_display_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = addr_data_display_update &rArr; lcd_print_width &rArr; lcd_say &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_print_width
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1397,10 +1399,12 @@ Global Symbols
 <P><STRONG><a name="[f3]"></a>addr_input</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, cpu_ctrl.o(i.addr_input))
 <BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;program_mode
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 </UL>
 
 <P><STRONG><a name="[fb]"></a>addr_output</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, cpu_ctrl.o(i.addr_output))
 <BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;program_mode
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_eep
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 </UL>
 
@@ -1592,7 +1596,7 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_init
 </UL>
 
-<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 380 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 392 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;softserial_init
@@ -1691,10 +1695,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e0]"></a>read_eep</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, cpu_ctrl.o(i.read_eep))
+<P><STRONG><a name="[e0]"></a>read_eep</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, cpu_ctrl.o(i.read_eep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = read_eep
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_input
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_input
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_output
 </UL>
@@ -1706,12 +1711,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e2]"></a>write_eep</STRONG> (Thumb, 102 bytes, Stack size 32 bytes, cpu_ctrl.o(i.write_eep))
+<P><STRONG><a name="[e2]"></a>write_eep</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, cpu_ctrl.o(i.write_eep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = write_eep &rArr; read_eep
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_output
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_handler
 </UL>

@@ -230,25 +230,9 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -304 320 -128 336)
-	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "CPU_BUSREQ" (rect 5 0 80 12)(font "Arial" ))
-	(pt 176 8)
-	(drawing
-		(line (pt 92 12)(pt 117 12))
-		(line (pt 92 4)(pt 117 4))
-		(line (pt 121 8)(pt 176 8))
-		(line (pt 92 12)(pt 92 4))
-		(line (pt 117 4)(pt 121 8))
-		(line (pt 117 12)(pt 121 8))
-	)
-	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-)
-(pin
-	(input)
 	(rect -168 560 24 576)
 	(text "INPUT" (rect 149 0 177 10)(font "Arial" (font_size 6)))
-	(text "STM32_LATCH16" (rect 5 0 92 12)(font "Arial" ))
+	(text "STM32_LATCH16" (rect 5 0 91 12)(font "Arial" ))
 	(pt 192 8)
 	(drawing
 		(line (pt 108 12)(pt 133 12))
@@ -439,7 +423,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect -296 360 -120 376)
+	(rect -296 336 -120 352)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "CPU_WAIT" (rect 90 0 143 17)(font "Intel Clear" ))
 	(pt 0 8)
@@ -2954,6 +2938,51 @@ agreement for further details.
 		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36))
 	)
 )
+(symbol
+	(rect -344 328 -312 344)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst5" (rect 3 5 25 22)(font "Intel Clear" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect -264 632 -232 648)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst7" (rect 3 5 25 22)(font "Intel Clear" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect -272 672 -240 688)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst75" (rect 3 5 31 22)(font "Intel Clear" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
 (connector
 	(pt -56 -8)
 	(pt -80 -8)
@@ -4354,6 +4383,26 @@ agreement for further details.
 (connector
 	(pt -128 272)
 	(pt -120 272)
+)
+(connector
+	(pt -328 344)
+	(pt -296 344)
+)
+(connector
+	(pt -248 648)
+	(pt -248 656)
+)
+(connector
+	(pt -248 656)
+	(pt -216 656)
+)
+(connector
+	(pt -256 688)
+	(pt -256 696)
+)
+(connector
+	(pt -256 696)
+	(pt -216 696)
 )
 (junction (pt -80 -8))
 (junction (pt -80 -80))

@@ -399,11 +399,11 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=fapio\startup_stm32f051x8.d -ofapio\startup_stm32f051x8.o -IC:\Use
-rs\Allen\Desktop\fap_ioboard\fapio_firmware\oldfapop\MDK-ARM\RTE -IC:\Keil_v5\A
-RM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\
-1.5.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VER
-SION SETA 517" --predefine="_RTE_ SETA 1" --predefine="STM32F051x8 SETA 1" --li
-st=startup_stm32f051x8.lst startup_stm32f051x8.s
+rs\Allen\Desktop\fap_git\FAP80\FAP_modules\io_board\stm32_code\MDK-ARM\RTE -IC:
+\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM3
+2F0xx_DFP\1.5.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__U
+VISION_VERSION SETA 517" --predefine="_RTE_ SETA 1" --predefine="STM32F051x8 SE
+TA 1" --list=startup_stm32f051x8.lst startup_stm32f051x8.s
 
 
 

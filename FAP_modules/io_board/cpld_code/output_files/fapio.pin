@@ -105,7 +105,7 @@ VCCINT                       : 39        : power  :                   : 2.5V/3.3
 CPU_WAIT                     : 40        : output : 3.3-V LVTTL       :         : 1         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 41        :        :                   :         : 1         :                
 STM32_INTVECT_LOAD_H         : 42        : input  : 3.3-V LVTTL       :         : 1         : Y              
-CPU_BUSREQ                   : 43        : input  : 3.3-V LVTTL       :         : 1         : Y              
+~DEV_OE~ / RESERVED_INPUT    : 43        : input  : 3.3-V LVTTL       :         : 1         : N              
 CPU_RESET                    : 44        : input  : 3.3-V LVTTL       :         : 1         : Y              
 VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 46        : gnd    :                   :         :           :                

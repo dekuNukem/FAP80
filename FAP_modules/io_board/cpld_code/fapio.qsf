@@ -127,6 +127,6 @@ set_location_assignment PIN_40 -to CPU_WAIT
 set_location_assignment PIN_16 -to DEBUG_LED1
 set_location_assignment PIN_19 -to DEBUG_LED2
 set_location_assignment PIN_17 -to STM32_RESET
-set_location_assignment PIN_43 -to CPU_BUSREQ
 set_location_assignment PIN_26 -to STM32_LATCH1
 set_location_assignment PIN_38 -to STM32_LATCH16
+set_global_assignment -name ENABLE_DEVICE_WIDE_OE ON

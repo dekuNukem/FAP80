@@ -3,7 +3,7 @@
 <title>Static Call Graph - [fapio\fapio.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image fapio\fapio.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Mon Dec 12 17:36:10 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Fri Dec 30 21:57:31 2016
 <BR><P>
 <H3>Maximum Stack Usage =        304 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -218,7 +218,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[b4]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<P><STRONG><a name="[b3]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_reset
 </UL>
 
@@ -417,7 +417,6 @@ Global Symbols
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_add
-<LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[89]"></a>HAL_I2CEx_ConfigAnalogFilter</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, stm32f0xx_hal_i2c_ex.o(i.HAL_I2CEx_ConfigAnalogFilter))
@@ -959,11 +958,10 @@ Global Symbols
 
 <P><STRONG><a name="[de]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
 
-<P><STRONG><a name="[b1]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
+<P><STRONG><a name="[b4]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtc_update
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupt_activate
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_writesector
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_readsector
@@ -1015,7 +1013,7 @@ Global Symbols
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[b2]"></a>data_output</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, helpers.o(i.data_output))
+<P><STRONG><a name="[b1]"></a>data_output</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, helpers.o(i.data_output))
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;preload16
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupt_activate
 </UL>
@@ -1088,13 +1086,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_initialize
 </UL>
 
-<P><STRONG><a name="[b0]"></a>interrupt_activate</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, helpers.o(i.interrupt_activate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = interrupt_activate &rArr; __2printf
+<P><STRONG><a name="[b0]"></a>interrupt_activate</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, helpers.o(i.interrupt_activate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = interrupt_activate
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_input
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1107,7 +1104,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
 
-<P><STRONG><a name="[b3]"></a>linear_buf_line_available</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, helpers.o(i.linear_buf_line_available))
+<P><STRONG><a name="[b2]"></a>linear_buf_line_available</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, helpers.o(i.linear_buf_line_available))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = linear_buf_line_available &rArr; linear_buf_reset
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_reset
@@ -1118,18 +1115,17 @@ Global Symbols
 <P><STRONG><a name="[74]"></a>linear_buf_reset</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, helpers.o(i.linear_buf_reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = linear_buf_reset
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_line_available
+<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_line_available
 <LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 </UL>
 
-<P><STRONG><a name="[28]"></a>main</STRONG> (Thumb, 276 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[28]"></a>main</STRONG> (Thumb, 272 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = main &rArr; f_mount &rArr; find_volume &rArr; check_fs &rArr; move_window &rArr; sync_window &rArr; disk_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rtc_update
@@ -1137,7 +1133,7 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ps2_get_char
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;preload16
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_reset
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_line_available
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;linear_buf_line_available
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interrupt_activate
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us_init
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_input
@@ -1153,7 +1149,7 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mount
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1167,7 +1163,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_input
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_input
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_output
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1205,7 +1201,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetDate
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_arg
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1216,7 +1212,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_readsector
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read_status
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_init
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_read
 </UL>
@@ -1227,7 +1223,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_writesector
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read_status
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_init
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USER_write
 </UL>
@@ -1420,7 +1416,7 @@ Local Symbols
 <P><STRONG><a name="[bd]"></a>print_r1</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, sd_util.o(i.print_r1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = print_r1 &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_writesector
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_readsector
@@ -1448,7 +1444,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc16
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_txrx
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_readsector
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read_csd
@@ -1489,7 +1485,7 @@ Local Symbols
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_get_r1
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_r1
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_write
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read
@@ -1527,7 +1523,7 @@ Local Symbols
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_get_data
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_r1
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hwif_init
 </UL>
@@ -1541,7 +1537,7 @@ Local Symbols
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_get_data
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_r1
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hwif_init
 </UL>
@@ -1553,7 +1549,7 @@ Local Symbols
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_txrx
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_nec
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_write
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read
@@ -1569,7 +1565,7 @@ Local Symbols
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_get_data
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_r1
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_read
 </UL>
@@ -1584,7 +1580,7 @@ Local Symbols
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_get_r1
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_cmd
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_r1
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_write
 </UL>

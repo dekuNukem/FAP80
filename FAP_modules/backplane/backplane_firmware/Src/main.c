@@ -135,12 +135,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_Delay(100);
   hsc_stop();
   cpu_reset();
   lcd_clear();
   addr_input();
   data_input();
   build_ui();
+  HAL_Delay(100);
 
   while (1)
   {
@@ -422,7 +424,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : BUSREQ_Pin RESET_Pin NMI_Pin INT_Pin */
   GPIO_InitStruct.Pin = BUSREQ_Pin|RESET_Pin|NMI_Pin|INT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
