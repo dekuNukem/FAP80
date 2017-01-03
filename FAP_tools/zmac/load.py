@@ -45,8 +45,6 @@ with open(sys.argv[2], "rb") as f:
         if byte[0] == 0xff:
         	curr_addr += 1;
         	continue
-        if curr_addr > 0x7fff:
-        	break
         result = write_eep(curr_addr, byte[0])
         print(str(hex(curr_addr)) + ": " + str(hex(result)))
         curr_addr += 1;

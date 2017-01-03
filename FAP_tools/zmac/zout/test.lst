@@ -19,96 +19,96 @@
   17:				;	e: cursor x
   18:				;	destories: none
   19:     -	0400          	putc_nolock:
-  20:    0+17	0400  CD3904  		call	disable_vram_copy
-  21:   17+4	0403  79      		ld	a, c
-  22:   21+7	0404  FE0A    		cp	10
-  23:   28+10	0406  CA2704  		jp	z, put_c_newline
-  24:   38+7	0409  FE0D    		cp	13
-  25:   45+10	040B  CA2A04  		jp	z, putc_done
-  26:   55+11	040E  E5      		push	hl
-  27:   66+11	040F  C5      		push	bc
-  28:   77+17	0410  CD6D04  		call	row_lookup
-  29:   94+4	0413  60      		ld	h, b
-  30:   98+4	0414  69      		ld	l, c		; hl holds look up result
-  31:  102+11	0415  D5      		push	de		; save de
-  32:  113+7	0416  1600    		ld 	d, 0		; clear d
-  33:  120+11	0418  19      		add	hl, de		; now hl holds the proper address
-  34:  131+10	0419  010080  		ld	bc, vram_char_base_addr
-  35:  141+11	041C  09      		add	hl, bc		; now hl holds proper vram address
-  36:  152+10	041D  D1      		pop	de
-  37:  162+10	041E  C1      		pop 	bc
-  38:  172+7	041F  71      		ld	(hl), c
-  39:  179+17	0420  CD4104  		call	cursor_advance
-  40:  196+10	0423  E1      		pop	hl
-  41:  206+10	0424  C32A04  		jp	putc_done
-  42:     -	0427          	put_c_newline:
-  43:  216+7	0427  1E00    		ld	e, 0
-  44:  223+4	0429  14      		inc	d
-  45:     -	042A          	putc_done:
-  46:  227+17	042A  CD4C04  		call	scroll_check
-  47:  244+17	042D  CD3104  		call	enable_vram_copy
-  48:  261+10	0430  C9      		ret
-  49:				
-  50:				;	destories: none
-  51:     -	0431          	enable_vram_copy:
-  52:  271+11	0431  E5      		push	hl
-  53:  282+10	0432  21C192  		ld	hl, vram_copy_ctrl_addr
-  54:  292+10	0435  36FF    		ld	(hl), 0xff
-  55:  302+10	0437  E1      		pop	hl
-  56:  312+10	0438  C9      		ret
-  57:				
-  58:				;	destories: none
-  59:     -	0439          	disable_vram_copy:
-  60:  322+11	0439  E5      		push	hl
-  61:  333+10	043A  21C192  		ld	hl, vram_copy_ctrl_addr
-  62:  343+10	043D  3600    		ld	(hl), 0x0
-  63:  353+10	043F  E1      		pop	hl
-  64:  363+10	0440  C9      		ret
-  65:				
-  66:				;	d: cursor y
-  67:				;	e: cursor x
-  68:				;	destories: none
-  69:     -	0441          	cursor_advance:
-  70:  373+4	0441  7B      		ld	a, e
-  71:  377+7	0442  FE4F    		cp	cursor_max_x
-  72:  384+10	0444  DA4A04  		jp	c, no_newline
-  73:  394+7	0447  1EFF    		ld	e, 255
-  74:  401+4	0449  14      		inc	d
-  75:     -	044A          	no_newline:
-  76:  405+4	044A  1C      		inc	e
-  77:  409+10	044B  C9      		ret
-  78:				
-  79:				;	check the current cursor position to see if it needs scrolling
-  80:				;	d: cursor y
-  81:				;	destories: none
-  82:     -	044C          	scroll_check:
-  83:  419+7	044C  3E1A    		ld	a, text_lower_limit
-  84:  426+4	044E  BA      		cp	d
-  85:  430+10	044F  C25E04  		jp	nz, scroll_check_done
-  86:  440+11	0452  C5      		push	bc
-  87:  451+7	0453  0601    		ld	b, text_upper_limit
-  88:  458+7	0455  0E1A    		ld	c, text_lower_limit
-  89:  465+17	0457  CD7E04  		call	screen_scroll
-  90:  482+4	045A  15      		dec	d
-  91:  486+7	045B  1E00    		ld	e, 0
-  92:  493+10	045D  C1      		pop	bc
-  93:     -	045E          	scroll_check_done:
-  94:  503+10	045E  C9      		ret
-  95:				
-  96:				;	print 0 terminated string
-  97:				;	hl: buf start
-  98:				;	d: cursor y
-  99:				;	e: cursor x
- 100:				;	destories: bc?
- 101:     -	045F          	puts:
- 102:  513+7	045F  4E      		ld	c, (hl)
- 103:  520+4	0460  79      		ld	a, c
- 104:  524+4	0461  B7      		or	a
- 105:  528+10	0462  CA6C04  		jp	z, puts_done
- 106:  538+17	0465  CD0004  		call	putc_nolock
- 107:  555+6	0468  23      		inc	hl
- 108:  561+10	0469  C35F04  		jp	puts
- 109:     -	046C          	puts_done:
+  20:    0+4	0400  79      		ld	a, c
+  21:    4+7	0401  FE0A    		cp	10
+  22:   11+10	0403  CA2404  		jp	z, put_c_newline
+  23:   21+7	0406  FE0D    		cp	13
+  24:   28+10	0408  CA2704  		jp	z, putc_done
+  25:   38+11	040B  E5      		push	hl
+  26:   49+11	040C  C5      		push	bc
+  27:   60+17	040D  CD6D04  		call	row_lookup
+  28:   77+4	0410  60      		ld	h, b
+  29:   81+4	0411  69      		ld	l, c		; hl holds look up result
+  30:   85+11	0412  D5      		push	de		; save de
+  31:   96+7	0413  1600    		ld 	d, 0		; clear d
+  32:  103+11	0415  19      		add	hl, de		; now hl holds the proper address
+  33:  114+10	0416  010080  		ld	bc, vram_char_base_addr
+  34:  124+11	0419  09      		add	hl, bc		; now hl holds proper vram address
+  35:  135+10	041A  D1      		pop	de
+  36:  145+10	041B  C1      		pop 	bc
+  37:  155+7	041C  71      		ld	(hl), c
+  38:  162+17	041D  CD3B04  		call	cursor_advance
+  39:  179+10	0420  E1      		pop	hl
+  40:  189+10	0421  C32704  		jp	putc_done
+  41:     -	0424          	put_c_newline:
+  42:  199+7	0424  1E00    		ld	e, 0
+  43:  206+4	0426  14      		inc	d
+  44:     -	0427          	putc_done:
+  45:  210+17	0427  CD4604  		call	scroll_check
+  46:  227+10	042A  C9      		ret
+  47:				
+  48:				;	destories: none
+  49:     -	042B          	enable_vram_copy:
+  50:  237+11	042B  E5      		push	hl
+  51:  248+10	042C  21C192  		ld	hl, vram_copy_ctrl_addr
+  52:  258+10	042F  36FF    		ld	(hl), 0xff
+  53:  268+10	0431  E1      		pop	hl
+  54:  278+10	0432  C9      		ret
+  55:				
+  56:				;	destories: none
+  57:     -	0433          	disable_vram_copy:
+  58:  288+11	0433  E5      		push	hl
+  59:  299+10	0434  21C192  		ld	hl, vram_copy_ctrl_addr
+  60:  309+10	0437  3600    		ld	(hl), 0x0
+  61:  319+10	0439  E1      		pop	hl
+  62:  329+10	043A  C9      		ret
+  63:				
+  64:				;	d: cursor y
+  65:				;	e: cursor x
+  66:				;	destories: none
+  67:     -	043B          	cursor_advance:
+  68:  339+4	043B  7B      		ld	a, e
+  69:  343+7	043C  FE4F    		cp	cursor_max_x
+  70:  350+10	043E  DA4404  		jp	c, no_newline
+  71:  360+7	0441  1EFF    		ld	e, 255
+  72:  367+4	0443  14      		inc	d
+  73:     -	0444          	no_newline:
+  74:  371+4	0444  1C      		inc	e
+  75:  375+10	0445  C9      		ret
+  76:				
+  77:				;	check the current cursor position to see if it needs scrolling
+  78:				;	d: cursor y
+  79:				;	destories: none
+  80:     -	0446          	scroll_check:
+  81:  385+7	0446  3E1A    		ld	a, text_lower_limit
+  82:  392+4	0448  BA      		cp	d
+  83:  396+10	0449  C25804  		jp	nz, scroll_check_done
+  84:  406+11	044C  C5      		push	bc
+  85:  417+7	044D  0601    		ld	b, text_upper_limit
+  86:  424+7	044F  0E1A    		ld	c, text_lower_limit
+  87:  431+17	0451  CD7E04  		call	screen_scroll
+  88:  448+4	0454  15      		dec	d
+  89:  452+7	0455  1E00    		ld	e, 0
+  90:  459+10	0457  C1      		pop	bc
+  91:     -	0458          	scroll_check_done:
+  92:  469+10	0458  C9      		ret
+  93:				
+  94:				;	print 0 terminated string
+  95:				;	hl: buf start
+  96:				;	d: cursor y
+  97:				;	e: cursor x
+  98:				;	destories: bc?
+  99:     -	0459          	puts:
+ 100:  479+17	0459  CD3304  		call	disable_vram_copy
+ 101:  496+7	045C  4E      		ld	c, (hl)
+ 102:  503+4	045D  79      		ld	a, c
+ 103:  507+4	045E  B7      		or	a
+ 104:  511+10	045F  CA6904  		jp	z, puts_done
+ 105:  521+17	0462  CD0004  		call	putc_nolock
+ 106:  538+6	0465  23      		inc	hl
+ 107:  544+10	0466  C35904  		jp	puts
+ 108:     -	0469          	puts_done:
+ 109:  554+17	0469  CD2B04  		call	enable_vram_copy
  110:  571+10	046C  C9      		ret
  111:				
  112:				;	d: lookup value
@@ -139,7 +139,7 @@
  137:  704+11	047F  D5      		push 	de
  138:  715+11	0480  E5      		push	hl
  139:				
- 140:  726+17	0481  CD3904  		call	disable_vram_copy
+ 140:  726+17	0481  CD3304  		call	disable_vram_copy
  141:					; ----- look up how many bytes to copy -----
  142:  743+11	0484  C5      		push	bc
  143:  754+4	0485  79      		ld	a, c
@@ -182,7 +182,7 @@
  180: 1056+10	04BE  E1      		pop	hl
  181: 1066+10	04BF  D1      		pop	de
  182: 1076+10	04C0  C1      		pop	bc
- 183: 1086+17	04C1  CD3104  		call	enable_vram_copy
+ 183: 1086+17	04C1  CD2B04  		call	enable_vram_copy
  184: 1103+10	04C4  C9      		ret
  185:				
  186:				;	destories: none
@@ -193,7 +193,7 @@
  191:				
  192: 1146+10	04C8  116009  		ld	de, vram_size
  193: 1156+7	04CB  0E20    		ld	c, ' ' ; character
- 194: 1163+17	04CD  CD3904  		call	disable_vram_copy
+ 194: 1163+17	04CD  CD3304  		call	disable_vram_copy
  195:     -	04D0          	cclear:	
  196: 1180+10	04D0  210080  		ld	hl, vram_char_base_addr
  197: 1190+11	04D3  19      		add	hl, de
@@ -203,7 +203,7 @@
  201: 1218+4	04D7  B3      		or 	e	
  202: 1222+10	04D8  C2D004  		jp	nz, cclear
  203:				
- 204: 1232+17	04DB  CD3104  		call	enable_vram_copy
+ 204: 1232+17	04DB  CD2B04  		call	enable_vram_copy
  205: 1249+10	04DE  C1      		pop	bc
  206: 1259+10	04DF  D1      		pop 	de
  207: 1269+10	04E0  E1      		pop	hl
@@ -217,7 +217,7 @@
  215:				
  216: 1322+10	04E5  116009  		ld	de, vram_size
  217: 1332+7	04E8  0E34    		ld	c, 0x34 ; attribute
- 218: 1339+17	04EA  CD3904  		call	disable_vram_copy
+ 218: 1339+17	04EA  CD3304  		call	disable_vram_copy
  219:     -	04ED          	aclear:	
  220: 1356+10	04ED  216089  		ld	hl, vram_attri_base_addr
  221: 1366+11	04F0  19      		add	hl, de
@@ -227,7 +227,7 @@
  225: 1394+4	04F4  B3      		or 	e	
  226: 1398+10	04F5  C2ED04  		jp	nz, aclear
  227:				
- 228: 1408+17	04F8  CD3104  		call	enable_vram_copy
+ 228: 1408+17	04F8  CD2B04  		call	enable_vram_copy
  229: 1425+10	04FB  C1      		pop	bc
  230: 1435+10	04FC  D1      		pop 	de
  231: 1445+10	04FD  E1      		pop	hl
@@ -433,7 +433,7 @@
   17: 1523+10	010A  213B05  		ld	hl, boot_message
   18: 1533+7	010D  1607    		ld	d, 7		; cursor y 
   19: 1540+7	010F  1E00    		ld	e, 0		; cursor x
-  20: 1547+17	0111  CD5F04  		call	puts		; print the logo
+  20: 1547+17	0111  CD5904  		call	puts		; print the logo
   21:				
   22: 1564+7	0114  3E00    		ld	a, 0
   23: 1571+9	0116  ED47    		ld	i, a		; load interrupt register
@@ -447,9 +447,9 @@
   31:     -	1000          	kb_isr:
   32: 1602+11	1000  DB01    		in	a, (1)
   33: 1613+4	1002  4F      		ld	c, a
-  34: 1617+17	1003  CD3904  		call	disable_vram_copy
+  34: 1617+17	1003  CD3304  		call	disable_vram_copy
   35: 1634+17	1006  CD0004  		call	putc_nolock
-  36: 1651+17	1009  CD3104  		call	enable_vram_copy
+  36: 1651+17	1009  CD2B04  		call	enable_vram_copy
   37: 1668+4	100C  FB      		ei
 **** test.z80 ****
   38: 1672+14	100D  ED4D    		reti
@@ -473,27 +473,27 @@ cclear           4d0
 clear_attri      4e2     
 clear_screen     4c5     
 credit           6d1     
-cursor_advance   441     
+cursor_advance   43b     
 cursor_lookup    4ff     
 cursor_max_x   =  4f     
 cursor_max_y   =  1d     
 cursor_x_size  =  50     
-disable_vram_copy  439     
-enable_vram_copy  431     
+disable_vram_copy  433     
+enable_vram_copy  42b     
 end              11b     
 kb_isr          1000     
-no_newline       44a     
+no_newline       444     
 program_start    100     
-put_c_newline    427     
-putc_done        42a     
+put_c_newline    424     
+putc_done        427     
 putc_nolock      400     
-puts             45f     
-puts_done        46c     
+puts             459     
+puts_done        469     
 row_lookup       46d     
 screen_scroll    47e     
 screen_scroll_loop  4b8     
-scroll_check     44c     
-scroll_check_done  45e     
+scroll_check     446     
+scroll_check_done  458     
 temp_var0        6e0     
 temp_var1        6e2     
 temp_var2        6e4     

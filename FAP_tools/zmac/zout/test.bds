@@ -21,158 +21,158 @@ binary-debuggable-source
 0400 0400 s ;	e: cursor x
 0400 0400 s ;	destories: none
 0400 0400 s putc_nolock:
-0400 0400 d cd3904
-0400 0400 s 	call	disable_vram_copy
-0403 0403 d 79
-0403 0403 s 	ld	a, c
-0404 0404 d fe0a
-0404 0404 s 	cp	10
-0406 0406 d ca2704
-0406 0406 s 	jp	z, put_c_newline
-0409 0409 d fe0d
-0409 0409 s 	cp	13
-040b 040b d ca2a04
-040b 040b s 	jp	z, putc_done
-040e 040e d e5
-040e 040e s 	push	hl
-040f 040f d c5
-040f 040f s 	push	bc
-0410 0410 d cd6d04
-0410 0410 s 	call	row_lookup
-0413 0413 d 60
-0413 0413 s 	ld	h, b
-0414 0414 d 69
-0414 0414 s 	ld	l, c		; hl holds look up result
-0415 0415 d d5
-0415 0415 s 	push	de		; save de
-0416 0416 d 1600
-0416 0416 s 	ld 	d, 0		; clear d
-0418 0418 d 19
-0418 0418 s 	add	hl, de		; now hl holds the proper address
-0419 0419 d 010080
-0419 0419 s 	ld	bc, vram_char_base_addr
-041c 041c d 09
-041c 041c s 	add	hl, bc		; now hl holds proper vram address
-041d 041d d d1
-041d 041d s 	pop	de
-041e 041e d c1
-041e 041e s 	pop 	bc
-041f 041f d 71
-041f 041f s 	ld	(hl), c
-0420 0420 d cd4104
-0420 0420 s 	call	cursor_advance
-0423 0423 d e1
-0423 0423 s 	pop	hl
-0424 0424 d c32a04
-0424 0424 s 	jp	putc_done
-0427 0427 s put_c_newline:
-0427 0427 d 1e00
-0427 0427 s 	ld	e, 0
-0429 0429 d 14
-0429 0429 s 	inc	d
-042a 042a s putc_done:
-042a 042a d cd4c04
-042a 042a s 	call	scroll_check
-042d 042d d cd3104
-042d 042d s 	call	enable_vram_copy
-0430 0430 d c9
-0430 0430 s 	ret
-0431 0431 s 
-0431 0431 s ;	destories: none
-0431 0431 s enable_vram_copy:
-0431 0431 d e5
-0431 0431 s 	push	hl
-0432 0432 d 21c192
-0432 0432 s 	ld	hl, vram_copy_ctrl_addr
-0435 0435 d 36ff
-0435 0435 s 	ld	(hl), 0xff
-0437 0437 d e1
-0437 0437 s 	pop	hl
-0438 0438 d c9
-0438 0438 s 	ret
-0439 0439 s 
-0439 0439 s ;	destories: none
-0439 0439 s disable_vram_copy:
-0439 0439 d e5
-0439 0439 s 	push	hl
-043a 043a d 21c192
-043a 043a s 	ld	hl, vram_copy_ctrl_addr
-043d 043d d 3600
-043d 043d s 	ld	(hl), 0x0
-043f 043f d e1
-043f 043f s 	pop	hl
-0440 0440 d c9
-0440 0440 s 	ret
-0441 0441 s 
-0441 0441 s ;	d: cursor y
-0441 0441 s ;	e: cursor x
-0441 0441 s ;	destories: none
-0441 0441 s cursor_advance:
-0441 0441 d 7b
-0441 0441 s 	ld	a, e
-0442 0442 d fe4f
-0442 0442 s 	cp	cursor_max_x
-0444 0444 d da4a04
-0444 0444 s 	jp	c, no_newline
-0447 0447 d 1eff
-0447 0447 s 	ld	e, 255
-0449 0449 d 14
-0449 0449 s 	inc	d
-044a 044a s no_newline:
-044a 044a d 1c
-044a 044a s 	inc	e
-044b 044b d c9
-044b 044b s 	ret
-044c 044c s 
-044c 044c s ;	check the current cursor position to see if it needs scrolling
-044c 044c s ;	d: cursor y
-044c 044c s ;	destories: none
-044c 044c s scroll_check:
-044c 044c d 3e1a
-044c 044c s 	ld	a, text_lower_limit
-044e 044e d ba
-044e 044e s 	cp	d
-044f 044f d c25e04
-044f 044f s 	jp	nz, scroll_check_done
-0452 0452 d c5
-0452 0452 s 	push	bc
-0453 0453 d 0601
-0453 0453 s 	ld	b, text_upper_limit
-0455 0455 d 0e1a
-0455 0455 s 	ld	c, text_lower_limit
-0457 0457 d cd7e04
-0457 0457 s 	call	screen_scroll
-045a 045a d 15
-045a 045a s 	dec	d
-045b 045b d 1e00
-045b 045b s 	ld	e, 0
-045d 045d d c1
-045d 045d s 	pop	bc
-045e 045e s scroll_check_done:
-045e 045e d c9
-045e 045e s 	ret
-045f 045f s 
-045f 045f s ;	print 0 terminated string
-045f 045f s ;	hl: buf start
-045f 045f s ;	d: cursor y
-045f 045f s ;	e: cursor x
-045f 045f s ;	destories: bc?
-045f 045f s puts:
-045f 045f d 4e
-045f 045f s 	ld	c, (hl)
-0460 0460 d 79
-0460 0460 s 	ld	a, c
-0461 0461 d b7
-0461 0461 s 	or	a
-0462 0462 d ca6c04
-0462 0462 s 	jp	z, puts_done
-0465 0465 d cd0004
-0465 0465 s 	call	putc_nolock
-0468 0468 d 23
-0468 0468 s 	inc	hl
-0469 0469 d c35f04
-0469 0469 s 	jp	puts
-046c 046c s puts_done:
+0400 0400 d 79
+0400 0400 s 	ld	a, c
+0401 0401 d fe0a
+0401 0401 s 	cp	10
+0403 0403 d ca2404
+0403 0403 s 	jp	z, put_c_newline
+0406 0406 d fe0d
+0406 0406 s 	cp	13
+0408 0408 d ca2704
+0408 0408 s 	jp	z, putc_done
+040b 040b d e5
+040b 040b s 	push	hl
+040c 040c d c5
+040c 040c s 	push	bc
+040d 040d d cd6d04
+040d 040d s 	call	row_lookup
+0410 0410 d 60
+0410 0410 s 	ld	h, b
+0411 0411 d 69
+0411 0411 s 	ld	l, c		; hl holds look up result
+0412 0412 d d5
+0412 0412 s 	push	de		; save de
+0413 0413 d 1600
+0413 0413 s 	ld 	d, 0		; clear d
+0415 0415 d 19
+0415 0415 s 	add	hl, de		; now hl holds the proper address
+0416 0416 d 010080
+0416 0416 s 	ld	bc, vram_char_base_addr
+0419 0419 d 09
+0419 0419 s 	add	hl, bc		; now hl holds proper vram address
+041a 041a d d1
+041a 041a s 	pop	de
+041b 041b d c1
+041b 041b s 	pop 	bc
+041c 041c d 71
+041c 041c s 	ld	(hl), c
+041d 041d d cd3b04
+041d 041d s 	call	cursor_advance
+0420 0420 d e1
+0420 0420 s 	pop	hl
+0421 0421 d c32704
+0421 0421 s 	jp	putc_done
+0424 0424 s put_c_newline:
+0424 0424 d 1e00
+0424 0424 s 	ld	e, 0
+0426 0426 d 14
+0426 0426 s 	inc	d
+0427 0427 s putc_done:
+0427 0427 d cd4604
+0427 0427 s 	call	scroll_check
+042a 042a d c9
+042a 042a s 	ret
+042b 042b s 
+042b 042b s ;	destories: none
+042b 042b s enable_vram_copy:
+042b 042b d e5
+042b 042b s 	push	hl
+042c 042c d 21c192
+042c 042c s 	ld	hl, vram_copy_ctrl_addr
+042f 042f d 36ff
+042f 042f s 	ld	(hl), 0xff
+0431 0431 d e1
+0431 0431 s 	pop	hl
+0432 0432 d c9
+0432 0432 s 	ret
+0433 0433 s 
+0433 0433 s ;	destories: none
+0433 0433 s disable_vram_copy:
+0433 0433 d e5
+0433 0433 s 	push	hl
+0434 0434 d 21c192
+0434 0434 s 	ld	hl, vram_copy_ctrl_addr
+0437 0437 d 3600
+0437 0437 s 	ld	(hl), 0x0
+0439 0439 d e1
+0439 0439 s 	pop	hl
+043a 043a d c9
+043a 043a s 	ret
+043b 043b s 
+043b 043b s ;	d: cursor y
+043b 043b s ;	e: cursor x
+043b 043b s ;	destories: none
+043b 043b s cursor_advance:
+043b 043b d 7b
+043b 043b s 	ld	a, e
+043c 043c d fe4f
+043c 043c s 	cp	cursor_max_x
+043e 043e d da4404
+043e 043e s 	jp	c, no_newline
+0441 0441 d 1eff
+0441 0441 s 	ld	e, 255
+0443 0443 d 14
+0443 0443 s 	inc	d
+0444 0444 s no_newline:
+0444 0444 d 1c
+0444 0444 s 	inc	e
+0445 0445 d c9
+0445 0445 s 	ret
+0446 0446 s 
+0446 0446 s ;	check the current cursor position to see if it needs scrolling
+0446 0446 s ;	d: cursor y
+0446 0446 s ;	destories: none
+0446 0446 s scroll_check:
+0446 0446 d 3e1a
+0446 0446 s 	ld	a, text_lower_limit
+0448 0448 d ba
+0448 0448 s 	cp	d
+0449 0449 d c25804
+0449 0449 s 	jp	nz, scroll_check_done
+044c 044c d c5
+044c 044c s 	push	bc
+044d 044d d 0601
+044d 044d s 	ld	b, text_upper_limit
+044f 044f d 0e1a
+044f 044f s 	ld	c, text_lower_limit
+0451 0451 d cd7e04
+0451 0451 s 	call	screen_scroll
+0454 0454 d 15
+0454 0454 s 	dec	d
+0455 0455 d 1e00
+0455 0455 s 	ld	e, 0
+0457 0457 d c1
+0457 0457 s 	pop	bc
+0458 0458 s scroll_check_done:
+0458 0458 d c9
+0458 0458 s 	ret
+0459 0459 s 
+0459 0459 s ;	print 0 terminated string
+0459 0459 s ;	hl: buf start
+0459 0459 s ;	d: cursor y
+0459 0459 s ;	e: cursor x
+0459 0459 s ;	destories: bc?
+0459 0459 s puts:
+0459 0459 d cd3304
+0459 0459 s 	call	disable_vram_copy
+045c 045c d 4e
+045c 045c s 	ld	c, (hl)
+045d 045d d 79
+045d 045d s 	ld	a, c
+045e 045e d b7
+045e 045e s 	or	a
+045f 045f d ca6904
+045f 045f s 	jp	z, puts_done
+0462 0462 d cd0004
+0462 0462 s 	call	putc_nolock
+0465 0465 d 23
+0465 0465 s 	inc	hl
+0466 0466 d c35904
+0466 0466 s 	jp	puts
+0469 0469 s puts_done:
+0469 0469 d cd2b04
+0469 0469 s 	call	enable_vram_copy
 046c 046c d c9
 046c 046c s 	ret
 046d 046d s 
@@ -221,7 +221,7 @@ binary-debuggable-source
 0480 0480 d e5
 0480 0480 s 	push	hl
 0481 0481 s 
-0481 0481 d cd3904
+0481 0481 d cd3304
 0481 0481 s 	call	disable_vram_copy
 0484 0484 s 	; ----- look up how many bytes to copy -----
 0484 0484 d c5
@@ -298,7 +298,7 @@ binary-debuggable-source
 04bf 04bf s 	pop	de
 04c0 04c0 d c1
 04c0 04c0 s 	pop	bc
-04c1 04c1 d cd3104
+04c1 04c1 d cd2b04
 04c1 04c1 s 	call	enable_vram_copy
 04c4 04c4 d c9
 04c4 04c4 s 	ret
@@ -316,7 +316,7 @@ binary-debuggable-source
 04c8 04c8 s 	ld	de, vram_size
 04cb 04cb d 0e20
 04cb 04cb s 	ld	c, ' ' ; character
-04cd 04cd d cd3904
+04cd 04cd d cd3304
 04cd 04cd s 	call	disable_vram_copy
 04d0 04d0 s cclear:	
 04d0 04d0 d 210080
@@ -334,7 +334,7 @@ binary-debuggable-source
 04d8 04d8 d c2d004
 04d8 04d8 s 	jp	nz, cclear
 04db 04db s 
-04db 04db d cd3104
+04db 04db d cd2b04
 04db 04db s 	call	enable_vram_copy
 04de 04de d c1
 04de 04de s 	pop	bc
@@ -358,7 +358,7 @@ binary-debuggable-source
 04e5 04e5 s 	ld	de, vram_size
 04e8 04e8 d 0e34
 04e8 04e8 s 	ld	c, 0x34 ; attribute
-04ea 04ea d cd3904
+04ea 04ea d cd3304
 04ea 04ea s 	call	disable_vram_copy
 04ed 04ed s aclear:	
 04ed 04ed d 216089
@@ -376,7 +376,7 @@ binary-debuggable-source
 04f5 04f5 d c2ed04
 04f5 04f5 s 	jp	nz, aclear
 04f8 04f8 s 
-04f8 04f8 d cd3104
+04f8 04f8 d cd2b04
 04f8 04f8 s 	call	enable_vram_copy
 04fb 04fb d c1
 04fb 04fb s 	pop	bc
@@ -539,7 +539,7 @@ binary-debuggable-source
 010d 010d s 	ld	d, 7		; cursor y 
 010f 010f d 1e00
 010f 010f s 	ld	e, 0		; cursor x
-0111 0111 d cd5f04
+0111 0111 d cd5904
 0111 0111 s 	call	puts		; print the logo
 0114 0114 s 
 0114 0114 d 3e00
@@ -561,11 +561,11 @@ binary-debuggable-source
 1000 1000 s 	in	a, (1)
 1002 1002 d 4f
 1002 1002 s 	ld	c, a
-1003 1003 d cd3904
+1003 1003 d cd3304
 1003 1003 s 	call	disable_vram_copy
 1006 1006 d cd0004
 1006 1006 s 	call	putc_nolock
-1009 1009 d cd3104
+1009 1009 d cd2b04
 1009 1009 s 	call	enable_vram_copy
 100c 100c d fb
 100c 100c s 	ei
@@ -573,7 +573,7 @@ binary-debuggable-source
 100d 100d d ed4d
 100d 100d s 	reti
 011b a end
-045f a puts
+0459 a puts
 04ed a aclear
 04d0 a cclear
 1000 a kb_isr
@@ -582,29 +582,29 @@ binary-debuggable-source
 06e2 a temp_var1
 06e4 a temp_var2
 06e6 a temp_var3
-042a a putc_done
+0427 a putc_done
 0960 v vram_size
-046c a puts_done
-044a a no_newline
+0469 a puts_done
+0444 a no_newline
 046d a row_lookup
 04e2 a clear_attri
 0400 a putc_nolock
 04c5 a clear_screen
-044c a scroll_check
+0446 a scroll_check
 053b a boot_message
 004f v cursor_max_x
 001d v cursor_max_y
-0427 a put_c_newline
+0424 a put_c_newline
 047e a screen_scroll
 0100 a program_start
 0050 v cursor_x_size
 04ff a cursor_lookup
-0441 a cursor_advance
-0431 a enable_vram_copy
+043b a cursor_advance
+042b a enable_vram_copy
 001a v text_lower_limit
 0001 v text_upper_limit
-045e a scroll_check_done
-0439 a disable_vram_copy
+0458 a scroll_check_done
+0433 a disable_vram_copy
 04b8 a screen_scroll_loop
 8000 v vram_char_base_addr
 92c1 v vram_copy_ctrl_addr

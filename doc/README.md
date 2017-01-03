@@ -53,6 +53,6 @@ places like [OSH park](https://oshpark.com) and [DirtyPCB](http://dirtypcbs.com)
 
 ## Buying parts and assembling
 
-Well this is the one you'll be on your own. I suggest buying parts from a reputable source like [mouser](http://www.mouser.com) or [digikey](http://www.mouser.com), two particular part to pay attention to is AT24C08 EEPROM on the I/O board, and AT28C256 EEPROM on the memory board. I have encountered a number of fakes of those two, fake AT24C08 simply doesn't work, and the fake AT28C256 is actually a AT28C64.
+Well this is the one you'll be on your own. I suggest buying parts from a reputable source like [mouser](http://www.mouser.com) or [digikey](http://www.mouser.com), two particular part to pay attention to is AT24C08 I2C EEPROM on the I/O board, and AT28C256 EEPROM on the memory board. I have encountered a number of fakes of those two, fake AT24C08 simply doesn't work, and the fake AT28C256 is actually a AT28C64.
 
 As for soldering, the whole thing should be easily hand solderable with a proper temperature controlled iron and some prior experience. You can also use a reflow oven, which is much simpler.
