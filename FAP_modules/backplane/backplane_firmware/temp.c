@@ -1,3 +1,26 @@
+void write_eep(uint16_t addr, uint8_t data)
+{
+  uint8_t exsiting_byte = read_eep(addr);
+  if(exsiting_byte == data)
+    return;
+
+  CPU_ADDR_PORT->ODR = addr;
+  CPU_DATA_PORT->ODR = data;
+  addr_output();
+  data_output();
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, MREQ_Pin, LOW);
+  // address latched on falling edge of 'WR
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, WR_Pin, LOW);
+  // data latched on rising edge of 'WR
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, WR_Pin, HIGH);
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, MREQ_Pin, HIGH);
+
+  while(read_eep(addr) != data);
+}
+
+
+
+
 uint32_t start = micros();
     write_eep(addr, data);
     printf("wr:a=%d,d=%d took %d microsec\r\n", addr, data, micros() - start);

@@ -225,6 +225,8 @@ Section Cross References
     cpu_ctrl.o(i.write_eep) refers to cpu_ctrl.o(i.addr_output) for addr_output
     cpu_ctrl.o(i.write_eep) refers to cpu_ctrl.o(i.data_output) for data_output
     cpu_ctrl.o(i.write_eep) refers to stm32f0xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
+    cpu_ctrl.o(i.write_eep) refers to cpu_ctrl.o(i.addr_input) for addr_input
+    cpu_ctrl.o(i.write_eep) refers to cpu_ctrl.o(i.data_input) for data_input
     delay_us.o(i.delay_us) refers to delay_us.o(.data) for .data
     delay_us.o(i.delay_us_init) refers to delay_us.o(.data) for .data
     delay_us.o(i.micros) refers to delay_us.o(.data) for .data
@@ -2014,40 +2016,40 @@ Image Symbol Table
     i.build_ui                               0x08003de8   Section        0  cpu_ctrl.o(i.build_ui)
     i.claim_bus                              0x08003e54   Section        0  cpu_ctrl.o(i.claim_bus)
     i.cmd_handler                            0x08003e80   Section        0  cpu_ctrl.o(i.cmd_handler)
-    i.cpu_ctrl_init                          0x08003fbc   Section        0  cpu_ctrl.o(i.cpu_ctrl_init)
-    i.cpu_reset                              0x08003fc8   Section        0  cpu_ctrl.o(i.cpu_reset)
-    i.cycle_clock                            0x08003ff8   Section        0  cpu_ctrl.o(i.cycle_clock)
-    i.data_input                             0x08004030   Section        0  cpu_ctrl.o(i.data_input)
-    i.data_output                            0x0800404c   Section        0  cpu_ctrl.o(i.data_output)
-    i.delay_us_init                          0x08004074   Section        0  delay_us.o(i.delay_us_init)
-    i.fputc                                  0x08004080   Section        0  main.o(i.fputc)
-    i.goto_next_arg                          0x0800408e   Section        0  cpu_ctrl.o(i.goto_next_arg)
-    i.hmi_lcd_init                           0x080040bc   Section        0  hmi_lcd.o(i.hmi_lcd_init)
-    i.hsc_start                              0x080040c8   Section        0  cpu_ctrl.o(i.hsc_start)
-    i.hsc_stop                               0x080040fc   Section        0  cpu_ctrl.o(i.hsc_stop)
-    i.lcd_clear                              0x0800413c   Section        0  hmi_lcd.o(i.lcd_clear)
-    i.lcd_print                              0x08004154   Section        0  hmi_lcd.o(i.lcd_print)
-    i.lcd_print_width                        0x080041c0   Section        0  hmi_lcd.o(i.lcd_print_width)
-    i.lcd_say                                0x08004224   Section        0  hmi_lcd.o(i.lcd_say)
-    i.linear_buf_add                         0x08004250   Section        0  helpers.o(i.linear_buf_add)
-    i.linear_buf_add_str                     0x0800427c   Section        0  helpers.o(i.linear_buf_add_str)
-    i.linear_buf_init                        0x080042ac   Section        0  helpers.o(i.linear_buf_init)
-    i.linear_buf_reset                       0x080042c0   Section        0  helpers.o(i.linear_buf_reset)
-    i.main                                   0x080042dc   Section        0  main.o(i.main)
-    i.mem_ctrl_input                         0x080044b4   Section        0  cpu_ctrl.o(i.mem_ctrl_input)
-    i.mem_ctrl_output                        0x080044d8   Section        0  cpu_ctrl.o(i.mem_ctrl_output)
-    i.my_usb_init                            0x08004508   Section        0  my_usb.o(i.my_usb_init)
-    i.my_usb_putchar                         0x08004518   Section        0  my_usb.o(i.my_usb_putchar)
-    i.my_usb_readline                        0x0800452c   Section        0  my_usb.o(i.my_usb_readline)
-    i.program_mode                           0x08004588   Section        0  cpu_ctrl.o(i.program_mode)
-    i.read_eep                               0x0800467c   Section        0  cpu_ctrl.o(i.read_eep)
-    i.softserial_init                        0x080046ec   Section        0  softserial.o(i.softserial_init)
-    i.write_eep                              0x080046f8   Section        0  cpu_ctrl.o(i.write_eep)
-    .constdata                               0x08004760   Section       16  system_stm32f0xx.o(.constdata)
-    .constdata                               0x08004770   Section        8  system_stm32f0xx.o(.constdata)
-    .constdata                               0x08004778   Section      129  ctype_o.o(.constdata)
-    .constdata                               0x080047fc   Section        4  ctype_o.o(.constdata)
-    table                                    0x080047fc   Data           4  ctype_o.o(.constdata)
+    i.cpu_ctrl_init                          0x08003fc8   Section        0  cpu_ctrl.o(i.cpu_ctrl_init)
+    i.cpu_reset                              0x08003fd4   Section        0  cpu_ctrl.o(i.cpu_reset)
+    i.cycle_clock                            0x08004004   Section        0  cpu_ctrl.o(i.cycle_clock)
+    i.data_input                             0x0800403c   Section        0  cpu_ctrl.o(i.data_input)
+    i.data_output                            0x08004058   Section        0  cpu_ctrl.o(i.data_output)
+    i.delay_us_init                          0x08004080   Section        0  delay_us.o(i.delay_us_init)
+    i.fputc                                  0x0800408c   Section        0  main.o(i.fputc)
+    i.goto_next_arg                          0x0800409a   Section        0  cpu_ctrl.o(i.goto_next_arg)
+    i.hmi_lcd_init                           0x080040c8   Section        0  hmi_lcd.o(i.hmi_lcd_init)
+    i.hsc_start                              0x080040d4   Section        0  cpu_ctrl.o(i.hsc_start)
+    i.hsc_stop                               0x08004108   Section        0  cpu_ctrl.o(i.hsc_stop)
+    i.lcd_clear                              0x08004148   Section        0  hmi_lcd.o(i.lcd_clear)
+    i.lcd_print                              0x08004160   Section        0  hmi_lcd.o(i.lcd_print)
+    i.lcd_print_width                        0x080041cc   Section        0  hmi_lcd.o(i.lcd_print_width)
+    i.lcd_say                                0x08004230   Section        0  hmi_lcd.o(i.lcd_say)
+    i.linear_buf_add                         0x0800425c   Section        0  helpers.o(i.linear_buf_add)
+    i.linear_buf_add_str                     0x08004288   Section        0  helpers.o(i.linear_buf_add_str)
+    i.linear_buf_init                        0x080042b8   Section        0  helpers.o(i.linear_buf_init)
+    i.linear_buf_reset                       0x080042cc   Section        0  helpers.o(i.linear_buf_reset)
+    i.main                                   0x080042e8   Section        0  main.o(i.main)
+    i.mem_ctrl_input                         0x080044c0   Section        0  cpu_ctrl.o(i.mem_ctrl_input)
+    i.mem_ctrl_output                        0x080044e4   Section        0  cpu_ctrl.o(i.mem_ctrl_output)
+    i.my_usb_init                            0x08004514   Section        0  my_usb.o(i.my_usb_init)
+    i.my_usb_putchar                         0x08004524   Section        0  my_usb.o(i.my_usb_putchar)
+    i.my_usb_readline                        0x08004538   Section        0  my_usb.o(i.my_usb_readline)
+    i.program_mode                           0x08004594   Section        0  cpu_ctrl.o(i.program_mode)
+    i.read_eep                               0x08004688   Section        0  cpu_ctrl.o(i.read_eep)
+    i.softserial_init                        0x080046f8   Section        0  softserial.o(i.softserial_init)
+    i.write_eep                              0x08004704   Section        0  cpu_ctrl.o(i.write_eep)
+    .constdata                               0x0800478c   Section       16  system_stm32f0xx.o(.constdata)
+    .constdata                               0x0800479c   Section        8  system_stm32f0xx.o(.constdata)
+    .constdata                               0x080047a4   Section      129  ctype_o.o(.constdata)
+    .constdata                               0x08004828   Section        4  ctype_o.o(.constdata)
+    table                                    0x08004828   Data           4  ctype_o.o(.constdata)
     .data                                    0x20000000   Section        4  system_stm32f0xx.o(.data)
     .data                                    0x20000004   Section       28  usbd_desc.o(.data)
     .data                                    0x20000020   Section       22  usbd_desc.o(.data)
@@ -2352,41 +2354,41 @@ Image Symbol Table
     addr_output                              0x08003dc9   Thumb Code    22  cpu_ctrl.o(i.addr_output)
     build_ui                                 0x08003de9   Thumb Code    60  cpu_ctrl.o(i.build_ui)
     claim_bus                                0x08003e55   Thumb Code    40  cpu_ctrl.o(i.claim_bus)
-    cmd_handler                              0x08003e81   Thumb Code   212  cpu_ctrl.o(i.cmd_handler)
-    cpu_ctrl_init                            0x08003fbd   Thumb Code     6  cpu_ctrl.o(i.cpu_ctrl_init)
-    cpu_reset                                0x08003fc9   Thumb Code    42  cpu_ctrl.o(i.cpu_reset)
-    cycle_clock                              0x08003ff9   Thumb Code    56  cpu_ctrl.o(i.cycle_clock)
-    data_input                               0x08004031   Thumb Code    22  cpu_ctrl.o(i.data_input)
-    data_output                              0x0800404d   Thumb Code    30  cpu_ctrl.o(i.data_output)
-    delay_us_init                            0x08004075   Thumb Code     6  delay_us.o(i.delay_us_init)
-    fputc                                    0x08004081   Thumb Code    14  main.o(i.fputc)
-    goto_next_arg                            0x0800408f   Thumb Code    44  cpu_ctrl.o(i.goto_next_arg)
-    hmi_lcd_init                             0x080040bd   Thumb Code     6  hmi_lcd.o(i.hmi_lcd_init)
-    hsc_start                                0x080040c9   Thumb Code    48  cpu_ctrl.o(i.hsc_start)
-    hsc_stop                                 0x080040fd   Thumb Code    58  cpu_ctrl.o(i.hsc_stop)
-    lcd_clear                                0x0800413d   Thumb Code    10  hmi_lcd.o(i.lcd_clear)
-    lcd_print                                0x08004155   Thumb Code    62  hmi_lcd.o(i.lcd_print)
-    lcd_print_width                          0x080041c1   Thumb Code    56  hmi_lcd.o(i.lcd_print_width)
-    lcd_say                                  0x08004225   Thumb Code    36  hmi_lcd.o(i.lcd_say)
-    linear_buf_add                           0x08004251   Thumb Code    40  helpers.o(i.linear_buf_add)
-    linear_buf_add_str                       0x0800427d   Thumb Code    48  helpers.o(i.linear_buf_add_str)
-    linear_buf_init                          0x080042ad   Thumb Code    20  helpers.o(i.linear_buf_init)
-    linear_buf_reset                         0x080042c1   Thumb Code    28  helpers.o(i.linear_buf_reset)
-    main                                     0x080042dd   Thumb Code   392  main.o(i.main)
-    mem_ctrl_input                           0x080044b5   Thumb Code    30  cpu_ctrl.o(i.mem_ctrl_input)
-    mem_ctrl_output                          0x080044d9   Thumb Code    44  cpu_ctrl.o(i.mem_ctrl_output)
-    my_usb_init                              0x08004509   Thumb Code    10  my_usb.o(i.my_usb_init)
-    my_usb_putchar                           0x08004519   Thumb Code    20  my_usb.o(i.my_usb_putchar)
-    my_usb_readline                          0x0800452d   Thumb Code    84  my_usb.o(i.my_usb_readline)
-    program_mode                             0x08004589   Thumb Code   134  cpu_ctrl.o(i.program_mode)
-    read_eep                                 0x0800467d   Thumb Code   102  cpu_ctrl.o(i.read_eep)
-    softserial_init                          0x080046ed   Thumb Code     8  softserial.o(i.softserial_init)
-    write_eep                                0x080046f9   Thumb Code    96  cpu_ctrl.o(i.write_eep)
-    AHBPrescTable                            0x08004760   Data          16  system_stm32f0xx.o(.constdata)
-    APBPrescTable                            0x08004770   Data           8  system_stm32f0xx.o(.constdata)
-    __ctype_table                            0x08004778   Data         129  ctype_o.o(.constdata)
-    Region$$Table$$Base                      0x08004800   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08004820   Number         0  anon$$obj.o(Region$$Table)
+    cmd_handler                              0x08003e81   Thumb Code   224  cpu_ctrl.o(i.cmd_handler)
+    cpu_ctrl_init                            0x08003fc9   Thumb Code     6  cpu_ctrl.o(i.cpu_ctrl_init)
+    cpu_reset                                0x08003fd5   Thumb Code    42  cpu_ctrl.o(i.cpu_reset)
+    cycle_clock                              0x08004005   Thumb Code    56  cpu_ctrl.o(i.cycle_clock)
+    data_input                               0x0800403d   Thumb Code    22  cpu_ctrl.o(i.data_input)
+    data_output                              0x08004059   Thumb Code    30  cpu_ctrl.o(i.data_output)
+    delay_us_init                            0x08004081   Thumb Code     6  delay_us.o(i.delay_us_init)
+    fputc                                    0x0800408d   Thumb Code    14  main.o(i.fputc)
+    goto_next_arg                            0x0800409b   Thumb Code    44  cpu_ctrl.o(i.goto_next_arg)
+    hmi_lcd_init                             0x080040c9   Thumb Code     6  hmi_lcd.o(i.hmi_lcd_init)
+    hsc_start                                0x080040d5   Thumb Code    48  cpu_ctrl.o(i.hsc_start)
+    hsc_stop                                 0x08004109   Thumb Code    58  cpu_ctrl.o(i.hsc_stop)
+    lcd_clear                                0x08004149   Thumb Code    10  hmi_lcd.o(i.lcd_clear)
+    lcd_print                                0x08004161   Thumb Code    62  hmi_lcd.o(i.lcd_print)
+    lcd_print_width                          0x080041cd   Thumb Code    56  hmi_lcd.o(i.lcd_print_width)
+    lcd_say                                  0x08004231   Thumb Code    36  hmi_lcd.o(i.lcd_say)
+    linear_buf_add                           0x0800425d   Thumb Code    40  helpers.o(i.linear_buf_add)
+    linear_buf_add_str                       0x08004289   Thumb Code    48  helpers.o(i.linear_buf_add_str)
+    linear_buf_init                          0x080042b9   Thumb Code    20  helpers.o(i.linear_buf_init)
+    linear_buf_reset                         0x080042cd   Thumb Code    28  helpers.o(i.linear_buf_reset)
+    main                                     0x080042e9   Thumb Code   392  main.o(i.main)
+    mem_ctrl_input                           0x080044c1   Thumb Code    30  cpu_ctrl.o(i.mem_ctrl_input)
+    mem_ctrl_output                          0x080044e5   Thumb Code    44  cpu_ctrl.o(i.mem_ctrl_output)
+    my_usb_init                              0x08004515   Thumb Code    10  my_usb.o(i.my_usb_init)
+    my_usb_putchar                           0x08004525   Thumb Code    20  my_usb.o(i.my_usb_putchar)
+    my_usb_readline                          0x08004539   Thumb Code    84  my_usb.o(i.my_usb_readline)
+    program_mode                             0x08004595   Thumb Code   134  cpu_ctrl.o(i.program_mode)
+    read_eep                                 0x08004689   Thumb Code   102  cpu_ctrl.o(i.read_eep)
+    softserial_init                          0x080046f9   Thumb Code     8  softserial.o(i.softserial_init)
+    write_eep                                0x08004705   Thumb Code   128  cpu_ctrl.o(i.write_eep)
+    AHBPrescTable                            0x0800478c   Data          16  system_stm32f0xx.o(.constdata)
+    APBPrescTable                            0x0800479c   Data           8  system_stm32f0xx.o(.constdata)
+    __ctype_table                            0x080047a4   Data         129  ctype_o.o(.constdata)
+    Region$$Table$$Base                      0x0800482c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800484c   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f0xx.o(.data)
     FS_Desc                                  0x20000004   Data          28  usbd_desc.o(.data)
     USBD_LangIDDesc                          0x20000020   Data           4  usbd_desc.o(.data)
@@ -2437,9 +2439,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000049b8, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000048e4])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000049e4, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00004910])
 
-    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x00004820, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x08000000, Size: 0x0000484c, Max: 0x00020000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2661,43 +2663,43 @@ Memory Map of the image
     0x08003dc8   0x00000020   Code   RO          738    i.addr_output       cpu_ctrl.o
     0x08003de8   0x0000006c   Code   RO          739    i.build_ui          cpu_ctrl.o
     0x08003e54   0x0000002c   Code   RO          740    i.claim_bus         cpu_ctrl.o
-    0x08003e80   0x0000013c   Code   RO          741    i.cmd_handler       cpu_ctrl.o
-    0x08003fbc   0x0000000c   Code   RO          742    i.cpu_ctrl_init     cpu_ctrl.o
-    0x08003fc8   0x00000030   Code   RO          743    i.cpu_reset         cpu_ctrl.o
-    0x08003ff8   0x00000038   Code   RO          744    i.cycle_clock       cpu_ctrl.o
-    0x08004030   0x0000001c   Code   RO          745    i.data_input        cpu_ctrl.o
-    0x0800404c   0x00000028   Code   RO          746    i.data_output       cpu_ctrl.o
-    0x08004074   0x0000000c   Code   RO          865    i.delay_us_init     delay_us.o
-    0x08004080   0x0000000e   Code   RO          597    i.fputc             main.o
-    0x0800408e   0x0000002c   Code   RO          747    i.goto_next_arg     cpu_ctrl.o
-    0x080040ba   0x00000002   PAD
-    0x080040bc   0x0000000c   Code   RO          936    i.hmi_lcd_init      hmi_lcd.o
-    0x080040c8   0x00000034   Code   RO          748    i.hsc_start         cpu_ctrl.o
-    0x080040fc   0x00000040   Code   RO          749    i.hsc_stop          cpu_ctrl.o
-    0x0800413c   0x00000018   Code   RO          937    i.lcd_clear         hmi_lcd.o
-    0x08004154   0x0000006c   Code   RO          938    i.lcd_print         hmi_lcd.o
-    0x080041c0   0x00000064   Code   RO          939    i.lcd_print_width   hmi_lcd.o
-    0x08004224   0x0000002c   Code   RO          940    i.lcd_say           hmi_lcd.o
-    0x08004250   0x0000002c   Code   RO          899    i.linear_buf_add    helpers.o
-    0x0800427c   0x00000030   Code   RO          900    i.linear_buf_add_str  helpers.o
-    0x080042ac   0x00000014   Code   RO          901    i.linear_buf_init   helpers.o
-    0x080042c0   0x0000001c   Code   RO          902    i.linear_buf_reset  helpers.o
-    0x080042dc   0x000001d8   Code   RO          598    i.main              main.o
-    0x080044b4   0x00000024   Code   RO          750    i.mem_ctrl_input    cpu_ctrl.o
-    0x080044d8   0x00000030   Code   RO          751    i.mem_ctrl_output   cpu_ctrl.o
-    0x08004508   0x00000010   Code   RO          984    i.my_usb_init       my_usb.o
-    0x08004518   0x00000014   Code   RO          985    i.my_usb_putchar    my_usb.o
-    0x0800452c   0x0000005c   Code   RO          986    i.my_usb_readline   my_usb.o
-    0x08004588   0x000000f4   Code   RO          752    i.program_mode      cpu_ctrl.o
-    0x0800467c   0x00000070   Code   RO          753    i.read_eep          cpu_ctrl.o
-    0x080046ec   0x0000000c   Code   RO         1023    i.softserial_init   softserial.o
-    0x080046f8   0x00000068   Code   RO          754    i.write_eep         cpu_ctrl.o
-    0x08004760   0x00000010   Data   RO            5    .constdata          system_stm32f0xx.o
-    0x08004770   0x00000008   Data   RO            6    .constdata          system_stm32f0xx.o
-    0x08004778   0x00000081   Data   RO         4594    .constdata          mc_p.l(ctype_o.o)
-    0x080047f9   0x00000003   PAD
-    0x080047fc   0x00000004   Data   RO         4595    .constdata          mc_p.l(ctype_o.o)
-    0x08004800   0x00000020   Data   RO         4629    Region$$Table       anon$$obj.o
+    0x08003e80   0x00000148   Code   RO          741    i.cmd_handler       cpu_ctrl.o
+    0x08003fc8   0x0000000c   Code   RO          742    i.cpu_ctrl_init     cpu_ctrl.o
+    0x08003fd4   0x00000030   Code   RO          743    i.cpu_reset         cpu_ctrl.o
+    0x08004004   0x00000038   Code   RO          744    i.cycle_clock       cpu_ctrl.o
+    0x0800403c   0x0000001c   Code   RO          745    i.data_input        cpu_ctrl.o
+    0x08004058   0x00000028   Code   RO          746    i.data_output       cpu_ctrl.o
+    0x08004080   0x0000000c   Code   RO          865    i.delay_us_init     delay_us.o
+    0x0800408c   0x0000000e   Code   RO          597    i.fputc             main.o
+    0x0800409a   0x0000002c   Code   RO          747    i.goto_next_arg     cpu_ctrl.o
+    0x080040c6   0x00000002   PAD
+    0x080040c8   0x0000000c   Code   RO          936    i.hmi_lcd_init      hmi_lcd.o
+    0x080040d4   0x00000034   Code   RO          748    i.hsc_start         cpu_ctrl.o
+    0x08004108   0x00000040   Code   RO          749    i.hsc_stop          cpu_ctrl.o
+    0x08004148   0x00000018   Code   RO          937    i.lcd_clear         hmi_lcd.o
+    0x08004160   0x0000006c   Code   RO          938    i.lcd_print         hmi_lcd.o
+    0x080041cc   0x00000064   Code   RO          939    i.lcd_print_width   hmi_lcd.o
+    0x08004230   0x0000002c   Code   RO          940    i.lcd_say           hmi_lcd.o
+    0x0800425c   0x0000002c   Code   RO          899    i.linear_buf_add    helpers.o
+    0x08004288   0x00000030   Code   RO          900    i.linear_buf_add_str  helpers.o
+    0x080042b8   0x00000014   Code   RO          901    i.linear_buf_init   helpers.o
+    0x080042cc   0x0000001c   Code   RO          902    i.linear_buf_reset  helpers.o
+    0x080042e8   0x000001d8   Code   RO          598    i.main              main.o
+    0x080044c0   0x00000024   Code   RO          750    i.mem_ctrl_input    cpu_ctrl.o
+    0x080044e4   0x00000030   Code   RO          751    i.mem_ctrl_output   cpu_ctrl.o
+    0x08004514   0x00000010   Code   RO          984    i.my_usb_init       my_usb.o
+    0x08004524   0x00000014   Code   RO          985    i.my_usb_putchar    my_usb.o
+    0x08004538   0x0000005c   Code   RO          986    i.my_usb_readline   my_usb.o
+    0x08004594   0x000000f4   Code   RO          752    i.program_mode      cpu_ctrl.o
+    0x08004688   0x00000070   Code   RO          753    i.read_eep          cpu_ctrl.o
+    0x080046f8   0x0000000c   Code   RO         1023    i.softserial_init   softserial.o
+    0x08004704   0x00000088   Code   RO          754    i.write_eep         cpu_ctrl.o
+    0x0800478c   0x00000010   Data   RO            5    .constdata          system_stm32f0xx.o
+    0x0800479c   0x00000008   Data   RO            6    .constdata          system_stm32f0xx.o
+    0x080047a4   0x00000081   Data   RO         4594    .constdata          mc_p.l(ctype_o.o)
+    0x08004825   0x00000003   PAD
+    0x08004828   0x00000004   Data   RO         4595    .constdata          mc_p.l(ctype_o.o)
+    0x0800482c   0x00000020   Data   RO         4629    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00001598, Max: 0x00004000, ABSOLUTE, COMPRESSED[0x000000c4])
@@ -2748,38 +2750,38 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1564        390          0          4         32      11002   cpu_ctrl.o
+      1608        390          0          4         32      11058   cpu_ctrl.o
         12          6          0          4          0       1003   delay_us.o
-       140          4          0          0          0       2885   helpers.o
-       288        118          0          4        256       3498   hmi_lcd.o
-      1334        138          0         18        240       7472   main.o
-       128         14          0          4       1032       2374   my_usb.o
-        12          4          0          8          0       1099   softserial.o
+       140          4          0          0          0       2881   helpers.o
+       288        118          0          4        256       3486   hmi_lcd.o
+      1334        138          0         18        240       7452   main.o
+       128         14          0          4       1032       2370   my_usb.o
+        12          4          0          8          0       1091   softserial.o
         28          8        192          0       1024        620   startup_stm32f072xb.o
-       116         18          0          4          0       3759   stm32f0xx_hal.o
-       178         28          0          0          0      10695   stm32f0xx_hal_cortex.o
+       116         18          0          4          0       3743   stm32f0xx_hal.o
+       178         28          0          0          0      10691   stm32f0xx_hal_cortex.o
        390         36          0          0          0       3570   stm32f0xx_hal_gpio.o
-       236         34          0          0          0       2754   stm32f0xx_hal_msp.o
-      3476        148          0          0          0      14043   stm32f0xx_hal_pcd.o
+       236         34          0          0          0       2750   stm32f0xx_hal_msp.o
+      3476        148          0          0          0      14019   stm32f0xx_hal_pcd.o
         58          0          0          0          0       1282   stm32f0xx_hal_pcd_ex.o
-      1504        102          0          0          0       5301   stm32f0xx_hal_rcc.o
-       288         14          0          0          0       1556   stm32f0xx_hal_rcc_ex.o
+      1504        102          0          0          0       5289   stm32f0xx_hal_rcc.o
+       288         14          0          0          0       1552   stm32f0xx_hal_rcc_ex.o
       1556        132          0          0          0      13644   stm32f0xx_hal_tim.o
-       168          0          0          0          0       2136   stm32f0xx_hal_tim_ex.o
-      1072         46          0          0          0       6135   stm32f0xx_hal_uart.o
-        82          6          0          0          0       3627   stm32f0xx_it.o
-        92         16         24          4          0     491307   system_stm32f0xx.o
+       168          0          0          0          0       2132   stm32f0xx_hal_tim_ex.o
+      1072         46          0          0          0       6123   stm32f0xx_hal_uart.o
+        82          6          0          0          0       3623   stm32f0xx_it.o
+        92         16         24          4          0     491299   system_stm32f0xx.o
         52         16          0          0        548        732   usb_device.o
-       654         20          0        275          0      13050   usbd_cdc.o
-       148         30          0         16        384       3404   usbd_cdc_if.o
-       762         40          0          0       1088      19425   usbd_conf.o
-       652          0          0          0          0       9532   usbd_core.o
-      1020         34          0          1          0       8056   usbd_ctlreq.o
-       212        116          0         50        512       5091   usbd_desc.o
-       140          0          0          0          0       4484   usbd_ioreq.o
+       654         20          0        275          0      13038   usbd_cdc.o
+       148         30          0         16        384       3392   usbd_cdc_if.o
+       762         40          0          0       1088      19409   usbd_conf.o
+       652          0          0          0          0       9520   usbd_core.o
+      1020         34          0          1          0       8048   usbd_ctlreq.o
+       212        116          0         50        512       5075   usbd_desc.o
+       140          0          0          0          0       4476   usbd_ioreq.o
 
     ----------------------------------------------------------------------
-     16394       1518        248        400       5120     653536   Object Totals
+     16438       1518        248        400       5120     653368   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         32          0          0          8          4          0   (incl. Padding)
 
@@ -2836,15 +2838,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     18080       1602        384        408       5120     646056   Grand Totals
-     18080       1602        384        196       5120     646056   ELF Image Totals (compressed)
-     18080       1602        384        196          0          0   ROM Totals
+     18124       1602        384        408       5120     645888   Grand Totals
+     18124       1602        384        196       5120     645888   ELF Image Totals (compressed)
+     18124       1602        384        196          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                18464 (  18.03kB)
+    Total RO  Size (Code + RO Data)                18508 (  18.07kB)
     Total RW  Size (RW Data + ZI Data)              5528 (   5.40kB)
-    Total ROM Size (Code + RO Data + RW Data)      18660 (  18.22kB)
+    Total ROM Size (Code + RO Data + RW Data)      18704 (  18.27kB)
 
 ==============================================================================
 

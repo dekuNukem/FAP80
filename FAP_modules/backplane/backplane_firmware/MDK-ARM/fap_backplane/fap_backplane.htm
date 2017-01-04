@@ -3,7 +3,7 @@
 <title>Static Call Graph - [fap_backplane\fap_backplane.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image fap_backplane\fap_backplane.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sat Dec 31 00:06:37 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Wed Jan 04 14:09:21 2017
 <BR><P>
 <H3>Maximum Stack Usage =        228 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1399,6 +1399,7 @@ Global Symbols
 <P><STRONG><a name="[f3]"></a>addr_input</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, cpu_ctrl.o(i.addr_input))
 <BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;program_mode
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_eep
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 </UL>
 
@@ -1427,8 +1428,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;program_mode
 </UL>
 
-<P><STRONG><a name="[dc]"></a>cmd_handler</STRONG> (Thumb, 212 bytes, Stack size 16 bytes, cpu_ctrl.o(i.cmd_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = cmd_handler &rArr; atoi &rArr; strtol &rArr; _strtoul
+<P><STRONG><a name="[dc]"></a>cmd_handler</STRONG> (Thumb, 224 bytes, Stack size 24 bytes, cpu_ctrl.o(i.cmd_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = cmd_handler &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_eep
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
@@ -1469,6 +1470,7 @@ Global Symbols
 <P><STRONG><a name="[f4]"></a>data_input</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, cpu_ctrl.o(i.data_input))
 <BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;program_mode
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_eep
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 </UL>
 
@@ -1711,10 +1713,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e2]"></a>write_eep</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, cpu_ctrl.o(i.write_eep))
+<P><STRONG><a name="[e2]"></a>write_eep</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, cpu_ctrl.o(i.write_eep))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = write_eep &rArr; read_eep
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_input
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_input
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_eep
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_output
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_output

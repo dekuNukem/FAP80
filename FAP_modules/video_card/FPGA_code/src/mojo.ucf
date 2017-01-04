@@ -133,8 +133,9 @@ NET "cpu_addr<14>" LOC = P41 | IOSTANDARD = LVTTL;
 NET "cpu_addr<15>" LOC = P51 | IOSTANDARD = LVTTL;
 
 // -----------------------------------
-// 116
 NET "cpu_wr" LOC = P127 | IOSTANDARD = LVTTL;
 NET "cpu_rd" LOC = P124 | IOSTANDARD = LVTTL;
 NET "cpu_mreq" LOC = P132 | IOSTANDARD = LVTTL;
 //NET "cpu_clk" LOC = P95 | IOSTANDARD = LVTTL;
+
+NET "cpu_nmi" LOC = P142 | IOSTANDARD = LVTTL;

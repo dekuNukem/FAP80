@@ -4,7 +4,7 @@
   * Description        : Main program body
   ******************************************************************************
   *
-  * Copyright (c) 2016 STMicroelectronics International N.V. 
+  * Copyright (c) 2017 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -81,11 +81,14 @@ uint8_t debug_byte_buf[1];
 uint8_t esp_byte_buf[1];
 linear_buf debug_lb;
 linear_buf esp_lb;
+linear_buf z80_kbout_lb;
 
-uint8_t vport_reg[16];
-int32_t vport_data;
-int32_t vport_addr;
-int32_t vport_raw;
+uint8_t esp_temp_buf[LB_SIZE];
+
+volatile uint8_t vport_reg[16];
+volatile int32_t vport_data;
+volatile int32_t vport_addr;
+volatile int32_t vport_raw; 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -116,7 +119,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -138,10 +140,13 @@ int main(void)
   MX_TIM2_Init();
 
   /* USER CODE BEGIN 2 */
-
   printf("\nmounting SD card...\n");
   int32_t mount_result = f_mount(&sd_fs, "", 1);
   printf("result: %d\n", mount_result);
+
+  linear_buf_reset(&debug_lb);
+  linear_buf_reset(&esp_lb);
+  linear_buf_reset(&z80_kbout_lb);
 
   delay_us_init(&htim2);
   ps2_init();
@@ -154,8 +159,12 @@ int main(void)
   data_input();
   addr_input();
 
-  for (int i = 0; i < 16; ++i)
-    preload16(i, 32 + i);
+  HAL_GPIO_WritePin(ESP_RESET_GPIO_Port, ESP_RESET_Pin, LOW);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(ESP_RESET_GPIO_Port, ESP_RESET_Pin, HIGH);
+
+  for (uint8_t i = 0; i < 16; ++i)
+    preload16(i, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -168,29 +177,43 @@ int main(void)
   /* USER CODE BEGIN 3 */
     HAL_UART_Receive_IT(&huart1, debug_byte_buf, 1);
     HAL_UART_Receive_IT(&huart2, esp_byte_buf, 1);
-    if(linear_buf_line_available(&debug_lb))
+    if(linear_buf_idle(&debug_lb))
     {
-      printf("debug_lb: %s\n", debug_lb.buf);
-
-      if(strstr(debug_lb.buf, "st ") != NULL)
-        rtc_update(debug_lb.buf);
-
-      linear_buf_reset(&debug_lb);
+    	printf("debug_lb: %s\n", debug_lb.buf);
+    	linear_buf_reset(&debug_lb);
     }
 
-    if(linear_buf_line_available(&esp_lb))
+    if(linear_buf_idle(&esp_lb))
     {
-      printf("esp_lb: %s\n", esp_lb.buf);
+    	// free up the main buffer for more incoming data
+    	int32_t this_index = esp_lb.curr_index;
+    	memset(esp_temp_buf, 0, LB_SIZE);
+      strcpy(esp_temp_buf, esp_lb.buf);
       linear_buf_reset(&esp_lb);
+
+      for (int i = 0; i < this_index; ++i)
+      {
+      	while(vport_reg[0])
+      		;
+      	delay_us(100);
+	      preload16(2, esp_temp_buf[i]);
+	      interrupt_activate(0x84);
+      }
+    }
+
+    if(linear_buf_idle(&z80_kbout_lb))
+    {
+    	printf("z80kb: %s\n", z80_kbout_lb.buf);
+    	HAL_UART_Transmit(&huart2, z80_kbout_lb.buf, z80_kbout_lb.curr_index, 100);
+      linear_buf_reset(&z80_kbout_lb);
     }
 
     int32_t ps2_char = ps2_get_char();
     if(ps2_char != -1)
     {
       preload16(1, (uint8_t)ps2_char);
-      interrupt_activate(0x80);
+      interrupt_activate(0x82);
     }
-
   }
   /* USER CODE END 3 */
 
@@ -547,7 +570,6 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  HAL_GPIO_TogglePin(DEBUG_LED_GPIO_Port, DEBUG_LED_Pin);
   if(GPIO_Pin == PS2_CLK_Pin)
   {
     ps2_readbit(HAL_GPIO_ReadPin(PS2_DATA_GPIO_Port, PS2_DATA_Pin));
@@ -561,7 +583,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     vport_raw = CPLD_DATA_PORT->IDR;
     vport_addr = (uint8_t)((vport_raw & 0xf00) >> 8);
     vport_data = (uint8_t)(vport_raw & 0xff);
+    vport_reg[vport_addr] = vport_data;
     latch1_deactivate();
+
+    if(vport_addr == 2)
+    	linear_buf_add(&z80_kbout_lb, vport_data);
   }
 
   if(GPIO_Pin == INTACK_Pin)

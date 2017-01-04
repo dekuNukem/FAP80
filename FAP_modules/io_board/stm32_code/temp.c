@@ -1,9 +1,43 @@
+    if(debug_lb.curr_index != 0)
+    {
+      printf("sending %c\n", debug_lb.buf[0]);
+      preload16(2, debug_lb.buf[0]);
+      interrupt_activate(0x84);
+      linear_buf_reset(&debug_lb);
+    }
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  printf("timer\n");
+}
+if(linear_buf_line_available(&debug_lb))
+    {
+      printf("debug_lb: %s\n", debug_lb.buf);
+
+      if(strstr(debug_lb.buf, "st ") != NULL)
+        rtc_update(debug_lb.buf);
+
+      linear_buf_reset(&debug_lb);
+    }
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if(htim->Instance == TIM6)
+  {
+    printf("timer\n");
+  }
+}
+void HAL_TIM_ErrorCallback(TIM_HandleTypeDef *htim)
+{
+  printf("error\n");
+}
+
   	HAL_Delay(1000);
   	printf("EEP address %d: %d\n", count, eeprom_read(count));
   	HAL_GPIO_TogglePin(DEBUG_LED_GPIO_Port, DEBUG_LED_Pin);
   	count++;
-
-
+ HAL_TIM_Base_Start(&htim6);
+    printf("%d\n", htim6.Instance->CNT);
+    HAL_Delay(500);
 while (1)
   {
   /* USER CODE END WHILE */
@@ -296,3 +330,39 @@ void preload16(uint8_t address, uint8_t data)
 }
 
 
+    printf("port write: %d %d\n", vport_addr, vport_data);
+        // printf("sending %c %d\n", debug_lb.buf[i], debug_lb.buf[i]);
+if(vport_addr == 2)
+      linear_buf_add(&z80_kbout_lb, vport_data);
+
+
+    if(linear_buf_idle(&z80_kbout_lb))
+    {
+      printf("z80_kbout_lb: %s\n", z80_kbout_lb.buf);
+      linear_buf_reset(&z80_kbout_lb);
+    }
+if(linear_buf_idle(&debug_lb))
+    {
+      // free up the main buffer for more incoming data
+      int32_t this_index = debug_lb.curr_index;
+      memset(esp_temp_buf, 0, LB_SIZE);
+      strcpy(esp_temp_buf, debug_lb.buf);
+      linear_buf_reset(&debug_lb);
+
+      for (int i = 0; i < this_index; ++i)
+      {
+        while(vport_reg[0])
+          ;
+        delay_us(100);
+        preload16(2, esp_temp_buf[i]);
+        interrupt_activate(0x84);
+      }
+    }
+
+    if(linear_buf_line_available(&esp_lb))
+    {
+      printf("esp: %s\n", esp_lb.buf);
+      linear_buf_reset(&esp_lb);
+    }
+      printf("esp: %s\n", esp_lb.buf);
+      linear_buf_reset(&esp_lb);

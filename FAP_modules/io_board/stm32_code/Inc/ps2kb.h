@@ -5,18 +5,18 @@
 
 #define PS2_TAB				9
 #define PS2_ENTER			10
-#define PS2_BACKSPACE			127
+#define PS2_BACKSPACE			8
 #define PS2_ESC				27
 #define PS2_INSERT			0
-#define PS2_DELETE			127
+#define PS2_DELETE			0
 #define PS2_HOME			0
 #define PS2_END				0
-#define PS2_PAGEUP			25
-#define PS2_PAGEDOWN			26
-#define PS2_UPARROW			11
-#define PS2_LEFTARROW			8
-#define PS2_DOWNARROW			10
-#define PS2_RIGHTARROW			21
+#define PS2_PAGEUP			0
+#define PS2_PAGEDOWN			0
+#define PS2_UPARROW			0
+#define PS2_LEFTARROW			0
+#define PS2_DOWNARROW			0
+#define PS2_RIGHTARROW			0
 #define PS2_F1				0
 #define PS2_F2				0
 #define PS2_F3				0

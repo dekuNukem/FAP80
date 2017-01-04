@@ -373,7 +373,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F051x8</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;              ../Drivers/STM32F0xx_HAL_Driver/Inc;              ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy;              ../Drivers/CMSIS/Device/ST/STM32F0xx/Include;              ../Middlewares/Third_Party/FatFs/src;              ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;                               ../Drivers/STM32F0xx_HAL_Driver/Inc;                               ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy;                               ../Drivers/CMSIS/Device/ST/STM32F0xx/Include;                               ../Middlewares/Third_Party/FatFs/src;                               ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

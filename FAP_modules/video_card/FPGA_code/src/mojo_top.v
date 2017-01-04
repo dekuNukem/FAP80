@@ -41,7 +41,8 @@ module mojo_top(
 
     output [1:0] vga_red,
     output [1:0] vga_green,
-    output [1:0] vga_blue
+    output [1:0] vga_blue,
+    output cpu_nmi
     );
 
 wire rst = ~rst_n;
@@ -60,6 +61,8 @@ clockdiv vga_clkdiv(
 assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
+//assign cpu_nmi = ~vblank;
+assign cpu_nmi = 1'bz;
 // assign back_vram_wr_low = 1;
 
 vga640x480 my_vga(

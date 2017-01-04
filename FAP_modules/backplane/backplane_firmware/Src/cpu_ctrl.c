@@ -179,7 +179,7 @@ uint8_t read_eep(uint16_t addr)
   return ret;
 }
 
-void write_eep(uint16_t addr, uint8_t data)
+void write_eep(uint16_t addr, uint8_t data, uint8_t wait)
 {
   uint8_t exsiting_byte = read_eep(addr);
   if(exsiting_byte == data)
@@ -189,15 +189,25 @@ void write_eep(uint16_t addr, uint8_t data)
   CPU_DATA_PORT->ODR = data;
   addr_output();
   data_output();
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, RD_Pin, HIGH);
   HAL_GPIO_WritePin(CPU_CTRL_PORT, MREQ_Pin, LOW);
   // address latched on falling edge of 'WR
   HAL_GPIO_WritePin(CPU_CTRL_PORT, WR_Pin, LOW);
   // data latched on rising edge of 'WR
   HAL_GPIO_WritePin(CPU_CTRL_PORT, WR_Pin, HIGH);
   HAL_GPIO_WritePin(CPU_CTRL_PORT, MREQ_Pin, HIGH);
+  HAL_GPIO_WritePin(CPU_CTRL_PORT, RD_Pin, HIGH);
 
-  while(read_eep(addr) != data);
+  if(wait)
+  {
+    while(read_eep(addr) != data)
+      ;
+  }
+
+  addr_input();
+  data_input();
 }
+
 
 void cmd_handler(char* cmd_buf)
 {
@@ -222,14 +232,14 @@ void cmd_handler(char* cmd_buf)
     uint16_t addr = atoi(cmd_buf + arg1_pos);
     int32_t arg2_pos = goto_next_arg(arg1_pos, cmd_buf);
     uint8_t data = atoi(cmd_buf + arg2_pos);
-    write_eep(addr, data);
+    write_eep(addr, data, addr < 0x8000);
     printf("wr:a=%d,d=%d\r\n", addr, data);
   }
   if(strncmp(cmd_buf, "z", 1) == 0)
   {
     printf("zeroing...\n");
     for (int i = 0; i < 0x8000; i++)
-      write_eep(i, 0xff);
+      write_eep(i, 0xff, 1);
     printf("zero complete\n");
   }
   if(strncmp(cmd_buf, "epm", 3) == 0)

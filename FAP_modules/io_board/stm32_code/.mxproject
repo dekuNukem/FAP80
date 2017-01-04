@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Allen/Desktop/fap_ioboard/fapio_firmware/oldfapop/Inc
+HeaderPath=C:/Users/Allen/Desktop/wwwwww/FAP80/FAP_modules/io_board/stm32_code/Inc
 HeaderFiles=ffconf.h;user_diskio.h;fatfs.h;stm32f0xx_it.h;stm32f0xx_hal_conf.h;main.h;
-SourcePath=C:/Users/Allen/Desktop/fap_ioboard/fapio_firmware/oldfapop/Src
+SourcePath=C:/Users/Allen/Desktop/wwwwww/FAP80/FAP_modules/io_board/stm32_code/Src
 SourceFiles=ffconf.h;user_diskio.h;fatfs.h;stm32f0xx_it.h;stm32f0xx_hal_conf.h;main.h;user_diskio.c;fatfs.c;stm32f0xx_it.c;stm32f0xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]
@@ -10,4 +10,7 @@ LibFiles=Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_i2c.h;Drivers/STM32F0xx_
 [PreviousUsedKeilFiles]
 SourceFiles=../Src/main.c;../Src/user_diskio.c;../Src/fatfs.c;../Src/stm32f0xx_it.c;../Src/stm32f0xx_hal_msp.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rtc.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rtc_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_spi_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c;../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c;../Middlewares/Third_Party/FatFs/src/option/syscall.c;../Middlewares/Third_Party/FatFs/src/diskio.c;../Middlewares/Third_Party/FatFs/src/ff.c;../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c;../Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/system_stm32f0xx.c;../Drivers/CMSIS/Device/ST/STM32F0xx/Source/Templates/arm/startup_stm32f051x8.s;../Middlewares/Third_Party/FatFs/src/option/syscall.c;../Middlewares/Third_Party/FatFs/src/diskio.c;../Middlewares/Third_Party/FatFs/src/ff.c;../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c;
 HeaderPath=..\Drivers\STM32F0xx_HAL_Driver\Inc;..\Drivers\STM32F0xx_HAL_Driver\Inc\Legacy;..\Drivers\CMSIS\Device\ST\STM32F0xx\Include;..\Middlewares\Third_Party\FatFs\src;..\Drivers\CMSIS\Include;
+
+[]
+SourceFiles=;null;
 

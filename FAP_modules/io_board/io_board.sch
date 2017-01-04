@@ -6675,6 +6675,9 @@ Source: http://www.osram.convergy.de/</description>
 <part name="TP8" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 <part name="TP9" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 <part name="TP10" library="SparkFun-Passives" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="+3V43" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V44" library="supply1" deviceset="+3V3" device=""/>
+<part name="R28" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES"/>
 </parts>
 <sheets>
 <sheet>
@@ -6850,6 +6853,9 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="TP8" gate="G$1" x="-109.22" y="-83.82" rot="R180"/>
 <instance part="TP9" gate="G$1" x="137.16" y="-215.9" rot="R180"/>
 <instance part="TP10" gate="G$1" x="137.16" y="-218.44" rot="R180"/>
+<instance part="+3V43" gate="G$1" x="109.22" y="-30.48"/>
+<instance part="+3V44" gate="G$1" x="63.5" y="-12.7"/>
+<instance part="R28" gate="G$1" x="63.5" y="-20.32" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -7363,6 +7369,16 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="+3V42" gate="G$1" pin="+3V3"/>
 <pinref part="R27" gate="G$1" pin="1"/>
 <wire x1="-121.92" y1="-119.38" x2="-116.84" y2="-119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="CH_PD"/>
+<pinref part="+3V43" gate="G$1" pin="+3V3"/>
+<wire x1="96.52" y1="-38.1" x2="109.22" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="-38.1" x2="109.22" y2="-33.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V44" gate="G$1" pin="+3V3"/>
+<pinref part="R28" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -7958,19 +7974,9 @@ Source: http://www.osram.convergy.de/</description>
 <net name="N$68" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="1"/>
-<pinref part="U$3" gate="G$1" pin="GPIO2"/>
-<wire x1="58.42" y1="-25.4" x2="58.42" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="-30.48" x2="58.42" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="-38.1" x2="63.5" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-25.4" x2="58.42" y2="-40.64" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="GPIO0"/>
 <wire x1="63.5" y1="-40.64" x2="58.42" y2="-40.64" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="-40.64" x2="58.42" y2="-38.1" width="0.1524" layer="91"/>
-<junction x="58.42" y="-38.1"/>
-<pinref part="U$3" gate="G$1" pin="CH_PD"/>
-<wire x1="96.52" y1="-38.1" x2="101.6" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="-38.1" x2="101.6" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="-30.48" x2="58.42" y2="-30.48" width="0.1524" layer="91"/>
-<junction x="58.42" y="-30.48"/>
 </segment>
 </net>
 <net name="N$69" class="0">
@@ -8402,6 +8408,13 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="IC2" gate="B2" pin="IOB2-92"/>
 <pinref part="TP10" gate="G$1" pin="1"/>
 <wire x1="149.86" y1="-218.44" x2="137.16" y2="-218.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$108" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="GPIO2"/>
+<pinref part="R28" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="-38.1" x2="63.5" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

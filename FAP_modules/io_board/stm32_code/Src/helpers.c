@@ -57,7 +57,7 @@ int32_t linear_buf_line_available(linear_buf *lb)
   // sentense
   if(lb == NULL || lb->curr_index <= 0)
     return 0;
-  if(lb->curr_index >= LB_SIZE && lb->buf[lb->curr_index - 1] != '\n')
+  if(lb->curr_index >= LB_SIZE)
   {
     linear_buf_reset(lb);
     return 0;

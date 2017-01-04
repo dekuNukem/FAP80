@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-11-29T17:37:27</DateModified>
+  <DateModified>2017-01-03T19:53:32</DateModified>
   <ModuleName>mojo_top</ModuleName>
   <SummaryTimeStamp>2016-03-10T03:40:02</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Allen/Desktop/fap_vga_backup/FPGA_with_attribute/iseconfig/mojo_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Allen/Desktop/fap_vga_backup/FPGA_with_attribute/syn\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Allen/Desktop/wwwwww/FAP80/FAP_modules/video_card/FPGA_code/iseconfig/mojo_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Allen/Desktop/wwwwww/FAP80/FAP_modules/video_card/FPGA_code/syn\</ImplementationReportsDirectory>
   <DateInitialized>2012-11-08T12:38:20</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
