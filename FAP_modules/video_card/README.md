@@ -1,8 +1,8 @@
 FAP80 VGA Video Card
 
 ![Alt text](http://i.imgur.com/NHdjSi6.png)
-![Alt text](http://i.imgur.com/RHG6iHQ.jpg)
-![Alt text](http://i.imgur.com/f2OT7do.jpg)
+![Alt text](http://i.imgur.com/ZauTE2g.jpg)
+![Alt text](http://i.imgur.com/4LV4s4a.jpg)
 
 The VGA Video Card of FAP80, to be plugged in the backplane.
 
@@ -41,8 +41,6 @@ But 1.1% still matters, as VRAM write during VRAM copying will be ignored. To co
 The current design works and is plenty capable, but there are still one or two thing I wish to improve upon on the next iteration.
 
 It turned out although Mojo V3 broke out most of the Spartan-6 pins, it was still not enough. As a result I had to omit an address line on the VRAM, making it only 16KB/32KB instead of 32KB/64KB. I also had to omit a number of CPU control signals, so the FPGA runs on its internal 50MHz clock instead of CPU clock. 
-
-The VGA connector blocked the Mojo's USB connector in the first version, this has since been fixed in the latest board file.
 
 I might design another video card that fixes all those problems by putting the Spartan-6 onboard instead of using Mojo, but it's going to be a while before I get to that.
 

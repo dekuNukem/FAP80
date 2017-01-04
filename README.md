@@ -1,7 +1,7 @@
 
 ![Alt text](http://i.imgur.com/f08Pt1o.jpg)
 
-![Alt text](http://i.imgur.com/XjIJ9EY.jpg)
+![Alt text](http://i.imgur.com/dGY24LH.jpg)
 
 #FAP80, A retro computer without the retro baggage
 

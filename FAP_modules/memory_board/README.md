@@ -2,7 +2,7 @@ FAP80 32KB Memory Board
 
 ![Alt text](http://i.imgur.com/yQoSXTw.png)
 
-![Alt text](http://i.imgur.com/4p9VmfO.jpg)
+![Alt text](http://i.imgur.com/uSYSL7a.jpg)
 
 The memory board of FAP80, to be plugged in the backplane.
 

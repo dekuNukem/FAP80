@@ -2,7 +2,7 @@ FAP80 I/O Board
 
 ![Alt text](http://i.imgur.com/yJo01Dy.png)
 
-![Alt text](http://i.imgur.com/Ii25Azt.jpg)
+![Alt text](http://i.imgur.com/3U35owW.jpg)
 
 This is the I/O board that takes care of Z80 port I/O and interrupts. An EPM570 CPLD replaces 2 dozens of 74 series chips, and a STM32F051C8T6 take on the role of Port and Interrupt controller.
 
