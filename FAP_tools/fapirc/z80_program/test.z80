@@ -1,0 +1,89 @@
+;	global register usage:
+;	d: cursor y
+;	e: cursor x
+;	ix: keyboard buffer index
+	include 	helpers.z80
+
+	org	0x0	
+	jp	program_start
+
+	org	0x82
+	.dw	kb_isr_addr
+	org	0x84
+	.dw	esp_isr_addr
+
+	org	0x100
+program_start:
+	di			; disable interrupt
+	ld	sp, 0xffff	; set up stack pointer
+
+	call	disable_vram_copy	; clear screen
+	call	clear_attri
+	call	clear_screen
+	call	enable_vram_copy
+
+	call	kb_cursor_reset
+	call	kb_buf_reset
+	ld	ix, kb_buf_start	; keyboard current index address
+
+	ld	hl, boot_message
+	ld	d, 5		; cursor y 
+	ld	e, 0		; cursor x
+	call	puts		; print the logo
+
+	ld	hl, credit
+	ld	d, 12		; cursor y 
+	ld	e, 36		; cursor x
+	call	puts		; print credit
+
+	ld	a, 0
+	ld	i, a		; load interrupt register
+	im	2		; enable interrupt mode 2
+	ei
+
+main_loop:
+	di
+	ld	a, (ix - 1)	; a might get changed in ISR if no di
+	cp	10
+	ei
+	jp	nz,main_loop
+	ld	hl, kb_buf_start
+	call	outs
+	call	kb_cursor_reset
+	call	kb_buf_reset
+	jp	main_loop
+
+; ----------- interrupt handlers below -----------
+	org	kb_isr_addr
+kb_isr:
+	in	a, (1)
+	ld	c, a
+	; save the char in buffer
+	ld	(ix), a		; save char
+	cp	backspace	; see if it's backspace
+	jp	z,kb_index_dec
+	inc	ix		; increase curr index
+	jp	kb_isr_cont
+kb_index_dec:
+	dec	ix
+kb_isr_cont:
+	push	de		; push irc cursor on stack
+	ld	de, (kb_curr_cursor_yx)
+	call	disable_vram_copy
+	call	putc_nolock
+	call	enable_vram_copy
+	ld	(kb_curr_cursor_yx), de
+	pop	de
+	ei
+	reti
+
+	org	esp_isr_addr
+esp_isr:
+	in	a, (2)
+	ld	c, a
+	call	disable_vram_copy
+	call	putc_nolock
+	call	scroll_check
+	call	enable_vram_copy
+	ei
+	reti

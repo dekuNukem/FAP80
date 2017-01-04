@@ -1,0 +1,348 @@
+vram_size		.equ	2400
+vram_char_base_addr	.equ	0x8000
+vram_attri_base_addr	.equ	0x8960
+vram_copy_ctrl_addr	.equ	0x92c1
+cursor_max_x		.equ	79
+cursor_x_size		.equ	80
+text_upper_limit	.equ	1
+text_lower_limit	.equ	27
+kb_initial_cursor	.equ	0x1b00
+backspace		.equ	8
+
+timer_isr_addr		.equ	0x7000
+kb_isr_addr		.equ	0x7100
+esp_isr_addr		.equ	0x7200
+kb_buf_start		.equ	0xd000
+kb_buf_size		.equ	512
+
+; global variables
+	org	0xc000
+temp_var0:
+	.dw	0
+temp_var1
+	.dw	0
+kb_curr_cursor_yx
+	.dw	0
+
+;------------------ helpers ------------------
+;	A IS ALWAYS DESTORIED
+
+	org	0x400
+
+;	hl, buf start
+outs:	
+	push	hl
+outs_loop:
+	ld	a, (hl)
+	cp	0
+	jp	z, outs_done
+	out	(2), a
+	inc	hl
+	call	wait
+	jp	outs_loop
+outs_done:
+	pop	hl
+	ret
+
+wait:
+	ld	a, 20
+wait_loop:
+	dec	a
+	cp	0
+	jp	nz, wait_loop
+wait_done:
+	ret
+
+kb_cursor_reset:
+	ld	hl, kb_initial_cursor
+	ld	(kb_curr_cursor_yx), hl
+	ld	a, ' '
+	ld	hl, 0x8870
+	ld	bc, 240
+	call	disable_vram_copy
+	call	memset
+	call	enable_vram_copy
+	ret
+
+kb_buf_reset:
+	ld	ix, kb_buf_start
+	ld	a, 0
+	ld	hl, kb_buf_start - 1
+	ld	bc, kb_buf_size
+	call	memset
+	ret
+
+;	a: content
+;	hl: starting address
+;	bc: size
+;	basically copied this from SDCC output
+memset:
+	push	de
+	ld	(hl), a
+	ld	e, l
+	ld	d, h
+	inc	de
+	dec	bc
+	ldir
+	pop	de
+	ret
+
+;	c: character
+;	d: cursor y
+;	e: cursor x
+;	destories: none
+;	returns in a, 1 if putc needed
+putc_nolock:
+	ld	a, c
+	cp	10
+	jp	z, cc_newline	; no putc
+	cp	13
+	jp	z, cc_done	; no putc
+	cp	backspace
+	jp	z, cc_backspace	; needs putc
+	jp	cc_putc		; needs putc
+cc_newline:
+	ld	e, 0
+	inc	d
+	jp	cc_done
+cc_backspace:
+	ld	c, '.'
+	ld	a, e		; first check if x == 0
+	cp	0
+	jp	z, cc_backline
+	dec	e
+	jp	cc_putc_noadvance
+cc_backline:
+	dec	d
+	ld	e, 79
+	call	cc_putc_noadvance
+cc_putc:
+	call	putc_raw
+	call	cursor_advance
+	jp	cc_done
+cc_putc_noadvance:
+	call	putc_raw
+cc_done:
+	ret
+
+;	c: character
+;	d: cursor y
+;	e: cursor x
+;	destories: none
+putc_raw:
+	push	hl
+	push	bc
+	call	row_lookup
+	ld	h, b
+	ld	l, c		; hl holds look up result
+	push	de		; save de
+	ld 	d, 0		; clear d
+	add	hl, de		; now hl holds the proper address
+	ld	bc, vram_char_base_addr
+	add	hl, bc		; now hl holds proper vram address
+	pop	de
+	pop 	bc
+	ld	(hl), c
+	pop	hl
+	ret
+
+;	destories: none
+enable_vram_copy:
+	push	hl
+	ld	hl, vram_copy_ctrl_addr
+	ld	(hl), 0xff
+	pop	hl
+	ret
+
+;	destories: none
+disable_vram_copy:
+	push	hl
+	ld	hl, vram_copy_ctrl_addr
+	ld	(hl), 0x0
+	pop	hl
+	ret
+
+;	d: cursor y
+;	e: cursor x
+;	destories: none
+cursor_advance:
+	ld	a, e
+	cp	cursor_x_size
+	jp	c, no_newline
+	ld	e, 255	; will become 0 after inc'd below
+	inc	d
+no_newline:
+	inc	e
+	ret
+
+;	check the current cursor position to see if it needs scrolling
+;	d: cursor y
+;	destories: none
+scroll_check:
+	ld	a, text_lower_limit
+	cp	d
+	jp	nz, scroll_check_done
+	push	bc
+	ld	b, text_upper_limit
+	ld	c, text_lower_limit
+	call	screen_scroll
+	dec	d
+	ld	e, 0
+	pop	bc
+scroll_check_done:
+	ret
+
+;	d: lookup value
+;	destories: bc
+;	return: lookup result in bc
+row_lookup:
+	push	hl
+	push	de
+	ld	a, d		; load y cursor into a
+	add	a, a		; multiply y cursor by 2
+	ld	h, 0
+	ld	l, a		; load 2a into hl
+	ld	bc, cursor_lookup	; load lookup table address into bc
+	add	hl, bc 		; add y cursor to lookup offset. now (hl) is lsb of look up, (hl+1) msb
+	ld	c, (hl)		; load high byte of lookup result into c
+	inc	hl
+	ld	b, (hl)		; load low byte of lookup result into b, now bc holds cursor y look up result
+	pop	de
+	pop	hl
+	ret
+
+;	print 0 terminated string
+;	hl: buf start
+;	d: cursor y
+;	e: cursor x
+;	destories: bc?
+puts:
+	call	disable_vram_copy
+	ld	c, (hl)
+	ld	a, c
+	or	a
+	jp	z, puts_done
+	call	putc_nolock
+	inc	hl
+	jp	puts
+puts_done:
+	call	scroll_check
+	call	enable_vram_copy
+	ret
+
+;	scroll 1 line up
+;	b: starting line
+;	c: ending line
+;	destories: none
+screen_scroll:
+	push	bc
+	push 	de
+	push	hl
+
+	ld	a, 0xff			; well this is fun, turns out the screen scroll
+	out	(0), a			; takes a long time, so we need to pause the incoming
+	call	disable_vram_copy	; serial data
+	; ----- look up how many bytes to copy -----
+	push	bc
+	ld	a, c
+	sub	b
+	ld	d, a
+	call	row_lookup		; bc has the result
+	ld	(temp_var0), bc		; save copy size to temp_var0
+	pop	bc
+
+	; ----- calculate starting vram address -----
+	push	bc
+	ld	d, b
+	call	row_lookup
+	ld	hl, vram_char_base_addr
+	add	hl, bc			; hl holds starting vram address
+	ld	(temp_var1), hl		; save it to temp_var1
+	ld	b, 0
+	ld	c, cursor_x_size
+	add	hl, bc
+
+	; ----- start copying -----
+	ld	bc, (temp_var0)
+	ld	de, (temp_var1)
+	ldir
+	pop	bc
+
+	; ----- clear new line -----
+	ld	d, c
+	call	row_lookup
+	ld	hl, vram_char_base_addr
+	add	hl, bc			; hl holds end vram address
+	ld	a, ' '
+	ld	bc, cursor_x_size
+	call	memset
+
+	pop	hl
+	pop	de
+	pop	bc
+	call	enable_vram_copy
+	ld	a, 0
+	out	(0), a
+	ret
+
+;	destories: none
+clear_screen:
+	ld	a, 0
+	ld	hl, vram_char_base_addr
+	ld	bc, vram_size
+	call	memset
+	ret
+
+;	destories: none
+clear_attri:
+	ld	a, 0x34
+	ld	hl, vram_attri_base_addr
+	ld	bc, vram_size
+	call	memset
+	ret
+
+cursor_lookup:
+	.dw	0x0
+	.dw	0x50
+	.dw	0xa0
+	.dw	0xf0
+	.dw	0x140
+	.dw	0x190
+	.dw	0x1e0
+	.dw	0x230
+	.dw	0x280
+	.dw	0x2d0
+	.dw	0x320
+	.dw	0x370
+	.dw	0x3c0
+	.dw	0x410
+	.dw	0x460
+	.dw	0x4b0
+	.dw	0x500
+	.dw	0x550
+	.dw	0x5a0
+	.dw	0x5f0
+	.dw	0x640
+	.dw	0x690
+	.dw	0x6e0
+	.dw	0x730
+	.dw	0x780
+	.dw	0x7d0
+	.dw	0x820
+	.dw	0x870
+	.dw	0x8c0
+	.dw	0x910
+
+boot_message:
+	.db "      //////////   ///     /////////   ////////   /////// ", 10
+	.db "     ///        /// ///   ///    /// ///    /// ///   /// ", 10
+	.db "    ///       ///   ///  ///    /// ///    /// ///   ///  ", 10
+	.db "   //////// /////////// /////////   ////////  ///   ///   ", 10
+	.db "  ///      ///     /// ///        ///    /// ///   ///    ", 10
+	.db " ///      ///     /// ///        ///    /// ///   ///     ", 10
+	.db "///      ///     /// ///         ////////   ///////", 0
+
+credit:
+	.db "dekuNukem 2016",10,0
+
+	

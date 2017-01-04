@@ -1,0 +1,370 @@
+;	destories: none
+clear_attri:
+	push	bc
+	push 	de
+	push	hl
+
+	ld	de, vram_size
+	ld	c, 0x34 ; attribute
+	call	disable_vram_copy
+aclear:	
+	ld	hl, vram_attri_base_addr
+	add	hl, de
+	ld	(hl), c
+	dec 	de
+	ld	a, d
+	or 	e	
+	jp	nz, aclear
+
+	call	enable_vram_copy
+	pop	bc
+	pop 	de
+	pop	hl
+
+
+cursor_max_y		.equ	29
+; global variables
+last_vblank		.equ 	0xc000
+
+; arguments
+arg0			.equ	0xc100
+arg1			.equ	0xc102
+arg2			.equ	0xc104
+arg3			.equ	0xc106
+
+	org	last_vblank
+	.dw	0
+	org	arg0
+	.dw	100
+	org	arg1
+	.dw	0
+	org	arg2
+	.dw	0
+	org	arg3
+	.dw	0
+
+;	arg0: millisecond to delay
+; doesn't work, should compare more than instead of 0
+delay_ms:
+	exx
+	ld 	bc, (arg0)	; load delay value into bc
+	ld	h, d		; load current millis into hl
+	ld	l, e
+	add	hl, bc		; now hl holds the wait end value
+delay_loop:
+	or	a		; trick 16bit cp
+	sbc	hl, de
+	add	hl, de
+	jp	nz, delay_loop
+	exx
+	ret
+
+
+
+; ----------- interrupt handlers below -----------
+	org	timer_isr_addr
+timer_isr:			;19
+	exx			;4
+	ld	hl, millis	;10
+	inc	(hl)		;11
+	exx			;4
+	ei			;4
+	reti			;14
+				;66 T-states 8.25uS@8MHz
+
+; global variables
+millis			.equ	0xc000
+last_vblank		.equ 	0xc002
+
+	org	millis
+	.dw	0
+
+org	0xc000
+
+temp_var0:
+	.dw	1
+temp_var1:
+	.dw	2
+temp_var2:
+	.dw	3
+temp_var3:
+	.dw	4
+
+	include 	helpers.z80
+
+	org	0x0	
+	jp	program_start
+
+	org	0x100
+program_start:
+	di
+	ld	sp, 0xffff
+
+	call	clear_attri
+	call	clear_screen
+
+	ld	hl, boot_message
+	ld	d, 5
+	ld	e, 5
+	call	puts
+
+end:	jp	end
+
+
+	include 	helpers.z80
+
+	org	0x0	
+	jp	program_start
+
+	org	0x10		; interrupt vector table
+	.dw	0x3000		; keyboard interrupt at 0x3000
+
+	org	0x100
+program_start:
+	di
+	ld	sp, 0xffff
+
+	call	clear_attri
+	call	clear_screen
+
+	ld	hl, boot_message
+	ld	d, 5
+	ld	e, 5
+	call	puts
+
+; 	ld	a, 0
+; 	ld	i, a		; load interrupt register
+; 	im	2
+; 	ei
+
+end:	
+	jp	end
+
+
+kb_isr:				; keyboard ISR at 0x3000
+	org	0x3000
+	di			; disable interrupt first
+	ei			; enable interrupt again
+	reti
+
+;	print character
+;	c: char
+;	b: attri
+;	de: char index
+;	destories: b, c, d, e, hl
+print:
+	call	disable_vram_copy
+	ld	hl, vram_attri_base_addr
+	add	hl, de
+	ld	(hl), b
+	ld	hl, vram_char_base_addr
+	add	hl, de
+	ld	(hl), c
+	call	enable_vram_copy
+	inc 	de
+	ret
+
+; 	bc: 0x0190
+; 	de: 0x8320
+; 	hl: 0x8370
+
+p 21845 170
+p 10922 85
+p 21845 160
+p 0 0
+p 0 0
+
+	include 	helpers.z80
+
+	org	0x0	
+	jp	program_start
+
+	org	0x100
+program_start:
+	di
+	ld	sp, 0xffff
+
+	call	clear_attri
+	call	clear_screen
+
+	ld	hl, boot_message
+	ld	d, 5
+	ld	e, 5
+	call	puts
+
+	in	a, (0)
+	ld	(port0), a
+
+	in	a, (1)
+	ld	(port1), a
+
+	in	a, (2)
+	ld	(port2), a
+
+	in	a, (3)
+	ld	(port3), a
+
+	in	a, (4)
+	ld	(port4), a
+
+	in	a, (5)
+	ld	(port5), a
+
+	in	a, (6)
+	ld	(port6), a
+
+	in	a, (7)
+	ld	(port7), a
+
+end:	
+	jp	end
+
+
+	org	0xf000
+port0:
+	.db	0
+port1:
+	.db	0
+port2:
+	.db	0
+port3:
+	.db	0
+port4:
+	.db	0
+port5:
+	.db	0
+port6:
+	.db	0
+port7:
+	.db	0
+
+
+	
+end:
+	in	a, (0)
+	ld	(port0), a
+
+	in	a, (1)
+	ld	(port1), a
+
+	in	a, (2)
+	ld	(port2), a
+
+	in	a, (3)
+	ld	(port3), a
+
+	in	a, (4)
+	ld	(port4), a
+
+	in	a, (5)
+	ld	(port5), a
+
+	in	a, (6)
+	ld	(port6), a
+
+	in	a, (7)
+	ld	(port7), a
+	
+	in	a, (8)
+	ld	(port8), a
+
+	in	a, (9)
+	ld	(port9), a
+
+	in	a, (10)
+	ld	(port10), a
+
+	in	a, (11)
+	ld	(port11), a
+
+	in	a, (12)
+	ld	(port12), a
+
+	in	a, (13)
+	ld	(port13), a
+
+	in	a, (14)
+	ld	(port14), a
+
+	in	a, (15)
+	ld	(port15), a
+	
+	jp	end
+
+
+	org	0xe000
+port0:
+	.db	69
+port1:
+	.db	1
+port2:
+	.db	2
+port3:
+	.db	3
+port4:
+	.db	4
+port5:
+	.db	5
+port6:
+	.db	6
+port7:
+	.db	7
+port8:
+	.db	8
+port9:
+	.db	9
+port10:
+	.db	10
+port11:
+	.db	11
+port12:
+	.db	12
+port13:
+	.db	13
+port14:
+	.db	14
+port15:
+	.db	15
+
+
+org	0x72
+	.dw	0x1000
+
+	boot_message:
+	.db "      //////////   ///     /////////   ////////   /////// ", 10
+	.db "     ///        /// ///   ///    /// ///    /// ///   /// ", 10
+	.db "    ///       ///   ///  ///    /// ///    /// ///   ///  ", 10
+	.db "   //////// /////////// /////////   ////////  ///   ///   ", 10
+	.db "  ///      ///     /// ///        ///    /// ///   ///    ", 10
+	.db " ///      ///     /// ///        ///    /// ///   ///     ", 10
+	.db "///      ///     /// ///         ////////   ///////", 0
+
+
+;	"enter" key pressed
+;	send out buffer, clear buffer, clear text entry, reset
+;	cursor, print typed on screen
+
+
+
+	org	0x0	
+	jp	program_start
+
+	org	0x100
+program_start:
+	ld 	a, 0
+
+end:
+	inc	a
+	out	(3), a
+	jp	end
+
+wtfloop:
+	ld	a, (hl)
+	cp	0
+	jp	z, wtf_done
+	out	(2), a
+	inc	hl
+wtf_done:
+	call	kb_cursor_reset
+	call	kb_buf_reset
+	jp	main_loop
