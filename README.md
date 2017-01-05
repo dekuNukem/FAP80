@@ -85,11 +85,11 @@ I also intended this project as a study in embedded development as it involves a
 * Cross assembler setup
 * SDCC setup
 * Simple print functionalities in C and assembly
+* Write an IRC client for FAP80
 
 ### In Progress
 
 * Finish up project documentation
-* Write an IRC client for FAP80
 
 ### Planned
 
@@ -98,7 +98,7 @@ I also intended this project as a study in embedded development as it involves a
 
 ## Getting Started
 
-Coming soon...
+See [doc folder](./doc)
 
 ## Acknowledgments
 
