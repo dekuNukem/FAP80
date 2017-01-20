@@ -13,6 +13,12 @@ While there is nothing wrong with that, I wasn’t around during the 80s home co
 
 The project started life hand-assembled, but now lives properly on PCBs because of noise problems.
 
+## Project Blog
+
+See [my blog](https://dekunukem.wordpress.com) for detailed write-ups about this project.
+
+And here is [a video](https://www.youtube.com/watch?v=o-cDg_y5ZF0) of it in action, running a Twitch IRC client.
+
 ## Specification
 
 ### Overview
@@ -63,12 +69,6 @@ The project started life hand-assembled, but now lives properly on PCBs because 
 * SD card
 * RTC
 * PS/2 Keyboard
-
-## Project Blog
-
-See [my blog](https://dekunukem.wordpress.com) for detailed write-ups about this project.
-
-And here is [a video](https://www.youtube.com/watch?v=o-cDg_y5ZF0) of it in action, running a Twitch IRC client.
 
 ## Design philosophy
 
