@@ -11,7 +11,7 @@ A lot of retro computer projects today are rooted on nostalgia, they tend to use
 
 While there is nothing wrong with that, I wasn’t around during the 80s home computer era, so I didn’t have the same attachment to how things was done back then. So instead of trying to recreate the “good old days”, I made the decision to liberally use modern parts to simplify the design process, as well as making this computer highly flexible and easy to program and use with very little overheads.
 
-The project started life hand-assembled, but now lives properly on PCBs because of noise problems. See [my blog](https://dekunukem.wordpress.com) for detailed write-ups about this project.
+The project started life hand-assembled, but now lives properly on PCBs because of noise problems.
 
 ## Specification
 
@@ -63,6 +63,12 @@ The project started life hand-assembled, but now lives properly on PCBs because 
 * SD card
 * RTC
 * PS/2 Keyboard
+
+## Project Blog
+
+See [my blog](https://dekunukem.wordpress.com) for detailed write-ups about this project.
+
+And here is [a video](https://www.youtube.com/watch?v=o-cDg_y5ZF0) of it in action, running a Twitch IRC client.
 
 ## Design philosophy
 
